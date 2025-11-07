@@ -1,0 +1,9 @@
+README.md
+pyproject.toml
+app/__init__.py
+app/main.py
+eduplan_fastapi.egg-info/PKG-INFO
+eduplan_fastapi.egg-info/SOURCES.txt
+eduplan_fastapi.egg-info/dependency_links.txt
+eduplan_fastapi.egg-info/requires.txt
+eduplan_fastapi.egg-info/top_level.txt

@@ -1,0 +1,118 @@
+from __future__ import annotations
+
+from typing import Sequence
+
+from fastapi import HTTPException, status
+from sqlalchemy import and_, delete, select
+from sqlalchemy.ext.asyncio import AsyncSession
+
+from app.models.education_plan import CourseReschedule, EducationPlan, ProgramCourse
+from app.models.user import User
+from app.schemas.education import (
+    EducationPlanListQuery,
+    EducationPlanQuery,
+    EducationPlanRequest,
+    ProgramCoursePayload,
+    RescheduleRequest,
+)
+
+
+def _infer_program(payload: Sequence[ProgramCoursePayload]) -> tuple[str, str]:
+    program_name = next((item.program for item in payload if item.program), None)
+    university_name = next((item.university for item in payload if item.university), None)
+
+    if not program_name or not university_name:
+        raise HTTPException(
+            status_code=status.HTTP_400_BAD_REQUEST,
+            detail="Program and university are required in at least one course entry.",
+        )
+    return program_name, university_name
+
+
+async def add_or_replace_plan(
+    db: AsyncSession, user: User, payload: EducationPlanRequest
+) -> EducationPlan:
+    if not payload.program:
+        raise HTTPException(status_code=400, detail="Program payload is empty")
+
+    program_name, university_name = _infer_program(payload.program)
+
+    existing = await get_plan_by_program(db, user.id, program_name, university_name)
+    if existing:
+        existing.payload = {"program": [course.model_dump(by_alias=True) for course in payload.program]}
+        await db.execute(delete(ProgramCourse).where(ProgramCourse.education_plan_id == existing.id))
+        await _persist_courses(db, existing, payload.program)
+        await db.commit()
+        await db.refresh(existing)
+        return existing
+
+    plan = EducationPlan(
+        user_id=user.id,
+        program_name=program_name,
+        university_name=university_name,
+        payload={"program": [course.model_dump(by_alias=True) for course in payload.program]},
+    )
+    db.add(plan)
+    await db.flush()
+    await _persist_courses(db, plan, payload.program)
+    await db.commit()
+    await db.refresh(plan)
+    return plan
+
+
+async def _persist_courses(
+    db: AsyncSession, plan: EducationPlan, courses: Sequence[ProgramCoursePayload]
+) -> None:
+    for entry in courses:
+        db.add(
+            ProgramCourse(
+                education_plan_id=plan.id,
+                year_label=entry.year,
+                semester_label=entry.semester,
+                course_code=entry.code,
+                course_name=entry.course_name,
+                credits=entry.credits,
+                prerequisite=entry.prerequisite,
+                corequisite=entry.corequisite,
+                schedule=entry.schedule.model_dump() if hasattr(entry.schedule, "model_dump") else entry.schedule,
+            )
+        )
+
+
+async def get_plan_by_program(
+    db: AsyncSession, user_id: int, program_name: str, university_name: str
+) -> EducationPlan | None:
+    stmt = select(EducationPlan).where(
+        and_(
+            EducationPlan.user_id == user_id,
+            EducationPlan.program_name == program_name,
+            EducationPlan.university_name == university_name,
+        )
+    )
+    result = await db.execute(stmt)
+    return result.scalar_one_or_none()
+
+
+async def query_plan(db: AsyncSession, query: EducationPlanQuery) -> EducationPlan | None:
+    stmt = select(EducationPlan).where(
+        and_(
+            EducationPlan.program_name == query.programname,
+            EducationPlan.university_name == query.univerityname,
+        )
+    )
+    result = await db.execute(stmt)
+    return result.scalar_one_or_none()
+
+
+async def list_plans(db: AsyncSession, query: EducationPlanListQuery) -> Sequence[EducationPlan]:
+    stmt = select(EducationPlan).where(EducationPlan.user.has(email=query.email.lower()))
+    result = await db.execute(stmt)
+    return result.scalars().all()
+
+
+async def save_reschedule(db: AsyncSession, user: User, payload: RescheduleRequest) -> CourseReschedule:
+    entry = CourseReschedule(user_id=user.id, payload={"reschedule": [item.dict() for item in payload.reschedule]})
+    db.add(entry)
+    await db.commit()
+    await db.refresh(entry)
+    return entry
