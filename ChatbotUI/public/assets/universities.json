@@ -1,0 +1,36 @@
+{
+  "universities": [
+    {
+      "university_name": "Central Louisiana Technical Community College (CLTCC)",
+      "name":"CLTCC",
+      "tuition": 55000,
+      "rank": 1,
+      "academic_excellence": 98,
+      "facilities": 97,
+      "student_life": 95,
+      "cost_of_living_per_month": 2000,
+      "placement_jobs_rate": 98,
+      "crime_rate": "Low",
+      "graduation_rate": 95,
+      "faculty_with_phd": 90,
+      "average_employee_salary": 51736,
+      "post_graduation_salary_range": "Varies based on field of study",
+      "financial_aid": "Available",
+      "official_website": "https://www.cltcc.edu",
+      "additional_notes": "Contact CLTCC for the most accurate and personalized information",
+      "grade_cutoff": 70,
+      "placement_rate": 85,
+      "cost_of_living": 1,
+      "rating": 4.1,
+      "location": "City E",
+      "keywords": [
+          "very cheap",
+          "budget-friendly",
+          "moderate placement"
+
+      ],
+      "intent": "search comparing the university"
+  }
+   
+  ]
+}

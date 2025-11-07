@@ -1,0 +1,36 @@
+{
+  "users": [
+    {
+      "userId": "12345",
+      "program": "Computer Science",
+      "years": [
+        {
+          "year": "1st Year",
+          "semesters": [
+            {
+              "semester": "Fall",
+              "courses": ["Mathematics I", "Programming Basics", "English"]
+            },
+            {
+              "semester": "Spring",
+              "courses": ["Data Structures", "Algorithms", "Communication Skills"]
+            }
+          ]
+        },
+        {
+          "year": "2nd Year",
+          "semesters": [
+            {
+              "semester": "Fall",
+              "courses": ["Operating Systems", "Database Systems", "Linear Algebra"]
+            },
+            {
+              "semester": "Spring",
+              "courses": ["Software Engineering", "Artificial Intelligence", "Networks"]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

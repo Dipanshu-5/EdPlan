@@ -1,0 +1,7 @@
+[
+  { "courseID": 1, "courseName": "Mathematics 101", "prerequisiteID": null },
+  { "courseID": 2, "courseName": "Physics 101", "prerequisiteID": 1 },
+  { "courseID": 3, "courseName": "Chemistry 101", "prerequisiteID": null },
+  { "courseID": 4, "courseName": "Biology 101", "prerequisiteID": 3 },
+  { "courseID": 5, "courseName": "English 101", "prerequisiteID": null }
+]
