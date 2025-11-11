@@ -112,7 +112,7 @@ const Chatbot = () => {
   return (
     <section className="w-full h-full flex flex-col gap-6 p-6">
       <header className="flex flex-col gap-2">
-        <h2 className="text-2xl font-semibold text-slate-900">EduPlan Assistant</h2>
+        <h2 className="text-2xl font-semibold text-slate-900">EdPlan Assistant</h2>
         <p className="text-slate-600">
           Ask about programs, compare universities, or request help scheduling courses.
         </p>
