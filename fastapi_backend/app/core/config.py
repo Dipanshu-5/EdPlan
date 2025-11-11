@@ -1,12 +1,14 @@
 from functools import lru_cache
-from typing import List
+from typing import List, Union
 
 from pydantic import AnyHttpUrl, Field, field_validator
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
 
 class Settings(BaseSettings):
-    model_config = SettingsConfigDict(env_file=".env", env_file_encoding="utf-8", case_sensitive=False)
+    model_config = SettingsConfigDict(
+        env_file=".env", env_file_encoding="utf-8", case_sensitive=False
+    )
 
     app_name: str = Field("EduPlan API", alias="APP_NAME")
     api_prefix: str = Field("/api", alias="API_V1_PREFIX")
@@ -15,6 +17,7 @@ class Settings(BaseSettings):
     host: str = Field("0.0.0.0", alias="HOST")
     port: int = Field(8000, alias="PORT")
 
+    disable_database: bool = Field(False, alias="DISABLE_DATABASE")
     database_url: str = Field(..., alias="DATABASE_URL")
 
     jwt_secret: str = Field(..., alias="JWT_SECRET")
@@ -44,7 +47,7 @@ class Settings(BaseSettings):
 
     @field_validator("cors_origins", mode="before")
     @classmethod
-    def split_origins(cls, value):  # type: ignore[override]
+    def split_origins(cls, value: Union[str, List[AnyHttpUrl], List[str]]) -> Union[List[AnyHttpUrl], List[str]]:  # type: ignore[override]
         if isinstance(value, str):
             return [origin.strip() for origin in value.split(",") if origin.strip()]
         return value
@@ -52,7 +55,9 @@ class Settings(BaseSettings):
 
 @lru_cache(maxsize=1)
 def get_settings() -> Settings:
-    return Settings()
+    # Construct Settings without passing constructor args so BaseSettings reads env vars;
+    # static type checkers may incorrectly require all fields as constructor args, so ignore that.
+    return Settings()  # type: ignore[call-arg]
 
 
 settings = get_settings()
