@@ -56,13 +56,18 @@ const stateOptions = [
 	"WY",
 ];
 
+const formatPercent = (value) =>
+	value || value === 0 ? `${Math.round(value * 100)}%` : "N/A";
+const formatCurrency = (value) =>
+	value || value === 0 ? `$${Number(value).toLocaleString()}` : "N/A";
+
 const FindUniversity = ({ onSelectProgram }) => {
 	const [universities, setUniversities] = useState([]);
 	const [loading, setLoading] = useState(false);
 	const [error, setError] = useState("");
 	const [searchTerm, setSearchTerm] = useState("");
 	const [stateFilter, setStateFilter] = useState("");
-	const [costFilter, setCostFilter] = useState(60000);
+	const [costFilter, setCostFilter] = useState(50000);
 
 	const fetchUniversities = async (overrides = {}) => {
 		setLoading(true);
@@ -71,7 +76,7 @@ const FindUniversity = ({ onSelectProgram }) => {
 			const payload = await searchUniversities({
 				search: overrides.search ?? searchTerm,
 				state: overrides.state ?? stateFilter,
-				perPage: 50,
+				perPage: 20,
 			});
 			setUniversities(payload.data || []);
 		} catch (err) {
@@ -116,16 +121,7 @@ const FindUniversity = ({ onSelectProgram }) => {
 
 	return (
 		<section className="space-y-6">
-			<header className="flex flex-col md:flex-row md:items-center justify-between gap-4">
-				<div>
-					<h2 className="text-2xl font-semibold text-slate-900">
-						Explore colleges
-					</h2>
-					<p className="text-sm text-slate-500">
-						Live College Scorecard data including cost, earnings, graduation
-						rate, and more.
-					</p>
-				</div>
+			<header className="flex flex-col gap-4">
 				<form
 					onSubmit={handleSearch}
 					className="flex flex-col md:flex-row gap-3"
@@ -133,13 +129,13 @@ const FindUniversity = ({ onSelectProgram }) => {
 					<input
 						value={searchTerm}
 						onChange={(event) => setSearchTerm(event.target.value)}
-						className="px-4 py-2 rounded-lg border border-slate-200"
+						className="px-4 py-2 rounded-lg border border-slate-200 md:w-[500px] text-center"
 						placeholder="Search by name or city"
 					/>
 					<select
 						value={stateFilter}
 						onChange={(event) => setStateFilter(event.target.value)}
-						className="px-3 py-2 rounded-lg border border-slate-200"
+						className="px-3 py-2 rounded-lg border border-slate-200 md:w-[400px]"
 					>
 						{stateOptions.map((state) => (
 							<option key={state || "all"} value={state}>
@@ -149,7 +145,7 @@ const FindUniversity = ({ onSelectProgram }) => {
 					</select>
 					<button
 						type="submit"
-						className="px-4 py-2 rounded-lg bg-slate-900 text-white font-medium hover:bg-slate-700"
+						className="px-4 py-2 rounded-lg bg-slate-900 text-white font-medium hover:bg-slate-700 md:w-[300px]"
 						disabled={loading}
 					>
 						Search
@@ -158,12 +154,12 @@ const FindUniversity = ({ onSelectProgram }) => {
 			</header>
 
 			<div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
-				<label className="flex flex-col gap-1 text-sm text-slate-600">
+				<label className="flex flex-col gap-1 text-sm text-slate-600 font-semibold">
 					Max annual cost
 					<input
 						type="range"
 						min="10000"
-						max="90000"
+						max="100000"
 						step="1000"
 						value={costFilter}
 						onChange={(event) => setCostFilter(Number(event.target.value))}
@@ -173,13 +169,6 @@ const FindUniversity = ({ onSelectProgram }) => {
 						${costFilter.toLocaleString()}
 					</span>
 				</label>
-				<div className="text-sm text-slate-600">
-					<p className="font-semibold text-slate-700">Fields displayed</p>
-					<p>
-						Organization type, location, graduation rate, financial aid,
-						earnings, and more.
-					</p>
-				</div>
 			</div>
 
 			{error && (
@@ -205,7 +194,7 @@ const FindUniversity = ({ onSelectProgram }) => {
 							>
 								<div className="flex items-start justify-between gap-3">
 									<div>
-										<h3 className="text-lg font-semibold text-slate-900">
+										<h3 className="text-xl font-semibold text-slate-900">
 											{university.name}
 										</h3>
 										<p className="text-sm text-slate-500">
@@ -217,7 +206,7 @@ const FindUniversity = ({ onSelectProgram }) => {
 										{university.location_type}
 									</span>
 								</div>
-								<ul className="text-sm text-slate-600 space-y-1">
+								<ul className="text-sm text-slate-600 space-y-2">
 									<li>Year: {university.year || "N/A"}</li>
 									<li>
 										Size:{" "}
@@ -239,18 +228,17 @@ const FindUniversity = ({ onSelectProgram }) => {
 											: "N/A"}
 									</li>
 									<li>
-										Median earnings:{" "}
-										{university.median_earnings
-											? `$${Number(
-													university.median_earnings
-											  ).toLocaleString()}`
-											: "N/A"}
+										Acceptance rate:{" "}
+										{formatPercent(university.acceptance_rate)}
+									</li>
+									<li>Test score (SAT/ACT avg): {university.test_score ?? "N/A"}</li>
+									<li>
+										Financial aid & debt:{" "}
+										{formatCurrency(university.financial_aid_debt) ||
+										"Data unavailable"}
 									</li>
 									<li>
-										Acceptance rate:{" "}
-										{university.acceptance_rate
-											? `${Math.round(university.acceptance_rate * 100)}%`
-											: "N/A"}
+										Median Earnings: {formatCurrency(university.typical_earnings)}
 									</li>
 								</ul>
 								{websiteUrl && (
@@ -268,7 +256,7 @@ const FindUniversity = ({ onSelectProgram }) => {
 									onClick={() => handleSelect(university)}
 									className="self-start px-4 py-2 rounded-lg bg-slate-900 text-white text-sm font-medium hover:bg-slate-700"
 								>
-									View details
+									View Details
 								</button>
 							</article>
 						);

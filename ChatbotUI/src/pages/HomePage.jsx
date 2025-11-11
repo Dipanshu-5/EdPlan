@@ -15,7 +15,7 @@ const HomePage = () => (
 			</p>
 			<div className="flex flex-wrap items-center justify-center gap-4">
 				<a
-					href="/eduai"
+					href="/uni"
 					className="px-6 py-3 rounded-lg bg-slate-900 text-white font-semibold shadow hover:bg-slate-700"
 				>
 					Start now
@@ -24,7 +24,7 @@ const HomePage = () => (
 					href="/login"
 					className="px-6 py-3 rounded-lg border border-slate-300 text-slate-700 font-semibold hover:border-slate-500"
 				>
-					Log in
+					Login
 				</a>
 			</div>
 			<div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm text-slate-600">
