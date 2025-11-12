@@ -10,8 +10,6 @@ import {
 	save as saveStorage,
 } from "../../utils/storage.js";
 
-const defaultSemesters = ["Fall", "Spring"];
-
 const EducationPlanEditor = () => {
 	const [programs, setPrograms] = useState([]);
 	const [selectedProgram, setSelectedProgram] = useState(
@@ -227,30 +225,9 @@ const EducationPlanEditor = () => {
 
 	return (
 		<section className="space-y-6">
-			<header className="grid gap-4 md:grid-cols-2 lg:grid-cols-4 bg-white border border-slate-200 rounded-xl shadow-sm p-5">
-				<label className="flex flex-col gap-1 text-sm text-slate-600">
-					Program
-					<select
-						value={selectedProgram}
-						onChange={(event) => {
-							setSelectedProgram(event.target.value);
-							saveStorage("Programname", event.target.value);
-						}}
-						className="px-3 py-2 rounded-lg border border-slate-200"
-					>
-						<option value="">Select program</option>
-						{programs.map((program) => (
-							<option
-								key={`${program.university}-${program.program}`}
-								value={program.program}
-							>
-								{program.program}
-							</option>
-						))}
-					</select>
-				</label>
-
-				<label className="flex flex-col gap-1 text-sm text-slate-600">
+		<h2 className="text-2xl font-semibold text-slate-900">Customize Your Education Plan</h2>
+			<header className="grid gap-4 md:grid-cols-2 bg-white border border-slate-200 rounded-xl shadow-sm p-5">
+				<label className="flex flex-col gap-2 text-sm font-semibold text-slate-600">
 					University
 					<div className="relative">
 						<input
@@ -263,7 +240,7 @@ const EducationPlanEditor = () => {
 								setShowUniversityDropdown(true);
 							}}
 							onFocus={() => setShowUniversityDropdown(true)}
-							className="w-full px-3 py-2 rounded-lg border border-slate-200 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+							className="w-full px-3 py-2 rounded-lg font-normal border border-slate-200 focus:outline-none focus:ring-2 focus:ring-indigo-500"
 						/>
 
 						{showUniversityDropdown &&
@@ -312,47 +289,37 @@ const EducationPlanEditor = () => {
 								</div>
 							)}
 					</div>
-					{selectedUniversity && (
-						<div className="mt-2 px-3 py-2 bg-indigo-50 border border-indigo-200 rounded-lg text-sm text-indigo-700">
-							Selected: <strong>{selectedUniversity}</strong>
-						</div>
-					)}
 				</label>
 
-				<label className="flex flex-col gap-1 text-sm text-slate-600">
-					Year
+				<label className="flex flex-col gap-2 font-semibold text-sm text-slate-600">
+					Program
 					<select
-						value={year}
-						onChange={(event) => setYear(event.target.value)}
-						className="px-3 py-2 rounded-lg border border-slate-200"
+						value={selectedProgram}
+						onChange={(event) => {
+							setSelectedProgram(event.target.value);
+							saveStorage("Programname", event.target.value);
+						}}
+						className="px-3 py-2 rounded-lg border font-normal border-slate-200"
 					>
-						<option value="">All years</option>
-						{[...new Set(availableCourses.map((course) => course.year))].map(
-							(item) => (
-								<option key={item} value={item}>
-									{item}
-								</option>
-							)
-						)}
-					</select>
-				</label>
-
-				<label className="flex flex-col gap-1 text-sm text-slate-600">
-					Semester
-					<select
-						value={semester}
-						onChange={(event) => setSemester(event.target.value)}
-						className="px-3 py-2 rounded-lg border border-slate-200"
-					>
-						<option value="">All semesters</option>
-						{defaultSemesters.map((entry) => (
-							<option key={entry} value={entry}>
-								{entry}
+						<option value="">Select program</option>
+						{programs.map((program) => (
+							<option
+								key={`${program.university}-${program.program}`}
+								value={program.program}
+							>
+								{program.program}
 							</option>
 						))}
 					</select>
 				</label>
+
 			</header>
+
+			{selectedUniversity && (
+						<div className="mt-2 px-3 py-2 bg-indigo-50 border border-indigo-200 rounded-lg text-sm text-indigo-700">
+							Selected: <strong>{selectedUniversity}</strong>
+						</div>
+			)}
 
 			{error && (
 				<div className="bg-rose-50 text-rose-700 border border-rose-100 rounded-lg px-4 py-3">
@@ -363,7 +330,7 @@ const EducationPlanEditor = () => {
 			<div className="grid gap-6 lg:grid-cols-[2fr,1fr]">
 				<div className="space-y-4">
 					<h3 className="text-lg font-semibold text-slate-800">
-						My education plan
+						My Education Plan
 					</h3>
 					{Object.keys(groupedCourses).length === 0 && (
 						<div className="bg-white border border-slate-200 rounded-xl shadow-sm p-6 text-sm text-slate-500">
@@ -416,7 +383,7 @@ const EducationPlanEditor = () => {
 					})}
 				</div>
 
-				<div className="bg-white border border-slate-200 rounded-xl shadow-sm p-5 space-y-4">
+				<div className="bg-white border border-slate-200 rounded-xl shadow-sm p-5 mt-11 space-y-4 w-fit h-fit">
 					<div className="flex items-center justify-between">
 						<h3 className="text-sm font-semibold text-slate-700 uppercase tracking-wide">
 							Course catalogue
@@ -429,7 +396,7 @@ const EducationPlanEditor = () => {
 							Save changes
 						</button>
 					</div>
-					<div className="max-h-[480px] overflow-y-auto space-y-3 text-sm">
+					<div className="max-h-[520px] overflow-y-auto space-y-3 text-sm">
 						{filteredAvailableCourses.length === 0 && (
 							<p className="text-slate-500 text-sm">
 								Select a program to view suggested courses.

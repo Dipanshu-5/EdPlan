@@ -122,6 +122,7 @@ const FindUniversity = ({ onSelectProgram }) => {
 	return (
 		<section className="space-y-6">
 			<header className="flex flex-col gap-4">
+			    <h2 className="text-2xl font-semibold text-slate-900">Explore colleges</h2>
 				<form
 					onSubmit={handleSearch}
 					className="flex flex-col md:flex-row gap-3"
