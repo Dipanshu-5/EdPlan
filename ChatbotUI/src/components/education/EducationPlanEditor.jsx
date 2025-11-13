@@ -250,6 +250,8 @@ const EducationPlanEditor = () => {
 		}
 	};
 
+	const totalCourses = useMemo(() => courses.length, [courses]);
+	
 	return (
 		<section className="space-y-6">
 			<h2 className="text-2xl font-semibold text-slate-900">
@@ -341,13 +343,12 @@ const EducationPlanEditor = () => {
 						))}
 					</select>
 				</label>
-			</header>
-
-			{selectedUniversity && (
-				<div className="mt-2 px-3 py-2 bg-indigo-50 border border-indigo-200 rounded-lg text-sm text-indigo-700">
+				{selectedUniversity && (
+				<div className="px-3 py-2 w-fit bg-indigo-50 border border-indigo-200 rounded-lg text-sm text-indigo-700">
 					Selected: <strong>{selectedUniversity}</strong>
 				</div>
 			)}
+			</header>
 
 			{error && (
 				<div className="bg-rose-50 text-rose-700 border border-rose-100 rounded-lg px-4 py-3">
@@ -355,11 +356,17 @@ const EducationPlanEditor = () => {
 				</div>
 			)}
 
-			<div className="grid gap-6 lg:grid-cols-[2fr,1fr]">
+			<div className="grid gap-6 lg:grid-cols-[2fr,1.2fr]">
 				<div className="space-y-4">
 					<h3 className="text-lg font-semibold text-slate-800">
 						My Education Plan
 					</h3>
+					{totalCourses > 0 && (
+						<div className="bg-indigo-50 border border-indigo-100 rounded-xl p-4 mt-4 text-sm text-slate-700 font-semibold">
+							Total Courses: {totalCourses}
+						</div>
+					)}
+
 					{Object.keys(groupedCourses).length === 0 && (
 						<div className="bg-white border border-slate-200 rounded-xl shadow-sm p-6 text-sm text-slate-500">
 							Add courses from the catalogue to build your plan.
@@ -400,7 +407,7 @@ const EducationPlanEditor = () => {
 												<span>Code: {course.code}</span>
 												<span>Credits: {course.credits ?? "N/A"}</span>
 												{course.prerequisite && (
-													<span>Prereq: {course.prerequisite}</span>
+													<span>Pre-requisites: {course.prerequisite}</span>
 												)}
 											</div>
 										</li>
@@ -421,7 +428,7 @@ const EducationPlanEditor = () => {
 							onClick={savePlan}
 							className="px-4 py-2 rounded-lg bg-indigo-600 text-white text-sm font-medium hover:bg-indigo-500"
 						>
-							Save changes
+							Save Plan
 						</button>
 					</div>
 					<div className="max-h-[520px] overflow-y-auto space-y-3 text-sm">
@@ -437,12 +444,19 @@ const EducationPlanEditor = () => {
 								className="w-full text-left border border-slate-100 rounded-lg p-3 hover:border-indigo-200 hover:bg-indigo-50 transition"
 								onClick={() => addCourse(course)}
 							>
-								<div className="font-medium text-slate-800">{course.name}</div>
-								<div className="text-xs text-slate-500 flex gap-3">
-									<span>Code: {course.code}</span>
-									<span>Year: {course.year}</span>
-									<span>Semester: {course.semester}</span>
+							<div className="flex">
+								<div>
+									<div className="font-medium text-slate-800">{course.name}</div>
+									<div className="text-xs text-slate-500 flex gap-3">
+										<span>Code: {course.code}</span>
+										<span>Year: {course.year}</span>
+										<span>Semester: {course.semester}</span>
+									</div>
 								</div>
+								<div className="flex justify-end ml-auto">
+									<span className="text-md text-blue-700 mt-2">Add</span>
+								</div>
+							</div>
 							</button>
 						))}
 					</div>
