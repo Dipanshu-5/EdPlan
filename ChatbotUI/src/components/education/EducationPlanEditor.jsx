@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useState, useRef } from "react";
+import { useNavigate } from "react-router-dom";
 import {
 	addEducationPlan,
 	getEducationPlan,
@@ -9,6 +10,9 @@ import {
 	load as loadStorage,
 	save as saveStorage,
 } from "../../utils/storage.js";
+
+const LOCAL_PLAN_KEY = "LocalSavedPlans";
+const defaultSemesters = ["Fall", "Spring", "Summer"];
 
 const EducationPlanEditor = () => {
 	const [programs, setPrograms] = useState([]);
@@ -29,6 +33,7 @@ const EducationPlanEditor = () => {
 	const [error, setError] = useState("");
 	const userEmail = loadStorage("UserEmail");
 	const searchInputRef = useRef(null);
+	const navigate = useNavigate();
 	const dropdownRef = useRef(null);
 
 	useEffect(() => {
@@ -82,80 +87,69 @@ const EducationPlanEditor = () => {
 		return () => document.removeEventListener("mousedown", handleClickOutside);
 	}, []);
 
+	// When programs change, compute global available courses (all subjects)
 	useEffect(() => {
-		const loadExistingPlan = async () => {
-			if (!selectedProgram || !selectedUniversity) {
-				setCourses([]);
-				setAvailableCourses([]);
-				return;
-			}
-			setError("");
+		const globalCourses = programs.flatMap(
+			(match) =>
+				(match.years || []).flatMap((entry) =>
+					(entry.semesters || []).flatMap((s) =>
+						(s.courses || []).map((course) => ({
+							program: match.program,
+							university: match.university,
+							year: entry.year,
+							semester: s.semester,
+							code: course.code,
+							name: course.name,
+							credits: course.credits,
+							prerequisite: course.prerequisite,
+							corequisite: course.corequisite,
+							schedule: course.schedule,
+						}))
+					)
+				) || []
+		);
+		// If no program is selected, show all subjects in the catalogue
+		if (!selectedProgram) {
+			setAvailableCourses(globalCourses);
+		}
+	}, [programs, selectedProgram]);
 
-			try {
-				if (userEmail) {
-					const response = await getEducationPlan({
-						email: userEmail,
-						programName: selectedProgram,
-						universityName: selectedUniversity,
-					});
-					const program = response.data?.data?.program;
-					if (program?.length) {
-						setCourses(program);
-						return;
-					}
-				}
+	// Update availableCourses when a program + university is selected, but do NOT auto-fill the user's plan
+	useEffect(() => {
+		if (!selectedProgram || !selectedUniversity) {
+			setAvailableCourses((prev) => prev || []);
+			setCourses([]); // ensure plan starts empty by default
+			return;
+		}
 
-				const match = programs.find(
-					(program) =>
-						program.program === selectedProgram &&
-						program.university === selectedUniversity
-				);
-				if (!match) {
-					setCourses([]);
-					return;
-				}
-				const flattened =
-					match.years?.flatMap((yearEntry) =>
-						yearEntry.semesters.flatMap((semesterEntry) =>
-							semesterEntry.courses.map((course) => ({
-								program: match.program,
-								university: match.university,
-								year: yearEntry.year,
-								semester: semesterEntry.semester,
-								code: course.code,
-								courseName: course.name,
-								credits: course.credits,
-								prerequisite: course.prerequisite,
-								corequisite: course.corequisite,
-								schedule: course.schedule,
-							}))
-						)
-					) || [];
-				setCourses(flattened);
-				const uniqueCourses =
-					match.years?.flatMap((entry) =>
-						entry.semesters.flatMap((s) =>
-							s.courses.map((course) => ({
-								year: entry.year,
-								semester: s.semester,
-								...course,
-							}))
-						)
-					) || [];
-				setAvailableCourses(uniqueCourses);
-			} catch (err) {
-				console.error(err);
-				if (err.response?.status === 401) {
-					setError(
-						"Your session has expired. Please login again to load saved plans."
-					);
-				} else {
-					setError("Unable to load education plan.");
-				}
-			}
-		};
-		loadExistingPlan();
-	}, [programs, selectedProgram, selectedUniversity, userEmail]);
+		const match = programs.find(
+			(program) =>
+				program.program === selectedProgram &&
+				program.university === selectedUniversity
+		);
+		if (!match) {
+			setAvailableCourses([]);
+			return;
+		}
+		const uniqueCourses =
+			(match.years || []).flatMap((entry) =>
+				(entry.semesters || []).flatMap((s) =>
+					(s.courses || []).map((course) => ({
+						year: entry.year,
+						semester: s.semester,
+						code: course.code,
+						name: course.name,
+						credits: course.credits,
+						prerequisite: course.prerequisite,
+						corequisite: course.corequisite,
+						schedule: course.schedule,
+					}))
+				)
+			) || [];
+		setAvailableCourses(uniqueCourses);
+		// start with an empty plan — user will add courses manually
+		setCourses([]);
+	}, [programs, selectedProgram, selectedUniversity]);
 
 	const filteredAvailableCourses = useMemo(() => {
 		if (!year || !semester) return availableCourses;
@@ -172,6 +166,14 @@ const EducationPlanEditor = () => {
 			return acc;
 		}, {});
 	}, [courses]);
+
+	const yearOptions = useMemo(
+		() =>
+			[...new Set(availableCourses.map((course) => course.year))].filter(
+				Boolean
+			),
+		[availableCourses]
+	);
 
 	const addCourse = (course) => {
 		setCourses((prev) => {
@@ -201,9 +203,33 @@ const EducationPlanEditor = () => {
 		setCourses((prev) => prev.filter((course) => course.code !== code));
 	};
 
+	const savePlanLocally = () => {
+		if (!selectedUniversity || !selectedProgram) {
+			alert("Select a university and program before saving.");
+			return;
+		}
+		const stored = loadStorage(LOCAL_PLAN_KEY, []);
+		const filtered = stored.filter(
+			(entry) =>
+				entry.university !== selectedUniversity ||
+				entry.program !== selectedProgram
+		);
+		const updated = [
+			...filtered,
+			{
+				program: selectedProgram,
+				university: selectedUniversity,
+				courses,
+			},
+		];
+		saveStorage(LOCAL_PLAN_KEY, updated);
+		alert("Education plan saved locally.");
+		navigate("/view");
+	};
+
 	const savePlan = async () => {
 		if (!userEmail) {
-			alert("Please login before saving changes.");
+			savePlanLocally();
 			return;
 		}
 		try {
@@ -213,6 +239,7 @@ const EducationPlanEditor = () => {
 			});
 			alert("Education plan saved.");
 			saveStorage("vieweducation", courses);
+			navigate("/view");
 		} catch (err) {
 			console.error(err);
 			if (err.response?.status === 401) {
@@ -225,7 +252,9 @@ const EducationPlanEditor = () => {
 
 	return (
 		<section className="space-y-6">
-		<h2 className="text-2xl font-semibold text-slate-900">Customize Your Education Plan</h2>
+			<h2 className="text-2xl font-semibold text-slate-900">
+				Customize Your Education Plan
+			</h2>
 			<header className="grid gap-4 md:grid-cols-2 bg-white border border-slate-200 rounded-xl shadow-sm p-5">
 				<label className="flex flex-col gap-2 text-sm font-semibold text-slate-600">
 					University
@@ -312,13 +341,12 @@ const EducationPlanEditor = () => {
 						))}
 					</select>
 				</label>
-
 			</header>
 
 			{selectedUniversity && (
-						<div className="mt-2 px-3 py-2 bg-indigo-50 border border-indigo-200 rounded-lg text-sm text-indigo-700">
-							Selected: <strong>{selectedUniversity}</strong>
-						</div>
+				<div className="mt-2 px-3 py-2 bg-indigo-50 border border-indigo-200 rounded-lg text-sm text-indigo-700">
+					Selected: <strong>{selectedUniversity}</strong>
+				</div>
 			)}
 
 			{error && (
