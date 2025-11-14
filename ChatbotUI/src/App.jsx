@@ -4,6 +4,7 @@ import HomePage from "./pages/HomePage.jsx";
 import EducationPlanEditPage from "./pages/EducationPlanEditPage.jsx";
 import ViewEducationPlanPage from "./pages/ViewEducationPlanPage.jsx";
 import FindUniversityPage from "./pages/FindUniversityPage.jsx";
+import CollegeComparePage from "./pages/CollegeComparePage.jsx";
 import LoginPage from "./pages/LoginPage.jsx";
 import SignupPage from "./pages/SignupPage.jsx";
 
@@ -20,6 +21,7 @@ const App = () => (
 			<Route path="/view" element={<ViewEducationPlanPage />} />
 			{/* <Route path="/schedule" element={<SchedulePage />} /> */}
 			<Route path="/uni" element={<FindUniversityPage />} />
+			<Route path="/compare" element={<CollegeComparePage />} />
 		</Route>
 		<Route path="/login" element={<LoginPage />} />
 		<Route path="/signup" element={<SignupPage />} />

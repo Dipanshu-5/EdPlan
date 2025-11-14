@@ -15,20 +15,40 @@ BASE_FIELDS = [
     "school.ownership",
     "school.locale",
     "latest.student.size",
+    "latest.student.part_time_share",
     "latest.academic_year",
     "latest.completion.rate_suppressed.overall",
     "latest.cost.attendance.academic_year",
     "latest.earnings.10_yrs_after_entry.median",
     "latest.aid.median_debt.completers.overall",
+    "latest.aid.median_debt.completers.monthly_payments.mean",
+    "latest.aid.median_debt.completers.monthly_payments.median",
     "latest.student.share_white",
     "latest.student.share_black",
     "latest.student.share_hispanic",
     "latest.student.share_asian",
     "latest.student.share_two_or_more",
     "latest.student.share_non_resident_alien",
+    "latest.student.share_firstgeneration",
+    "latest.aid.pell_grant_rate",
+    "latest.aid.federal_loan_rate",
+    "latest.student.retention_rate.four_year.full_time",
+    "latest.student.retention_rate.four_year.part_time",
     "latest.admissions.sat_scores.average.overall",
     "latest.admissions.act_scores.midpoint.cumulative",
     "latest.admissions.admission_rate.overall",
+    "latest.repayment.3_yr_repayment.completers.rate",
+    "latest.earnings.10_yrs_after_entry.percent_greater_than_25000",
+    "latest.cost.net_price.public.by_income_level.0-30000",
+    "latest.cost.net_price.public.by_income_level.30001-48000",
+    "latest.cost.net_price.public.by_income_level.48001-75000",
+    "latest.cost.net_price.public.by_income_level.75001-110000",
+    "latest.cost.net_price.public.by_income_level.110001-plus",
+    "latest.cost.net_price.private.by_income_level.0-30000",
+    "latest.cost.net_price.private.by_income_level.30001-48000",
+    "latest.cost.net_price.private.by_income_level.48001-75000",
+    "latest.cost.net_price.private.by_income_level.75001-110000",
+    "latest.cost.net_price.private.by_income_level.110001-plus",
 ]
 
 OWNERSHIP_MAP = {1: "Public", 2: "Private nonprofit", 3: "Private for-profit"}
@@ -102,6 +122,11 @@ class CollegeScorecardClient:
             or record.get("latest.admissions.act_scores.midpoint.cumulative")
         )
         acceptance_rate = record.get("latest.admissions.admission_rate.overall")
+        part_time_share = record.get("latest.student.part_time_share")
+        size = record.get("latest.student.size") or 0
+        full_time_enrollment = None
+        if size and part_time_share is not None:
+            full_time_enrollment = int(round(size * (1 - part_time_share)))
         diversity = {
             "white": record.get("latest.student.share_white"),
             "black": record.get("latest.student.share_black"),
@@ -110,6 +135,39 @@ class CollegeScorecardClient:
             "two_or_more": record.get("latest.student.share_two_or_more"),
             "non_resident": record.get("latest.student.share_non_resident_alien"),
         }
+        monthly_payment_median = record.get(
+            "latest.aid.median_debt.completers.monthly_payments.median"
+        )
+        monthly_payment_mean = record.get(
+            "latest.aid.median_debt.completers.monthly_payments.mean"
+        )
+        typical_monthly_payment = monthly_payment_median or monthly_payment_mean
+
+        income_levels = [
+            "0-30000",
+            "30001-48000",
+            "48001-75000",
+            "75001-110000",
+            "110001-plus",
+        ]
+
+        def _income_breakdown(prefix: str) -> dict[str, Any]:
+            return {
+                level: record.get(f"latest.cost.net_price.{prefix}.by_income_level.{level}")
+                for level in income_levels
+            }
+
+        def _clean_breakdown(data: dict[str, Any]) -> dict[str, Any]:
+            return {level: value for level, value in data.items() if value is not None}
+
+        public_net_price = _clean_breakdown(_income_breakdown("public"))
+        private_net_price = _clean_breakdown(_income_breakdown("private"))
+
+        family_income_net_price = None
+        if public_net_price:
+            family_income_net_price = {"source": "public", "breakdown": public_net_price}
+        elif private_net_price:
+            family_income_net_price = {"source": "private", "breakdown": private_net_price}
 
         return {
             "unit_id": record.get("id"),
@@ -129,6 +187,28 @@ class CollegeScorecardClient:
             "campus_diversity": diversity,
             "test_score": test_score,
             "acceptance_rate": acceptance_rate,
+            "full_time_enrollment": full_time_enrollment,
+            "first_year_return_rate": record.get(
+                "latest.student.retention_rate.four_year.full_time"
+            ),
+            "federal_loan_rate": record.get("latest.aid.federal_loan_rate"),
+            "median_debt": record.get("latest.aid.median_debt.completers.overall"),
+            "typical_monthly_payment": typical_monthly_payment,
+            "repayment_rate": record.get("latest.repayment.3_yr_repayment.completers.rate"),
+            "percent_more_than_hs": record.get(
+                "latest.earnings.10_yrs_after_entry.percent_greater_than_25000"
+            ),
+            "family_income_net_price": family_income_net_price,
+            "socioeconomic_diversity": {
+                "first_generation_share": record.get("latest.student.share_firstgeneration"),
+                "pell_grant_rate": record.get("latest.aid.pell_grant_rate"),
+            },
+            "college_info": {
+                "type": OWNERSHIP_MAP.get(ownership_code, "Other"),
+                "setting": LOCALE_MAP.get(locale_code, "Other"),
+                "website": record.get("school.school_url"),
+                "location": ", ".join(filter(None, [record.get("school.city"), record.get("school.state")])),
+            },
         }
 
 
