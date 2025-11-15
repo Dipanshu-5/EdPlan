@@ -44,15 +44,12 @@ const Navigation = () => {
 		<aside className="w-full lg:w-72 bg-white border-r border-slate-200 shadow-sm p-6 flex flex-col gap-6">
 			<header className="flex items-center justify-between">
 				<div>
-					<h1 className="text-xl font-semibold text-slate-900">EdPlan.ai</h1>
-					<p className="text-sm text-slate-500">
-						Plan your educational journey
-					</p>
+					<h1 className="ml-4 text-xl font-semibold text-slate-900">EdPlan.ai</h1>
 				</div>
 				<button
 					type="button"
 					onClick={handleAuthClick}
-					className="text-sm font-medium text-indigo-600 hover:text-indigo-500"
+					className="font-medium text-indigo-600 hover:text-indigo-500"
 				>
 					{buttonLabel}
 				</button>

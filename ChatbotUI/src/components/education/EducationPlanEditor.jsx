@@ -264,7 +264,7 @@ const EducationPlanEditor = () => {
 						<input
 							ref={searchInputRef}
 							type="text"
-							placeholder="Search universities..."
+							placeholder="Search Universities..."
 							value={searchQuery}
 							onChange={(e) => {
 								setSearchQuery(e.target.value);

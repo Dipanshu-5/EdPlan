@@ -131,7 +131,7 @@ const FindUniversity = ({ onSelectProgram }) => {
 						value={searchTerm}
 						onChange={(event) => setSearchTerm(event.target.value)}
 						className="px-4 py-2 rounded-lg border border-slate-200 md:w-[500px] text-center"
-						placeholder="Search by name or city"
+						placeholder="Search by University Name or City"
 					/>
 					<select
 						value={stateFilter}

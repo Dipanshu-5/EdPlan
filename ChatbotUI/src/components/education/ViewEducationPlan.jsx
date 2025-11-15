@@ -2,7 +2,7 @@ import { useEffect, useMemo, useState } from "react";
 import { getEducationPlanList } from "../../services/authService.js";
 import { load as loadStorage } from "../../utils/storage.js";
 
-const columns = ["university", "program", "courseName", "code", "year"];
+const columns = ["university", "program", "courseName", "code", "year", "semester"];
 
 const ViewEducationPlan = () => {
 	const [plans, setPlans] = useState([]);
