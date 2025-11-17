@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from "react";
 import { searchUniversities } from "../../services/universityService.js";
 import { save as saveStorage } from "../../utils/storage.js";
+import { useNavigate } from 'react-router-dom';
 
 const stateOptions = [
 	"",
@@ -68,6 +69,7 @@ const FindUniversity = ({ onSelectProgram }) => {
 	const [searchTerm, setSearchTerm] = useState("");
 	const [stateFilter, setStateFilter] = useState("");
 	const [costFilter, setCostFilter] = useState(50000);
+	const navigate = useNavigate();
 
 	const fetchUniversities = async (overrides = {}) => {
 		setLoading(true);
@@ -82,6 +84,9 @@ const FindUniversity = ({ onSelectProgram }) => {
 		} catch (err) {
 			console.error(err);
 			setError("Unable to load data from College Scorecard.");
+			setTimeout(() => {
+				setError("");
+			}, 1000);
 		} finally {
 			setLoading(false);
 		}
@@ -254,10 +259,13 @@ const FindUniversity = ({ onSelectProgram }) => {
 								)}
 								<button
 									type="button"
-									onClick={() => handleSelect(university)}
+									onClick={() => {
+										handleSelect(university);
+										navigate("/educationplan");
+									}}
 									className="self-start px-4 py-2 rounded-lg bg-slate-900 text-white text-sm font-medium hover:bg-slate-700"
 								>
-									View Details
+									View Plan
 								</button>
 							</article>
 						);

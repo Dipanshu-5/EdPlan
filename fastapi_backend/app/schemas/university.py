@@ -31,4 +31,4 @@ class University(BaseModel):
 
 
 class CompareRequest(BaseModel):
-    unit_ids: list[str]
+    unit_ids: list[int]
