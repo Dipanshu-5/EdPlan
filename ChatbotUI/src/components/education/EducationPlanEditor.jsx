@@ -2,7 +2,6 @@ import { useEffect, useMemo, useState, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import {
 	addEducationPlan,
-	getEducationPlan,
 } from "../../services/authService.js";
 import { listPrograms } from "../../services/educationPlanService.js";
 import { searchUniversities } from "../../services/universityService.js";
@@ -12,7 +11,6 @@ import {
 } from "../../utils/storage.js";
 
 const LOCAL_PLAN_KEY = "LocalSavedPlans";
-const defaultSemesters = ["Fall", "Spring", "Summer"];
 
 const EducationPlanEditor = () => {
 	const [programs, setPrograms] = useState([]);
@@ -260,66 +258,11 @@ const EducationPlanEditor = () => {
 			<header className="grid gap-4 md:grid-cols-2 bg-white border border-slate-200 rounded-xl shadow-sm p-5">
 				<label className="flex flex-col gap-2 text-sm font-semibold text-slate-600">
 					University
-					<div className="relative">
-						<input
-							ref={searchInputRef}
-							type="text"
-							placeholder="Search Universities..."
-							value={searchQuery}
-							onChange={(e) => {
-								setSearchQuery(e.target.value);
-								setShowUniversityDropdown(true);
-							}}
-							onFocus={() => setShowUniversityDropdown(true)}
-							className="w-full px-3 py-2 rounded-lg font-normal border border-slate-200 focus:outline-none focus:ring-2 focus:ring-indigo-500"
-						/>
-
-						{showUniversityDropdown &&
-							(searchResults.length > 0 || searchQuery.trim()) && (
-								<div
-									ref={dropdownRef}
-									className="absolute top-full left-0 right-0 mt-1 bg-white border border-slate-200 rounded-lg shadow-lg z-50 max-h-60 overflow-y-auto"
-								>
-									{isSearching && (
-										<div className="px-4 py-3 text-slate-500 text-sm">
-											Searching...
-										</div>
-									)}
-									{!isSearching &&
-										searchResults.length === 0 &&
-										searchQuery.trim() && (
-											<div className="px-4 py-3 text-slate-500 text-sm">
-												No universities found
-											</div>
-										)}
-									{searchResults.map((university) => (
-										<button
-											key={university.id || university.name}
-											type="button"
-											className="w-full text-left px-4 py-3 hover:bg-indigo-50 transition border-b border-slate-100 last:border-b-0"
-											onClick={() => {
-												setSelectedUniversity(university.name || university);
-												saveStorage(
-													"University",
-													university.name || university
-												);
-												setSearchQuery("");
-												setShowUniversityDropdown(false);
-											}}
-										>
-											<div className="font-medium text-slate-800">
-												{university.name || university}
-											</div>
-											{university.state && (
-												<div className="text-xs text-slate-500">
-													{university.state}
-												</div>
-											)}
-										</button>
-									))}
-								</div>
-							)}
+					{selectedUniversity && (
+					<div className="px-3 py-2 w-fit bg-indigo-50 border font-normal border-indigo-200 rounded-lg text-sm text-indigo-700">
+						Selected: <strong>{selectedUniversity}</strong>
 					</div>
+				)}
 				</label>
 
 				<label className="flex flex-col gap-2 font-semibold text-sm text-slate-600">
@@ -343,11 +286,6 @@ const EducationPlanEditor = () => {
 						))}
 					</select>
 				</label>
-				{selectedUniversity && (
-					<div className="px-3 py-2 w-fit bg-indigo-50 border border-indigo-200 rounded-lg text-sm text-indigo-700">
-						Selected: <strong>{selectedUniversity}</strong>
-					</div>
-				)}
 			</header>
 
 			{error && (

@@ -78,7 +78,7 @@ const FindUniversity = ({ onSelectProgram }) => {
 			const payload = await searchUniversities({
 				search: overrides.search ?? searchTerm,
 				state: overrides.state ?? stateFilter,
-				perPage: 20,
+				perPage: 26,
 			});
 			setUniversities(payload.data || []);
 		} catch (err) {
@@ -93,7 +93,7 @@ const FindUniversity = ({ onSelectProgram }) => {
 	};
 
 	useEffect(() => {
-		fetchUniversities();
+		fetchUniversities({ search: "New Mexico" });
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
 
@@ -184,7 +184,7 @@ const FindUniversity = ({ onSelectProgram }) => {
 			)}
 
 			{loading ? (
-				<div className="text-sm text-slate-500">Loading live data…</div>
+				<div className="text-sm text-slate-500">Loading data…</div>
 			) : (
 				<div className="grid gap-4 md:grid-cols-2">
 					{filteredUniversities.map((university) => {
