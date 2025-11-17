@@ -7,20 +7,16 @@ import {
 const formatPercent = (value) =>
 	value || value === 0 ? `${(value * 100).toFixed(1).replace(/\.0$/, "")}%` : "N/A";
 const formatCurrency = (value) =>
-	value || value === 0 ? `$${Number(value).toLocaleString()}` : "N/A";
+	value || value === 0 ? `$${(Number(value) /1000).toFixed(1).toLocaleString()}k` : "N/A";
 const formatNumber = (value) =>
-	value || value === 0 ? Number(value).toLocaleString() : "N/A";
+	value || value === 0 ? `${Number(value /1000).toFixed(0).toLocaleString()}k
+` : "N/A";
 
 const costMetrics = [
 	{ key: "average_annual_cost", label: "Average Annual Cost", format: formatCurrency },
 	{ key: "graduation_rate", label: "Graduation Rate", format: formatPercent },
 	{ key: "median_earnings", label: "Median Earnings (10 yrs)", format: formatCurrency },
 	{ key: "full_time_enrollment", label: "Full-time Enrollment", format: formatNumber },
-	{
-		key: "first_year_return_rate",
-		label: "Students Who Return After Their First Year",
-		format: formatPercent,
-	},
 	{ key: "test_score", label: "Average SAT/ACT Score", format: formatNumber },
 ];
 
@@ -117,6 +113,7 @@ const CollegeCompare = () => {
 	const [selected, setSelected] = useState([]);
 	const [comparison, setComparison] = useState({});
 	const [loadingSearch, setLoadingSearch] = useState(false);
+	const [addingCollege, setAddingCollege] = useState(false);
 	const [loadingCompare, setLoadingCompare] = useState(false);
 	const [error, setError] = useState("");
 	const [infoMessage, setInfoMessage] = useState("");
@@ -127,7 +124,7 @@ const CollegeCompare = () => {
 		try {
 			const payload = await searchUniversities({
 				search: searchTerm,
-				perPage: 12,
+				perPage: 6,
 			});
 			setResults(payload.data || []);
 		} catch (err) {
@@ -144,15 +141,25 @@ const CollegeCompare = () => {
 	}, []);
 
 	const handleAdd = (university) => {
-		setInfoMessage("");
 		if (selected.find((entry) => entry.unit_id === university.unit_id)) {
 			setInfoMessage("This college is already selected for comparison.");
+			setTimeout(() => {
+				setInfoMessage("");
+			}, 2000);
 			return;
 		}
 		if (selected.length >= 3) {
 			setInfoMessage("You can compare up to 3 colleges at a time.");
+			setTimeout(() => {
+				setInfoMessage("");
+			}, 2000);
 			return;
 		}
+		setAddingCollege(true);
+		setTimeout(() => {
+			setAddingCollege(false);
+		}, 1000);
+		
 		setSelected((prev) => [...prev, university]);
 	};
 
@@ -371,8 +378,7 @@ const CollegeCompare = () => {
 			<header className="space-y-2">
 				<h2 className="text-2xl font-semibold text-slate-900">Compare colleges side by side</h2>
 				<p className="text-sm text-slate-600">
-					Search for universities and add up to three to see tuition, outcomes, and student body
-					data powered by the College Scorecard API.
+					Search for universities and add uplto three colleges/universities for comparison...
 				</p>
 			</header>
 
@@ -411,11 +417,15 @@ const CollegeCompare = () => {
 					</div>
 				)}
 
-				<div className="grid gap-3 md:grid-cols-2">
+				{addingCollege && (
+					<p className="text-sm text-center font-semibold">Adding college to the compare list...</p>
+				)}
+
+				<div className="grid gap-4 md:grid-cols-2">
 					{results.map((university) => (
 						<article
 							key={university.unit_id}
-							className="border border-slate-200 rounded-lg p-4 flex flex-col gap-2"
+							className="border border-slate-200 pb-8	 rounded-lg p-4 flex flex-col gap-2"
 						>
 							<div className="flex items-start justify-between gap-2">
 								<div>
@@ -434,11 +444,11 @@ const CollegeCompare = () => {
 									Add to compare
 								</button>
 							</div>
-							<ul className="text-xs text-slate-600 space-y-1">
-								<li>Graduation: {formatPercent(university.graduation_rate)}</li>
-								<li>Avg cost: {formatCurrency(university.average_annual_cost)}</li>
-								<li>Students: {formatNumber(university.size)}</li>
-							</ul>
+							{/* <ul className="text-xs pt-2 text-slate-600 space-y-1">
+								<li>Graduation Rate: {formatPercent(university.graduation_rate)}</li>
+								<li>Average Annual Cost: {formatCurrency(university.average_annual_cost)}</li>
+								<li>Number of Students: {formatNumber(university.size)}</li>
+							</ul> */}
 						</article>
 					))}
 					{results.length === 0 && !loadingSearch && (
@@ -474,11 +484,11 @@ const CollegeCompare = () => {
 					) : (
 						<div className="space-y-4">
 							<ComparisonTable title="Cost & Outcomes" metrics={costMetrics} schools={comparisonOrder} />
-							<ComparisonTable title="Financial Aid & Loans" metrics={financialMetrics} schools={comparisonOrder} />
-							{renderCollegeInfo()}
-							{renderSocioEconomic()}
-							{renderRaceTable()}
-							{renderFamilyIncome()}
+							{/* <ComparisonTable title="Financial Aid & Loans" metrics={financialMetrics} schools={comparisonOrder} /> */}
+							{/* {renderCollegeInfo()} */}
+							{/* {renderSocioEconomic()} */}
+							{/* {renderRaceTable()} */}
+							{/* {renderFamilyIncome()} */}
 						</div>
 					)}
 				</div>

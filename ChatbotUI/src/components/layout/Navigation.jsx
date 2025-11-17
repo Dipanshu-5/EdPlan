@@ -57,10 +57,10 @@ const Navigation = () => {
 			<nav className="flex flex-col gap-2">
 				<NavItem to="/home" label="Home" />
 				<NavItem to="/uni" label="Find University" />
-				{/* <NavItem to="/compare" label="Compare Colleges" /> */}
 				{/* <NavItem to="/programdetails" label="Program Details" /> */}
 				<NavItem to="/educationplan" label="Create Education Plan" />
 				<NavItem to="/view" label="Saved Plans" />
+				<NavItem to="/compare" label="Compare Colleges" />
 				{/* <NavItem to="/edu" label="Education Plan" />
 				<NavItem to="/eduai" label="Workspace" />
 				<NavItem to="/schedule" label="Schedule" />
