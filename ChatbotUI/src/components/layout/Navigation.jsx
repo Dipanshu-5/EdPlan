@@ -9,7 +9,7 @@ const NavItem = ({ to, label }) => (
 			clsx(
 				"w-full px-4 py-3 text-left rounded-md transition",
 				isActive
-					? "bg-slate-900 text-white shadow-lg"
+					? "bg-[#281ed5] text-white shadow-lg"
 					: "text-slate-600 hover:bg-slate-200"
 			)
 		}

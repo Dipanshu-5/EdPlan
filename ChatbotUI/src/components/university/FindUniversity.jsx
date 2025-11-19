@@ -93,7 +93,8 @@ const FindUniversity = ({ onSelectProgram }) => {
 	};
 
 	useEffect(() => {
-		fetchUniversities({ search: "New Mexico" });
+		setStateFilter("NM");
+		fetchUniversities({ state: "NM" });
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
 
@@ -213,20 +214,19 @@ const FindUniversity = ({ onSelectProgram }) => {
 									</span>
 								</div>
 								<ul className="text-sm text-slate-600 space-y-2">
-									<li>Year: {university.year || "N/A"}</li>
 									<li>
 										Size:{" "}
 										{university.size ? university.size.toLocaleString() : "N/A"}{" "}
 										students
 									</li>
 									<li>
-										Graduation rate:{" "}
+										Graduation Rate:{" "}
 										{university.graduation_rate
 											? `${Math.round(university.graduation_rate * 100)}%`
 											: "N/A"}
 									</li>
 									<li>
-										Average annual cost:{" "}
+										Average Annual Cost:{" "}
 										{university.average_annual_cost
 											? `$${Number(
 													university.average_annual_cost
@@ -234,17 +234,18 @@ const FindUniversity = ({ onSelectProgram }) => {
 											: "N/A"}
 									</li>
 									<li>
-										Acceptance rate:{" "}
-										{formatPercent(university.acceptance_rate)}
+										Median Earnings: {formatCurrency(university.typical_earnings)}
 									</li>
-									<li>Test score (SAT/ACT avg): {university.test_score ?? "N/A"}</li>
 									<li>
-										Financial aid & debt:{" "}
+										Acceptance Rate:{" "}
+										{university.acceptance_rate ? formatPercent(university.acceptance_rate): "100%"}
+									</li>
+									<li>SAT Score (Critical Reading): {university.test_score ?? "N/A"}</li>
+									<li>ACT Score: {university.act_score ?? "N/A"}</li>
+									<li>
+										Median Total Debt After Graduation:{" "}
 										{formatCurrency(university.financial_aid_debt) ||
 										"Data unavailable"}
-									</li>
-									<li>
-										Median Earnings: {formatCurrency(university.typical_earnings)}
 									</li>
 								</ul>
 								{websiteUrl && (
@@ -254,7 +255,7 @@ const FindUniversity = ({ onSelectProgram }) => {
 										rel="noreferrer"
 										className="text-sm text-indigo-600 hover:text-indigo-500"
 									>
-										Visit website
+										Visit Website
 									</a>
 								)}
 								<button
@@ -265,7 +266,7 @@ const FindUniversity = ({ onSelectProgram }) => {
 									}}
 									className="self-start px-4 py-2 rounded-lg bg-slate-900 text-white text-sm font-medium hover:bg-slate-700"
 								>
-									View Plan
+									Create Education Plan
 								</button>
 							</article>
 						);

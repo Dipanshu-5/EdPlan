@@ -118,12 +118,12 @@ const CollegeCompare = () => {
 	const [error, setError] = useState("");
 	const [infoMessage, setInfoMessage] = useState("");
 
-	const fetchUniversities = async () => {
+	const fetchUniversities = async (overrides = {}) => {
 		setLoadingSearch(true);
 		setError("");
 		try {
 			const payload = await searchUniversities({
-				search: searchTerm,
+				search: overrides.search ?? searchTerm,
 				perPage: 6,
 			});
 			setResults(payload.data || []);
@@ -136,7 +136,7 @@ const CollegeCompare = () => {
 	};
 
 	useEffect(() => {
-		fetchUniversities();
+		fetchUniversities({ search: "New Mexico" });
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
 
@@ -376,9 +376,9 @@ const CollegeCompare = () => {
 	return (
 		<section className="space-y-6">
 			<header className="space-y-2">
-				<h2 className="text-2xl font-semibold text-slate-900">Compare colleges side by side</h2>
+				<h2 className="text-2xl font-semibold text-slate-900">Compare colleges</h2>
 				<p className="text-sm text-slate-600">
-					Search for universities and add uplto three colleges/universities for comparison...
+					Search for universities and add upto three colleges/universities
 				</p>
 			</header>
 
@@ -418,7 +418,7 @@ const CollegeCompare = () => {
 				)}
 
 				{addingCollege && (
-					<p className="text-sm text-center font-semibold">Adding college to the compare list...</p>
+					<p className="text-sm text-center font-semibold">Adding college to the comparison list...</p>
 				)}
 
 				<div className="grid gap-4 md:grid-cols-2">
@@ -483,12 +483,12 @@ const CollegeCompare = () => {
 						</div>
 					) : (
 						<div className="space-y-4">
-							<ComparisonTable title="Cost & Outcomes" metrics={costMetrics} schools={comparisonOrder} />
+							<ComparisonTable title="Institution Comparison" metrics={costMetrics} schools={comparisonOrder} />
 							{/* <ComparisonTable title="Financial Aid & Loans" metrics={financialMetrics} schools={comparisonOrder} /> */}
 							{/* {renderCollegeInfo()} */}
 							{/* {renderSocioEconomic()} */}
 							{/* {renderRaceTable()} */}
-							{/* {renderFamilyIncome()} */}
+							{/* {renderFamilyIncome()} */} 
 						</div>
 					)}
 				</div>
