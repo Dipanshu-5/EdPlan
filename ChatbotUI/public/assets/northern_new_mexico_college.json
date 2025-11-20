@@ -1,0 +1,3203 @@
+[
+    {
+        "program": "Biology",
+        "degree": "Bachelor of Science",
+        "university": "Northern New Mexico College",
+        "total_credit_hours": 120,
+        "years": [
+            {
+                "year": "First Year",
+                "semesters": [
+                    {
+                        "semester": "Fall",
+                        "courses": [
+                            {
+                                "code": "ENGL 1110",
+                                "name": "Composition I",
+                                "credits": 3,
+                                "prerequisite": "Placement or ACT English 19+",
+                                "schedule": {
+                                    "day": "Monday, Wednesday",
+                                    "time": "9:00 AM - 10:15 AM"
+                                },
+                                "lecture_hours": 3,
+                                "lab_hours": 0
+                            },
+                            {
+                                "code": "MATH 1220",
+                                "name": "College Algebra",
+                                "credits": 3,
+                                "prerequisite": "Placement or completion of MATH 1215",
+                                "schedule": {
+                                    "day": "Tuesday, Thursday",
+                                    "time": "8:00 AM - 9:15 AM"
+                                },
+                                "lecture_hours": 3,
+                                "lab_hours": 0
+                            },
+                            {
+                                "code": "BIOL 1110",
+                                "name": "General Biology",
+                                "credits": 3,
+                                "prerequisite": "None",
+                                "schedule": {
+                                    "day": "Monday, Wednesday",
+                                    "time": "11:00 AM - 12:15 PM"
+                                },
+                                "lecture_hours": 3,
+                                "lab_hours": 0
+                            },
+                            {
+                                "code": "BIOL 1110L",
+                                "name": "General Biology Lab",
+                                "credits": 1,
+                                "prerequisite": "None",
+                                "schedule": {
+                                    "day": "Friday",
+                                    "time": "1:00 PM - 3:50 PM"
+                                },
+                                "corequisite": "BIOL 1110",
+                                "lecture_hours": 0,
+                                "lab_hours": 3
+                            },
+                            {
+                                "code": "CHEM 1215",
+                                "name": "General Chemistry I for STEM Majors",
+                                "credits": 3,
+                                "prerequisite": "High school chemistry and MATH 1220",
+                                "schedule": {
+                                    "day": "Tuesday, Thursday",
+                                    "time": "11:30 AM - 12:45 PM"
+                                },
+                                "lecture_hours": 3,
+                                "lab_hours": 0
+                            },
+                            {
+                                "code": "CHEM 1215L",
+                                "name": "General Chemistry I Lab",
+                                "credits": 1,
+                                "prerequisite": "None",
+                                "schedule": {
+                                    "day": "Wednesday",
+                                    "time": "2:00 PM - 4:50 PM"
+                                },
+                                "corequisite": "CHEM 1215",
+                                "lecture_hours": 0,
+                                "lab_hours": 3
+                            }
+                        ],
+                        "total_credits": 14
+                    },
+                    {
+                        "semester": "Spring",
+                        "courses": [
+                            {
+                                "code": "ENGL 1120",
+                                "name": "Composition II",
+                                "credits": 3,
+                                "prerequisite": "ENGL 1110",
+                                "schedule": {
+                                    "day": "Tuesday, Thursday",
+                                    "time": "9:30 AM - 10:45 AM"
+                                },
+                                "lecture_hours": 3,
+                                "lab_hours": 0
+                            },
+                            {
+                                "code": "MATH 1250",
+                                "name": "Trigonometry and Pre-Calculus",
+                                "credits": 4,
+                                "prerequisite": "MATH 1220",
+                                "schedule": {
+                                    "day": "Monday, Wednesday",
+                                    "time": "8:30 AM - 10:10 AM"
+                                },
+                                "lecture_hours": 4,
+                                "lab_hours": 0
+                            },
+                            {
+                                "code": "BIOL 2110",
+                                "name": "Cellular and Molecular Biology",
+                                "credits": 3,
+                                "prerequisite": "BIOL 1110",
+                                "schedule": {
+                                    "day": "Monday, Wednesday",
+                                    "time": "11:00 AM - 12:15 PM"
+                                },
+                                "lecture_hours": 3,
+                                "lab_hours": 0
+                            },
+                            {
+                                "code": "BIOL 2110L",
+                                "name": "Cellular and Molecular Biology Lab",
+                                "credits": 1,
+                                "prerequisite": "BIOL 1110L",
+                                "schedule": {
+                                    "day": "Thursday",
+                                    "time": "1:00 PM - 3:50 PM"
+                                },
+                                "corequisite": "BIOL 2110",
+                                "lecture_hours": 0,
+                                "lab_hours": 3
+                            },
+                            {
+                                "code": "CHEM 1225",
+                                "name": "General Chemistry II for STEM Majors",
+                                "credits": 3,
+                                "prerequisite": "CHEM 1215",
+                                "schedule": {
+                                    "day": "Tuesday, Thursday",
+                                    "time": "11:30 AM - 12:45 PM"
+                                },
+                                "lecture_hours": 3,
+                                "lab_hours": 0
+                            },
+                            {
+                                "code": "CHEM 1225L",
+                                "name": "General Chemistry II Lab",
+                                "credits": 1,
+                                "prerequisite": "CHEM 1215L",
+                                "schedule": {
+                                    "day": "Wednesday",
+                                    "time": "2:00 PM - 4:50 PM"
+                                },
+                                "corequisite": "CHEM 1225",
+                                "lecture_hours": 0,
+                                "lab_hours": 3
+                            }
+                        ],
+                        "total_credits": 15
+                    }
+                ]
+            },
+            {
+                "year": "Second Year",
+                "semesters": [
+                    {
+                        "semester": "Fall",
+                        "courses": [
+                            {
+                                "code": "BIOL 2410",
+                                "name": "Principles of Biology: Genetics",
+                                "credits": 3,
+                                "prerequisite": "BIOL 2110",
+                                "schedule": {
+                                    "day": "Monday, Wednesday",
+                                    "time": "10:30 AM - 11:45 AM"
+                                },
+                                "lecture_hours": 3,
+                                "lab_hours": 0
+                            },
+                            {
+                                "code": "BIOL 2410L",
+                                "name": "Genetics Lab",
+                                "credits": 1,
+                                "prerequisite": "BIOL 2110L",
+                                "schedule": {
+                                    "day": "Friday",
+                                    "time": "9:00 AM - 11:50 AM"
+                                },
+                                "corequisite": "BIOL 2410",
+                                "lecture_hours": 0,
+                                "lab_hours": 3
+                            },
+                            {
+                                "code": "PHYS 1230",
+                                "name": "Algebra-Based Physics I",
+                                "credits": 3,
+                                "prerequisite": "MATH 1250",
+                                "schedule": {
+                                    "day": "Tuesday, Thursday",
+                                    "time": "9:30 AM - 10:45 AM"
+                                },
+                                "lecture_hours": 3,
+                                "lab_hours": 0
+                            },
+                            {
+                                "code": "PHYS 1230L",
+                                "name": "Algebra-Based Physics I Lab",
+                                "credits": 1,
+                                "prerequisite": "None",
+                                "schedule": {
+                                    "day": "Thursday",
+                                    "time": "1:00 PM - 3:50 PM"
+                                },
+                                "corequisite": "PHYS 1230",
+                                "lecture_hours": 0,
+                                "lab_hours": 3
+                            },
+                            {
+                                "code": "COMM 1130",
+                                "name": "Public Speaking",
+                                "credits": 3,
+                                "prerequisite": "ENGL 1110",
+                                "schedule": {
+                                    "day": "Monday",
+                                    "time": "1:00 PM - 3:30 PM"
+                                },
+                                "lecture_hours": 3,
+                                "lab_hours": 0
+                            },
+                            {
+                                "code": "HIST 1110",
+                                "name": "United States History I",
+                                "credits": 3,
+                                "prerequisite": "None",
+                                "schedule": {
+                                    "day": "Tuesday, Thursday",
+                                    "time": "2:00 PM - 3:15 PM"
+                                },
+                                "lecture_hours": 3,
+                                "lab_hours": 0
+                            },
+                            {
+                                "code": "ARTS 1120",
+                                "name": "Introduction to Art",
+                                "credits": 3,
+                                "prerequisite": "None",
+                                "schedule": {
+                                    "day": "Wednesday",
+                                    "time": "5:00 PM - 7:45 PM"
+                                },
+                                "lecture_hours": 3,
+                                "lab_hours": 0
+                            }
+                        ],
+                        "total_credits": 17
+                    },
+                    {
+                        "semester": "Spring",
+                        "courses": [
+                            {
+                                "code": "MATH 1510",
+                                "name": "Calculus I",
+                                "credits": 4,
+                                "prerequisite": "MATH 1250",
+                                "schedule": {
+                                    "day": "Monday, Wednesday",
+                                    "time": "8:30 AM - 10:10 AM"
+                                },
+                                "lecture_hours": 4,
+                                "lab_hours": 0
+                            },
+                            {
+                                "code": "PHYS 1240",
+                                "name": "Algebra-Based Physics II",
+                                "credits": 3,
+                                "prerequisite": "PHYS 1230",
+                                "schedule": {
+                                    "day": "Tuesday, Thursday",
+                                    "time": "9:30 AM - 10:45 AM"
+                                },
+                                "lecture_hours": 3,
+                                "lab_hours": 0
+                            },
+                            {
+                                "code": "PHYS 1240L",
+                                "name": "Algebra-Based Physics II Lab",
+                                "credits": 1,
+                                "prerequisite": "PHYS 1230L",
+                                "schedule": {
+                                    "day": "Thursday",
+                                    "time": "1:00 PM - 3:50 PM"
+                                },
+                                "corequisite": "PHYS 1240",
+                                "lecture_hours": 0,
+                                "lab_hours": 3
+                            },
+                            {
+                                "code": "BIOL 2210",
+                                "name": "Human Anatomy and Physiology I",
+                                "credits": 3,
+                                "prerequisite": "BIOL 2110",
+                                "schedule": {
+                                    "day": "Monday, Wednesday",
+                                    "time": "11:00 AM - 12:15 PM"
+                                },
+                                "lecture_hours": 3,
+                                "lab_hours": 0
+                            },
+                            {
+                                "code": "BIOL 2210L",
+                                "name": "Human Anatomy and Physiology I Lab",
+                                "credits": 1,
+                                "prerequisite": "BIOL 2110L",
+                                "schedule": {
+                                    "day": "Friday",
+                                    "time": "1:00 PM - 2:50 PM"
+                                },
+                                "corequisite": "BIOL 2210",
+                                "lecture_hours": 0,
+                                "lab_hours": 3
+                            },
+                            {
+                                "code": "POLS 1110",
+                                "name": "Introduction to Political Science",
+                                "credits": 3,
+                                "prerequisite": "None",
+                                "schedule": {
+                                    "day": "Tuesday, Thursday",
+                                    "time": "2:00 PM - 3:15 PM"
+                                },
+                                "lecture_hours": 3,
+                                "lab_hours": 0
+                            }
+                        ],
+                        "total_credits": 15
+                    }
+                ]
+            },
+            {
+                "year": "Third Year",
+                "semesters": [
+                    {
+                        "semester": "Fall",
+                        "courses": [
+                            {
+                                "code": "BIOL 2225",
+                                "name": "Human Anatomy and Physiology II",
+                                "credits": 3,
+                                "prerequisite": "BIOL 2210",
+                                "schedule": {
+                                    "day": "Monday, Wednesday",
+                                    "time": "10:30 AM - 11:45 AM"
+                                },
+                                "lecture_hours": 3,
+                                "lab_hours": 0
+                            },
+                            {
+                                "code": "BIOL 2225L",
+                                "name": "Human Anatomy and Physiology II Lab",
+                                "credits": 1,
+                                "prerequisite": "BIOL 2210L",
+                                "schedule": {
+                                    "day": "Friday",
+                                    "time": "9:00 AM - 10:50 AM"
+                                },
+                                "corequisite": "BIOL 2225",
+                                "lecture_hours": 0,
+                                "lab_hours": 3
+                            },
+                            {
+                                "code": "CHEM 3301",
+                                "name": "Organic Chemistry I",
+                                "credits": 3,
+                                "prerequisite": "CHEM 1225",
+                                "schedule": {
+                                    "day": "Tuesday, Thursday",
+                                    "time": "11:30 AM - 12:45 PM"
+                                },
+                                "lecture_hours": 3,
+                                "lab_hours": 0
+                            },
+                            {
+                                "code": "CHEM 3301L",
+                                "name": "Organic Chemistry I Lab",
+                                "credits": 1,
+                                "prerequisite": "CHEM 1225L",
+                                "schedule": {
+                                    "day": "Wednesday",
+                                    "time": "2:00 PM - 4:50 PM"
+                                },
+                                "corequisite": "CHEM 3301",
+                                "lecture_hours": 0,
+                                "lab_hours": 3
+                            },
+                            {
+                                "code": "BIOL 2310",
+                                "name": "Microbiology",
+                                "credits": 3,
+                                "prerequisite": "BIOL 2110",
+                                "schedule": {
+                                    "day": "Monday, Wednesday",
+                                    "time": "1:00 PM - 2:15 PM"
+                                },
+                                "lecture_hours": 3,
+                                "lab_hours": 0
+                            },
+                            {
+                                "code": "BIOL 2310L",
+                                "name": "Microbiology Lab",
+                                "credits": 1,
+                                "prerequisite": "BIOL 2110L",
+                                "schedule": {
+                                    "day": "Thursday",
+                                    "time": "2:00 PM - 4:50 PM"
+                                },
+                                "corequisite": "BIOL 2310",
+                                "lecture_hours": 0,
+                                "lab_hours": 3
+                            },
+                            {
+                                "code": "ENGL 1410",
+                                "name": "Introduction to Literature",
+                                "credits": 3,
+                                "prerequisite": "ENGL 1120",
+                                "schedule": {
+                                    "day": "Tuesday",
+                                    "time": "5:00 PM - 7:40 PM"
+                                },
+                                "lecture_hours": 3,
+                                "lab_hours": 0
+                            }
+                        ],
+                        "total_credits": 15
+                    },
+                    {
+                        "semester": "Spring",
+                        "courses": [
+                            {
+                                "code": "CHEM 3302",
+                                "name": "Organic Chemistry II",
+                                "credits": 3,
+                                "prerequisite": "CHEM 3301",
+                                "schedule": {
+                                    "day": "Tuesday, Thursday",
+                                    "time": "11:30 AM - 12:45 PM"
+                                },
+                                "lecture_hours": 3,
+                                "lab_hours": 0
+                            },
+                            {
+                                "code": "CHEM 3302L",
+                                "name": "Organic Chemistry II Lab",
+                                "credits": 1,
+                                "prerequisite": "CHEM 3301L",
+                                "schedule": {
+                                    "day": "Wednesday",
+                                    "time": "2:00 PM - 4:50 PM"
+                                },
+                                "corequisite": "CHEM 3302",
+                                "lecture_hours": 0,
+                                "lab_hours": 3
+                            },
+                            {
+                                "code": "BIOL 3101",
+                                "name": "Evolution",
+                                "credits": 4,
+                                "prerequisite": "BIOL 2410",
+                                "schedule": {
+                                    "day": "Monday, Wednesday",
+                                    "time": "9:00 AM - 10:45 AM"
+                                },
+                                "lecture_hours": 4,
+                                "lab_hours": 0
+                            },
+                            {
+                                "code": "BIOL 3105",
+                                "name": "Organismal Biology",
+                                "credits": 4,
+                                "prerequisite": "BIOL 2410",
+                                "schedule": {
+                                    "day": "Tuesday, Thursday",
+                                    "time": "1:00 PM - 2:45 PM"
+                                },
+                                "lecture_hours": 4,
+                                "lab_hours": 0
+                            },
+                            {
+                                "code": "MATH 1350",
+                                "name": "Introduction to Statistics",
+                                "credits": 3,
+                                "prerequisite": "MATH 1220",
+                                "schedule": {
+                                    "day": "Monday, Wednesday",
+                                    "time": "3:00 PM - 4:15 PM"
+                                },
+                                "lecture_hours": 3,
+                                "lab_hours": 0
+                            }
+                        ],
+                        "total_credits": 15
+                    }
+                ]
+            },
+            {
+                "year": "Fourth Year",
+                "semesters": [
+                    {
+                        "semester": "Fall",
+                        "courses": [
+                            {
+                                "code": "CHEM 4421",
+                                "name": "Biochemistry",
+                                "credits": 3,
+                                "prerequisite": "CHEM 3302",
+                                "schedule": {
+                                    "day": "Tuesday, Thursday",
+                                    "time": "9:30 AM - 10:45 AM"
+                                },
+                                "lecture_hours": 3,
+                                "lab_hours": 0
+                            },
+                            {
+                                "code": "CHEM 4421L",
+                                "name": "Biochemistry Lab",
+                                "credits": 1,
+                                "prerequisite": "CHEM 3302L",
+                                "schedule": {
+                                    "day": "Thursday",
+                                    "time": "1:00 PM - 3:50 PM"
+                                },
+                                "corequisite": "CHEM 4421",
+                                "lecture_hours": 0,
+                                "lab_hours": 3
+                            },
+                            {
+                                "code": "BIOL 4412",
+                                "name": "Developmental Biology",
+                                "credits": 3,
+                                "prerequisite": "BIOL 3101",
+                                "schedule": {
+                                    "day": "Monday, Wednesday",
+                                    "time": "11:00 AM - 12:15 PM"
+                                },
+                                "lecture_hours": 3,
+                                "lab_hours": 0
+                            },
+                            {
+                                "code": "BIOL 4412L",
+                                "name": "Developmental Biology Lab",
+                                "credits": 1,
+                                "prerequisite": "BIOL 3105",
+                                "schedule": {
+                                    "day": "Friday",
+                                    "time": "9:00 AM - 11:50 AM"
+                                },
+                                "corequisite": "BIOL 4412",
+                                "lecture_hours": 0,
+                                "lab_hours": 3
+                            },
+                            {
+                                "code": "BIOL 4425",
+                                "name": "Molecular Genetics",
+                                "credits": 4,
+                                "prerequisite": "BIOL 2410",
+                                "schedule": {
+                                    "day": "Tuesday, Thursday",
+                                    "time": "1:00 PM - 2:45 PM"
+                                },
+                                "lecture_hours": 4,
+                                "lab_hours": 0
+                            },
+                            {
+                                "code": "MATH 3345",
+                                "name": "Mathematical Statistics and Probability",
+                                "credits": 3,
+                                "prerequisite": "MATH 1350",
+                                "schedule": {
+                                    "day": "Monday",
+                                    "time": "5:00 PM - 7:40 PM"
+                                },
+                                "lecture_hours": 3,
+                                "lab_hours": 0
+                            }
+                        ],
+                        "total_credits": 15
+                    },
+                    {
+                        "semester": "Spring",
+                        "courses": [
+                            {
+                                "code": "BIOL 4426",
+                                "name": "Neurobiology",
+                                "credits": 3,
+                                "prerequisite": "BIOL 4412",
+                                "schedule": {
+                                    "day": "Monday, Wednesday",
+                                    "time": "9:00 AM - 10:15 AM"
+                                },
+                                "lecture_hours": 3,
+                                "lab_hours": 0
+                            },
+                            {
+                                "code": "BIOL 4426L",
+                                "name": "Neurobiology Lab",
+                                "credits": 1,
+                                "prerequisite": "BIOL 4412L",
+                                "schedule": {
+                                    "day": "Wednesday",
+                                    "time": "1:00 PM - 2:50 PM"
+                                },
+                                "corequisite": "BIOL 4426",
+                                "lecture_hours": 0,
+                                "lab_hours": 3
+                            },
+                            {
+                                "code": "BIOL 4456",
+                                "name": "Immunology",
+                                "credits": 4,
+                                "prerequisite": "BIOL 2310",
+                                "schedule": {
+                                    "day": "Tuesday, Thursday",
+                                    "time": "11:30 AM - 12:45 PM"
+                                },
+                                "lecture_hours": 4,
+                                "lab_hours": 0
+                            },
+                            {
+                                "code": "BIOL 4492",
+                                "name": "Biology Capstone Project",
+                                "credits": 3,
+                                "prerequisite": "Senior standing",
+                                "schedule": {
+                                    "day": "Friday",
+                                    "time": "10:00 AM - 12:30 PM"
+                                },
+                                "lecture_hours": 3,
+                                "lab_hours": 0
+                            },
+                            {
+                                "code": "BIOL 4XXX",
+                                "name": "Upper-Division Biology Elective",
+                                "credits": 3,
+                                "prerequisite": "Senior standing and advisor approval",
+                                "schedule": {
+                                    "day": "Tuesday, Thursday",
+                                    "time": "3:00 PM - 4:15 PM"
+                                },
+                                "lecture_hours": 3,
+                                "lab_hours": 0
+                            }
+                        ],
+                        "total_credits": 14
+                    }
+                ]
+            }
+        ],
+        "college_profile": {
+            "university_name": "Northern New Mexico College",
+            "city": "Espa\u00f1ola",
+            "state": "New Mexico",
+            "website": "https://nnmc.edu",
+            "founded_year": 1909,
+            "organization_type": "Public, Hispanic-Serving Institution (4-year, primarily associate's)",
+            "size": "Small campus community (~1,310 undergraduates)",
+            "campus_setting": "Town: Distant (Espa\u00f1ola Valley, northern New Mexico)",
+            "graduation_rate": "33% overall 150%-time completion (IPEDS 2017 cohort)",
+            "average_annual_cost": "$6,102 average net price for in-state freshmen receiving aid (2022-23 IPEDS)",
+            "median_earnings": "$38,112 median earnings 10 years after entry (College Scorecard)",
+            "financial_aid_and_debt": {
+                "share_receiving_grant_aid": "100% of full-time beginning students receive grants or scholarships",
+                "pell_grant_rate": "70% of new freshmen receive Pell Grants (IPEDS 2022-23)",
+                "median_federal_loan_debt": "$6,000 median federal loan debt; about $64/month on the standard plan",
+                "federal_loan_participation": "Roughly 4% of beginning students borrow federal loans"
+            },
+            "typical_earning_for_college_details_page": "Graduates earn roughly $38K at the median 10 years after entering NNMC (College Scorecard).",
+            "campus_diversity": "NNMC is a Hispanic-Serving Institution with majority Hispanic/Latine enrollment and a visible Native American student community.",
+            "test_score": "Open admission; SAT/ACT scores are neither required nor published.",
+            "acceptance_rate": "Open admission (consumer acceptance rate effectively 100%).",
+            "students_who_return_after_first_year": {
+                "full_time": "61% of full-time freshmen return (Fall 2022 to Fall 2023)",
+                "part_time": "36% of part-time freshmen return"
+            },
+            "student_to_faculty_ratio": "11:1",
+            "race_ethnicity": {
+                "american_indian_or_alaska_native": "9%",
+                "asian": "2%",
+                "black_or_african_american": "2%",
+                "hispanic_or_latino": "68%",
+                "white": "12%",
+                "two_or_more_races": "4%",
+                "race_unknown": "2%",
+                "non_resident_alien": "1%"
+            },
+            "total_undergrad_students": 1310,
+            "full_time_students": 498,
+            "part_time_students": 812,
+            "housing_prices": {
+                "off_campus_food_and_housing_per_year": "$12,540 (2024-25 IPEDS estimate)",
+                "off_campus_with_family_food_and_housing_per_year": "$4,180 (2024-25 IPEDS estimate)"
+            },
+            "food": "Food costs are included in the $12,540 off-campus living allowance; students typically budget $3,500-$4,000 of that for groceries and meals.",
+            "transportation": "$5,490 estimated annual transportation/personal expense allowance (IPEDS).",
+            "miscellaneous_expenses": "$5,490 estimated annual personal/other expenses (IPEDS).",
+            "crime_rate": "Latest Clery Act summary (2022) reported zero on-campus arrests and no major crimes, reflecting a very low incident rate.",
+            "salary_range": "$18,660 (25th percentile) to $60,150 (75th percentile) earnings 10 years after entry (College Scorecard).",
+            "faculty_with_phd": "Most courses are taught by faculty with master's or doctoral degrees; NNMC notes a majority of program coordinators hold terminal credentials.",
+            "field_of_study": "Biological & Biomedical Sciences",
+            "rank": "State-supported STEM pathway highlighted by New Mexico's STEM initiatives for undergraduate research and pre-health preparation.",
+            "academic_excellence": "Hands-on undergraduate research, upper-division labs, and NIH/DOE-funded projects prepare students for medical, biotech, and graduate study pathways.",
+            "facilities": "Dedicated biology labs, tissue culture spaces, ecology field sites in the Espa\u00f1ola Valley, and shared instrumentation with the STEM Pathways Center.",
+            "student_life": "Biology majors participate in the STEM Learning Center, SACNAS, and service-learning focused on Northern New Mexico ecosystems."
+        }
+    },
+    {
+        "program": "Information Engineering Technology",
+        "degree": "Bachelor of Engineering",
+        "university": "Northern New Mexico College",
+        "total_credit_hours": 120,
+        "years": [
+            {
+                "year": "First Year",
+                "semesters": [
+                    {
+                        "semester": "Fall",
+                        "courses": [
+                            {
+                                "code": "ENGL 1110",
+                                "name": "Composition I",
+                                "credits": 3,
+                                "prerequisite": "Placement or ACT English 19+",
+                                "schedule": {
+                                    "day": "Monday, Wednesday",
+                                    "time": "9:00 AM - 10:15 AM"
+                                },
+                                "lecture_hours": 3,
+                                "lab_hours": 0
+                            },
+                            {
+                                "code": "MATH 1250",
+                                "name": "Trigonometry and Pre-Calculus",
+                                "credits": 4,
+                                "prerequisite": "MATH 1220",
+                                "schedule": {
+                                    "day": "Tuesday, Thursday",
+                                    "time": "8:00 AM - 9:40 AM"
+                                },
+                                "lecture_hours": 4,
+                                "lab_hours": 0
+                            },
+                            {
+                                "code": "ENGR 1101",
+                                "name": "Computer Science for All",
+                                "credits": 3,
+                                "prerequisite": "None",
+                                "schedule": {
+                                    "day": "Monday, Wednesday",
+                                    "time": "11:00 AM - 12:15 PM"
+                                },
+                                "lecture_hours": 3,
+                                "lab_hours": 0
+                            },
+                            {
+                                "code": "ENGR 1101L",
+                                "name": "Computer Science for All Lab",
+                                "credits": 1,
+                                "prerequisite": "None",
+                                "schedule": {
+                                    "day": "Friday",
+                                    "time": "9:00 AM - 11:50 AM"
+                                },
+                                "corequisite": "ENGR 1101",
+                                "lecture_hours": 0,
+                                "lab_hours": 3
+                            },
+                            {
+                                "code": "ENVS 2130",
+                                "name": "Critical Thinking in Science",
+                                "credits": 3,
+                                "prerequisite": "None",
+                                "schedule": {
+                                    "day": "Tuesday",
+                                    "time": "5:00 PM - 7:40 PM"
+                                },
+                                "lecture_hours": 3,
+                                "lab_hours": 0
+                            }
+                        ],
+                        "total_credits": 14
+                    },
+                    {
+                        "semester": "Spring",
+                        "courses": [
+                            {
+                                "code": "ENGL 1210",
+                                "name": "Technical Communications",
+                                "credits": 3,
+                                "prerequisite": "ENGL 1110",
+                                "schedule": {
+                                    "day": "Tuesday, Thursday",
+                                    "time": "9:30 AM - 10:45 AM"
+                                },
+                                "lecture_hours": 3,
+                                "lab_hours": 0
+                            },
+                            {
+                                "code": "MATH 1510",
+                                "name": "Calculus I",
+                                "credits": 4,
+                                "prerequisite": "MATH 1250",
+                                "schedule": {
+                                    "day": "Monday, Wednesday",
+                                    "time": "10:00 AM - 11:40 AM"
+                                },
+                                "lecture_hours": 4,
+                                "lab_hours": 0
+                            },
+                            {
+                                "code": "ENGR 1110L",
+                                "name": "Introduction to Engineering",
+                                "credits": 3,
+                                "prerequisite": "ENGR 1101",
+                                "schedule": {
+                                    "day": "Tuesday",
+                                    "time": "1:00 PM - 3:45 PM"
+                                },
+                                "lecture_hours": 0,
+                                "lab_hours": 3
+                            },
+                            {
+                                "code": "EECE 1152L",
+                                "name": "Computer Programming I",
+                                "credits": 3,
+                                "prerequisite": "ENGR 1101",
+                                "schedule": {
+                                    "day": "Monday, Wednesday",
+                                    "time": "1:00 PM - 2:40 PM"
+                                },
+                                "lecture_hours": 0,
+                                "lab_hours": 3
+                            },
+                            {
+                                "code": "COMM 1130",
+                                "name": "Public Speaking",
+                                "credits": 3,
+                                "prerequisite": "ENGL 1110",
+                                "schedule": {
+                                    "day": "Thursday",
+                                    "time": "4:00 PM - 6:30 PM"
+                                },
+                                "lecture_hours": 3,
+                                "lab_hours": 0
+                            }
+                        ],
+                        "total_credits": 16
+                    }
+                ]
+            },
+            {
+                "year": "Second Year",
+                "semesters": [
+                    {
+                        "semester": "Fall",
+                        "courses": [
+                            {
+                                "code": "MATH 1520",
+                                "name": "Calculus II",
+                                "credits": 4,
+                                "prerequisite": "MATH 1510",
+                                "schedule": {
+                                    "day": "Monday, Wednesday",
+                                    "time": "8:30 AM - 10:10 AM"
+                                },
+                                "lecture_hours": 4,
+                                "lab_hours": 0
+                            },
+                            {
+                                "code": "PHYS 1230",
+                                "name": "Algebra-Based Physics I",
+                                "credits": 3,
+                                "prerequisite": "MATH 1510",
+                                "schedule": {
+                                    "day": "Tuesday, Thursday",
+                                    "time": "11:00 AM - 12:15 PM"
+                                },
+                                "lecture_hours": 3,
+                                "lab_hours": 0
+                            },
+                            {
+                                "code": "PHYS 1230L",
+                                "name": "Algebra-Based Physics I Lab",
+                                "credits": 1,
+                                "prerequisite": "None",
+                                "schedule": {
+                                    "day": "Thursday",
+                                    "time": "2:00 PM - 4:50 PM"
+                                },
+                                "corequisite": "PHYS 1230",
+                                "lecture_hours": 0,
+                                "lab_hours": 3
+                            },
+                            {
+                                "code": "EECE 1105L",
+                                "name": "Microcomputer Systems",
+                                "credits": 3,
+                                "prerequisite": "ENGR 1110L",
+                                "schedule": {
+                                    "day": "Monday",
+                                    "time": "2:00 PM - 5:00 PM"
+                                },
+                                "lecture_hours": 0,
+                                "lab_hours": 3
+                            },
+                            {
+                                "code": "EECE 1132",
+                                "name": "Computer Networks I",
+                                "credits": 3,
+                                "prerequisite": "EECE 1152L",
+                                "schedule": {
+                                    "day": "Tuesday, Thursday",
+                                    "time": "1:00 PM - 2:15 PM"
+                                },
+                                "lecture_hours": 3,
+                                "lab_hours": 0
+                            },
+                            {
+                                "code": "PSYC 2120",
+                                "name": "Developmental Psychology",
+                                "credits": 3,
+                                "prerequisite": "None",
+                                "schedule": {
+                                    "day": "Wednesday",
+                                    "time": "5:00 PM - 7:40 PM"
+                                },
+                                "lecture_hours": 3,
+                                "lab_hours": 0
+                            }
+                        ],
+                        "total_credits": 17
+                    },
+                    {
+                        "semester": "Spring",
+                        "courses": [
+                            {
+                                "code": "PHYS 1240",
+                                "name": "Algebra-Based Physics II",
+                                "credits": 3,
+                                "prerequisite": "PHYS 1230",
+                                "schedule": {
+                                    "day": "Tuesday, Thursday",
+                                    "time": "11:00 AM - 12:15 PM"
+                                },
+                                "lecture_hours": 3,
+                                "lab_hours": 0
+                            },
+                            {
+                                "code": "PHYS 1240L",
+                                "name": "Algebra-Based Physics II Lab",
+                                "credits": 1,
+                                "prerequisite": "PHYS 1230L",
+                                "schedule": {
+                                    "day": "Thursday",
+                                    "time": "2:00 PM - 4:50 PM"
+                                },
+                                "corequisite": "PHYS 1240",
+                                "lecture_hours": 0,
+                                "lab_hours": 3
+                            },
+                            {
+                                "code": "CS 2201",
+                                "name": "Mathematical Foundations of Computer Science",
+                                "credits": 3,
+                                "prerequisite": "MATH 1510",
+                                "schedule": {
+                                    "day": "Monday, Wednesday",
+                                    "time": "9:00 AM - 10:15 AM"
+                                },
+                                "lecture_hours": 3,
+                                "lab_hours": 0
+                            },
+                            {
+                                "code": "IT 2250",
+                                "name": "Introduction to Databases",
+                                "credits": 3,
+                                "prerequisite": "EECE 1152L",
+                                "schedule": {
+                                    "day": "Monday, Wednesday",
+                                    "time": "1:00 PM - 2:15 PM"
+                                },
+                                "lecture_hours": 3,
+                                "lab_hours": 0
+                            },
+                            {
+                                "code": "MATH 1350",
+                                "name": "Introduction to Statistics",
+                                "credits": 3,
+                                "prerequisite": "MATH 1220",
+                                "schedule": {
+                                    "day": "Tuesday",
+                                    "time": "5:00 PM - 7:40 PM"
+                                },
+                                "lecture_hours": 3,
+                                "lab_hours": 0
+                            },
+                            {
+                                "code": "EECE 2230",
+                                "name": "Introduction to Routing and Switching",
+                                "credits": 3,
+                                "prerequisite": "EECE 1132",
+                                "schedule": {
+                                    "day": "Tuesday, Thursday",
+                                    "time": "3:30 PM - 4:45 PM"
+                                },
+                                "lecture_hours": 3,
+                                "lab_hours": 0
+                            }
+                        ],
+                        "total_credits": 16
+                    }
+                ]
+            },
+            {
+                "year": "Third Year",
+                "semesters": [
+                    {
+                        "semester": "Fall",
+                        "courses": [
+                            {
+                                "code": "EET 2201L",
+                                "name": "Digital Systems with Lab",
+                                "credits": 3,
+                                "prerequisite": "EECE 1152L",
+                                "schedule": {
+                                    "day": "Monday",
+                                    "time": "2:00 PM - 5:00 PM"
+                                },
+                                "lecture_hours": 0,
+                                "lab_hours": 3
+                            },
+                            {
+                                "code": "EECE 2231L",
+                                "name": "Intermediate Programming",
+                                "credits": 3,
+                                "prerequisite": "EECE 1152L",
+                                "schedule": {
+                                    "day": "Tuesday, Thursday",
+                                    "time": "9:30 AM - 10:45 AM"
+                                },
+                                "lecture_hours": 0,
+                                "lab_hours": 3
+                            },
+                            {
+                                "code": "IT 3350",
+                                "name": "Database Management",
+                                "credits": 3,
+                                "prerequisite": "IT 2250",
+                                "schedule": {
+                                    "day": "Monday, Wednesday",
+                                    "time": "1:00 PM - 2:15 PM"
+                                },
+                                "lecture_hours": 3,
+                                "lab_hours": 0
+                            },
+                            {
+                                "code": "EECE 3329",
+                                "name": "Human Computer Interaction",
+                                "credits": 3,
+                                "prerequisite": "CS 2201",
+                                "schedule": {
+                                    "day": "Tuesday, Thursday",
+                                    "time": "11:00 AM - 12:15 PM"
+                                },
+                                "lecture_hours": 3,
+                                "lab_hours": 0
+                            },
+                            {
+                                "code": "HIST 1110",
+                                "name": "United States History I",
+                                "credits": 3,
+                                "prerequisite": "None",
+                                "schedule": {
+                                    "day": "Wednesday",
+                                    "time": "5:00 PM - 7:40 PM"
+                                },
+                                "lecture_hours": 3,
+                                "lab_hours": 0
+                            }
+                        ],
+                        "total_credits": 15
+                    },
+                    {
+                        "semester": "Spring",
+                        "courses": [
+                            {
+                                "code": "EECE 3330",
+                                "name": "Computer Networks II",
+                                "credits": 3,
+                                "prerequisite": "EECE 2230",
+                                "schedule": {
+                                    "day": "Tuesday, Thursday",
+                                    "time": "1:00 PM - 2:15 PM"
+                                },
+                                "lecture_hours": 3,
+                                "lab_hours": 0
+                            },
+                            {
+                                "code": "EECE 3351L",
+                                "name": "Advanced Programming",
+                                "credits": 3,
+                                "prerequisite": "EECE 2231L",
+                                "schedule": {
+                                    "day": "Monday",
+                                    "time": "2:00 PM - 5:00 PM"
+                                },
+                                "lecture_hours": 0,
+                                "lab_hours": 3
+                            },
+                            {
+                                "code": "EECE 3355",
+                                "name": "Web Engineering",
+                                "credits": 3,
+                                "prerequisite": "EECE 2231L",
+                                "schedule": {
+                                    "day": "Tuesday, Thursday",
+                                    "time": "9:30 AM - 10:45 AM"
+                                },
+                                "lecture_hours": 3,
+                                "lab_hours": 0
+                            },
+                            {
+                                "code": "IT 4410L",
+                                "name": "Information Assurance and Security",
+                                "credits": 3,
+                                "prerequisite": "IT 3350",
+                                "schedule": {
+                                    "day": "Wednesday",
+                                    "time": "2:00 PM - 5:00 PM"
+                                },
+                                "lecture_hours": 0,
+                                "lab_hours": 3
+                            },
+                            {
+                                "code": "ENGL 1410",
+                                "name": "Introduction to Literature",
+                                "credits": 3,
+                                "prerequisite": "ENGL 1210",
+                                "schedule": {
+                                    "day": "Tuesday",
+                                    "time": "5:00 PM - 7:40 PM"
+                                },
+                                "lecture_hours": 3,
+                                "lab_hours": 0
+                            }
+                        ],
+                        "total_credits": 15
+                    }
+                ]
+            },
+            {
+                "year": "Fourth Year",
+                "semesters": [
+                    {
+                        "semester": "Fall",
+                        "courses": [
+                            {
+                                "code": "EECE 4440",
+                                "name": "Advanced Computer Networks",
+                                "credits": 3,
+                                "prerequisite": "EECE 3330",
+                                "schedule": {
+                                    "day": "Tuesday, Thursday",
+                                    "time": "11:00 AM - 12:15 PM"
+                                },
+                                "lecture_hours": 3,
+                                "lab_hours": 0
+                            },
+                            {
+                                "code": "IT 4490",
+                                "name": "IT Capstone I",
+                                "credits": 3,
+                                "prerequisite": "Senior standing",
+                                "schedule": {
+                                    "day": "Monday",
+                                    "time": "5:30 PM - 8:00 PM"
+                                },
+                                "lecture_hours": 3,
+                                "lab_hours": 0
+                            },
+                            {
+                                "code": "ENGR 4480",
+                                "name": "Engineering Management and Project Management",
+                                "credits": 3,
+                                "prerequisite": "Junior standing",
+                                "schedule": {
+                                    "day": "Wednesday",
+                                    "time": "5:00 PM - 7:45 PM"
+                                },
+                                "lecture_hours": 3,
+                                "lab_hours": 0
+                            },
+                            {
+                                "code": "Technical Elective",
+                                "name": "Approved Upper-Division Technical Elective",
+                                "credits": 3,
+                                "prerequisite": "Advisor approval",
+                                "schedule": {
+                                    "day": "Monday, Wednesday",
+                                    "time": "3:00 PM - 4:15 PM"
+                                },
+                                "lecture_hours": 3,
+                                "lab_hours": 0
+                            },
+                            {
+                                "code": "POLS 1120",
+                                "name": "American National Government",
+                                "credits": 3,
+                                "prerequisite": "None",
+                                "schedule": {
+                                    "day": "Tuesday, Thursday",
+                                    "time": "2:00 PM - 3:15 PM"
+                                },
+                                "lecture_hours": 3,
+                                "lab_hours": 0
+                            }
+                        ],
+                        "total_credits": 15
+                    },
+                    {
+                        "semester": "Spring",
+                        "courses": [
+                            {
+                                "code": "IT 4491",
+                                "name": "IT Capstone II",
+                                "credits": 3,
+                                "prerequisite": "IT 4490",
+                                "schedule": {
+                                    "day": "Monday",
+                                    "time": "5:30 PM - 8:00 PM"
+                                },
+                                "lecture_hours": 3,
+                                "lab_hours": 0
+                            },
+                            {
+                                "code": "Technical Elective",
+                                "name": "Advanced Technical Elective",
+                                "credits": 3,
+                                "prerequisite": "Advisor approval",
+                                "schedule": {
+                                    "day": "Tuesday, Thursday",
+                                    "time": "3:30 PM - 4:45 PM"
+                                },
+                                "lecture_hours": 3,
+                                "lab_hours": 0
+                            },
+                            {
+                                "code": "SOCI 1110",
+                                "name": "Introduction to Sociology",
+                                "credits": 3,
+                                "prerequisite": "None",
+                                "schedule": {
+                                    "day": "Wednesday",
+                                    "time": "5:00 PM - 7:40 PM"
+                                },
+                                "lecture_hours": 3,
+                                "lab_hours": 0
+                            },
+                            {
+                                "code": "ARTS 1120",
+                                "name": "Introduction to Art",
+                                "credits": 3,
+                                "prerequisite": "None",
+                                "schedule": {
+                                    "day": "Thursday",
+                                    "time": "5:00 PM - 7:45 PM"
+                                },
+                                "lecture_hours": 3,
+                                "lab_hours": 0
+                            }
+                        ],
+                        "total_credits": 12
+                    }
+                ]
+            }
+        ],
+        "college_profile": {
+            "university_name": "Northern New Mexico College",
+            "city": "Espa\u00f1ola",
+            "state": "New Mexico",
+            "website": "https://nnmc.edu",
+            "founded_year": 1909,
+            "organization_type": "Public, Hispanic-Serving Institution (4-year, primarily associate's)",
+            "size": "Small campus community (~1,310 undergraduates)",
+            "campus_setting": "Town: Distant (Espa\u00f1ola Valley, northern New Mexico)",
+            "graduation_rate": "33% overall 150%-time completion (IPEDS 2017 cohort)",
+            "average_annual_cost": "$6,102 average net price for in-state freshmen receiving aid (2022-23 IPEDS)",
+            "median_earnings": "$38,112 median earnings 10 years after entry (College Scorecard)",
+            "financial_aid_and_debt": {
+                "share_receiving_grant_aid": "100% of full-time beginning students receive grants or scholarships",
+                "pell_grant_rate": "70% of new freshmen receive Pell Grants (IPEDS 2022-23)",
+                "median_federal_loan_debt": "$6,000 median federal loan debt; about $64/month on the standard plan",
+                "federal_loan_participation": "Roughly 4% of beginning students borrow federal loans"
+            },
+            "typical_earning_for_college_details_page": "Graduates earn roughly $38K at the median 10 years after entering NNMC (College Scorecard).",
+            "campus_diversity": "NNMC is a Hispanic-Serving Institution with majority Hispanic/Latine enrollment and a visible Native American student community.",
+            "test_score": "Open admission; SAT/ACT scores are neither required nor published.",
+            "acceptance_rate": "Open admission (consumer acceptance rate effectively 100%).",
+            "students_who_return_after_first_year": {
+                "full_time": "61% of full-time freshmen return (Fall 2022 to Fall 2023)",
+                "part_time": "36% of part-time freshmen return"
+            },
+            "student_to_faculty_ratio": "11:1",
+            "race_ethnicity": {
+                "american_indian_or_alaska_native": "9%",
+                "asian": "2%",
+                "black_or_african_american": "2%",
+                "hispanic_or_latino": "68%",
+                "white": "12%",
+                "two_or_more_races": "4%",
+                "race_unknown": "2%",
+                "non_resident_alien": "1%"
+            },
+            "total_undergrad_students": 1310,
+            "full_time_students": 498,
+            "part_time_students": 812,
+            "housing_prices": {
+                "off_campus_food_and_housing_per_year": "$12,540 (2024-25 IPEDS estimate)",
+                "off_campus_with_family_food_and_housing_per_year": "$4,180 (2024-25 IPEDS estimate)"
+            },
+            "food": "Food costs are included in the $12,540 off-campus living allowance; students typically budget $3,500-$4,000 of that for groceries and meals.",
+            "transportation": "$5,490 estimated annual transportation/personal expense allowance (IPEDS).",
+            "miscellaneous_expenses": "$5,490 estimated annual personal/other expenses (IPEDS).",
+            "crime_rate": "Latest Clery Act summary (2022) reported zero on-campus arrests and no major crimes, reflecting a very low incident rate.",
+            "salary_range": "$18,660 (25th percentile) to $60,150 (75th percentile) earnings 10 years after entry (College Scorecard).",
+            "faculty_with_phd": "Most courses are taught by faculty with master's or doctoral degrees; NNMC notes a majority of program coordinators hold terminal credentials.",
+            "field_of_study": "Information Engineering Technology & Applied Computing",
+            "rank": "Only public Information Engineering Technology B.Eng. option headquartered in northern New Mexico (part of the CHESS consortium).",
+            "academic_excellence": "Curriculum blends ABET-aligned computing, networking, cybersecurity, and project management with paid internships across Los Alamos & regional labs.",
+            "facilities": "Networking and cybersecurity labs, maker/fab spaces, and shared CHESS virtual infrastructure support programming, automation, and capstone design.",
+            "student_life": "Students join IEEE/ACM chapters, compete in hackathons, and support community broadband and tech-entrepreneurship clinics."
+        }
+    },
+    {
+        "program": "Elementary Education",
+        "degree": "Bachelor of Arts",
+        "university": "Northern New Mexico College",
+        "total_credit_hours": 120,
+        "years": [
+            {
+                "year": "First Year",
+                "semesters": [
+                    {
+                        "semester": "Fall",
+                        "courses": [
+                            {
+                                "code": "ENGL 1110",
+                                "name": "Composition I",
+                                "credits": 3,
+                                "prerequisite": "Placement or ACT English 19+",
+                                "schedule": {
+                                    "day": "Monday, Wednesday",
+                                    "time": "9:00 AM - 10:15 AM"
+                                },
+                                "lecture_hours": 3,
+                                "lab_hours": 0
+                            },
+                            {
+                                "code": "MATH 1220",
+                                "name": "College Algebra",
+                                "credits": 3,
+                                "prerequisite": "Placement or MATH 1215",
+                                "schedule": {
+                                    "day": "Tuesday, Thursday",
+                                    "time": "8:00 AM - 9:15 AM"
+                                },
+                                "lecture_hours": 3,
+                                "lab_hours": 0
+                            },
+                            {
+                                "code": "BIOL 1110",
+                                "name": "General Biology",
+                                "credits": 3,
+                                "prerequisite": "None",
+                                "schedule": {
+                                    "day": "Monday, Wednesday",
+                                    "time": "11:00 AM - 12:15 PM"
+                                },
+                                "lecture_hours": 3,
+                                "lab_hours": 0
+                            },
+                            {
+                                "code": "BIOL 1110L",
+                                "name": "General Biology Lab",
+                                "credits": 1,
+                                "prerequisite": "None",
+                                "schedule": {
+                                    "day": "Friday",
+                                    "time": "9:00 AM - 11:50 AM"
+                                },
+                                "corequisite": "BIOL 1110",
+                                "lecture_hours": 0,
+                                "lab_hours": 3
+                            },
+                            {
+                                "code": "COMM 1130",
+                                "name": "Public Speaking",
+                                "credits": 3,
+                                "prerequisite": "ENGL 1110",
+                                "schedule": {
+                                    "day": "Tuesday",
+                                    "time": "5:00 PM - 7:40 PM"
+                                },
+                                "lecture_hours": 3,
+                                "lab_hours": 0
+                            },
+                            {
+                                "code": "EDUC 1120",
+                                "name": "Introduction to Education",
+                                "credits": 3,
+                                "prerequisite": "None",
+                                "schedule": {
+                                    "day": "Monday",
+                                    "time": "5:30 PM - 8:00 PM"
+                                },
+                                "lecture_hours": 3,
+                                "lab_hours": 0
+                            },
+                            {
+                                "code": "EDUC 1190",
+                                "name": "Introduction to Education Practicum",
+                                "credits": 1,
+                                "prerequisite": "Concurrent enrollment in EDUC 1120",
+                                "schedule": {
+                                    "day": "Thursday",
+                                    "time": "2:00 PM - 4:00 PM"
+                                },
+                                "lecture_hours": 1,
+                                "lab_hours": 0
+                            }
+                        ],
+                        "total_credits": 17
+                    },
+                    {
+                        "semester": "Spring",
+                        "courses": [
+                            {
+                                "code": "ENGL 1120",
+                                "name": "Composition II",
+                                "credits": 3,
+                                "prerequisite": "ENGL 1110",
+                                "schedule": {
+                                    "day": "Tuesday, Thursday",
+                                    "time": "9:30 AM - 10:45 AM"
+                                },
+                                "lecture_hours": 3,
+                                "lab_hours": 0
+                            },
+                            {
+                                "code": "MATH 1130",
+                                "name": "Survey of Mathematics",
+                                "credits": 3,
+                                "prerequisite": "MATH 1220",
+                                "schedule": {
+                                    "day": "Monday, Wednesday",
+                                    "time": "8:00 AM - 9:15 AM"
+                                },
+                                "lecture_hours": 3,
+                                "lab_hours": 0
+                            },
+                            {
+                                "code": "HIST 1110",
+                                "name": "United States History I",
+                                "credits": 3,
+                                "prerequisite": "None",
+                                "schedule": {
+                                    "day": "Monday, Wednesday",
+                                    "time": "11:00 AM - 12:15 PM"
+                                },
+                                "lecture_hours": 3,
+                                "lab_hours": 0
+                            },
+                            {
+                                "code": "EDUC 2221",
+                                "name": "Educational Psychology",
+                                "credits": 3,
+                                "prerequisite": "EDUC 1120",
+                                "schedule": {
+                                    "day": "Tuesday",
+                                    "time": "1:00 PM - 3:30 PM"
+                                },
+                                "lecture_hours": 3,
+                                "lab_hours": 0
+                            },
+                            {
+                                "code": "EDUC 2330",
+                                "name": "The Effective Classroom",
+                                "credits": 3,
+                                "prerequisite": "EDUC 1120",
+                                "schedule": {
+                                    "day": "Thursday",
+                                    "time": "1:00 PM - 3:30 PM"
+                                },
+                                "lecture_hours": 3,
+                                "lab_hours": 0
+                            }
+                        ],
+                        "total_credits": 15
+                    }
+                ]
+            },
+            {
+                "year": "Second Year",
+                "semesters": [
+                    {
+                        "semester": "Fall",
+                        "courses": [
+                            {
+                                "code": "MATH 1350",
+                                "name": "Introduction to Statistics",
+                                "credits": 3,
+                                "prerequisite": "MATH 1130",
+                                "schedule": {
+                                    "day": "Monday, Wednesday",
+                                    "time": "9:30 AM - 10:45 AM"
+                                },
+                                "lecture_hours": 3,
+                                "lab_hours": 0
+                            },
+                            {
+                                "code": "ENGL 1410",
+                                "name": "Introduction to Literature",
+                                "credits": 3,
+                                "prerequisite": "ENGL 1120",
+                                "schedule": {
+                                    "day": "Tuesday",
+                                    "time": "5:00 PM - 7:40 PM"
+                                },
+                                "lecture_hours": 3,
+                                "lab_hours": 0
+                            },
+                            {
+                                "code": "POLS 1110",
+                                "name": "Introduction to Political Science",
+                                "credits": 3,
+                                "prerequisite": "None",
+                                "schedule": {
+                                    "day": "Tuesday, Thursday",
+                                    "time": "2:00 PM - 3:15 PM"
+                                },
+                                "lecture_hours": 3,
+                                "lab_hours": 0
+                            },
+                            {
+                                "code": "EDUC 2440",
+                                "name": "Teaching Elementary School Math",
+                                "credits": 3,
+                                "prerequisite": "MATH 1220",
+                                "schedule": {
+                                    "day": "Monday",
+                                    "time": "4:00 PM - 6:45 PM"
+                                },
+                                "lecture_hours": 3,
+                                "lab_hours": 0
+                            },
+                            {
+                                "code": "SOCI 2310",
+                                "name": "Contemporary Social Problems",
+                                "credits": 3,
+                                "prerequisite": "None",
+                                "schedule": {
+                                    "day": "Wednesday",
+                                    "time": "5:30 PM - 8:00 PM"
+                                },
+                                "lecture_hours": 3,
+                                "lab_hours": 0
+                            }
+                        ],
+                        "total_credits": 15
+                    },
+                    {
+                        "semester": "Spring",
+                        "courses": [
+                            {
+                                "code": "ENGL 2310",
+                                "name": "Introduction to Creative Writing",
+                                "credits": 3,
+                                "prerequisite": "ENGL 1120",
+                                "schedule": {
+                                    "day": "Monday, Wednesday",
+                                    "time": "11:00 AM - 12:15 PM"
+                                },
+                                "lecture_hours": 3,
+                                "lab_hours": 0
+                            },
+                            {
+                                "code": "ENGL 2650",
+                                "name": "World Literature I",
+                                "credits": 3,
+                                "prerequisite": "ENGL 1410",
+                                "schedule": {
+                                    "day": "Tuesday, Thursday",
+                                    "time": "9:30 AM - 10:45 AM"
+                                },
+                                "lecture_hours": 3,
+                                "lab_hours": 0
+                            },
+                            {
+                                "code": "POLS 1120",
+                                "name": "American National Government",
+                                "credits": 3,
+                                "prerequisite": "None",
+                                "schedule": {
+                                    "day": "Monday, Wednesday",
+                                    "time": "2:00 PM - 3:15 PM"
+                                },
+                                "lecture_hours": 3,
+                                "lab_hours": 0
+                            },
+                            {
+                                "code": "HIST 1120",
+                                "name": "United States History II",
+                                "credits": 3,
+                                "prerequisite": "HIST 1110",
+                                "schedule": {
+                                    "day": "Tuesday",
+                                    "time": "5:00 PM - 7:40 PM"
+                                },
+                                "lecture_hours": 3,
+                                "lab_hours": 0
+                            },
+                            {
+                                "code": "Science Elective",
+                                "name": "Approved Lab Science Elective",
+                                "credits": 4,
+                                "prerequisite": "Advisor approval",
+                                "schedule": {
+                                    "day": "Thursday",
+                                    "time": "1:00 PM - 4:45 PM"
+                                },
+                                "lecture_hours": 0,
+                                "lab_hours": 4
+                            }
+                        ],
+                        "total_credits": 16
+                    }
+                ]
+            },
+            {
+                "year": "Third Year",
+                "semesters": [
+                    {
+                        "semester": "Fall",
+                        "courses": [
+                            {
+                                "code": "ENGL 2660",
+                                "name": "World Literature II",
+                                "credits": 3,
+                                "prerequisite": "ENGL 2650",
+                                "schedule": {
+                                    "day": "Tuesday, Thursday",
+                                    "time": "9:30 AM - 10:45 AM"
+                                },
+                                "lecture_hours": 3,
+                                "lab_hours": 0
+                            },
+                            {
+                                "code": "EDUC 3310",
+                                "name": "Teaching and Diagnosis of Reading",
+                                "credits": 3,
+                                "prerequisite": "EDUC 2330",
+                                "schedule": {
+                                    "day": "Monday",
+                                    "time": "4:00 PM - 6:45 PM"
+                                },
+                                "lecture_hours": 3,
+                                "lab_hours": 0
+                            },
+                            {
+                                "code": "EDUC 3314",
+                                "name": "Introduction to Linguistics",
+                                "credits": 3,
+                                "prerequisite": "EDUC 2221",
+                                "schedule": {
+                                    "day": "Wednesday",
+                                    "time": "4:00 PM - 6:45 PM"
+                                },
+                                "lecture_hours": 3,
+                                "lab_hours": 0
+                            },
+                            {
+                                "code": "EDUC 3322",
+                                "name": "Math for Educators",
+                                "credits": 3,
+                                "prerequisite": "EDUC 2440",
+                                "schedule": {
+                                    "day": "Tuesday",
+                                    "time": "1:00 PM - 3:45 PM"
+                                },
+                                "lecture_hours": 3,
+                                "lab_hours": 0
+                            },
+                            {
+                                "code": "EDBE 3305",
+                                "name": "Spanish Literacy for Bilingual Education",
+                                "credits": 3,
+                                "prerequisite": "Intermediate Spanish proficiency",
+                                "schedule": {
+                                    "day": "Thursday",
+                                    "time": "4:00 PM - 6:45 PM"
+                                },
+                                "lecture_hours": 3,
+                                "lab_hours": 0
+                            }
+                        ],
+                        "total_credits": 15
+                    },
+                    {
+                        "semester": "Spring",
+                        "courses": [
+                            {
+                                "code": "EDBE 3306",
+                                "name": "Spanish for the Bilingual Classroom",
+                                "credits": 3,
+                                "prerequisite": "EDBE 3305",
+                                "schedule": {
+                                    "day": "Monday, Wednesday",
+                                    "time": "11:00 AM - 12:15 PM"
+                                },
+                                "lecture_hours": 3,
+                                "lab_hours": 0
+                            },
+                            {
+                                "code": "EDBE 4403",
+                                "name": "Foundations of Bilingual/ESL Multicultural Education",
+                                "credits": 3,
+                                "prerequisite": "EDUC 2330",
+                                "schedule": {
+                                    "day": "Tuesday",
+                                    "time": "4:00 PM - 6:45 PM"
+                                },
+                                "lecture_hours": 3,
+                                "lab_hours": 0
+                            },
+                            {
+                                "code": "EDBE 4406",
+                                "name": "Methods for Teaching Bilingual ESL",
+                                "credits": 3,
+                                "prerequisite": "EDBE 3306",
+                                "schedule": {
+                                    "day": "Thursday",
+                                    "time": "4:00 PM - 6:45 PM"
+                                },
+                                "lecture_hours": 3,
+                                "lab_hours": 0
+                            },
+                            {
+                                "code": "EDUC 4450",
+                                "name": "Foundations of Pedagogy in Multicultural Classrooms",
+                                "credits": 3,
+                                "prerequisite": "EDUC 3310",
+                                "schedule": {
+                                    "day": "Monday",
+                                    "time": "4:00 PM - 6:45 PM"
+                                },
+                                "lecture_hours": 3,
+                                "lab_hours": 0
+                            },
+                            {
+                                "code": "EDUC 4460",
+                                "name": "Reading and Writing Across Content Areas",
+                                "credits": 3,
+                                "prerequisite": "EDUC 3310",
+                                "schedule": {
+                                    "day": "Wednesday",
+                                    "time": "4:00 PM - 6:45 PM"
+                                },
+                                "lecture_hours": 3,
+                                "lab_hours": 0
+                            }
+                        ],
+                        "total_credits": 15
+                    }
+                ]
+            },
+            {
+                "year": "Fourth Year",
+                "semesters": [
+                    {
+                        "semester": "Fall",
+                        "courses": [
+                            {
+                                "code": "EDBE 4416",
+                                "name": "Second Language Acquisition",
+                                "credits": 3,
+                                "prerequisite": "EDBE 4403",
+                                "schedule": {
+                                    "day": "Tuesday",
+                                    "time": "4:00 PM - 6:45 PM"
+                                },
+                                "lecture_hours": 3,
+                                "lab_hours": 0
+                            },
+                            {
+                                "code": "EDUC 4475",
+                                "name": "Methods for Teaching in CLD Classrooms",
+                                "credits": 3,
+                                "prerequisite": "EDUC 4450",
+                                "schedule": {
+                                    "day": "Wednesday",
+                                    "time": "4:00 PM - 6:45 PM"
+                                },
+                                "lecture_hours": 3,
+                                "lab_hours": 0
+                            },
+                            {
+                                "code": "EDUC 4495",
+                                "name": "Assessment in CLD Classrooms",
+                                "credits": 3,
+                                "prerequisite": "EDUC 4450",
+                                "schedule": {
+                                    "day": "Thursday",
+                                    "time": "4:00 PM - 6:45 PM"
+                                },
+                                "lecture_hours": 3,
+                                "lab_hours": 0
+                            },
+                            {
+                                "code": "EDBE 4481",
+                                "name": "Linguistics & Phonetics for the Bilingual Teacher",
+                                "credits": 3,
+                                "prerequisite": "EDBE 4416",
+                                "schedule": {
+                                    "day": "Monday",
+                                    "time": "5:30 PM - 8:00 PM"
+                                },
+                                "lecture_hours": 3,
+                                "lab_hours": 0
+                            },
+                            {
+                                "code": "EDBE 4482",
+                                "name": "Spanish Language & Folklore of New Mexico",
+                                "credits": 3,
+                                "prerequisite": "EDBE 3306",
+                                "schedule": {
+                                    "day": "Saturday",
+                                    "time": "9:00 AM - 12:00 PM"
+                                },
+                                "lecture_hours": 3,
+                                "lab_hours": 0
+                            }
+                        ],
+                        "total_credits": 15
+                    },
+                    {
+                        "semester": "Spring",
+                        "courses": [
+                            {
+                                "code": "EDUC 4479",
+                                "name": "Student Teaching",
+                                "credits": 11,
+                                "prerequisite": "Program admission and completion of coursework",
+                                "schedule": {
+                                    "day": "Monday - Friday",
+                                    "time": "Full-day placement"
+                                },
+                                "lecture_hours": 11,
+                                "lab_hours": 0
+                            },
+                            {
+                                "code": "EDUC 4480",
+                                "name": "Student Teaching Seminar",
+                                "credits": 1,
+                                "prerequisite": "Concurrent enrollment in EDUC 4479",
+                                "schedule": {
+                                    "day": "Friday",
+                                    "time": "1:00 PM - 3:00 PM"
+                                },
+                                "lecture_hours": 1,
+                                "lab_hours": 0
+                            }
+                        ],
+                        "total_credits": 12
+                    }
+                ]
+            }
+        ],
+        "college_profile": {
+            "university_name": "Northern New Mexico College",
+            "city": "Espa\u00f1ola",
+            "state": "New Mexico",
+            "website": "https://nnmc.edu",
+            "founded_year": 1909,
+            "organization_type": "Public, Hispanic-Serving Institution (4-year, primarily associate's)",
+            "size": "Small campus community (~1,310 undergraduates)",
+            "campus_setting": "Town: Distant (Espa\u00f1ola Valley, northern New Mexico)",
+            "graduation_rate": "33% overall 150%-time completion (IPEDS 2017 cohort)",
+            "average_annual_cost": "$6,102 average net price for in-state freshmen receiving aid (2022-23 IPEDS)",
+            "median_earnings": "$38,112 median earnings 10 years after entry (College Scorecard)",
+            "financial_aid_and_debt": {
+                "share_receiving_grant_aid": "100% of full-time beginning students receive grants or scholarships",
+                "pell_grant_rate": "70% of new freshmen receive Pell Grants (IPEDS 2022-23)",
+                "median_federal_loan_debt": "$6,000 median federal loan debt; about $64/month on the standard plan",
+                "federal_loan_participation": "Roughly 4% of beginning students borrow federal loans"
+            },
+            "typical_earning_for_college_details_page": "Graduates earn roughly $38K at the median 10 years after entering NNMC (College Scorecard).",
+            "campus_diversity": "NNMC is a Hispanic-Serving Institution with majority Hispanic/Latine enrollment and a visible Native American student community.",
+            "test_score": "Open admission; SAT/ACT scores are neither required nor published.",
+            "acceptance_rate": "Open admission (consumer acceptance rate effectively 100%).",
+            "students_who_return_after_first_year": {
+                "full_time": "61% of full-time freshmen return (Fall 2022 to Fall 2023)",
+                "part_time": "36% of part-time freshmen return"
+            },
+            "student_to_faculty_ratio": "11:1",
+            "race_ethnicity": {
+                "american_indian_or_alaska_native": "9%",
+                "asian": "2%",
+                "black_or_african_american": "2%",
+                "hispanic_or_latino": "68%",
+                "white": "12%",
+                "two_or_more_races": "4%",
+                "race_unknown": "2%",
+                "non_resident_alien": "1%"
+            },
+            "total_undergrad_students": 1310,
+            "full_time_students": 498,
+            "part_time_students": 812,
+            "housing_prices": {
+                "off_campus_food_and_housing_per_year": "$12,540 (2024-25 IPEDS estimate)",
+                "off_campus_with_family_food_and_housing_per_year": "$4,180 (2024-25 IPEDS estimate)"
+            },
+            "food": "Food costs are included in the $12,540 off-campus living allowance; students typically budget $3,500-$4,000 of that for groceries and meals.",
+            "transportation": "$5,490 estimated annual transportation/personal expense allowance (IPEDS).",
+            "miscellaneous_expenses": "$5,490 estimated annual personal/other expenses (IPEDS).",
+            "crime_rate": "Latest Clery Act summary (2022) reported zero on-campus arrests and no major crimes, reflecting a very low incident rate.",
+            "salary_range": "$18,660 (25th percentile) to $60,150 (75th percentile) earnings 10 years after entry (College Scorecard).",
+            "faculty_with_phd": "Most courses are taught by faculty with master's or doctoral degrees; NNMC notes a majority of program coordinators hold terminal credentials.",
+            "field_of_study": "Teacher Education & Bilingual Elementary Education",
+            "rank": "Recognized regional pipeline for bilingual and multicultural elementary teachers by the New Mexico Public Education Department.",
+            "academic_excellence": "CAEP-accredited coursework integrates bilingual literacy, culturally responsive pedagogy, and extended practicums across northern NM districts.",
+            "facilities": "Literacy and TESOL resource centers, simulation classrooms, and bilingual education labs on the Espa\u00f1ola campus and El Rito site.",
+            "student_life": "Teacher candidates engage in tutoring, bilingual education clubs, and paid residencies with local school districts."
+        }
+    },
+    {
+        "program": "Management",
+        "degree": "Bachelor of Business Administration",
+        "university": "Northern New Mexico College",
+        "total_credit_hours": 120,
+        "years": [
+            {
+                "year": "First Year",
+                "semesters": [
+                    {
+                        "semester": "Fall",
+                        "courses": [
+                            {
+                                "code": "ENGL 1110",
+                                "name": "Composition I",
+                                "credits": 3,
+                                "prerequisite": "Placement or ACT English 19+",
+                                "schedule": {
+                                    "day": "Monday, Wednesday",
+                                    "time": "9:00 AM - 10:15 AM"
+                                },
+                                "lecture_hours": 3,
+                                "lab_hours": 0
+                            },
+                            {
+                                "code": "MATH 1220",
+                                "name": "College Algebra",
+                                "credits": 3,
+                                "prerequisite": "Placement or completion of MATH 1215",
+                                "schedule": {
+                                    "day": "Tuesday, Thursday",
+                                    "time": "8:00 AM - 9:15 AM"
+                                },
+                                "lecture_hours": 3,
+                                "lab_hours": 0
+                            },
+                            {
+                                "code": "COMM 1130",
+                                "name": "Public Speaking",
+                                "credits": 3,
+                                "prerequisite": "ENGL 1110",
+                                "schedule": {
+                                    "day": "Wednesday",
+                                    "time": "1:00 PM - 3:30 PM"
+                                },
+                                "lecture_hours": 3,
+                                "lab_hours": 0
+                            },
+                            {
+                                "code": "ECON 2110",
+                                "name": "Macroeconomic Principles",
+                                "credits": 3,
+                                "prerequisite": "None",
+                                "schedule": {
+                                    "day": "Tuesday, Thursday",
+                                    "time": "11:00 AM - 12:15 PM"
+                                },
+                                "lecture_hours": 3,
+                                "lab_hours": 0
+                            },
+                            {
+                                "code": "BUSA 1110",
+                                "name": "Introduction to Business",
+                                "credits": 3,
+                                "prerequisite": "None",
+                                "schedule": {
+                                    "day": "Monday",
+                                    "time": "3:30 PM - 6:00 PM"
+                                },
+                                "lecture_hours": 3,
+                                "lab_hours": 0
+                            }
+                        ],
+                        "total_credits": 15
+                    },
+                    {
+                        "semester": "Spring",
+                        "courses": [
+                            {
+                                "code": "ENGL 1120",
+                                "name": "Composition II",
+                                "credits": 3,
+                                "prerequisite": "ENGL 1110",
+                                "schedule": {
+                                    "day": "Tuesday, Thursday",
+                                    "time": "9:30 AM - 10:45 AM"
+                                },
+                                "lecture_hours": 3,
+                                "lab_hours": 0
+                            },
+                            {
+                                "code": "MATH 1350",
+                                "name": "Introduction to Statistics",
+                                "credits": 3,
+                                "prerequisite": "MATH 1220",
+                                "schedule": {
+                                    "day": "Monday, Wednesday",
+                                    "time": "8:30 AM - 9:45 AM"
+                                },
+                                "lecture_hours": 3,
+                                "lab_hours": 0
+                            },
+                            {
+                                "code": "ECON 2120",
+                                "name": "Microeconomic Principles",
+                                "credits": 3,
+                                "prerequisite": "ECON 2110",
+                                "schedule": {
+                                    "day": "Tuesday, Thursday",
+                                    "time": "11:00 AM - 12:15 PM"
+                                },
+                                "lecture_hours": 3,
+                                "lab_hours": 0
+                            },
+                            {
+                                "code": "ACCT 2110",
+                                "name": "Principles of Accounting I",
+                                "credits": 3,
+                                "prerequisite": "MATH 1220",
+                                "schedule": {
+                                    "day": "Monday, Wednesday",
+                                    "time": "2:00 PM - 3:15 PM"
+                                },
+                                "lecture_hours": 3,
+                                "lab_hours": 0
+                            },
+                            {
+                                "code": "BCIS 2140",
+                                "name": "Business Technology",
+                                "credits": 3,
+                                "prerequisite": "None",
+                                "schedule": {
+                                    "day": "Tuesday",
+                                    "time": "5:30 PM - 8:00 PM"
+                                },
+                                "lecture_hours": 3,
+                                "lab_hours": 0
+                            }
+                        ],
+                        "total_credits": 15
+                    }
+                ]
+            },
+            {
+                "year": "Second Year",
+                "semesters": [
+                    {
+                        "semester": "Fall",
+                        "courses": [
+                            {
+                                "code": "ACCT 2120",
+                                "name": "Principles of Accounting II",
+                                "credits": 3,
+                                "prerequisite": "ACCT 2110",
+                                "schedule": {
+                                    "day": "Monday, Wednesday",
+                                    "time": "2:00 PM - 3:15 PM"
+                                },
+                                "lecture_hours": 3,
+                                "lab_hours": 0
+                            },
+                            {
+                                "code": "BLAW 2110",
+                                "name": "Business Law I",
+                                "credits": 3,
+                                "prerequisite": "Sophomore standing",
+                                "schedule": {
+                                    "day": "Tuesday",
+                                    "time": "5:30 PM - 8:00 PM"
+                                },
+                                "lecture_hours": 3,
+                                "lab_hours": 0
+                            },
+                            {
+                                "code": "MKTG 2110",
+                                "name": "Principles of Marketing",
+                                "credits": 3,
+                                "prerequisite": "None",
+                                "schedule": {
+                                    "day": "Tuesday, Thursday",
+                                    "time": "1:00 PM - 2:15 PM"
+                                },
+                                "lecture_hours": 3,
+                                "lab_hours": 0
+                            },
+                            {
+                                "code": "HIST 1110",
+                                "name": "United States History I",
+                                "credits": 3,
+                                "prerequisite": "None",
+                                "schedule": {
+                                    "day": "Monday, Wednesday",
+                                    "time": "11:00 AM - 12:15 PM"
+                                },
+                                "lecture_hours": 3,
+                                "lab_hours": 0
+                            },
+                            {
+                                "code": "POLS 1120",
+                                "name": "American National Government",
+                                "credits": 3,
+                                "prerequisite": "None",
+                                "schedule": {
+                                    "day": "Tuesday, Thursday",
+                                    "time": "2:30 PM - 3:45 PM"
+                                },
+                                "lecture_hours": 3,
+                                "lab_hours": 0
+                            }
+                        ],
+                        "total_credits": 15
+                    },
+                    {
+                        "semester": "Spring",
+                        "courses": [
+                            {
+                                "code": "MGMT 2110",
+                                "name": "Principles of Management",
+                                "credits": 3,
+                                "prerequisite": "Sophomore standing",
+                                "schedule": {
+                                    "day": "Monday, Wednesday",
+                                    "time": "9:00 AM - 10:15 AM"
+                                },
+                                "lecture_hours": 3,
+                                "lab_hours": 0
+                            },
+                            {
+                                "code": "BFIN 2110",
+                                "name": "Introduction to Finance",
+                                "credits": 3,
+                                "prerequisite": "ACCT 2120",
+                                "schedule": {
+                                    "day": "Tuesday, Thursday",
+                                    "time": "11:00 AM - 12:15 PM"
+                                },
+                                "lecture_hours": 3,
+                                "lab_hours": 0
+                            },
+                            {
+                                "code": "BUSA 2130",
+                                "name": "Business Statistics",
+                                "credits": 3,
+                                "prerequisite": "MATH 1350",
+                                "schedule": {
+                                    "day": "Tuesday",
+                                    "time": "5:30 PM - 8:00 PM"
+                                },
+                                "lecture_hours": 3,
+                                "lab_hours": 0
+                            },
+                            {
+                                "code": "SOCI 1110",
+                                "name": "Introduction to Sociology",
+                                "credits": 3,
+                                "prerequisite": "None",
+                                "schedule": {
+                                    "day": "Monday",
+                                    "time": "4:00 PM - 6:30 PM"
+                                },
+                                "lecture_hours": 3,
+                                "lab_hours": 0
+                            },
+                            {
+                                "code": "ENGL 1410",
+                                "name": "Introduction to Literature",
+                                "credits": 3,
+                                "prerequisite": "ENGL 1120",
+                                "schedule": {
+                                    "day": "Wednesday",
+                                    "time": "5:30 PM - 8:00 PM"
+                                },
+                                "lecture_hours": 3,
+                                "lab_hours": 0
+                            }
+                        ],
+                        "total_credits": 15
+                    }
+                ]
+            },
+            {
+                "year": "Third Year",
+                "semesters": [
+                    {
+                        "semester": "Fall",
+                        "courses": [
+                            {
+                                "code": "BUSA 3313",
+                                "name": "Organizational Behavior",
+                                "credits": 3,
+                                "prerequisite": "MGMT 2110",
+                                "schedule": {
+                                    "day": "Monday, Wednesday",
+                                    "time": "10:30 AM - 11:45 AM"
+                                },
+                                "lecture_hours": 3,
+                                "lab_hours": 0
+                            },
+                            {
+                                "code": "MGMT 3353",
+                                "name": "Operations Management",
+                                "credits": 3,
+                                "prerequisite": "MGMT 2110 and MATH 1350",
+                                "schedule": {
+                                    "day": "Tuesday, Thursday",
+                                    "time": "1:00 PM - 2:15 PM"
+                                },
+                                "lecture_hours": 3,
+                                "lab_hours": 0
+                            },
+                            {
+                                "code": "MGMT 3360",
+                                "name": "Human Resources Management",
+                                "credits": 3,
+                                "prerequisite": "MGMT 2110",
+                                "schedule": {
+                                    "day": "Monday",
+                                    "time": "5:30 PM - 8:00 PM"
+                                },
+                                "lecture_hours": 3,
+                                "lab_hours": 0
+                            },
+                            {
+                                "code": "BUSA 3330",
+                                "name": "Principles of Project Management",
+                                "credits": 3,
+                                "prerequisite": "MGMT 2110",
+                                "schedule": {
+                                    "day": "Wednesday",
+                                    "time": "5:30 PM - 8:00 PM"
+                                },
+                                "lecture_hours": 3,
+                                "lab_hours": 0
+                            },
+                            {
+                                "code": "ARTS 1120",
+                                "name": "Introduction to Art",
+                                "credits": 3,
+                                "prerequisite": "None",
+                                "schedule": {
+                                    "day": "Tuesday",
+                                    "time": "2:30 PM - 5:00 PM"
+                                },
+                                "lecture_hours": 3,
+                                "lab_hours": 0
+                            }
+                        ],
+                        "total_credits": 15
+                    },
+                    {
+                        "semester": "Spring",
+                        "courses": [
+                            {
+                                "code": "BUSA 3354",
+                                "name": "E-Commerce",
+                                "credits": 3,
+                                "prerequisite": "BCIS 2140",
+                                "schedule": {
+                                    "day": "Tuesday, Thursday",
+                                    "time": "9:30 AM - 10:45 AM"
+                                },
+                                "lecture_hours": 3,
+                                "lab_hours": 0
+                            },
+                            {
+                                "code": "MGMT 4456",
+                                "name": "Marketing Management",
+                                "credits": 3,
+                                "prerequisite": "MKTG 2110",
+                                "schedule": {
+                                    "day": "Tuesday",
+                                    "time": "5:30 PM - 8:00 PM"
+                                },
+                                "lecture_hours": 3,
+                                "lab_hours": 0
+                            },
+                            {
+                                "code": "MGMT 4432",
+                                "name": "Strategic Management",
+                                "credits": 3,
+                                "prerequisite": "MGMT 2110 and senior standing",
+                                "schedule": {
+                                    "day": "Monday, Wednesday",
+                                    "time": "1:30 PM - 2:45 PM"
+                                },
+                                "lecture_hours": 3,
+                                "lab_hours": 0
+                            },
+                            {
+                                "code": "BFIN 4408",
+                                "name": "Corporate Finance",
+                                "credits": 3,
+                                "prerequisite": "BFIN 2110",
+                                "schedule": {
+                                    "day": "Monday, Wednesday",
+                                    "time": "11:00 AM - 12:15 PM"
+                                },
+                                "lecture_hours": 3,
+                                "lab_hours": 0
+                            },
+                            {
+                                "code": "PHIL 1115",
+                                "name": "Introduction to Philosophy",
+                                "credits": 3,
+                                "prerequisite": "None",
+                                "schedule": {
+                                    "day": "Thursday",
+                                    "time": "5:30 PM - 8:00 PM"
+                                },
+                                "lecture_hours": 3,
+                                "lab_hours": 0
+                            }
+                        ],
+                        "total_credits": 15
+                    }
+                ]
+            },
+            {
+                "year": "Fourth Year",
+                "semesters": [
+                    {
+                        "semester": "Fall",
+                        "courses": [
+                            {
+                                "code": "MGMT 4462",
+                                "name": "International Business and Management",
+                                "credits": 3,
+                                "prerequisite": "MGMT 2110",
+                                "schedule": {
+                                    "day": "Monday, Wednesday",
+                                    "time": "9:00 AM - 10:15 AM"
+                                },
+                                "lecture_hours": 3,
+                                "lab_hours": 0
+                            },
+                            {
+                                "code": "BUSA 4410",
+                                "name": "Money and Banking",
+                                "credits": 3,
+                                "prerequisite": "ECON 2120",
+                                "schedule": {
+                                    "day": "Tuesday, Thursday",
+                                    "time": "11:00 AM - 12:15 PM"
+                                },
+                                "lecture_hours": 3,
+                                "lab_hours": 0
+                            },
+                            {
+                                "code": "ENTR 3110",
+                                "name": "Entrepreneurship",
+                                "credits": 3,
+                                "prerequisite": "Junior standing",
+                                "schedule": {
+                                    "day": "Wednesday",
+                                    "time": "5:30 PM - 8:00 PM"
+                                },
+                                "lecture_hours": 3,
+                                "lab_hours": 0
+                            },
+                            {
+                                "code": "COMM 2150",
+                                "name": "Intercultural Communication",
+                                "credits": 3,
+                                "prerequisite": "None",
+                                "schedule": {
+                                    "day": "Tuesday, Thursday",
+                                    "time": "2:30 PM - 3:45 PM"
+                                },
+                                "lecture_hours": 3,
+                                "lab_hours": 0
+                            },
+                            {
+                                "code": "BUSA 4490",
+                                "name": "Business Capstone I",
+                                "credits": 3,
+                                "prerequisite": "Senior standing",
+                                "schedule": {
+                                    "day": "Friday",
+                                    "time": "9:00 AM - 12:00 PM"
+                                },
+                                "lecture_hours": 3,
+                                "lab_hours": 0
+                            }
+                        ],
+                        "total_credits": 15
+                    },
+                    {
+                        "semester": "Spring",
+                        "courses": [
+                            {
+                                "code": "BUSA 4491",
+                                "name": "Business Capstone II",
+                                "credits": 3,
+                                "prerequisite": "BUSA 4490",
+                                "schedule": {
+                                    "day": "Friday",
+                                    "time": "9:00 AM - 12:00 PM"
+                                },
+                                "lecture_hours": 3,
+                                "lab_hours": 0
+                            },
+                            {
+                                "code": "MGMT 4478",
+                                "name": "Quality Management",
+                                "credits": 3,
+                                "prerequisite": "MGMT 3353",
+                                "schedule": {
+                                    "day": "Monday, Wednesday",
+                                    "time": "10:30 AM - 11:45 AM"
+                                },
+                                "lecture_hours": 3,
+                                "lab_hours": 0
+                            },
+                            {
+                                "code": "MKTG 4120",
+                                "name": "Digital Marketing",
+                                "credits": 3,
+                                "prerequisite": "MKTG 2110",
+                                "schedule": {
+                                    "day": "Tuesday",
+                                    "time": "5:30 PM - 8:00 PM"
+                                },
+                                "lecture_hours": 3,
+                                "lab_hours": 0
+                            },
+                            {
+                                "code": "ECON 4210",
+                                "name": "Managerial Economics",
+                                "credits": 3,
+                                "prerequisite": "ECON 2120",
+                                "schedule": {
+                                    "day": "Tuesday, Thursday",
+                                    "time": "1:00 PM - 2:15 PM"
+                                },
+                                "lecture_hours": 3,
+                                "lab_hours": 0
+                            },
+                            {
+                                "code": "COMM 4120",
+                                "name": "Leadership Communication",
+                                "credits": 3,
+                                "prerequisite": "COMM 1130",
+                                "schedule": {
+                                    "day": "Wednesday",
+                                    "time": "5:30 PM - 8:00 PM"
+                                },
+                                "lecture_hours": 3,
+                                "lab_hours": 0
+                            }
+                        ],
+                        "total_credits": 15
+                    }
+                ]
+            }
+        ],
+        "college_profile": {
+            "university_name": "Northern New Mexico College",
+            "city": "Espa\u00f1ola",
+            "state": "New Mexico",
+            "website": "https://nnmc.edu",
+            "founded_year": 1909,
+            "organization_type": "Public, Hispanic-Serving Institution (4-year, primarily associate's)",
+            "size": "Small campus community (~1,310 undergraduates)",
+            "campus_setting": "Town: Distant (Espa\u00f1ola Valley, northern New Mexico)",
+            "graduation_rate": "33% overall 150%-time completion (IPEDS 2017 cohort)",
+            "average_annual_cost": "$6,102 average net price for in-state freshmen receiving aid (2022-23 IPEDS)",
+            "median_earnings": "$38,112 median earnings 10 years after entry (College Scorecard)",
+            "financial_aid_and_debt": {
+                "share_receiving_grant_aid": "100% of full-time beginning students receive grants or scholarships",
+                "pell_grant_rate": "70% of new freshmen receive Pell Grants (IPEDS 2022-23)",
+                "median_federal_loan_debt": "$6,000 median federal loan debt; about $64/month on the standard plan",
+                "federal_loan_participation": "Roughly 4% of beginning students borrow federal loans"
+            },
+            "typical_earning_for_college_details_page": "Graduates earn roughly $38K at the median 10 years after entering NNMC (College Scorecard).",
+            "campus_diversity": "NNMC is a Hispanic-Serving Institution with majority Hispanic/Latine enrollment and a visible Native American student community.",
+            "test_score": "Open admission; SAT/ACT scores are neither required nor published.",
+            "acceptance_rate": "Open admission (consumer acceptance rate effectively 100%).",
+            "students_who_return_after_first_year": {
+                "full_time": "61% of full-time freshmen return (Fall 2022 to Fall 2023)",
+                "part_time": "36% of part-time freshmen return"
+            },
+            "student_to_faculty_ratio": "11:1",
+            "race_ethnicity": {
+                "american_indian_or_alaska_native": "9%",
+                "asian": "2%",
+                "black_or_african_american": "2%",
+                "hispanic_or_latino": "68%",
+                "white": "12%",
+                "two_or_more_races": "4%",
+                "race_unknown": "2%",
+                "non_resident_alien": "1%"
+            },
+            "total_undergrad_students": 1310,
+            "full_time_students": 498,
+            "part_time_students": 812,
+            "housing_prices": {
+                "off_campus_food_and_housing_per_year": "$12,540 (2024-25 IPEDS estimate)",
+                "off_campus_with_family_food_and_housing_per_year": "$4,180 (2024-25 IPEDS estimate)"
+            },
+            "food": "Food costs are included in the $12,540 off-campus living allowance; students typically budget $3,500-$4,000 of that for groceries and meals.",
+            "transportation": "$5,490 estimated annual transportation/personal expense allowance (IPEDS).",
+            "miscellaneous_expenses": "$5,490 estimated annual personal/other expenses (IPEDS).",
+            "crime_rate": "Latest Clery Act summary (2022) reported zero on-campus arrests and no major crimes, reflecting a very low incident rate.",
+            "salary_range": "$18,660 (25th percentile) to $60,150 (75th percentile) earnings 10 years after entry (College Scorecard).",
+            "faculty_with_phd": "Most courses are taught by faculty with master's or doctoral degrees; NNMC notes a majority of program coordinators hold terminal credentials.",
+            "field_of_study": "Business Administration & Management",
+            "rank": "Only public BBA in northern New Mexico aligned with regional entrepreneurship and CHESS workforce initiatives.",
+            "academic_excellence": "AACSB-aligned core that blends analytics, entrepreneurship, and community consulting projects with small businesses across the Espa\u00f1ola Valley.",
+            "facilities": "Finance lab, entrepreneurship hub, and active-learning classrooms equipped for hybrid project collaboration.",
+            "student_life": "Business majors lead ENACTUS, DECA, and the Eagle Entrepreneur Club while supporting regional small-business clinics."
+        }
+    },
+    {
+        "program": "Psychology",
+        "degree": "Bachelor of Arts in Integrated Studies (Psychology)",
+        "university": "Northern New Mexico College",
+        "total_credit_hours": 120,
+        "years": [
+            {
+                "year": "First Year",
+                "semesters": [
+                    {
+                        "semester": "Fall",
+                        "courses": [
+                            {
+                                "code": "ENGL 1110",
+                                "name": "Composition I",
+                                "credits": 3,
+                                "prerequisite": "Placement or ACT English 19+",
+                                "schedule": {
+                                    "day": "Monday, Wednesday",
+                                    "time": "9:00 AM - 10:15 AM"
+                                },
+                                "lecture_hours": 3,
+                                "lab_hours": 0
+                            },
+                            {
+                                "code": "MATH 1130",
+                                "name": "Survey of Mathematics",
+                                "credits": 3,
+                                "prerequisite": "None",
+                                "schedule": {
+                                    "day": "Tuesday, Thursday",
+                                    "time": "8:30 AM - 9:45 AM"
+                                },
+                                "lecture_hours": 3,
+                                "lab_hours": 0
+                            },
+                            {
+                                "code": "PSYC 1110",
+                                "name": "Introduction to Psychology",
+                                "credits": 3,
+                                "prerequisite": "None",
+                                "schedule": {
+                                    "day": "Tuesday, Thursday",
+                                    "time": "11:00 AM - 12:15 PM"
+                                },
+                                "lecture_hours": 3,
+                                "lab_hours": 0
+                            },
+                            {
+                                "code": "COMM 1130",
+                                "name": "Public Speaking",
+                                "credits": 3,
+                                "prerequisite": "ENGL 1110",
+                                "schedule": {
+                                    "day": "Monday",
+                                    "time": "1:00 PM - 3:30 PM"
+                                },
+                                "lecture_hours": 3,
+                                "lab_hours": 0
+                            },
+                            {
+                                "code": "HIST 1110",
+                                "name": "United States History I",
+                                "credits": 3,
+                                "prerequisite": "None",
+                                "schedule": {
+                                    "day": "Tuesday, Thursday",
+                                    "time": "2:00 PM - 3:15 PM"
+                                },
+                                "lecture_hours": 3,
+                                "lab_hours": 0
+                            }
+                        ],
+                        "total_credits": 15
+                    },
+                    {
+                        "semester": "Spring",
+                        "courses": [
+                            {
+                                "code": "ENGL 1120",
+                                "name": "Composition II",
+                                "credits": 3,
+                                "prerequisite": "ENGL 1110",
+                                "schedule": {
+                                    "day": "Tuesday, Thursday",
+                                    "time": "9:30 AM - 10:45 AM"
+                                },
+                                "lecture_hours": 3,
+                                "lab_hours": 0
+                            },
+                            {
+                                "code": "PSYC 2120",
+                                "name": "Developmental Psychology",
+                                "credits": 3,
+                                "prerequisite": "PSYC 1110",
+                                "schedule": {
+                                    "day": "Monday, Wednesday",
+                                    "time": "11:00 AM - 12:15 PM"
+                                },
+                                "lecture_hours": 3,
+                                "lab_hours": 0
+                            },
+                            {
+                                "code": "BIOL 1110",
+                                "name": "General Biology",
+                                "credits": 3,
+                                "prerequisite": "None",
+                                "schedule": {
+                                    "day": "Monday, Wednesday",
+                                    "time": "1:00 PM - 2:15 PM"
+                                },
+                                "lecture_hours": 3,
+                                "lab_hours": 0
+                            },
+                            {
+                                "code": "BIOL 1110L",
+                                "name": "General Biology Lab",
+                                "credits": 1,
+                                "prerequisite": "None",
+                                "schedule": {
+                                    "day": "Thursday",
+                                    "time": "1:00 PM - 3:50 PM"
+                                },
+                                "corequisite": "BIOL 1110",
+                                "lecture_hours": 0,
+                                "lab_hours": 3
+                            },
+                            {
+                                "code": "SOCI 1110",
+                                "name": "Introduction to Sociology",
+                                "credits": 3,
+                                "prerequisite": "None",
+                                "schedule": {
+                                    "day": "Tuesday",
+                                    "time": "5:30 PM - 8:00 PM"
+                                },
+                                "lecture_hours": 3,
+                                "lab_hours": 0
+                            },
+                            {
+                                "code": "POLS 1120",
+                                "name": "American National Government",
+                                "credits": 3,
+                                "prerequisite": "None",
+                                "schedule": {
+                                    "day": "Tuesday, Thursday",
+                                    "time": "2:30 PM - 3:45 PM"
+                                },
+                                "lecture_hours": 3,
+                                "lab_hours": 0
+                            }
+                        ],
+                        "total_credits": 16
+                    }
+                ]
+            },
+            {
+                "year": "Second Year",
+                "semesters": [
+                    {
+                        "semester": "Fall",
+                        "courses": [
+                            {
+                                "code": "PSYC 2130",
+                                "name": "Cognitive Psychology",
+                                "credits": 3,
+                                "prerequisite": "PSYC 1110",
+                                "schedule": {
+                                    "day": "Monday, Wednesday",
+                                    "time": "10:30 AM - 11:45 AM"
+                                },
+                                "lecture_hours": 3,
+                                "lab_hours": 0
+                            },
+                            {
+                                "code": "PSYC 2140",
+                                "name": "Social Psychology",
+                                "credits": 3,
+                                "prerequisite": "PSYC 1110",
+                                "schedule": {
+                                    "day": "Tuesday, Thursday",
+                                    "time": "11:00 AM - 12:15 PM"
+                                },
+                                "lecture_hours": 3,
+                                "lab_hours": 0
+                            },
+                            {
+                                "code": "ENGL 1410",
+                                "name": "Introduction to Literature",
+                                "credits": 3,
+                                "prerequisite": "ENGL 1120",
+                                "schedule": {
+                                    "day": "Wednesday",
+                                    "time": "5:30 PM - 8:00 PM"
+                                },
+                                "lecture_hours": 3,
+                                "lab_hours": 0
+                            },
+                            {
+                                "code": "MATH 1350",
+                                "name": "Introduction to Statistics",
+                                "credits": 3,
+                                "prerequisite": "MATH 1130",
+                                "schedule": {
+                                    "day": "Monday, Wednesday",
+                                    "time": "8:30 AM - 9:45 AM"
+                                },
+                                "lecture_hours": 3,
+                                "lab_hours": 0
+                            },
+                            {
+                                "code": "HUMN 2160",
+                                "name": "Foundations of Integrated Studies",
+                                "credits": 3,
+                                "prerequisite": "None",
+                                "schedule": {
+                                    "day": "Tuesday",
+                                    "time": "5:30 PM - 8:00 PM"
+                                },
+                                "lecture_hours": 3,
+                                "lab_hours": 0
+                            }
+                        ],
+                        "total_credits": 15
+                    },
+                    {
+                        "semester": "Spring",
+                        "courses": [
+                            {
+                                "code": "PSYC 2150",
+                                "name": "Abnormal Psychology",
+                                "credits": 3,
+                                "prerequisite": "PSYC 1110",
+                                "schedule": {
+                                    "day": "Monday, Wednesday",
+                                    "time": "10:30 AM - 11:45 AM"
+                                },
+                                "lecture_hours": 3,
+                                "lab_hours": 0
+                            },
+                            {
+                                "code": "PSYC 2160",
+                                "name": "Brain and Behavior",
+                                "credits": 3,
+                                "prerequisite": "PSYC 1110",
+                                "schedule": {
+                                    "day": "Tuesday, Thursday",
+                                    "time": "1:00 PM - 2:15 PM"
+                                },
+                                "lecture_hours": 3,
+                                "lab_hours": 0
+                            },
+                            {
+                                "code": "HUMN 3388",
+                                "name": "Integrated Studies II",
+                                "credits": 3,
+                                "prerequisite": "HUMN 2160",
+                                "schedule": {
+                                    "day": "Tuesday",
+                                    "time": "5:30 PM - 8:00 PM"
+                                },
+                                "lecture_hours": 3,
+                                "lab_hours": 0
+                            },
+                            {
+                                "code": "ARTS 1120",
+                                "name": "Introduction to Art",
+                                "credits": 3,
+                                "prerequisite": "None",
+                                "schedule": {
+                                    "day": "Thursday",
+                                    "time": "2:30 PM - 5:00 PM"
+                                },
+                                "lecture_hours": 3,
+                                "lab_hours": 0
+                            },
+                            {
+                                "code": "PHIL 1115",
+                                "name": "Introduction to Philosophy",
+                                "credits": 3,
+                                "prerequisite": "None",
+                                "schedule": {
+                                    "day": "Monday",
+                                    "time": "5:30 PM - 8:00 PM"
+                                },
+                                "lecture_hours": 3,
+                                "lab_hours": 0
+                            }
+                        ],
+                        "total_credits": 15
+                    }
+                ]
+            },
+            {
+                "year": "Third Year",
+                "semesters": [
+                    {
+                        "semester": "Fall",
+                        "courses": [
+                            {
+                                "code": "HUMN 4488",
+                                "name": "Integrated Studies III",
+                                "credits": 3,
+                                "prerequisite": "HUMN 3388",
+                                "schedule": {
+                                    "day": "Tuesday",
+                                    "time": "5:30 PM - 8:00 PM"
+                                },
+                                "lecture_hours": 3,
+                                "lab_hours": 0
+                            },
+                            {
+                                "code": "PSYC 3050",
+                                "name": "Research Methods in Psychology",
+                                "credits": 3,
+                                "prerequisite": "PSYC 1110 and MATH 1350",
+                                "schedule": {
+                                    "day": "Monday, Wednesday",
+                                    "time": "9:00 AM - 10:15 AM"
+                                },
+                                "lecture_hours": 3,
+                                "lab_hours": 0
+                            },
+                            {
+                                "code": "PSYC 3120",
+                                "name": "Multicultural Counseling",
+                                "credits": 3,
+                                "prerequisite": "PSYC 2120",
+                                "schedule": {
+                                    "day": "Monday",
+                                    "time": "5:30 PM - 8:00 PM"
+                                },
+                                "lecture_hours": 3,
+                                "lab_hours": 0
+                            },
+                            {
+                                "code": "PSYC 3170",
+                                "name": "Personality Theory",
+                                "credits": 3,
+                                "prerequisite": "PSYC 1110",
+                                "schedule": {
+                                    "day": "Tuesday, Thursday",
+                                    "time": "11:00 AM - 12:15 PM"
+                                },
+                                "lecture_hours": 3,
+                                "lab_hours": 0
+                            },
+                            {
+                                "code": "COMM 2110",
+                                "name": "Interpersonal Communication",
+                                "credits": 3,
+                                "prerequisite": "None",
+                                "schedule": {
+                                    "day": "Wednesday",
+                                    "time": "5:30 PM - 8:00 PM"
+                                },
+                                "lecture_hours": 3,
+                                "lab_hours": 0
+                            }
+                        ],
+                        "total_credits": 15
+                    },
+                    {
+                        "semester": "Spring",
+                        "courses": [
+                            {
+                                "code": "PSYC 3200",
+                                "name": "Learning and Behavior",
+                                "credits": 3,
+                                "prerequisite": "PSYC 1110",
+                                "schedule": {
+                                    "day": "Monday, Wednesday",
+                                    "time": "10:30 AM - 11:45 AM"
+                                },
+                                "lecture_hours": 3,
+                                "lab_hours": 0
+                            },
+                            {
+                                "code": "PSYC 3220",
+                                "name": "Psychological Testing",
+                                "credits": 3,
+                                "prerequisite": "PSYC 3050",
+                                "schedule": {
+                                    "day": "Tuesday, Thursday",
+                                    "time": "9:30 AM - 10:45 AM"
+                                },
+                                "lecture_hours": 3,
+                                "lab_hours": 0
+                            },
+                            {
+                                "code": "PSYC 3250",
+                                "name": "Health Psychology",
+                                "credits": 3,
+                                "prerequisite": "PSYC 1110",
+                                "schedule": {
+                                    "day": "Tuesday",
+                                    "time": "5:30 PM - 8:00 PM"
+                                },
+                                "lecture_hours": 3,
+                                "lab_hours": 0
+                            },
+                            {
+                                "code": "ENGL 2310",
+                                "name": "Introduction to Creative Writing",
+                                "credits": 3,
+                                "prerequisite": "ENGL 1120",
+                                "schedule": {
+                                    "day": "Wednesday",
+                                    "time": "5:30 PM - 8:00 PM"
+                                },
+                                "lecture_hours": 3,
+                                "lab_hours": 0
+                            },
+                            {
+                                "code": "BIOL 2210",
+                                "name": "Human Anatomy and Physiology I",
+                                "credits": 3,
+                                "prerequisite": "BIOL 1110",
+                                "schedule": {
+                                    "day": "Monday, Wednesday",
+                                    "time": "1:00 PM - 2:15 PM"
+                                },
+                                "lecture_hours": 3,
+                                "lab_hours": 0
+                            },
+                            {
+                                "code": "BIOL 2210L",
+                                "name": "Human Anatomy and Physiology I Lab",
+                                "credits": 1,
+                                "prerequisite": "BIOL 1110L",
+                                "schedule": {
+                                    "day": "Friday",
+                                    "time": "9:00 AM - 11:50 AM"
+                                },
+                                "corequisite": "BIOL 2210",
+                                "lecture_hours": 0,
+                                "lab_hours": 3
+                            }
+                        ],
+                        "total_credits": 16
+                    }
+                ]
+            },
+            {
+                "year": "Fourth Year",
+                "semesters": [
+                    {
+                        "semester": "Fall",
+                        "courses": [
+                            {
+                                "code": "PSYC 4100",
+                                "name": "Senior Seminar in Psychology",
+                                "credits": 3,
+                                "prerequisite": "Senior standing",
+                                "schedule": {
+                                    "day": "Monday",
+                                    "time": "5:30 PM - 8:00 PM"
+                                },
+                                "lecture_hours": 3,
+                                "lab_hours": 0
+                            },
+                            {
+                                "code": "PSYC 4110",
+                                "name": "Counseling Techniques",
+                                "credits": 3,
+                                "prerequisite": "PSYC 3120",
+                                "schedule": {
+                                    "day": "Tuesday, Thursday",
+                                    "time": "11:00 AM - 12:15 PM"
+                                },
+                                "lecture_hours": 3,
+                                "lab_hours": 0
+                            },
+                            {
+                                "code": "HUMN 4495",
+                                "name": "Integrated Studies Capstone I",
+                                "credits": 3,
+                                "prerequisite": "HUMN 4488",
+                                "schedule": {
+                                    "day": "Tuesday",
+                                    "time": "5:30 PM - 8:00 PM"
+                                },
+                                "lecture_hours": 3,
+                                "lab_hours": 0
+                            },
+                            {
+                                "code": "PSYC 4120",
+                                "name": "Forensic Psychology",
+                                "credits": 3,
+                                "prerequisite": "PSYC 2150",
+                                "schedule": {
+                                    "day": "Monday, Wednesday",
+                                    "time": "1:30 PM - 2:45 PM"
+                                },
+                                "lecture_hours": 3,
+                                "lab_hours": 0
+                            },
+                            {
+                                "code": "COMM 2150",
+                                "name": "Intercultural Communication",
+                                "credits": 3,
+                                "prerequisite": "None",
+                                "schedule": {
+                                    "day": "Thursday",
+                                    "time": "2:30 PM - 5:00 PM"
+                                },
+                                "lecture_hours": 3,
+                                "lab_hours": 0
+                            }
+                        ],
+                        "total_credits": 15
+                    },
+                    {
+                        "semester": "Spring",
+                        "courses": [
+                            {
+                                "code": "PSYC 4200",
+                                "name": "Psychology Internship",
+                                "credits": 3,
+                                "prerequisite": "Senior standing",
+                                "schedule": {
+                                    "day": "Arranged",
+                                    "time": "Field placement"
+                                },
+                                "lecture_hours": 3,
+                                "lab_hours": 0
+                            },
+                            {
+                                "code": "HUMN 4496",
+                                "name": "Integrated Studies Capstone II",
+                                "credits": 3,
+                                "prerequisite": "HUMN 4495",
+                                "schedule": {
+                                    "day": "Tuesday",
+                                    "time": "5:30 PM - 8:00 PM"
+                                },
+                                "lecture_hours": 3,
+                                "lab_hours": 0
+                            },
+                            {
+                                "code": "PSYC 4210",
+                                "name": "Positive Psychology",
+                                "credits": 3,
+                                "prerequisite": "PSYC 1110",
+                                "schedule": {
+                                    "day": "Monday, Wednesday",
+                                    "time": "10:30 AM - 11:45 AM"
+                                },
+                                "lecture_hours": 3,
+                                "lab_hours": 0
+                            },
+                            {
+                                "code": "PSYC 4220",
+                                "name": "Industrial/Organizational Psychology",
+                                "credits": 3,
+                                "prerequisite": "PSYC 1110",
+                                "schedule": {
+                                    "day": "Tuesday, Thursday",
+                                    "time": "9:30 AM - 10:45 AM"
+                                },
+                                "lecture_hours": 3,
+                                "lab_hours": 0
+                            },
+                            {
+                                "code": "PSYC 4300",
+                                "name": "Senior Portfolio",
+                                "credits": 1,
+                                "prerequisite": "Senior standing",
+                                "schedule": {
+                                    "day": "Friday",
+                                    "time": "10:00 AM - 11:15 AM"
+                                },
+                                "lecture_hours": 1,
+                                "lab_hours": 0
+                            }
+                        ],
+                        "total_credits": 13
+                    }
+                ]
+            }
+        ],
+        "college_profile": {
+            "university_name": "Northern New Mexico College",
+            "city": "Espa\u00f1ola",
+            "state": "New Mexico",
+            "website": "https://nnmc.edu",
+            "founded_year": 1909,
+            "organization_type": "Public, Hispanic-Serving Institution (4-year, primarily associate's)",
+            "size": "Small campus community (~1,310 undergraduates)",
+            "campus_setting": "Town: Distant (Espa\u00f1ola Valley, northern New Mexico)",
+            "graduation_rate": "33% overall 150%-time completion (IPEDS 2017 cohort)",
+            "average_annual_cost": "$6,102 average net price for in-state freshmen receiving aid (2022-23 IPEDS)",
+            "median_earnings": "$38,112 median earnings 10 years after entry (College Scorecard)",
+            "financial_aid_and_debt": {
+                "share_receiving_grant_aid": "100% of full-time beginning students receive grants or scholarships",
+                "pell_grant_rate": "70% of new freshmen receive Pell Grants (IPEDS 2022-23)",
+                "median_federal_loan_debt": "$6,000 median federal loan debt; about $64/month on the standard plan",
+                "federal_loan_participation": "Roughly 4% of beginning students borrow federal loans"
+            },
+            "typical_earning_for_college_details_page": "Graduates earn roughly $38K at the median 10 years after entering NNMC (College Scorecard).",
+            "campus_diversity": "NNMC is a Hispanic-Serving Institution with majority Hispanic/Latine enrollment and a visible Native American student community.",
+            "test_score": "Open admission; SAT/ACT scores are neither required nor published.",
+            "acceptance_rate": "Open admission (consumer acceptance rate effectively 100%).",
+            "students_who_return_after_first_year": {
+                "full_time": "61% of full-time freshmen return (Fall 2022 to Fall 2023)",
+                "part_time": "36% of part-time freshmen return"
+            },
+            "student_to_faculty_ratio": "11:1",
+            "race_ethnicity": {
+                "american_indian_or_alaska_native": "9%",
+                "asian": "2%",
+                "black_or_african_american": "2%",
+                "hispanic_or_latino": "68%",
+                "white": "12%",
+                "two_or_more_races": "4%",
+                "race_unknown": "2%",
+                "non_resident_alien": "1%"
+            },
+            "total_undergrad_students": 1310,
+            "full_time_students": 498,
+            "part_time_students": 812,
+            "housing_prices": {
+                "off_campus_food_and_housing_per_year": "$12,540 (2024-25 IPEDS estimate)",
+                "off_campus_with_family_food_and_housing_per_year": "$4,180 (2024-25 IPEDS estimate)"
+            },
+            "food": "Food costs are included in the $12,540 off-campus living allowance; students typically budget $3,500-$4,000 of that for groceries and meals.",
+            "transportation": "$5,490 estimated annual transportation/personal expense allowance (IPEDS).",
+            "miscellaneous_expenses": "$5,490 estimated annual personal/other expenses (IPEDS).",
+            "crime_rate": "Latest Clery Act summary (2022) reported zero on-campus arrests and no major crimes, reflecting a very low incident rate.",
+            "salary_range": "$18,660 (25th percentile) to $60,150 (75th percentile) earnings 10 years after entry (College Scorecard).",
+            "faculty_with_phd": "Most courses are taught by faculty with master's or doctoral degrees; NNMC notes a majority of program coordinators hold terminal credentials.",
+            "field_of_study": "Psychology & Integrated Studies",
+            "rank": "Flagship BAIS-Psychology pathway emphasizing multicultural counseling and community mental health in northern New Mexico.",
+            "academic_excellence": "Sequenced research, counseling, and integrated-studies seminars connect psychology theory with culturally responsive practice.",
+            "facilities": "Counseling skills labs, observation rooms, and shared research suites inside the STEM and Health Sciences Center.",
+            "student_life": "Psychology majors staff the Student Success Center, host mental-health outreach events, and intern with local schools and clinics."
+        }
+    }
+]
