@@ -27,6 +27,39 @@ const formatWebsite = (value) =>
 	) : (
 		"N/A"
 	);
+const hasValue = (value) => value || value === 0;
+const formatSatRange = (school) => {
+	if (!school) return "N/A";
+	const low = school.sat_reading_25th;
+	const high = school.sat_reading_75th;
+
+	if (hasValue(low) && hasValue(high)) {
+		return `${formatNumber(low)} - ${formatNumber(high)}`;
+	}
+	if (hasValue(low)) {
+		return `>= ${formatNumber(low)}`;
+	}
+	if (hasValue(high)) {
+		return `<= ${formatNumber(high)}`;
+	}
+	return "Open Admission Policy";
+};
+const formatActRange = (school) => {
+	if (!school) return "Open Admission Policy";
+	const low = school.act_score_25th;
+	const high = school.act_score_75th;
+
+	if (hasValue(low) && hasValue(high)) {
+		return `${formatNumber(low)} - ${formatNumber(high)}`;
+	}
+	if (hasValue(low)) {
+		return `>= ${formatNumber(low)}`;
+	}
+	if (hasValue(high)) {
+		return `<= ${formatNumber(high)}`;
+	}
+	return "Open Admission Policy";
+};
 
 const overviewMetrics = [
 	{ key: "city", label: "City" },
@@ -45,8 +78,16 @@ const admissionsMetrics = [
 		label: "Students Returning After First Year (Retention Rate)",
 		format: formatPercent,
 	},
-	{ key: "test_score", label: "SAT Score (Critical Reading)", format: formatNumber },
-	{ key: "act_score", label: "ACT Score", format: formatNumber },
+	{
+		key: "test_score",
+		label: "SAT Score (Critical Reading)",
+		render: (_, school) => formatSatRange(school),
+	},
+	{
+		key: "act_score",
+		label: "ACT Score",
+		render: (_, school) => formatActRange(school),
+	},
 	{ key: "student_faculty_ratio", label: "Student to Faculty Ratio", format: formatRatio },
 ];
 
@@ -73,10 +114,9 @@ const financialMetrics = [
 		label: "Students Receiving Federal Loans",
 		format: formatPercent,
 	},
-	{ key: "repayment_rate", label: "Repayment Rate", format: formatPercent },
 	{
 		key: "percent_more_than_hs",
-		label: "Percentage Earning More Than HS Graduate",
+		label: "Percentage Earning More Than a High School Graduate",
 		format: formatPercent,
 	},
 ];
@@ -182,7 +222,7 @@ const familyIncomeBrackets = [
 const SectionCard = ({ title, children, note }) => (
 	<div className="bg-white border border-slate-200 rounded-xl shadow-sm p-5 space-y-3">
 		<div>
-			<h3 className="text-base font-bold text-slate-700">{title}</h3>
+			<h3 className="text-[20px] font-bold text-slate-700">{title}</h3>
 			{note && <p className="text-xs text-slate-500">{note}</p>}
 		</div>
 		{children}
@@ -195,9 +235,9 @@ const ComparisonTable = ({ title, metrics, schools, note }) => (
 			<table className="min-w-full text-sm">
 				<thead>
 					<tr className="text-sm uppercase tracking-wide text-slate-600">
-						<th className="text-left px-3 py-2 font-bold">Metric</th>
+						<th className="text-left px-3 py-2 font-semibold">Metric</th>
 						{schools.map((school) => (
-							<th key={school.unit_id || school.name} className="text-left px-3 py-2 font-bold">
+							<th key={school.unit_id || school.name} className="text-left px-3 py-2 font-semibold">
 								{school.name || "Selected college"}
 							</th>
 						))}
@@ -339,9 +379,9 @@ const CollegeCompare = () => {
 				<table className="min-w-full text-sm">
 					<thead>
 						<tr className="text-sm uppercase tracking-wide text-slate-600">
-							<th className="text-left px-3 py-2 font-bold">Metric</th>
+							<th className="text-left px-3 py-2 font-semibold">Metric</th>
 							{comparisonOrder.map((school) => (
-								<th key={`socio-${school.unit_id || school.name}`} className="text-left px-3 py-2 font-bold">
+								<th key={`socio-${school.unit_id || school.name}`} className="text-left px-3 py-2 font-semibold">
 									{school.name || "College"}
 								</th>
 							))}
@@ -372,9 +412,9 @@ const CollegeCompare = () => {
 				<table className="min-w-full text-sm">
 					<thead>
 						<tr className="text-sm uppercase tracking-wide text-slate-600">
-							<th className="text-left px-3 py-2 font-bold">Group</th>
+							<th className="text-left px-3 py-2 font-semibold">Group</th>
 							{comparisonOrder.map((school) => (
-								<th key={`race-${school.unit_id || school.name}`} className="text-left px-3 py-2 font-bold">
+								<th key={`race-${school.unit_id || school.name}`} className="text-left px-3 py-2 font-semibold">
 									{school.name || "College"}
 								</th>
 							))}
@@ -400,15 +440,14 @@ const CollegeCompare = () => {
 	const renderFamilyIncome = () => (
 		<SectionCard
 			title="Average Annual Cost by Family Income"
-			note="Displayed net price is whichever (public or private) breakdown is available for each school"
 		>
 			<div className="overflow-x-auto">
 				<table className="min-w-full text-sm">
 					<thead>
 						<tr className="text-sm uppercase tracking-wide text-slate-600">
-							<th className="text-left px-3 py-2 font-bold">Income Bracket</th>
+							<th className="text-left px-3 py-2 font-semibold">Income Bracket</th>
 							{comparisonOrder.map((school) => (
-								<th key={`income-${school.unit_id || school.name}`} className="text-left px-3 py-2 font-bold">
+								<th key={`income-${school.unit_id || school.name}`} className="text-left px-3 py-2 font-semibold">
 									{school.name || "College"}
 								</th>
 							))}
@@ -560,10 +599,10 @@ const CollegeCompare = () => {
 								metrics={courseInsightMetrics}
 								schools={comparisonOrder}
 								note="Use the Education Plan builder to explore specific courses, credit hours, and requirements."
-							/> */}
-							{/* {renderSocioEconomic()} */}
+							/>
+							{renderSocioEconomic()}
 							{renderRaceTable()}
-							{renderFamilyIncome()}
+							{renderFamilyIncome()} */}
 						</div>
 					)}
 				</div>

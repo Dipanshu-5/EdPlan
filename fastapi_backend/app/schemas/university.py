@@ -46,8 +46,11 @@ class University(BaseModel):
     socioeconomic_diversity: SocioEconomicStats | None = None
     family_income_net_price: FamilyIncomeNetPrice | None = None
     college_info: CollegeInfo | None = None
-    test_score: float | None = None
+    sat_reading_25th: float | None = None
+    sat_reading_75th: float | None = None
     act_score: float | None = None
+    act_score_25th: float | None = None
+    act_score_75th: float | None = None
     acceptance_rate: float | None = None
     first_year_return_rate: float | None = None
     full_time_enrollment: int | None = None

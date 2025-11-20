@@ -30,15 +30,17 @@ BASE_FIELDS = [
     "latest.student.share_non_resident_alien",
     "latest.student.share_firstgeneration",
     "latest.aid.pell_grant_rate",
-    "latest.aid.federal_loan_rate",
-    "latest.student.retention_rate.overall.full_time",
-    "latest.student.retention_rate.four_year.part_time",
+    "latest.aid.dcs_federal_loan_rate_pooled",
     "latest.student.demographics.student_faculty_ratio",
-    "latest.admissions.sat_scores.50th_percentile.critical_reading",
-    "latest.admissions.act_scores.midpoint.cumulative",
+    "latest.student.retention_rate_suppressed.four_year.full_time_pooled",
+    "latest.student.retention_rate_suppressed.lt_four_year.full_time_pooled",
+    "latest.admissions.sat_scores.25th_percentile.critical_reading",
+    "latest.admissions.sat_scores.75th_percentile.critical_reading",
+    "latest.admissions.act_scores.25th_percentile.cumulative",
+    "latest.admissions.act_scores.75th_percentile.cumulative",
     "latest.admissions.admission_rate.overall",
     "latest.repayment.3_yr_repayment.completers.rate",
-    "latest.earnings.10_yrs_after_entry.percent_greater_than_25000",
+    "latest.earnings.6_yrs_after_entry.gt_threshold",
     "latest.cost.net_price.public.by_income_level.0-30000",
     "latest.cost.net_price.public.by_income_level.30001-48000",
     "latest.cost.net_price.public.by_income_level.48001-75000",
@@ -117,8 +119,10 @@ class CollegeScorecardClient:
         graduation_rate = record.get("latest.completion.consumer_rate")
         avg_cost = record.get("latest.cost.avg_net_price.overall")
         median_earnings = record.get("latest.earnings.10_yrs_after_entry.median")
-        test_score = record.get("latest.admissions.sat_scores.50th_percentile.critical_reading")
-        act_score = record.get("latest.admissions.act_scores.midpoint.cumulative")
+        sat_reading_25th = record.get("latest.admissions.sat_scores.25th_percentile.critical_reading")
+        sat_reading_75th = record.get("latest.admissions.sat_scores.75th_percentile.critical_reading")
+        act_score_25th = record.get("latest.admissions.act_scores.25th_percentile.cumulative")
+        act_score_75th = record.get("latest.admissions.act_scores.75th_percentile.cumulative")
         acceptance_rate = record.get("latest.admissions.admission_rate.overall") or 1.0
         part_time_share = record.get("latest.student.part_time_share")
         size = record.get("latest.student.size") or 0
@@ -167,6 +171,12 @@ class CollegeScorecardClient:
         elif private_net_price:
             family_income_net_price = {"source": "private", "breakdown": private_net_price}
 
+        retention_candidates = [
+            record.get("latest.student.retention_rate_suppressed.four_year.full_time_pooled"),
+            record.get("latest.student.retention_rate_suppressed.lt_four_year.full_time_pooled"),
+        ]
+        first_year_retention = next((value for value in retention_candidates if value is not None), None)
+
         return {
             "unit_id": record.get("id"),
             "name": record.get("school.name"),
@@ -183,21 +193,21 @@ class CollegeScorecardClient:
             "financial_aid_debt": record.get("latest.aid.median_debt.completers.overall"),
             "typical_earnings": median_earnings,
             "campus_diversity": diversity,
-            "test_score": test_score,
-            "act_score": act_score,
+            "sat_reading_25th": sat_reading_25th,
+            "sat_reading_75th": sat_reading_75th,
+            "act_score_25th": act_score_25th,
+            "act_score_75th": act_score_75th,
             "acceptance_rate": acceptance_rate,
             "full_time_enrollment": full_time_enrollment,
             "part_time_enrollment": part_time_enrollment,
-            "first_year_return_rate": record.get(
-                "latest.student.retention_rate.overall.full_time"
-            ),
+            "first_year_return_rate": first_year_retention,
             "student_faculty_ratio": student_faculty_ratio,
-            "federal_loan_rate": record.get("latest.aid.federal_loan_rate"),
+            "federal_loan_rate": record.get("latest.aid.dcs_federal_loan_rate_pooled"),
             "median_debt": record.get("latest.aid.median_debt.completers.overall"),
             "typical_monthly_payment": typical_monthly_payment,
             "repayment_rate": record.get("latest.repayment.3_yr_repayment.completers.rate"),
             "percent_more_than_hs": record.get(
-                "latest.earnings.10_yrs_after_entry.percent_greater_than_25000"
+                "latest.earnings.6_yrs_after_entry.gt_threshold"
             ),
             "family_income_net_price": family_income_net_price,
             "socioeconomic_diversity": {

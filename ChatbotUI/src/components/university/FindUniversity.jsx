@@ -240,8 +240,6 @@ const FindUniversity = ({ onSelectProgram }) => {
 										Acceptance Rate:{" "}
 										{university.acceptance_rate ? formatPercent(university.acceptance_rate): "100%"}
 									</li>
-									<li>SAT Score (Critical Reading): {university.test_score ?? "N/A"}</li>
-									<li>ACT Score: {university.act_score ?? "N/A"}</li>
 									<li>
 										Median Total Debt After Graduation:{" "}
 										{formatCurrency(university.financial_aid_debt) ||
