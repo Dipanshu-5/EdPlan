@@ -31,10 +31,10 @@ const formatWebsite = (value) =>
 const overviewMetrics = [
 	{ key: "city", label: "City" },
 	{ key: "state", label: "State" },
-	{ key: "website", label: "College Website Link", format: formatWebsite },
+	{ key: "size", label: "Students Size", format: formatNumber },
 	{ key: "organization_type", label: "Organization Type" },
-	{ key: "size", label: "University Size (Students)", format: formatNumber },
 	{ key: "location_type", label: "Campus Location" },
+	{ key: "website", label: "College Website Link", format: formatWebsite },
 ];
 
 const admissionsMetrics = [
@@ -58,7 +58,7 @@ const enrollmentMetrics = [
 
 const outcomeMetrics = [
 	{ key: "average_annual_cost", label: "Average Annual Cost", format: formatCurrency },
-	{ key: "median_earnings", label: "Median Earnings (10 yrs)", format: formatCurrency },
+	{ key: "median_earnings", label: "Median Earnings", format: formatCurrency },
 ];
 
 const financialMetrics = [
@@ -182,7 +182,7 @@ const familyIncomeBrackets = [
 const SectionCard = ({ title, children, note }) => (
 	<div className="bg-white border border-slate-200 rounded-xl shadow-sm p-5 space-y-3">
 		<div>
-			<h3 className="text-base font-semibold text-slate-800">{title}</h3>
+			<h3 className="text-base font-bold text-slate-700">{title}</h3>
 			{note && <p className="text-xs text-slate-500">{note}</p>}
 		</div>
 		{children}
@@ -194,10 +194,10 @@ const ComparisonTable = ({ title, metrics, schools, note }) => (
 		<div className="overflow-x-auto">
 			<table className="min-w-full text-sm">
 				<thead>
-					<tr className="text-xs uppercase tracking-wide text-slate-500">
-						<th className="text-left px-3 py-2 font-semibold">Metric</th>
+					<tr className="text-sm uppercase tracking-wide text-slate-600">
+						<th className="text-left px-3 py-2 font-bold">Metric</th>
 						{schools.map((school) => (
-							<th key={school.unit_id || school.name} className="text-left px-3 py-2 font-semibold">
+							<th key={school.unit_id || school.name} className="text-left px-3 py-2 font-bold">
 								{school.name || "Selected college"}
 							</th>
 						))}
@@ -338,10 +338,10 @@ const CollegeCompare = () => {
 			<div className="overflow-x-auto">
 				<table className="min-w-full text-sm">
 					<thead>
-						<tr className="text-xs uppercase tracking-wide text-slate-500">
-							<th className="text-left px-3 py-2 font-semibold">Metric</th>
+						<tr className="text-sm uppercase tracking-wide text-slate-600">
+							<th className="text-left px-3 py-2 font-bold">Metric</th>
 							{comparisonOrder.map((school) => (
-								<th key={`socio-${school.unit_id || school.name}`} className="text-left px-3 py-2 font-semibold">
+								<th key={`socio-${school.unit_id || school.name}`} className="text-left px-3 py-2 font-bold">
 									{school.name || "College"}
 								</th>
 							))}
@@ -371,10 +371,10 @@ const CollegeCompare = () => {
 			<div className="overflow-x-auto">
 				<table className="min-w-full text-sm">
 					<thead>
-						<tr className="text-xs uppercase tracking-wide text-slate-500">
-							<th className="text-left px-3 py-2 font-semibold">Group</th>
+						<tr className="text-sm uppercase tracking-wide text-slate-600">
+							<th className="text-left px-3 py-2 font-bold">Group</th>
 							{comparisonOrder.map((school) => (
-								<th key={`race-${school.unit_id || school.name}`} className="text-left px-3 py-2 font-semibold">
+								<th key={`race-${school.unit_id || school.name}`} className="text-left px-3 py-2 font-bold">
 									{school.name || "College"}
 								</th>
 							))}
@@ -405,10 +405,10 @@ const CollegeCompare = () => {
 			<div className="overflow-x-auto">
 				<table className="min-w-full text-sm">
 					<thead>
-						<tr className="text-xs uppercase tracking-wide text-slate-500">
-							<th className="text-left px-3 py-2 font-semibold">Income Bracket</th>
+						<tr className="text-sm uppercase tracking-wide text-slate-600">
+							<th className="text-left px-3 py-2 font-bold">Income Bracket</th>
 							{comparisonOrder.map((school) => (
-								<th key={`income-${school.unit_id || school.name}`} className="text-left px-3 py-2 font-semibold">
+								<th key={`income-${school.unit_id || school.name}`} className="text-left px-3 py-2 font-bold">
 									{school.name || "College"}
 								</th>
 							))}
@@ -545,11 +545,11 @@ const CollegeCompare = () => {
 					) : (
 						<div className="space-y-4">
 							<ComparisonTable title="College Overview" metrics={overviewMetrics} schools={comparisonOrder} />
-							<ComparisonTable title="Admissions & Student Success" metrics={admissionsMetrics} schools={comparisonOrder} />
-							<ComparisonTable title="Enrollment Overview" metrics={enrollmentMetrics} schools={comparisonOrder} />
 							<ComparisonTable title="Costs & Earnings" metrics={outcomeMetrics} schools={comparisonOrder} />
+							<ComparisonTable title="Enrollment Overview" metrics={enrollmentMetrics} schools={comparisonOrder} />
+							<ComparisonTable title="Admissions & Student Success" metrics={admissionsMetrics} schools={comparisonOrder} />
 							<ComparisonTable title="Financial Aid & Loans" metrics={financialMetrics} schools={comparisonOrder} />
-							<ComparisonTable
+							{/* <ComparisonTable
 								title="Student Life & Campus Costs"
 								metrics={studentLifeMetrics}
 								schools={comparisonOrder}
@@ -560,8 +560,8 @@ const CollegeCompare = () => {
 								metrics={courseInsightMetrics}
 								schools={comparisonOrder}
 								note="Use the Education Plan builder to explore specific courses, credit hours, and requirements."
-							/>
-							{renderSocioEconomic()}
+							/> */}
+							{/* {renderSocioEconomic()} */}
 							{renderRaceTable()}
 							{renderFamilyIncome()}
 						</div>
