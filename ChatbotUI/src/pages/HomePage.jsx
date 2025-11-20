@@ -15,7 +15,7 @@ const HomePage = () => (
 			</p>
 			<div className="flex flex-wrap items-center justify-center gap-4">
 				<a
-					href="/uni"
+					href="/form.html"
 					className="px-6 py-3 rounded-lg bg-slate-900 text-white font-semibold shadow hover:bg-slate-700"
 				>
 					Start now
