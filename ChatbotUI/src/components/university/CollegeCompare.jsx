@@ -4,20 +4,61 @@ import {
 	compareUniversitiesByIds,
 } from "../../services/universityService.js";
 
-const formatPercent = (value) =>
-	value || value === 0 ? `${(value * 100).toFixed(1).replace(/\.0$/, "")}%` : "N/A";
-const formatCurrency = (value) =>
-	value || value === 0 ? `$${(Number(value) /1000).toFixed(1).toLocaleString()}k` : "N/A";
-const formatNumber = (value) =>
-	value || value === 0 ? `${Number(value /1000).toFixed(0).toLocaleString()}k
-` : "N/A";
+const dataNotAvailable = "N/A";
 
-const costMetrics = [
-	{ key: "average_annual_cost", label: "Average Annual Cost", format: formatCurrency },
+const formatPercent = (value) =>
+	value || value === 0 ? `${(value * 100).toFixed(1).replace(/\.0$/, "")} %` : "N/A";
+const formatCurrency = (value) =>
+	value || value === 0 ? `$ ${Number(value).toLocaleString()}` : "N/A";
+const formatNumber = (value) =>
+	value || value === 0 ? Number(value).toLocaleString() : "N/A";
+const formatRatio = (value) =>
+	value || value === 0 ? `${Number(value).toFixed(0)} : 1` : "N/A";
+const formatWebsite = (value) =>
+	value ? (
+		<a
+			href={value.startsWith("http") ? value : `https://${value}`}
+			target="_blank"
+			rel="noreferrer"
+			className="text-indigo-600 hover:text-indigo-500"
+		>
+			Visit Website
+		</a>
+	) : (
+		"N/A"
+	);
+
+const overviewMetrics = [
+	{ key: "city", label: "City" },
+	{ key: "state", label: "State" },
+	{ key: "website", label: "College Website Link", format: formatWebsite },
+	{ key: "organization_type", label: "Organization Type" },
+	{ key: "size", label: "University Size (Students)", format: formatNumber },
+	{ key: "location_type", label: "Campus Location" },
+];
+
+const admissionsMetrics = [
 	{ key: "graduation_rate", label: "Graduation Rate", format: formatPercent },
+	{ key: "acceptance_rate", label: "Acceptance Rate", format: formatPercent },
+	{
+		key: "first_year_return_rate",
+		label: "Students Returning After First Year (Retention Rate)",
+		format: formatPercent,
+	},
+	{ key: "test_score", label: "SAT Score (Critical Reading)", format: formatNumber },
+	{ key: "act_score", label: "ACT Score", format: formatNumber },
+	{ key: "student_faculty_ratio", label: "Student to Faculty Ratio", format: formatRatio },
+];
+
+const enrollmentMetrics = [
+	{ key: "size", label: "Total Undergraduate Students", format: formatNumber },
+	{ key: "full_time_enrollment", label: "Full-time Students", format: formatNumber },
+	{ key: "part_time_enrollment", label: "Part-time Students", format: formatNumber },
+];
+
+const outcomeMetrics = [
+	{ key: "average_annual_cost", label: "Average Annual Cost", format: formatCurrency },
 	{ key: "median_earnings", label: "Median Earnings (10 yrs)", format: formatCurrency },
-	{ key: "full_time_enrollment", label: "Full-time Enrollment", format: formatNumber },
-	{ key: "test_score", label: "Average SAT/ACT Score", format: formatNumber },
 ];
 
 const financialMetrics = [
@@ -37,6 +78,82 @@ const financialMetrics = [
 		key: "percent_more_than_hs",
 		label: "Percentage Earning More Than HS Graduate",
 		format: formatPercent,
+	},
+];
+
+const studentLifeMetrics = [
+	{
+		label: "Housing Prices",
+		key: "housing_prices",
+		format: () => dataNotAvailable,
+	},
+	{
+		label: "Food",
+		key: "food",
+		format: () => dataNotAvailable,
+	},
+	{
+		label: "Transportation",
+		key: "transportation",
+		format: () => dataNotAvailable,
+	},
+	{
+		label: "Miscellaneous Expenses",
+		key: "misc_expenses",
+		format: () => dataNotAvailable,
+	},
+	{
+		label: "Crime Rate",
+		key: "crime_rate",
+		format: () => dataNotAvailable,
+	},
+	{
+		label: "Faculty with PhD",
+		key: "faculty_with_phd",
+		format: () => dataNotAvailable,
+	},
+];
+
+const courseInsightMetrics = [
+	{
+		label: "Field of Study",
+		key: "field_of_study",
+		format: () => "Browse Find University to explore programs.",
+	},
+	{
+		label: "Course Code",
+		key: "course_code",
+		format: () => "Use the Education Plan builder to view course codes.",
+	},
+	{
+		label: "Course Name",
+		key: "course_name",
+		format: () => "Use the Education Plan builder to view course names.",
+	},
+	{
+		label: "Lecture Hours",
+		key: "lecture_hours",
+		format: () => "Detailed schedule data lives inside Education Plan.",
+	},
+	{
+		label: "Lab Hours",
+		key: "lab_hours",
+		format: () => "Detailed schedule data lives inside Education Plan.",
+	},
+	{
+		label: "Credit Hours",
+		key: "credit_hours",
+		format: () => "Check each saved plan for credit breakdown.",
+	},
+	{
+		label: "Pre-requisites",
+		key: "pre_requisites",
+		format: () => "View prerequisites inside Education Plan courses.",
+	},
+	{
+		label: "Co-requisites",
+		key: "co_requisites",
+		format: () => "View co-requisites inside Education Plan courses.",
 	},
 ];
 
@@ -72,8 +189,8 @@ const SectionCard = ({ title, children, note }) => (
 	</div>
 );
 
-const ComparisonTable = ({ title, metrics, schools }) => (
-	<SectionCard title={title}>
+const ComparisonTable = ({ title, metrics, schools, note }) => (
+	<SectionCard title={title} note={note}>
 		<div className="overflow-x-auto">
 			<table className="min-w-full text-sm">
 				<thead>
@@ -88,13 +205,24 @@ const ComparisonTable = ({ title, metrics, schools }) => (
 				</thead>
 				<tbody>
 					{metrics.map((metric) => (
-						<tr key={metric.key} className="border-t border-slate-100">
+						<tr key={metric.key || metric.label} className="border-t border-slate-100">
 							<td className="px-3 py-2 font-medium text-slate-700">{metric.label}</td>
 							{schools.map((school) => {
-								const value = school?.[metric.key];
-								const content = metric.format ? metric.format(value) : value ?? "N/A";
+								const rawValue = metric.accessor
+									? metric.accessor(school)
+									: metric.key
+									? school?.[metric.key]
+									: undefined;
+								const content = metric.render
+									? metric.render(rawValue, school)
+									: metric.format
+									? metric.format(rawValue, school)
+									: rawValue ?? "N/A";
 								return (
-									<td key={`${metric.key}-${school.unit_id || school.name}`} className="px-3 py-2 text-slate-800">
+									<td
+										key={`${metric.key || metric.label}-${school.unit_id || school.name}`}
+										className="px-3 py-2 text-slate-800"
+									>
 										{content}
 									</td>
 								);
@@ -124,7 +252,7 @@ const CollegeCompare = () => {
 		try {
 			const payload = await searchUniversities({
 				search: overrides.search ?? searchTerm,
-				perPage: 6,
+				perPage: 4,
 			});
 			setResults(payload.data || []);
 		} catch (err) {
@@ -306,73 +434,6 @@ const CollegeCompare = () => {
 		</SectionCard>
 	);
 
-	const renderCollegeInfo = () => (
-		<SectionCard title="College Information">
-			<div className="overflow-x-auto">
-				<table className="min-w-full text-sm">
-					<thead>
-						<tr className="text-xs uppercase tracking-wide text-slate-500">
-							<th className="text-left px-3 py-2 font-semibold">Detail</th>
-							{comparisonOrder.map((school) => (
-								<th key={`info-${school.unit_id || school.name}`} className="text-left px-3 py-2 font-semibold">
-									{school.name || "College"}
-								</th>
-							))}
-						</tr>
-					</thead>
-					<tbody>
-						<tr className="border-t border-slate-100">
-							<td className="px-3 py-2 font-medium text-slate-700">Location</td>
-							{comparisonOrder.map((school) => (
-								<td key={`location-${school.unit_id || school.name}`} className="px-3 py-2 text-slate-800">
-									{school.college_info?.location || "N/A"}
-								</td>
-							))}
-						</tr>
-						<tr className="border-t border-slate-100">
-							<td className="px-3 py-2 font-medium text-slate-700">Institution Type</td>
-							{comparisonOrder.map((school) => (
-								<td key={`type-${school.unit_id || school.name}`} className="px-3 py-2 text-slate-800">
-									{school.college_info?.type || "N/A"}
-								</td>
-							))}
-						</tr>
-						<tr className="border-t border-slate-100">
-							<td className="px-3 py-2 font-medium text-slate-700">Campus Setting</td>
-							{comparisonOrder.map((school) => (
-								<td key={`setting-${school.unit_id || school.name}`} className="px-3 py-2 text-slate-800">
-									{school.college_info?.setting || "N/A"}
-								</td>
-							))}
-						</tr>
-						<tr className="border-t border-slate-100">
-							<td className="px-3 py-2 font-medium text-slate-700">Website</td>
-							{comparisonOrder.map((school) => {
-								const website = school.college_info?.website;
-								return (
-									<td key={`site-${school.unit_id || school.name}`} className="px-3 py-2 text-slate-800">
-										{website ? (
-											<a
-												href={website}
-												target="_blank"
-												rel="noreferrer"
-												className="text-indigo-600 hover:text-indigo-500"
-											>
-												{website.replace(/^https?:\/\//i, "")}
-											</a>
-										) : (
-											"N/A"
-										)}
-									</td>
-								);
-							})}
-						</tr>
-					</tbody>
-				</table>
-			</div>
-		</SectionCard>
-	);
-
 	return (
 		<section className="space-y-6">
 			<header className="space-y-2">
@@ -483,12 +544,26 @@ const CollegeCompare = () => {
 						</div>
 					) : (
 						<div className="space-y-4">
-							<ComparisonTable title="Institution Comparison" metrics={costMetrics} schools={comparisonOrder} />
-							{/* <ComparisonTable title="Financial Aid & Loans" metrics={financialMetrics} schools={comparisonOrder} /> */}
-							{/* {renderCollegeInfo()} */}
-							{/* {renderSocioEconomic()} */}
-							{/* {renderRaceTable()} */}
-							{/* {renderFamilyIncome()} */} 
+							<ComparisonTable title="College Overview" metrics={overviewMetrics} schools={comparisonOrder} />
+							<ComparisonTable title="Admissions & Student Success" metrics={admissionsMetrics} schools={comparisonOrder} />
+							<ComparisonTable title="Enrollment Overview" metrics={enrollmentMetrics} schools={comparisonOrder} />
+							<ComparisonTable title="Costs & Earnings" metrics={outcomeMetrics} schools={comparisonOrder} />
+							<ComparisonTable title="Financial Aid & Loans" metrics={financialMetrics} schools={comparisonOrder} />
+							<ComparisonTable
+								title="Student Life & Campus Costs"
+								metrics={studentLifeMetrics}
+								schools={comparisonOrder}
+								note="The College Scorecard API does not report on-campus living expenses. Values show availability only."
+							/>
+							<ComparisonTable
+								title="Program & Course Insights"
+								metrics={courseInsightMetrics}
+								schools={comparisonOrder}
+								note="Use the Education Plan builder to explore specific courses, credit hours, and requirements."
+							/>
+							{renderSocioEconomic()}
+							{renderRaceTable()}
+							{renderFamilyIncome()}
 						</div>
 					)}
 				</div>

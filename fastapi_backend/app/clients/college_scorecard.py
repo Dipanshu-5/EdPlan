@@ -17,12 +17,11 @@ BASE_FIELDS = [
     "latest.student.size",
     "latest.student.part_time_share",
     "latest.academic_year",
-    "latest.completion.rate_suppressed.overall",
-    "latest.cost.attendance.academic_year",
+    "latest.completion.consumer_rate",
+    "latest.cost.avg_net_price.overall",
     "latest.earnings.10_yrs_after_entry.median",
     "latest.aid.median_debt.completers.overall",
-    "latest.aid.median_debt.completers.monthly_payments.mean",
-    "latest.aid.median_debt.completers.monthly_payments.median",
+    "latest.aid.median_debt.completers.monthly_payments",
     "latest.student.share_white",
     "latest.student.share_black",
     "latest.student.share_hispanic",
@@ -32,9 +31,10 @@ BASE_FIELDS = [
     "latest.student.share_firstgeneration",
     "latest.aid.pell_grant_rate",
     "latest.aid.federal_loan_rate",
-    "latest.student.retention_rate.four_year.full_time",
+    "latest.student.retention_rate.overall.full_time",
     "latest.student.retention_rate.four_year.part_time",
-    "latest.admissions.sat_scores.average.overall",
+    "latest.student.demographics.student_faculty_ratio",
+    "latest.admissions.sat_scores.50th_percentile.critical_reading",
     "latest.admissions.act_scores.midpoint.cumulative",
     "latest.admissions.admission_rate.overall",
     "latest.repayment.3_yr_repayment.completers.rate",
@@ -114,19 +114,20 @@ class CollegeScorecardClient:
     def _map_school(self, record: dict[str, Any]) -> dict[str, Any]:
         ownership_code = record.get("school.ownership")
         locale_code = record.get("school.locale")
-        graduation_rate = record.get("latest.completion.rate_suppressed.overall")
-        avg_cost = record.get("latest.cost.attendance.academic_year")
+        graduation_rate = record.get("latest.completion.consumer_rate")
+        avg_cost = record.get("latest.cost.avg_net_price.overall")
         median_earnings = record.get("latest.earnings.10_yrs_after_entry.median")
-        test_score = (
-            record.get("latest.admissions.sat_scores.average.overall")
-            or record.get("latest.admissions.act_scores.midpoint.cumulative")
-        )
-        acceptance_rate = record.get("latest.admissions.admission_rate.overall")
+        test_score = record.get("latest.admissions.sat_scores.50th_percentile.critical_reading")
+        act_score = record.get("latest.admissions.act_scores.midpoint.cumulative")
+        acceptance_rate = record.get("latest.admissions.admission_rate.overall") or 1.0
         part_time_share = record.get("latest.student.part_time_share")
         size = record.get("latest.student.size") or 0
         full_time_enrollment = None
+        part_time_enrollment = None
         if size and part_time_share is not None:
             full_time_enrollment = int(round(size * (1 - part_time_share)))
+            part_time_enrollment = int(round(size * part_time_share))
+        student_faculty_ratio = record.get("latest.student.demographics.student_faculty_ratio")
         diversity = {
             "white": record.get("latest.student.share_white"),
             "black": record.get("latest.student.share_black"),
@@ -136,12 +137,9 @@ class CollegeScorecardClient:
             "non_resident": record.get("latest.student.share_non_resident_alien"),
         }
         monthly_payment_median = record.get(
-            "latest.aid.median_debt.completers.monthly_payments.median"
+            "latest.aid.median_debt.completers.monthly_payments"
         )
-        monthly_payment_mean = record.get(
-            "latest.aid.median_debt.completers.monthly_payments.mean"
-        )
-        typical_monthly_payment = monthly_payment_median or monthly_payment_mean
+        typical_monthly_payment = monthly_payment_median
 
         income_levels = [
             "0-30000",
@@ -186,11 +184,14 @@ class CollegeScorecardClient:
             "typical_earnings": median_earnings,
             "campus_diversity": diversity,
             "test_score": test_score,
+            "act_score": act_score,
             "acceptance_rate": acceptance_rate,
             "full_time_enrollment": full_time_enrollment,
+            "part_time_enrollment": part_time_enrollment,
             "first_year_return_rate": record.get(
-                "latest.student.retention_rate.four_year.full_time"
+                "latest.student.retention_rate.overall.full_time"
             ),
+            "student_faculty_ratio": student_faculty_ratio,
             "federal_loan_rate": record.get("latest.aid.federal_loan_rate"),
             "median_debt": record.get("latest.aid.median_debt.completers.overall"),
             "typical_monthly_payment": typical_monthly_payment,
