@@ -156,6 +156,18 @@ const EducationPlanEditor = () => {
 		);
 	}, [availableCourses, semester, year]);
 
+	const uniqueProgramOptions = useMemo(() => {
+		const seen = new Set();
+		return programs.filter((program) => {
+			const name = (program.program || "").trim().toLowerCase();
+			if (!name || seen.has(name)) {
+				return false;
+			}
+			seen.add(name);
+			return true;
+		});
+	}, [programs]);
+
 	const groupedCourses = useMemo(() => {
 		return courses.reduce((acc, course) => {
 			const key = `${course.year}::${course.semester}`;
@@ -267,21 +279,21 @@ const EducationPlanEditor = () => {
 
 				<label className="flex flex-col gap-2 font-semibold text-sm text-slate-600">
 					Program
-					<select
-						value={selectedProgram}
-						onChange={(event) => {
-							setSelectedProgram(event.target.value);
-							saveStorage("Programname", event.target.value);
+						<select
+							value={selectedProgram}
+							onChange={(event) => {
+								setSelectedProgram(event.target.value);
+								saveStorage("Programname", event.target.value);
 						}}
 						className="px-3 py-2 rounded-lg border font-normal border-slate-200"
 					>
 						<option value="">Select program</option>
-						{programs.map((program) => (
-							<option
-								key={`${program.university}-${program.program}`}
-								value={program.program}
-							>
-								{program.program}
+							{uniqueProgramOptions.map((program) => (
+								<option
+									key={`${program.university}-${program.program}`}
+									value={program.program}
+								>
+									{program.program}
 							</option>
 						))}
 					</select>
