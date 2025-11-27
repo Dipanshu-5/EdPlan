@@ -41,7 +41,7 @@ const Navigation = () => {
 	};
 
 	return (
-		<aside className="w-full lg:w-72 bg-white border-r border-slate-200 shadow-sm p-6 flex flex-col gap-6">
+		<aside className="w-full lg:w-72 bg-white border-r border-slate-200 shadow-sm p-6 flex flex-col gap-6 lg:fixed lg:h-screen lg:top-0 lg:left-0 lg:overflow-y-auto">
 			<header className="flex items-center justify-between">
 				<div>
 					<h1 className="ml-4 text-xl font-semibold text-slate-900">EdPlan.ai</h1>
