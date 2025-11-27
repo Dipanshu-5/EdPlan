@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const HomePage = () => (
 	<section className="w-full h-full flex flex-col items-center justify-center py-24 px-6 bg-gradient-to-br from-indigo-50 via-white to-purple-50">
 		<div className="max-w-3xl text-center space-y-6">
@@ -13,20 +15,20 @@ const HomePage = () => (
 				Explore and compare colleges, build personalized education plans, and
 				stay on top of your course schedule with the help of EdPlan.ai.
 			</p>
-			<div className="flex flex-wrap items-center justify-center gap-4">
-				<a
-					href="/form.html"
-					className="px-6 py-3 rounded-lg bg-slate-900 text-white font-semibold shadow hover:bg-slate-700"
-				>
-					Start now
-				</a>
-				<a
-					href="/login"
-					className="px-6 py-3 rounded-lg border border-slate-300 text-slate-700 font-semibold hover:border-slate-500"
-				>
-					Login
-				</a>
-			</div>
+				<div className="flex flex-wrap items-center justify-center gap-4">
+					<Link
+						to="/intake"
+						className="px-6 py-3 rounded-lg bg-slate-900 text-white font-semibold shadow hover:bg-slate-700"
+					>
+						Start now
+					</Link>
+					<Link
+						to="/login"
+						className="px-6 py-3 rounded-lg border border-slate-300 text-slate-700 font-semibold hover:border-slate-500"
+					>
+						Login
+					</Link>
+				</div>
 			<div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm text-slate-600">
 				<div className="bg-white rounded-lg shadow p-4">
 					Help me find the best education plan tailored to my goals.

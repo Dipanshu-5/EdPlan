@@ -37,3 +37,4 @@ target/
 .settings/
 .project
 .DS_Store
+intake_submissions.json

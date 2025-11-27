@@ -4,8 +4,6 @@ import {
 	compareUniversitiesByIds,
 } from "../../services/universityService.js";
 
-const dataNotAvailable = "N/A";
-
 const formatPercent = (value) =>
 	value || value === 0 ? `${(value * 100).toFixed(1).replace(/\.0$/, "")} %` : "N/A";
 const formatCurrency = (value) =>
@@ -121,105 +119,7 @@ const financialMetrics = [
 	},
 ];
 
-const studentLifeMetrics = [
-	{
-		label: "Housing Prices",
-		key: "housing_prices",
-		format: () => dataNotAvailable,
-	},
-	{
-		label: "Food",
-		key: "food",
-		format: () => dataNotAvailable,
-	},
-	{
-		label: "Transportation",
-		key: "transportation",
-		format: () => dataNotAvailable,
-	},
-	{
-		label: "Miscellaneous Expenses",
-		key: "misc_expenses",
-		format: () => dataNotAvailable,
-	},
-	{
-		label: "Crime Rate",
-		key: "crime_rate",
-		format: () => dataNotAvailable,
-	},
-	{
-		label: "Faculty with PhD",
-		key: "faculty_with_phd",
-		format: () => dataNotAvailable,
-	},
-];
-
-const courseInsightMetrics = [
-	{
-		label: "Field of Study",
-		key: "field_of_study",
-		format: () => "Browse Find University to explore programs.",
-	},
-	{
-		label: "Course Code",
-		key: "course_code",
-		format: () => "Use the Education Plan builder to view course codes.",
-	},
-	{
-		label: "Course Name",
-		key: "course_name",
-		format: () => "Use the Education Plan builder to view course names.",
-	},
-	{
-		label: "Lecture Hours",
-		key: "lecture_hours",
-		format: () => "Detailed schedule data lives inside Education Plan.",
-	},
-	{
-		label: "Lab Hours",
-		key: "lab_hours",
-		format: () => "Detailed schedule data lives inside Education Plan.",
-	},
-	{
-		label: "Credit Hours",
-		key: "credit_hours",
-		format: () => "Check each saved plan for credit breakdown.",
-	},
-	{
-		label: "Pre-requisites",
-		key: "pre_requisites",
-		format: () => "View prerequisites inside Education Plan courses.",
-	},
-	{
-		label: "Co-requisites",
-		key: "co_requisites",
-		format: () => "View co-requisites inside Education Plan courses.",
-	},
-];
-
-const socioRows = [
-	{ key: "first_generation_share", label: "First-generation students" },
-	{ key: "pell_grant_rate", label: "Students receiving Pell Grants" },
-];
-
-const raceRows = [
-	{ key: "white", label: "White" },
-	{ key: "black", label: "Black or African American" },
-	{ key: "hispanic", label: "Hispanic/Latino" },
-	{ key: "asian", label: "Asian" },
-	{ key: "two_or_more", label: "Two or more races" },
-	{ key: "non_resident", label: "Non-resident alien" },
-];
-
-const familyIncomeBrackets = [
-	{ key: "0-30000", label: "$0 – $30k" },
-	{ key: "30001-48000", label: "$30k – $48k" },
-	{ key: "48001-75000", label: "$48k – $75k" },
-	{ key: "75001-110000", label: "$75k – $110k" },
-	{ key: "110001-plus", label: "$110k+" },
-];
-
-const SectionCard = ({ title, children, note }) => (
+	const SectionCard = ({ title, children, note }) => (
 	<div className="bg-white border border-slate-200 rounded-xl shadow-sm p-5 space-y-3">
 		<div>
 			<h3 className="text-[20px] font-bold text-slate-700">{title}</h3>
@@ -373,108 +273,8 @@ const CollegeCompare = () => {
 		[selected, comparison]
 	);
 
-	const renderSocioEconomic = () => (
-		<SectionCard title="Socio-Economic Diversity">
-			<div className="overflow-x-auto">
-				<table className="min-w-full text-sm">
-					<thead>
-						<tr className="text-sm uppercase tracking-wide text-slate-600">
-							<th className="text-left px-3 py-2 font-semibold">Metric</th>
-							{comparisonOrder.map((school) => (
-								<th key={`socio-${school.unit_id || school.name}`} className="text-left px-3 py-2 font-semibold">
-									{school.name || "College"}
-								</th>
-							))}
-						</tr>
-					</thead>
-					<tbody>
-						{socioRows.map((row) => (
-							<tr key={row.key} className="border-t border-slate-100">
-								<td className="px-3 py-2 font-medium text-slate-700">{row.label}</td>
-								{comparisonOrder.map((school) => (
-									<td key={`${row.key}-${school.unit_id || school.name}`} className="px-3 py-2 text-slate-800">
-										{formatPercent(
-											school?.socioeconomic_diversity?.[row.key]
-										)}
-									</td>
-								))}
-							</tr>
-						))}
-					</tbody>
-				</table>
-			</div>
-		</SectionCard>
-	);
-
-	const renderRaceTable = () => (
-		<SectionCard title="Race/Ethnicity">
-			<div className="overflow-x-auto">
-				<table className="min-w-full text-sm">
-					<thead>
-						<tr className="text-sm uppercase tracking-wide text-slate-600">
-							<th className="text-left px-3 py-2 font-semibold">Group</th>
-							{comparisonOrder.map((school) => (
-								<th key={`race-${school.unit_id || school.name}`} className="text-left px-3 py-2 font-semibold">
-									{school.name || "College"}
-								</th>
-							))}
-						</tr>
-					</thead>
-					<tbody>
-						{raceRows.map((row) => (
-							<tr key={row.key} className="border-t border-slate-100">
-								<td className="px-3 py-2 font-medium text-slate-700">{row.label}</td>
-								{comparisonOrder.map((school) => (
-									<td key={`${row.key}-${school.unit_id || school.name}`} className="px-3 py-2 text-slate-800">
-										{formatPercent(school?.campus_diversity?.[row.key])}
-									</td>
-								))}
-							</tr>
-						))}
-					</tbody>
-				</table>
-			</div>
-		</SectionCard>
-	);
-
-	const renderFamilyIncome = () => (
-		<SectionCard
-			title="Average Annual Cost by Family Income"
-		>
-			<div className="overflow-x-auto">
-				<table className="min-w-full text-sm">
-					<thead>
-						<tr className="text-sm uppercase tracking-wide text-slate-600">
-							<th className="text-left px-3 py-2 font-semibold">Income Bracket</th>
-							{comparisonOrder.map((school) => (
-								<th key={`income-${school.unit_id || school.name}`} className="text-left px-3 py-2 font-semibold">
-									{school.name || "College"}
-								</th>
-							))}
-						</tr>
-					</thead>
-					<tbody>
-						{familyIncomeBrackets.map((bracket) => (
-							<tr key={bracket.key} className="border-t border-slate-100">
-								<td className="px-3 py-2 font-medium text-slate-700">{bracket.label}</td>
-								{comparisonOrder.map((school) => {
-									const breakdown = school?.family_income_net_price?.breakdown || {};
-									return (
-										<td key={`${bracket.key}-${school.unit_id || school.name}`} className="px-3 py-2 text-slate-800">
-											{formatCurrency(breakdown[bracket.key])}
-										</td>
-									);
-								})}
-							</tr>
-						))}
-					</tbody>
-				</table>
-			</div>
-		</SectionCard>
-	);
-
-	return (
-		<section className="space-y-6">
+		return (
+			<section className="space-y-6">
 			<header className="space-y-2">
 				<h2 className="text-2xl font-semibold text-slate-900">Compare colleges</h2>
 				<p className="text-sm text-slate-600">

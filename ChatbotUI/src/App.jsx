@@ -7,12 +7,14 @@ import FindUniversityPage from "./pages/FindUniversityPage.jsx";
 import CollegeComparePage from "./pages/CollegeComparePage.jsx";
 import LoginPage from "./pages/LoginPage.jsx";
 import SignupPage from "./pages/SignupPage.jsx";
+import IntakeForm from "./pages/IntakeForm.jsx";
 
 const App = () => (
 	<Routes>
 		<Route element={<AppLayout />}>
 			<Route path="/" element={<Navigate to="/home" replace />} />
 			<Route path="/home" element={<HomePage />} />
+			<Route path="/intake" element={<IntakeForm />} />
 			{/* <Route path="/edu" element={<EducationPlanPage />} /> */}
 			{/* <Route path="/eduai" element={<LandingPage />} /> */}
 			{/* <Route path="/chatbot" element={<ChatbotPage />} /> */}
