@@ -32,18 +32,14 @@ export const register = ({
   lastName,
   email,
   phoneNumber,
-  password,
-  role = 2,
-  agreeToTerms = true
+  password
 }) =>
   client.post('/users', {
     first_name: firstName,
     last_name: lastName,
     email,
     phone_number: phoneNumber,
-    password,
-    role,
-    agree_to_terms: agreeToTerms
+    password
   });
 
 export const addEducationPlan = ({ email, program, rescheduledata, reschedule }) =>
@@ -68,6 +64,6 @@ export const getEducationPlan = ({ email, programName, universityName }) =>
   });
 
 export const getEducationPlanList = (email) =>
-  client.get(`/users/${encodeURIComponent(email)}/programs`);
+  client.post('/users/education-plan/list', { email });
 
 export default client;
