@@ -23,8 +23,8 @@ client.interceptors.request.use((config) => {
 
 export const login = ({ email, password }) =>
   client.post('/users/login', {
-    EmailAddress: email,
-    Password: password
+    email,
+    password
   });
 
 export const register = ({
@@ -37,13 +37,13 @@ export const register = ({
   agreeToTerms = true
 }) =>
   client.post('/users', {
-    FirstName: firstName,
-    LastName: lastName,
-    EmailAddress: email,
-    PhoneNumber: phoneNumber,
-    Role: role,
-    Password: password,
-    IsAgreeTermsAndConditions: agreeToTerms
+    first_name: firstName,
+    last_name: lastName,
+    email,
+    phone_number: phoneNumber,
+    password,
+    role,
+    agree_to_terms: agreeToTerms
   });
 
 export const addEducationPlan = ({ email, program, rescheduledata, reschedule }) =>
