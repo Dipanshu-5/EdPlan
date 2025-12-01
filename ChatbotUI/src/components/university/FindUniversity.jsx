@@ -78,7 +78,7 @@ const FindUniversity = ({ onSelectProgram }) => {
 			const payload = await searchUniversities({
 				search: overrides.search ?? searchTerm,
 				state: overrides.state ?? stateFilter,
-				perPage: 26,
+				perPage: 16,
 			});
 			setUniversities(payload.data || []);
 		} catch (err) {

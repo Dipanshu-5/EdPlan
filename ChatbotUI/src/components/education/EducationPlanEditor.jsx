@@ -294,25 +294,11 @@ const EducationPlanEditor = () => {
 				</div>
 			)}
 
-			<div className="grid gap-6 lg:grid-cols-[2fr,1.2fr]">
+			<div className="grid gap-6 lg:grid-cols-[2fr,1.4fr]">
 				<div className="space-y-4">
 					<h3 className="text-lg font-semibold text-slate-800">
 						My Education Plan
 					</h3>
-					{totalCourses > 0 && (
-						<div className="bg-indigo-50 border border-indigo-100 rounded-xl p-3 mt-4 text-sm text-slate-800 font-bold flex flex-nowrap items-center gap-4 whitespace-nowrap overflow-x-auto">
-							<span className="shrink-0">Total Courses: {totalCourses}</span>
-							<span className="shrink-0">Total Credits: {totalCredits}</span>
-							{Object.entries(creditsByYear).map(([yr, credits]) => (
-								<span
-									key={yr}
-									className="text-sm font-semibold text-slate-800 shrink-0"
-								>
-									{yr}: {credits} credits
-								</span>
-							))}
-						</div>
-					)}
 
 					<div className="flex flex-wrap items-center gap-2">
 						<div className="flex items-center gap-2">
@@ -372,6 +358,23 @@ const EducationPlanEditor = () => {
 						</div>
 					</div>
 
+					{totalCourses > 0 && (
+						<div className="bg-indigo-50 border border-indigo-100 rounded-xl p-3 mt-4 text-sm text-slate-800 font-bold flex flex-col gap-2">							
+							<div className="flex items-center gap-4 flex-wrap">
+							<span>Total Courses: {totalCourses}</span>
+							<span>Total Credits: {totalCredits}</span>
+							</div>
+
+							<div className="flex items-center gap-4 flex-wrap">
+							{Object.entries(creditsByYear).map(([yr, credits]) => (
+								<span key={yr} className="text-sm font-normal text-slate-800">
+								{yr}: {credits} credits
+								</span>
+							))}
+							</div>
+						</div>
+					)}
+
 					{Object.keys(groupedCourses).length === 0 && (
 						<div className="bg-white border border-slate-200 rounded-xl shadow-sm p-6 text-sm text-slate-500">
 							Add courses from the catalogue to build your plan.
@@ -394,7 +397,7 @@ const EducationPlanEditor = () => {
 									{courseList.map((course) => (
 										<li
 											key={course.code}
-											className="border border-slate-100 rounded-lg p-3 flex flex-col gap-1"
+											className="border border-slate-100 rounded-lg p-3 flex flex-col gap-1 hover:border-indigo-200 hover:bg-indigo-50"
 										>
 											<div className="flex items-center justify-between gap-2">
 												<span className="font-medium text-slate-800">
@@ -403,7 +406,7 @@ const EducationPlanEditor = () => {
 												<button
 													type="button"
 													onClick={() => removeCourse(course.code)}
-													className="text-xs text-rose-500 hover:text-rose-600"
+													className="text-xs font-bold text-rose-500 hover:text-rose-600"
 												>
 													Remove
 												</button>
@@ -494,14 +497,14 @@ const EducationPlanEditor = () => {
 										<div className="font-medium text-slate-800">
 											{course.name}
 										</div>
-										<div className="text-xs text-slate-500 flex gap-3">
+										<div className="text-md text-slate-500 flex gap-3">
 											<span>Code: {course.code}</span>
 											<span>Year: {course.year}</span>
 											<span>Semester: {course.semester}</span>
 										</div>
 									</div>
 									<div className="flex justify-end ml-auto">
-										<span className="text-md text-blue-700 mt-2">Add</span>
+										<span className="text-md font-bold text-blue-700 mt-2">Add</span>
 									</div>
 								</div>
 							</button>
