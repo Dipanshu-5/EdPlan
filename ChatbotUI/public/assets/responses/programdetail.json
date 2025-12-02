@@ -15,7 +15,7 @@
                 "code": "ENGL 1110",
                 "name": "Composition I",
                 "credits": 3,
-                "prerequisite": "Placement",
+                "prerequisite": "None",
                 "schedule": {
                   "day": "Mon, Wed",
                   "time": "9:00 AM - 10:15 AM"
@@ -27,7 +27,7 @@
                 "code": "MATH 1511",
                 "name": "Calculus I",
                 "credits": 4,
-                "prerequisite": "MATH 1250 or placement",
+                "prerequisite": "None",
                 "schedule": {
                   "day": "Mon, Wed, Fri",
                   "time": "8:30 AM - 9:45 AM"
@@ -64,7 +64,7 @@
                 "code": "COMM 1130",
                 "name": "Public Speaking",
                 "credits": 3,
-                "prerequisite": "ENGL 1110",
+                "prerequisite": "None",
                 "schedule": {
                   "day": "Tue, Thu",
                   "time": "2:00 PM - 3:15 PM"
@@ -728,7 +728,7 @@
                 "code": "COMM 1130",
                 "name": "Public Speaking",
                 "credits": 3,
-                "prerequisite": "ENGL 1110",
+                "prerequisite": "None",
                 "schedule": {
                   "day": "Tue, Thu",
                   "time": "2:00 PM - 3:15 PM"
@@ -3220,7 +3220,7 @@
                 "code": "MATH 1220",
                 "name": "College Algebra",
                 "credits": 3,
-                "prerequisite": "Placement or completion of MATH 1215",
+                "prerequisite": "Placement",
                 "schedule": {
                   "day": "Tuesday, Thursday",
                   "time": "8:00 AM - 9:15 AM"
@@ -3257,7 +3257,7 @@
                 "code": "CHEM 1215",
                 "name": "General Chemistry I for STEM Majors",
                 "credits": 3,
-                "prerequisite": "High school chemistry and MATH 1220",
+                "prerequisite": "High school chemistry",
                 "schedule": {
                   "day": "Tuesday, Thursday",
                   "time": "11:30 AM - 12:45 PM"
@@ -3943,7 +3943,7 @@
                 "code": "MATH 1250",
                 "name": "Trigonometry and Pre-Calculus",
                 "credits": 4,
-                "prerequisite": "MATH 1220",
+                "prerequisite": "None",
                 "schedule": {
                   "day": "Tuesday, Thursday",
                   "time": "8:00 AM - 9:40 AM"
@@ -4570,7 +4570,7 @@
                 "code": "MATH 1220",
                 "name": "College Algebra",
                 "credits": 3,
-                "prerequisite": "Placement or MATH 1215",
+                "prerequisite": "Placement",
                 "schedule": {
                   "day": "Tuesday, Thursday",
                   "time": "8:00 AM - 9:15 AM"
@@ -4607,7 +4607,7 @@
                 "code": "COMM 1130",
                 "name": "Public Speaking",
                 "credits": 3,
-                "prerequisite": "ENGL 1110",
+                "prerequisite": "None",
                 "schedule": {
                   "day": "Tuesday",
                   "time": "5:00 PM - 7:40 PM"
@@ -5171,7 +5171,7 @@
                 "code": "MATH 1220",
                 "name": "College Algebra",
                 "credits": 3,
-                "prerequisite": "Placement or completion of MATH 1215",
+                "prerequisite": "Placement",
                 "schedule": {
                   "day": "Tuesday, Thursday",
                   "time": "8:00 AM - 9:15 AM"
@@ -5183,7 +5183,7 @@
                 "code": "COMM 1130",
                 "name": "Public Speaking",
                 "credits": 3,
-                "prerequisite": "ENGL 1110",
+                "prerequisite": "None",
                 "schedule": {
                   "day": "Wednesday",
                   "time": "1:00 PM - 3:30 PM"
@@ -5807,7 +5807,7 @@
                 "code": "COMM 1130",
                 "name": "Public Speaking",
                 "credits": 3,
-                "prerequisite": "ENGL 1110",
+                "prerequisite": "None",
                 "schedule": {
                   "day": "Monday",
                   "time": "1:00 PM - 3:30 PM"
@@ -6433,7 +6433,7 @@
                 "code": "BIOL 2210",
                 "name": "Human Anatomy and Physiology I",
                 "credits": 3,
-                "prerequisite": "BIOL 1110 recommended",
+                "prerequisite": "None",
                 "schedule": {
                   "day": "Mon, Wed",
                   "time": "11:00 AM - 12:15 PM"
@@ -6785,7 +6785,7 @@
                 "code": "COMM 1130",
                 "name": "Public Speaking",
                 "credits": 3,
-                "prerequisite": "ENGL 1110",
+                "prerequisite": "None",
                 "schedule": {
                   "day": "Wed",
                   "time": "4:00 PM - 6:30 PM"
@@ -8113,7 +8113,7 @@
                 "code": "BIOL 2210",
                 "name": "Human Anatomy and Physiology I",
                 "credits": 3,
-                "prerequisite": "BIOL 1110",
+                "prerequisite": "None",
                 "schedule": {
                   "day": "Mon, Wed",
                   "time": "11:00 AM - 12:15 PM"
@@ -8465,7 +8465,7 @@
                 "code": "COMM 1130",
                 "name": "Public Speaking",
                 "credits": 3,
-                "prerequisite": "ENGL 1110",
+                "prerequisite": "None",
                 "schedule": {
                   "day": "Wed",
                   "time": "4:00 PM - 6:30 PM"
@@ -9756,7 +9756,7 @@
   {
     "program": "Computer Science",
     "degree": "Bachelor of Science",
-    "university": "University of New Mexico",
+    "university": "University of New Mexico-Main Campus",
     "total_credit_hours": 120,
     "years": [
       {
@@ -9781,7 +9781,7 @@
                 "code": "MATH 1511",
                 "name": "Calculus I",
                 "credits": 4,
-                "prerequisite": "MATH 1250 or placement",
+                "prerequisite": "Placement",
                 "schedule": {
                   "day": "Mon, Wed, Fri",
                   "time": "8:30 AM - 9:45 AM"
@@ -9818,7 +9818,7 @@
                 "code": "COMM 1130",
                 "name": "Public Speaking",
                 "credits": 3,
-                "prerequisite": "ENGL 1110",
+                "prerequisite": "None",
                 "schedule": {
                   "day": "Tue, Thu",
                   "time": "2:00 PM - 3:15 PM"
@@ -10336,7 +10336,7 @@
       }
     ],
     "college_profile": {
-      "university_name": "University of New Mexico",
+      "university_name": "University of New Mexico-Main Campus",
       "city": "Albuquerque",
       "state": "New Mexico",
       "website": "https://www.unm.edu",
@@ -10396,7 +10396,7 @@
   {
     "program": "Mechanical Engineering",
     "degree": "Bachelor of Science",
-    "university": "University of New Mexico",
+    "university": "University of New Mexico-Main Campus",
     "total_credit_hours": 120,
     "years": [
       {
@@ -10482,7 +10482,7 @@
                 "code": "COMM 1130",
                 "name": "Public Speaking",
                 "credits": 3,
-                "prerequisite": "ENGL 1110",
+                "prerequisite": "None",
                 "schedule": {
                   "day": "Tue, Thu",
                   "time": "2:00 PM - 3:15 PM"
@@ -11048,7 +11048,7 @@
   {
     "program": "Business Administration",
     "degree": "Bachelor of Business Administration",
-    "university": "University of New Mexico",
+    "university": "University of New Mexico-Main Campus",
     "total_credit_hours": 120,
     "years": [
       {
@@ -11601,7 +11601,7 @@
       }
     ],
     "college_profile": {
-      "university_name": "University of New Mexico",
+      "university_name": "University of New Mexico-Main Campus",
       "city": "Albuquerque",
       "state": "New Mexico",
       "website": "https://www.unm.edu",
@@ -11661,7 +11661,7 @@
   {
     "program": "Nursing",
     "degree": "Bachelor of Science in Nursing",
-    "university": "University of New Mexico",
+    "university": "University of New Mexico-Main Campus",
     "total_credit_hours": 120,
     "years": [
       {
@@ -12274,7 +12274,7 @@
       }
     ],
     "college_profile": {
-      "university_name": "University of New Mexico",
+      "university_name": "University of New Mexico-Main Campus",
       "city": "Albuquerque",
       "state": "New Mexico",
       "website": "https://www.unm.edu",
@@ -12334,7 +12334,7 @@
   {
     "program": "Elementary Education",
     "degree": "Bachelor of Arts in Education",
-    "university": "University of New Mexico",
+    "university": "University of New Mexico-Main Campus",
     "total_credit_hours": 120,
     "years": [
       {
@@ -12889,7 +12889,7 @@
       }
     ],
     "college_profile": {
-      "university_name": "University of New Mexico",
+      "university_name": "University of New Mexico-Main Campus",
       "city": "Albuquerque",
       "state": "New Mexico",
       "website": "https://www.unm.edu",
