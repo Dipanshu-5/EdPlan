@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 const API_BASE_URL =
@@ -8,24 +8,7 @@ const IntakeForm = () => {
 	const navigate = useNavigate();
 	const [satTaken, setSatTaken] = useState("no");
 	const [actTaken, setActTaken] = useState("no");
-	const [degreeOptions, setDegreeOptions] = useState([]);
 
-	useEffect(() => {
-		const loadDegrees = async () => {
-			try {
-				const res = await fetch("/assets/responses/programdetail.json");
-				if (!res.ok) return;
-				const data = await res.json();
-				const degrees = Array.from(
-					new Set(data.map((d) => d.degree).filter(Boolean))
-				).sort();
-				setDegreeOptions(degrees);
-			} catch (err) {
-				console.error("Failed to load degree options", err);
-			}
-		};
-		loadDegrees();
-	}, []);
 	const satDisabled = satTaken !== "yes";
 	const actDisabled = actTaken !== "yes";
 
@@ -88,38 +71,6 @@ const IntakeForm = () => {
 				</header>
 
 				<form onSubmit={handleSubmit} className="px-6 sm:px-10 py-8 space-y-10">
-					{/* Intended Degree */}
-					<section>
-						<div className="flex items-center justify-between gap-2 mb-4">
-							<h2 className="text-lg sm:text-xl font-semibold text-slate-900">
-								Intended Degree
-							</h2>
-							<span className="text-xs font-medium text-slate-500">
-								Optional but helpful
-							</span>
-						</div>
-
-						<div className="grid gap-4 md:grid-cols-2">
-							<label className="flex flex-col gap-1.5 text-xs font-medium text-slate-700">
-								<span className="flex items-center gap-1">
-									Select intended degree
-								</span>
-								<select
-									name="degree"
-									className="w-full rounded-lg border border-slate-300 px-3 py-2.5 text-sm shadow-sm bg-white focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 outline-none"
-									defaultValue=""
-								>
-									<option value="">Select degree</option>
-									{degreeOptions.map((d) => (
-										<option key={d} value={d}>
-											{d}
-										</option>
-									))}
-								</select>
-							</label>
-						</div>
-					</section>
-
 					{/* Academic Performance */}
 					<section>
 						<div className="flex items-center justify-between gap-2 mb-4">

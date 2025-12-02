@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from "react";
 import { searchUniversities } from "../../services/universityService.js";
-import { save as saveStorage } from "../../utils/storage.js";
+import { listPrograms } from "../../services/educationPlanService.js";
+import { load as loadStorage, save as saveStorage } from "../../utils/storage.js";
 import { useNavigate } from 'react-router-dom';
 
 const stateOptions = [
@@ -62,6 +63,15 @@ const formatPercent = (value) =>
 const formatCurrency = (value) =>
 	value || value === 0 ? `$${Number(value).toLocaleString()}` : "N/A";
 
+const allowedCampuses = [
+	"University of New Mexico-Main Campus",
+	"New Mexico State University-Main Campus",
+	"Santa Fe Community College",
+	"Northern New Mexico College",
+	"San Juan College",
+];
+const allowedCampusesLower = new Set(allowedCampuses.map((name) => name.toLowerCase()));
+
 const FindUniversity = ({ onSelectProgram }) => {
 	const [universities, setUniversities] = useState([]);
 	const [loading, setLoading] = useState(false);
@@ -69,28 +79,57 @@ const FindUniversity = ({ onSelectProgram }) => {
 	const [searchTerm, setSearchTerm] = useState("");
 	const [stateFilter, setStateFilter] = useState("");
 	const [costFilter, setCostFilter] = useState(50000);
+	const [programOptions, setProgramOptions] = useState([]);
+	const [selectedProgram, setSelectedProgram] = useState("");
+	const [programMap, setProgramMap] = useState(new Map());
+	const [compareSelection, setCompareSelection] = useState([]);
 	const navigate = useNavigate();
 
 	const fetchUniversities = async (overrides = {}) => {
 		setLoading(true);
-		setError("");
 		try {
 			const payload = await searchUniversities({
 				search: overrides.search ?? searchTerm,
 				state: overrides.state ?? stateFilter,
 				perPage: 16,
 			});
-			setUniversities(payload.data || []);
+			const allowedOnly = (payload.data || []).filter((uni) =>
+				allowedCampusesLower.has((uni.name || "").toLowerCase())
+			);
+			setUniversities(allowedOnly);
+			setError("");
 		} catch (err) {
 			console.error(err);
 			setError("Unable to load data from College Scorecard.");
-			setTimeout(() => {
-				setError("");
-			}, 1000);
 		} finally {
 			setLoading(false);
 		}
 	};
+
+	useEffect(() => {
+		listPrograms()
+			.then((items) => {
+				const programSet = new Set();
+				const map = new Map();
+				items.forEach((entry) => {
+					const uniName = entry.university || entry.campus || "";
+					if (!allowedCampusesLower.has(uniName.toLowerCase())) return;
+					if (entry.program) {
+						programSet.add(entry.program);
+						if (!map.has(entry.program)) {
+							map.set(entry.program, new Set());
+						}
+						map.get(entry.program).add(uniName);
+					}
+				});
+				setProgramOptions(Array.from(programSet).sort());
+				setProgramMap(map);
+			})
+			.catch((err) => {
+				console.error("Unable to load program list", err);
+				setProgramOptions([]);
+			});
+	}, []);
 
 	useEffect(() => {
 		setStateFilter("NM");
@@ -98,26 +137,69 @@ const FindUniversity = ({ onSelectProgram }) => {
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
 
+	useEffect(() => {
+		const stored = loadStorage("CompareQueue", []);
+		if (Array.isArray(stored)) {
+			const unique = [];
+			const seen = new Set();
+			stored.forEach((entry) => {
+				if (entry?.unit_id && !seen.has(entry.unit_id)) {
+					seen.add(entry.unit_id);
+					unique.push(entry);
+				}
+			});
+			setCompareSelection(unique.slice(0, 3));
+		}
+	}, []);
+
 	const filteredUniversities = useMemo(() => {
 		return universities.filter((university) => {
+			const matchesProgram =
+				!selectedProgram ||
+				programMap.get(selectedProgram)?.has(university.name) ||
+				false;
 			const matchesCost =
 				!university.average_annual_cost ||
 				Number(university.average_annual_cost || 0) <= Number(costFilter);
-			return matchesCost;
+			return matchesCost && matchesProgram;
 		});
-	}, [universities, costFilter]);
+	}, [universities, costFilter, selectedProgram, programMap]);
 
 	const handleSelect = (university) => {
+		const programToSave = selectedProgram || university.program || "";
 		saveStorage("University", university.name);
 		saveStorage("UniversityUnitId", university.unit_id);
 		saveStorage("UniversityState", university.state);
-		saveStorage("Programname", university.name);
-		saveStorage("Programnameview", university.name);
+		saveStorage("Programname", programToSave || university.name);
+		saveStorage("Programnameview", programToSave || university.name);
 		saveStorage("universityview", university.name);
 		saveStorage("selectedComponent", "program");
 		if (onSelectProgram) {
 			onSelectProgram(university);
 		}
+	};
+
+	const handleToggleCompare = (university) => {
+		setCompareSelection((prev) => {
+			const exists = prev.find((entry) => entry.unit_id === university.unit_id);
+			if (exists) {
+				const next = prev.filter((entry) => entry.unit_id !== university.unit_id);
+				saveStorage("CompareQueue", next);
+				return next;
+			}
+			if (prev.length >= 3) return prev;
+			const next = [...prev, university];
+			saveStorage("CompareQueue", next);
+			return next;
+		});
+	};
+
+	const handleCompareNow = () => {
+		const latestQueue = loadStorage("CompareQueue", compareSelection);
+		const queue = Array.isArray(latestQueue) ? latestQueue : compareSelection;
+		if (queue.length === 0) return;
+		saveStorage("CompareQueue", queue.slice(0, 3));
+		// navigate("/compare");
 	};
 
 	const handleSearch = (event) => {
@@ -128,7 +210,7 @@ const FindUniversity = ({ onSelectProgram }) => {
 	return (
 		<section className="space-y-6">
 			<header className="flex flex-col gap-4">
-			    <h2 className="text-2xl font-semibold text-slate-900">Explore colleges</h2>
+			    <h2 className="text-2xl font-semibold text-slate-900">Explore Colleges</h2>
 				<form
 					onSubmit={handleSearch}
 					className="flex flex-col md:flex-row gap-3"
@@ -137,7 +219,7 @@ const FindUniversity = ({ onSelectProgram }) => {
 						value={searchTerm}
 						onChange={(event) => setSearchTerm(event.target.value)}
 						className="px-4 py-2 rounded-lg border border-slate-200 md:w-[500px] text-center"
-						placeholder="Search by University Name or City"
+						placeholder="Search by University Name"
 					/>
 					<select
 						value={stateFilter}
@@ -150,12 +232,31 @@ const FindUniversity = ({ onSelectProgram }) => {
 							</option>
 						))}
 					</select>
+					<select
+						value={selectedProgram}
+						onChange={(event) => setSelectedProgram(event.target.value)}
+						className="px-3 py-2 rounded-lg border border-slate-200 md:w-[400px]"
+					>
+						<option value="">All programs</option>
+						{programOptions.map((program) => (
+							<option key={program} value={program}>
+								{program}
+							</option>
+						))}
+					</select>
 					<button
 						type="submit"
 						className="px-4 py-2 rounded-lg bg-slate-900 text-white font-medium hover:bg-slate-700 md:w-[300px]"
 						disabled={loading}
 					>
 						Search
+					</button>
+					<button
+						type="button"
+						onClick={handleCompareNow}
+						className="px-4 py-2 rounded-lg bg-slate-900 text-white font-medium hover:bg-slate-700 md:w-[300px]"
+					>
+						Compare Now
 					</button>
 				</form>
 			</header>
@@ -256,16 +357,27 @@ const FindUniversity = ({ onSelectProgram }) => {
 										Visit Website
 									</a>
 								)}
-								<button
-									type="button"
-									onClick={() => {
-										handleSelect(university);
-										navigate("/educationplan");
-									}}
-									className="self-start px-4 py-2 rounded-lg bg-slate-900 text-white text-sm font-medium hover:bg-slate-700"
-								>
-									Create Education Plan
-								</button>
+								<div className="flex gap-4">
+									<button
+										type="button"
+										onClick={() => {
+											handleSelect(university);
+											navigate("/educationplan");
+										}}
+										className="self-start px-4 py-2 rounded-lg bg-slate-900 text-white text-sm font-medium hover:bg-slate-700"
+									>
+										Create Education Plan
+									</button>
+									<button
+										type="button"
+										onClick={() => handleToggleCompare(university)}
+										className="text-sm font-medium text-indigo-600 hover:text-indigo-500 bg-indigo-100 px-3 py-1 rounded-lg"
+									>
+										{compareSelection.some((entry) => entry.unit_id === university.unit_id)
+											? "Remove"
+											: "Add to Compare"}
+									</button>
+								</div>
 							</article>
 						);
 					})}
