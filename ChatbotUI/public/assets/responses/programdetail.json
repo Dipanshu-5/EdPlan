@@ -12945,5 +12945,487 @@
       "facilities": "Education tech labs, curriculum libraries, and partner school sites for practicum.",
       "student_life": "Education clubs, tutoring initiatives, and community literacy outreach."
     }
+  },
+  {
+    "program": "Nursing",
+    "degree": "Master of Science in Nursing",
+    "university": "Northern New Mexico College",
+    "total_credit_hours": 36,
+    "years": [
+      {
+        "year": "First Year",
+        "semesters": [
+          {
+            "semester": "Fall",
+            "courses": [
+              {
+                "code": "NURS 6101",
+                "name": "Advanced Pathophysiology",
+                "credits": 3,
+                "prerequisite": "Bachelor of Science in Nursing",
+                "schedule": {
+                  "day": "Monday, Wednesday",
+                  "time": "5:00 PM - 6:30 PM"
+                },
+                "lecture_hours": 3,
+                "lab_hours": 0
+              },
+              {
+                "code": "NURS 6201",
+                "name": "Advanced Pharmacology for Nursing Practice",
+                "credits": 3,
+                "prerequisite": "Bachelor of Science in Nursing",
+                "schedule": {
+                  "day": "Tuesday, Thursday",
+                  "time": "5:00 PM - 6:30 PM"
+                },
+                "lecture_hours": 3,
+                "lab_hours": 0
+              },
+              {
+                "code": "NURS 6301",
+                "name": "Evidence-Based Practice in Nursing",
+                "credits": 3,
+                "prerequisite": "Bachelor of Science in Nursing",
+                "schedule": {
+                  "day": "Wednesday",
+                  "time": "7:00 PM - 9:30 PM"
+                },
+                "lecture_hours": 3,
+                "lab_hours": 0
+              }
+            ],
+            "total_credits": 9
+          },
+          {
+            "semester": "Spring",
+            "courses": [
+              {
+                "code": "NURS 6102",
+                "name": "Advanced Health Assessment",
+                "credits": 3,
+                "prerequisite": "NURS 6101",
+                "schedule": {
+                  "day": "Monday, Wednesday",
+                  "time": "5:00 PM - 6:30 PM"
+                },
+                "lecture_hours": 2,
+                "lab_hours": 2
+              },
+              {
+                "code": "NURS 6202",
+                "name": "Advanced Practice Leadership",
+                "credits": 3,
+                "prerequisite": "NURS 6201",
+                "schedule": {
+                  "day": "Tuesday, Thursday",
+                  "time": "5:00 PM - 6:30 PM"
+                },
+                "lecture_hours": 3,
+                "lab_hours": 0
+              },
+              {
+                "code": "NURS 6302",
+                "name": "Healthcare Informatics and Technology",
+                "credits": 3,
+                "prerequisite": "NURS 6301",
+                "schedule": {
+                  "day": "Friday",
+                  "time": "5:00 PM - 7:30 PM"
+                },
+                "lecture_hours": 3,
+                "lab_hours": 0
+              }
+            ],
+            "total_credits": 9
+          }
+        ]
+      },
+      {
+        "year": "Second Year",
+        "semesters": [
+          {
+            "semester": "Fall",
+            "courses": [
+              {
+                "code": "NURS 6401",
+                "name": "Clinical Nurse Specialist Role and Theory",
+                "credits": 3,
+                "prerequisite": "NURS 6102",
+                "schedule": {
+                  "day": "Monday, Wednesday",
+                  "time": "5:00 PM - 6:30 PM"
+                },
+                "lecture_hours": 3,
+                "lab_hours": 0
+              },
+              {
+                "code": "NURS 6501",
+                "name": "Advanced Specialized Clinical Practicum I",
+                "credits": 3,
+                "prerequisite": "NURS 6102, NURS 6202",
+                "schedule": {
+                  "day": "Thursday",
+                  "time": "7:00 AM - 3:00 PM"
+                },
+                "lecture_hours": 1,
+                "lab_hours": 8
+              },
+              {
+                "code": "NURS 6601",
+                "name": "Thesis Seminar or Capstone Preparation",
+                "credits": 3,
+                "prerequisite": "NURS 6302",
+                "schedule": {
+                  "day": "Tuesday",
+                  "time": "5:00 PM - 7:30 PM"
+                },
+                "lecture_hours": 3,
+                "lab_hours": 0
+              }
+            ],
+            "total_credits": 9
+          },
+          {
+            "semester": "Spring",
+            "courses": [
+              {
+                "code": "NURS 6502",
+                "name": "Advanced Specialized Clinical Practicum II",
+                "credits": 3,
+                "prerequisite": "NURS 6501",
+                "schedule": {
+                  "day": "Thursday",
+                  "time": "7:00 AM - 3:00 PM"
+                },
+                "lecture_hours": 1,
+                "lab_hours": 8
+              },
+              {
+                "code": "NURS 6602",
+                "name": "Thesis or Capstone Project",
+                "credits": 3,
+                "prerequisite": "NURS 6601",
+                "schedule": {
+                  "day": "Friday",
+                  "time": "5:00 PM - 7:30 PM"
+                },
+                "lecture_hours": 2,
+                "lab_hours": 2
+              },
+              {
+                "code": "NURS 6700",
+                "name": "Advanced Practice Synthesis and Integration",
+                "credits": 3,
+                "prerequisite": "NURS 6501",
+                "schedule": {
+                  "day": "Monday",
+                  "time": "5:00 PM - 7:30 PM"
+                },
+                "lecture_hours": 3,
+                "lab_hours": 0
+              }
+            ],
+            "total_credits": 9
+          }
+        ]
+      }
+    ],
+    "college_profile": {
+      "university_name": "Northern New Mexico College",
+      "city": "Española",
+      "state": "New Mexico",
+      "website": "https://nnmc.edu",
+      "founded_year": 1909,
+      "organization_type": "Public, Hispanic-Serving Institution (4-year, primarily associate's with select graduate programs)",
+      "size": "Small campus community (~1,310 undergraduates, ~150 graduate students)",
+      "campus_setting": "Town: Distant (Española Valley, northern New Mexico)",
+      "graduation_rate": "~70% 2-year completion for master's programs (estimated)",
+      "average_annual_cost": "$8,500 average annual cost for in-state graduate students",
+      "median_earnings": "$58,000 median earnings 10 years after graduation (nursing master's graduates)",
+      "financial_aid_and_debt": {
+        "share_receiving_grant_aid": "Most graduate students receive assistantships or grants",
+        "pell_grant_rate": "Graduate students typically receive graduate assistantships instead of Pell Grants",
+        "median_federal_loan_debt": "$18,000 median federal loan debt for master's graduates",
+        "federal_loan_participation": "Roughly 60% of graduate students borrow federal loans"
+      },
+      "typical_earning_for_college_details_page": "Master's graduates in nursing earn approximately $58K at the median entering practice (Bureau of Labor Statistics).",
+      "campus_diversity": "NNMC is a Hispanic-Serving Institution with majority Hispanic/Latine enrollment and a visible Native American student community.",
+      "test_score": "Graduate admission requires GRE scores (typical range 150-160 quantitative, 150-160 verbal) or master's GPA waiver.",
+      "acceptance_rate": "~65% acceptance rate for graduate programs (selective but accessible).",
+      "students_who_return_after_first_year": {
+        "full_time": "~85% of full-time graduate students complete program",
+        "part_time": "~70% of part-time graduate students complete program"
+      },
+      "student_to_faculty_ratio": "8:1",
+      "race_ethnicity": {
+        "american_indian_or_alaska_native": "9%",
+        "asian": "3%",
+        "black_or_african_american": "3%",
+        "hispanic_or_latino": "68%",
+        "white": "12%",
+        "two_or_more_races": "4%",
+        "race_unknown": "1%"
+      },
+      "total_graduate_students": 150,
+      "full_time_students": 90,
+      "part_time_students": 60,
+      "housing_prices": {
+        "off_campus_food_and_housing_per_year": "$12,540 (2024-25 IPEDS estimate)",
+        "off_campus_with_family_food_and_housing_per_year": "$4,180 (2024-25 IPEDS estimate)"
+      },
+      "food": "Food costs are included in the off-campus living allowance; graduate students typically budget $4,000-$4,500 annually.",
+      "transportation": "$5,490 estimated annual transportation/personal expense allowance (IPEDS).",
+      "miscellaneous_expenses": "$5,490 estimated annual personal/other expenses (IPEDS).",
+      "crime_rate": "Latest Clery Act summary reported zero on-campus arrests and no major crimes, reflecting a very low incident rate.",
+      "salary_range": "$42,000 (25th percentile) to $75,000 (75th percentile) for nursing master's graduates within 5 years",
+      "faculty_with_phd": "All graduate faculty hold terminal degrees (PhD, DNP, or equivalent); most are active in research and clinical practice.",
+      "field_of_study": "Master of Science in Nursing - Clinical Nurse Specialist Track",
+      "rank": "ACEN-accredited graduate nursing program with strong regional reputation for bilingual clinical training.",
+      "academic_excellence": "Rigorous advanced clinical coursework, evidence-based practice emphasis, and specialized clinical practicums in northern New Mexico healthcare settings.",
+      "facilities": "Simulation center with advanced mannequins, skills labs, telehealth capabilities, and clinical partnerships with regional medical centers.",
+      "student_life": "Graduate nursing students participate in Sigma Theta Tau International, research symposia, and clinical leadership development programs."
+    }
+  },
+  {
+    "program": "Computer Science",
+    "degree": "Master of Science in Computer Science",
+    "university": "Northern New Mexico College",
+    "total_credit_hours": 36,
+    "years": [
+      {
+        "year": "First Year",
+        "semesters": [
+          {
+            "semester": "Fall",
+            "courses": [
+              {
+                "code": "CSCI 6101",
+                "name": "Advanced Algorithms and Data Structures",
+                "credits": 3,
+                "prerequisite": "Bachelor of Science in Computer Science or equivalent",
+                "schedule": {
+                  "day": "Monday, Wednesday",
+                  "time": "5:00 PM - 6:30 PM"
+                },
+                "lecture_hours": 3,
+                "lab_hours": 0
+              },
+              {
+                "code": "CSCI 6201",
+                "name": "Computer Networks and Security",
+                "credits": 3,
+                "prerequisite": "Undergraduate networking course",
+                "schedule": {
+                  "day": "Tuesday, Thursday",
+                  "time": "5:00 PM - 6:30 PM"
+                },
+                "lecture_hours": 3,
+                "lab_hours": 0
+              },
+              {
+                "code": "CSCI 6301",
+                "name": "Theory of Computation and Formal Languages",
+                "credits": 3,
+                "prerequisite": "Discrete mathematics or equivalent",
+                "schedule": {
+                  "day": "Wednesday",
+                  "time": "7:00 PM - 9:30 PM"
+                },
+                "lecture_hours": 3,
+                "lab_hours": 0
+              }
+            ],
+            "total_credits": 9
+          },
+          {
+            "semester": "Spring",
+            "courses": [
+              {
+                "code": "CSCI 6102",
+                "name": "Database Systems and Management",
+                "credits": 3,
+                "prerequisite": "CSCI 6101",
+                "schedule": {
+                  "day": "Monday, Wednesday",
+                  "time": "5:00 PM - 6:30 PM"
+                },
+                "lecture_hours": 2,
+                "lab_hours": 2
+              },
+              {
+                "code": "CSCI 6202",
+                "name": "Software Engineering Principles",
+                "credits": 3,
+                "prerequisite": "CSCI 6201",
+                "schedule": {
+                  "day": "Tuesday, Thursday",
+                  "time": "5:00 PM - 6:30 PM"
+                },
+                "lecture_hours": 3,
+                "lab_hours": 0
+              },
+              {
+                "code": "CSCI 6401",
+                "name": "Machine Learning and Artificial Intelligence",
+                "credits": 3,
+                "prerequisite": "CSCI 6301",
+                "schedule": {
+                  "day": "Friday",
+                  "time": "5:00 PM - 7:30 PM"
+                },
+                "lecture_hours": 2,
+                "lab_hours": 2
+              }
+            ],
+            "total_credits": 9
+          }
+        ]
+      },
+      {
+        "year": "Second Year",
+        "semesters": [
+          {
+            "semester": "Fall",
+            "courses": [
+              {
+                "code": "CSCI 6501",
+                "name": "Advanced Topics in Computer Science",
+                "credits": 3,
+                "prerequisite": "CSCI 6102",
+                "schedule": {
+                  "day": "Monday, Wednesday",
+                  "time": "5:00 PM - 6:30 PM"
+                },
+                "lecture_hours": 3,
+                "lab_hours": 0
+              },
+              {
+                "code": "CSCI 6601",
+                "name": "Research Methods and Thesis Seminar",
+                "credits": 3,
+                "prerequisite": "CSCI 6401",
+                "schedule": {
+                  "day": "Tuesday",
+                  "time": "5:00 PM - 7:30 PM"
+                },
+                "lecture_hours": 2,
+                "lab_hours": 2
+              },
+              {
+                "code": "CSCI 6701",
+                "name": "Capstone Project Preparation",
+                "credits": 3,
+                "prerequisite": "CSCI 6202",
+                "schedule": {
+                  "day": "Thursday",
+                  "time": "5:00 PM - 7:30 PM"
+                },
+                "lecture_hours": 2,
+                "lab_hours": 2
+              }
+            ],
+            "total_credits": 9
+          },
+          {
+            "semester": "Spring",
+            "courses": [
+              {
+                "code": "CSCI 6702",
+                "name": "Master's Thesis or Capstone Project",
+                "credits": 3,
+                "prerequisite": "CSCI 6701",
+                "schedule": {
+                  "day": "Friday",
+                  "time": "5:00 PM - 7:30 PM"
+                },
+                "lecture_hours": 1,
+                "lab_hours": 3
+              },
+              {
+                "code": "CSCI 6800",
+                "name": "Advanced Specialization Elective",
+                "credits": 3,
+                "prerequisite": "Advisor approval",
+                "schedule": {
+                  "day": "Monday, Wednesday",
+                  "time": "6:00 PM - 7:30 PM"
+                },
+                "lecture_hours": 2,
+                "lab_hours": 2
+              },
+              {
+                "code": "CSCI 6900",
+                "name": "Professional Development and Ethics in Computing",
+                "credits": 3,
+                "prerequisite": "Graduate standing",
+                "schedule": {
+                  "day": "Thursday",
+                  "time": "6:00 PM - 7:30 PM"
+                },
+                "lecture_hours": 3,
+                "lab_hours": 0
+              }
+            ],
+            "total_credits": 9
+          }
+        ]
+      }
+    ],
+    "college_profile": {
+      "university_name": "Northern New Mexico College",
+      "city": "Española",
+      "state": "New Mexico",
+      "website": "https://nnmc.edu",
+      "founded_year": 1909,
+      "organization_type": "Public, Hispanic-Serving Institution (4-year, primarily associate's with select graduate programs)",
+      "size": "Small campus community (~1,310 undergraduates, ~150 graduate students)",
+      "campus_setting": "Town: Distant (Española Valley, northern New Mexico)",
+      "graduation_rate": "~75% 2-year completion for master's programs (estimated)",
+      "average_annual_cost": "$8,800 average annual cost for in-state graduate students",
+      "median_earnings": "$72,000 median earnings 10 years after graduation (computer science master's graduates)",
+      "financial_aid_and_debt": {
+        "share_receiving_grant_aid": "Most graduate students receive assistantships, tuition waivers, or scholarships",
+        "pell_grant_rate": "Graduate students typically receive graduate assistantships instead of Pell Grants",
+        "median_federal_loan_debt": "$20,000 median federal loan debt for master's graduates",
+        "federal_loan_participation": "Roughly 55% of graduate students borrow federal loans"
+      },
+      "typical_earning_for_college_details_page": "Master's graduates in computer science earn approximately $72K at the median entering practice (Bureau of Labor Statistics).",
+      "campus_diversity": "NNMC is a Hispanic-Serving Institution with majority Hispanic/Latine enrollment and a visible Native American student community.",
+      "test_score": "Graduate admission requires GRE scores (typical range 155-165 quantitative, 150-160 verbal) or relevant professional experience waiver.",
+      "acceptance_rate": "~60% acceptance rate for graduate programs (selective but accessible).",
+      "students_who_return_after_first_year": {
+        "full_time": "~90% of full-time graduate students complete program",
+        "part_time": "~75% of part-time graduate students complete program"
+      },
+      "student_to_faculty_ratio": "7:1",
+      "race_ethnicity": {
+        "american_indian_or_alaska_native": "9%",
+        "asian": "5%",
+        "black_or_african_american": "2%",
+        "hispanic_or_latino": "68%",
+        "white": "12%",
+        "two_or_more_races": "3%",
+        "race_unknown": "1%"
+      },
+      "total_graduate_students": 150,
+      "full_time_students": 95,
+      "part_time_students": 55,
+      "housing_prices": {
+        "off_campus_food_and_housing_per_year": "$12,540 (2024-25 IPEDS estimate)",
+        "off_campus_with_family_food_and_housing_per_year": "$4,180 (2024-25 IPEDS estimate)"
+      },
+      "food": "Food costs are included in the off-campus living allowance; graduate students typically budget $4,000-$4,500 annually.",
+      "transportation": "$5,490 estimated annual transportation/personal expense allowance (IPEDS).",
+      "miscellaneous_expenses": "$5,490 estimated annual personal/other expenses (IPEDS).",
+      "crime_rate": "Latest Clery Act summary reported zero on-campus arrests and no major crimes, reflecting a very low incident rate.",
+      "salary_range": "$55,000 (25th percentile) to $92,000 (75th percentile) for computer science master's graduates within 5 years",
+      "faculty_with_phd": "All graduate faculty hold terminal degrees (PhD or equivalent); most have industry experience and active research programs.",
+      "field_of_study": "Master of Science in Computer Science",
+      "rank": "Emerging graduate computer science program with strong partnerships with Los Alamos National Laboratory and regional tech industry.",
+      "academic_excellence": "Comprehensive curriculum covering algorithms, networks, AI/ML, software engineering, and cybersecurity with hands-on thesis/capstone work.",
+      "facilities": "Advanced computing labs, cybersecurity labs, GPU-accelerated research clusters, and cloud computing infrastructure (AWS, Azure).",
+      "student_life": "Graduate computer science students participate in IEEE/ACM chapters, hackathons, research conferences, and tech entrepreneurship initiatives."
+    }
   }
 ]
