@@ -30,7 +30,7 @@ const HomePage = () => (
 		<div className="max-w-3xl text-center space-y-6">
 			<div className="flex flex-wrap items-center justify-center gap-4 mt-5">
 				<Link
-					to="/intake"
+					to="/career"
 					className="px-6 py-3 rounded-lg bg-slate-900 text-white font-semibold shadow hover:bg-slate-700"
 				>
 					Start now
