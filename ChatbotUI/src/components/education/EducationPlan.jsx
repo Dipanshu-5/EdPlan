@@ -40,16 +40,12 @@ const CourseMeta = ({ course }) => {
 					{prereqText || "N/A"}
 				</span>
 			</span>
-			<span className="inline-flex items-center gap-1 whitespace-nowrap">
-				<span className="text-sky-700">Corequisite:</span>
-				<span
-					className={
-						showCoreq ? "text-yellow-500 font-medium" : "text-slate-500"
-					}
-				>
-					{coreqText || "N/A"}
+			{showCoreq && (
+				<span className="inline-flex items-center gap-1 whitespace-nowrap">
+					<span className="text-sky-700">Corequisite:</span>
+					<span className="text-yellow-500 font-medium">{coreqText}</span>
 				</span>
-			</span>
+			)}
 		</div>
 	);
 };
