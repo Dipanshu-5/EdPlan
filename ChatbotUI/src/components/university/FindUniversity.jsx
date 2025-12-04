@@ -246,7 +246,7 @@ const FindUniversity = ({ onSelectProgram }) => {
 					</select>
 					<button
 						type="submit"
-						className="px-4 py-2 rounded-lg bg-slate-900 text-white font-medium hover:bg-slate-700 md:w-[300px]"
+						className="px-4 py-2 rounded-lg bg-[#281ed5] hover:bg-[#1977e3] text-white font-medium md:w-[300px]"
 						disabled={loading}
 					>
 						Search
@@ -364,14 +364,14 @@ const FindUniversity = ({ onSelectProgram }) => {
 											handleSelect(university);
 											navigate("/educationplan");
 										}}
-										className="self-start px-4 py-2 rounded-lg bg-slate-900 text-white text-sm font-medium hover:bg-slate-700"
+										className="self-start px-4 py-2 rounded-lg bg-[#281ed5] hover:bg-[#1977e3] text-white text-sm font-medium"
 									>
 										Create Education Plan
 									</button>
 									<button
 										type="button"
 										onClick={() => handleToggleCompare(university)}
-										className="text-sm font-medium text-indigo-600 hover:text-indigo-500 bg-indigo-100 px-3 py-1 rounded-lg"
+										className="text-sm font-medium text-indigo-700 hover:text-indigo-600 bg-indigo-100 hover:opacity-90 px-3 py-1 rounded-lg"
 									>
 										{compareSelection.some((entry) => entry.unit_id === university.unit_id)
 											? "Remove"

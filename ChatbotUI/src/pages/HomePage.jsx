@@ -31,9 +31,9 @@ const HomePage = () => (
 			<div className="flex flex-wrap items-center justify-center gap-4 mt-5">
 				<Link
 					to="/career"
-					className="px-6 py-3 rounded-lg bg-slate-900 text-white font-semibold shadow hover:bg-slate-700"
+					className="px-6 py-3 rounded-lg bg-[#0069e0] hover:bg-[#1977e3] text-white font-semibold shadow"
 				>
-					Start now
+					Start Now
 				</Link>
 				<Link
 					to="/login"
