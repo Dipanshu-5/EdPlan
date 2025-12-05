@@ -47,8 +47,8 @@ const IntakeForm = () => {
 	};
 
 	return (
-		<section className="bg-slate-100 min-h-screen flex items-center justify-center p-4 sm:p-8">
-			<div className="w-full max-w-5xl bg-white rounded-2xl shadow-xl border border-slate-200 overflow-hidden">
+		<section className="bg-slate-100 min-h-screen flex items-center justify-center p-4">
+			<div className="w-full max-w-6xl bg-white rounded-2xl shadow-xl border border-slate-200 overflow-hidden">
 				<header className="px-6 sm:px-10 py-6 border-b border-slate-200 bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 text-white">
 					<div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
 						<div className="flex flex-col">
@@ -56,7 +56,7 @@ const IntakeForm = () => {
 							Student Onboarding Form
 							</h1>
 							<p className="text-xs sm:text-sm text-slate-200 mt-1">
-							Help us serve you better.
+							Filling this form will help us make you a better education plan.
 							</p>
 						</div>
 
@@ -77,13 +77,13 @@ const IntakeForm = () => {
 							<h2 className="text-lg sm:text-xl font-semibold text-slate-900">
 								Academic Performance
 							</h2>
-							<span className="text-xs font-medium text-emerald-700 bg-emerald-50 px-2.5 py-1 rounded-full border border-emerald-100">
+							<span className="text-sm font-medium text-emerald-700 bg-emerald-50 px-2.5 py-1 rounded-full border border-emerald-100">
 								Required
 							</span>
 						</div>
 
 						<div className="grid gap-4 md:grid-cols-3">
-							<label className="flex flex-col gap-1.5 text-xs font-medium text-slate-700">
+							<label className="flex flex-col gap-1.5 text-sm font-medium text-slate-700">
 								<span className="flex items-center gap-1">
 									High School Name <span className="text-red-500">*</span>
 								</span>
@@ -95,7 +95,7 @@ const IntakeForm = () => {
 									required
 								/>
 							</label>
-							<label className="flex flex-col gap-1.5 text-xs font-medium text-slate-700">
+							<label className="flex flex-col gap-1.5 text-sm font-medium text-slate-700">
 								<span className="flex items-center gap-1">
 									Graduation Year <span className="text-red-500">*</span>
 								</span>
@@ -111,7 +111,7 @@ const IntakeForm = () => {
 									<option>2028</option>
 								</select>
 							</label>
-							<label className="flex flex-col gap-1.5 text-xs font-medium text-slate-700">
+							<label className="flex flex-col gap-1.5 text-sm font-medium text-slate-700">
 								<span className="flex items-center gap-1">
 									State <span className="text-red-500">*</span>
 								</span>
@@ -126,7 +126,7 @@ const IntakeForm = () => {
 						</div>
 
 						<div className="mt-6 grid gap-4 md:grid-cols-2">
-							<label className="flex flex-col gap-1.5 text-xs font-medium text-slate-700">
+							<label className="flex flex-col gap-1.5 text-sm font-medium text-slate-700">
 								<span className="flex items-center gap-1">
 									GPA <span className="text-red-500">*</span>
 								</span>
@@ -137,11 +137,11 @@ const IntakeForm = () => {
 									required
 									className="w-full rounded-lg border border-slate-300 px-3 py-2.5 text-sm shadow-sm focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 outline-none"
 								/>
-								<span className="text-[11px] text-slate-500">
+								<span className="text-[13px] text-slate-500">
 									You can enter your GPA as 4.0 scale, 10-point, or percentage.
 								</span>
 							</label>
-							<label className="flex flex-col gap-1.5 text-xs font-medium text-slate-700">
+							<label className="flex flex-col gap-1.5 text-sm font-medium text-slate-700">
 								Class Rank (if reported)
 								<select
 									name="class_rank"
@@ -158,10 +158,10 @@ const IntakeForm = () => {
 
 						<div className="mt-6">
 							<div className="flex items-center justify-between mb-2">
-								<p className="text-xs font-medium text-slate-700 uppercase tracking-wide">
+								<p className="text-sm font-medium text-slate-700 uppercase tracking-wide">
 									Core Subject Grades (recent year)
 								</p>
-								<p className="text-[11px] text-slate-500">
+								<p className="text-[13px] text-slate-500">
 									Use A/B/C or % as on your transcript.
 								</p>
 							</div>
@@ -174,7 +174,7 @@ const IntakeForm = () => {
 								].map((field) => (
 									<label
 										key={field.name}
-										className="flex flex-col gap-1.5 text-xs font-medium text-slate-700"
+										className="flex flex-col gap-1.5 text-sm font-medium text-slate-700"
 									>
 										<span className="flex items-center gap-1">
 											{field.label}
@@ -199,7 +199,7 @@ const IntakeForm = () => {
 							<h2 className="text-lg sm:text-xl font-semibold text-slate-900">
 								Standardized Tests (US)
 							</h2>
-							<span className="text-xs font-medium text-slate-500">
+							<span className="text-sm font-medium text-slate-500">
 								Optional but helpful
 							</span>
 						</div>
@@ -374,7 +374,7 @@ const IntakeForm = () => {
 							</span>
 						</div>
 
-						<p className="text-xs sm:text-[13px] text-slate-600 mb-4">
+						<p className="text-sm sm:text-[14px] font-semibold text-slate-600 mb-4">
 							US colleges and the student visa process usually expect proof that
 							you can cover at least one year of tuition and living expenses.
 							This helps EdPlan AI suggest colleges that truly fit your
@@ -382,7 +382,7 @@ const IntakeForm = () => {
 						</p>
 
 						<div className="grid gap-4 md:grid-cols-2">
-							<label className="flex flex-col gap-1.5 text-xs font-medium text-slate-700">
+							<label className="flex flex-col gap-1.5 text-sm font-medium text-slate-700">
 								<span className="flex items-center gap-1">
 									Estimated Total Budget (USD per year){" "}
 									<span className="text-red-500">*</span>
@@ -400,12 +400,12 @@ const IntakeForm = () => {
 										className="w-full rounded-lg border border-slate-300 pl-7 pr-3 py-2.5 text-sm shadow-sm focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 outline-none"
 									/>
 								</div>
-								<span className="text-[11px] text-slate-500">
+								<span className="text-[13px] text-slate-500">
 									Include tuition, housing, food, insurance, and other living
 									costs.
 								</span>
 							</label>
-							<label className="flex flex-col gap-1.5 text-xs font-medium text-slate-700">
+							<label className="flex flex-col gap-1.5 text-sm font-medium text-slate-700">
 								<span className="flex items-center gap-1">
 									Maximum Tuition You Can Afford (USD per year){" "}
 									<span className="text-red-500">*</span>
@@ -423,17 +423,17 @@ const IntakeForm = () => {
 										className="w-full rounded-lg border border-slate-300 pl-7 pr-3 py-2.5 text-sm shadow-sm focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 outline-none"
 									/>
 								</div>
-								<span className="text-[11px] text-slate-500">
+								<span className="text-[13px] text-slate-500">
 									Helps us filter out unaffordable options.
 								</span>
 							</label>
 						</div>
 
 						<div className="mt-5">
-							<p className="block text-xs font-medium text-slate-700 mb-2">
+							<p className="block text-sm font-medium text-slate-700 mb-2">
 								Will you need financial aid or scholarships?
 							</p>
-							<div className="flex flex-wrap gap-3 text-xs sm:text-sm text-slate-700">
+							<div className="flex flex-wrap gap-3 text-sm sm:text-sm text-slate-700">
 								{[
 									{ value: "no_aid", label: "No, I can attend without aid" },
 									{ value: "some_aid", label: "Yes, I will need some aid" },
@@ -459,7 +459,7 @@ const IntakeForm = () => {
 						</div>
 
 						<div className="mt-5">
-							<p className="block text-xs font-medium text-slate-700 mb-2">
+							<p className="block text-sm font-medium text-slate-700 mb-2">
 								Main ways you expect to pay for college (select all that apply)
 							</p>
 							<div className="flex flex-wrap gap-2">
@@ -473,7 +473,7 @@ const IntakeForm = () => {
 								].map((label) => (
 									<label
 										key={label}
-										className="inline-flex items-center gap-2 rounded-full border border-slate-300 px-3 py-1.5 text-xs cursor-pointer hover:border-emerald-500 hover:bg-emerald-50"
+										className="inline-flex items-center gap-2 rounded-full border border-slate-300 px-3 py-1.5 text-sm cursor-pointer hover:border-emerald-500 hover:bg-emerald-50"
 									>
 										<input
 											type="checkbox"
@@ -488,7 +488,7 @@ const IntakeForm = () => {
 						</div>
 
 						<div className="mt-5">
-							<p className="block text-xs font-medium text-slate-700 mb-2">
+							<p className="block text-sm font-medium text-slate-700 mb-2">
 								Are you interested in on-campus work (if eligible)?
 							</p>
 							<div className="flex flex-wrap gap-4 text-xs sm:text-sm text-slate-700">
@@ -525,26 +525,20 @@ const IntakeForm = () => {
 							</span>
 						</label>
 
-						<div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
-							<p className="text-[11px] sm:text-xs text-slate-500">
-								we&apos;ll use this form to generate a personalized education
-								plan.
-							</p>
-							<div className="flex gap-3 justify-end">
-								<button
-									type="button"
-									className="px-4 py-2.5 rounded-full border border-slate-300 text-xs sm:text-sm font-medium text-slate-700 bg-white hover:bg-slate-50"
-									onClick={() => navigate("/uni")}
-								>
-									Skip for now
-								</button>
-								<button
-									type="submit"
-									className="px-5 py-2.5 rounded-full text-xs sm:text-sm font-semibold text-white bg-gradient-to-r from-sky-600 to-emerald-600 shadow-md hover:shadow-lg hover:brightness-105"
-								>
-									Submit
-								</button>
-							</div>
+						<div className="flex gap-3 justify-end">
+							<button
+								type="button"
+								className="px-4 py-2.5 rounded-full border border-slate-300 text-xs sm:text-sm font-medium text-slate-700 bg-white hover:bg-slate-50"
+								onClick={() => navigate("/uni")}
+							>
+								Skip for now
+							</button>
+							<button
+								type="submit"
+								className="px-5 py-2.5 rounded-full text-xs sm:text-sm font-semibold text-white bg-gradient-to-r from-sky-600 to-emerald-600 shadow-md hover:shadow-lg hover:brightness-105"
+							>
+								Submit
+							</button>
 						</div>
 					</section>
 				</form>
