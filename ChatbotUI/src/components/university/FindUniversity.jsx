@@ -132,10 +132,23 @@ const FindUniversity = ({ onSelectProgram }) => {
 	}, []);
 
 	useEffect(() => {
+		const savedProgram = loadStorage("SelectedProgram", "");
+		if (savedProgram && programOptions.includes(savedProgram)) {
+			setSelectedProgram(savedProgram);
+			// Save to Programname for persistence and clear temporary SelectedProgram
+			saveStorage("Programname", savedProgram);
+			saveStorage("SelectedProgram", "");
+		} else {
+			// If no temporary program, try to load persistent one
+			const persistentProgram = loadStorage("Programname", "");
+			if (persistentProgram && programOptions.includes(persistentProgram)) {
+				setSelectedProgram(persistentProgram);
+			}
+		}
 		setStateFilter("NM");
 		fetchUniversities({ state: "NM" });
 		// eslint-disable-next-line react-hooks/exhaustive-deps
-	}, []);
+	}, [programOptions]);
 
 	useEffect(() => {
 		const stored = loadStorage("CompareQueue", []);
