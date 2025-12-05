@@ -223,17 +223,34 @@ const EducationPlanEditor = () => {
 		setDependencyIssues(validatePlan(courses, knownCodes));
 	}, [courses, knownCodes]);
 
+	// Filter programs based on selected university
 	const uniqueProgramOptions = useMemo(() => {
+		if (!selectedUniversity) return [];
 		const seen = new Set();
-		return programs.filter((program) => {
-			const name = (program.program || "").trim().toLowerCase();
-			if (!name || seen.has(name)) {
-				return false;
+		return programs
+			.filter((program) => program.university === selectedUniversity)
+			.filter((program) => {
+				const name = (program.program || "").trim().toLowerCase();
+				if (!name || seen.has(name)) {
+					return false;
+				}
+				seen.add(name);
+				return true;
+			});
+	}, [programs, selectedUniversity]);
+
+	// Clear selected program when university changes if the program is not available
+	useEffect(() => {
+		if (selectedProgram && selectedUniversity) {
+			const programExists = uniqueProgramOptions.some(
+				(p) => p.program === selectedProgram
+			);
+			if (!programExists) {
+				setSelectedProgram("");
+				saveStorage("Programname", "");
 			}
-			seen.add(name);
-			return true;
-		});
-	}, [programs]);
+		}
+	}, [selectedUniversity, uniqueProgramOptions, selectedProgram]);
 
 	const filteredPlanCourses = useMemo(() => {
 		return courses.filter((course) => {
