@@ -1,5 +1,6 @@
 import { useEffect, useState, useMemo } from "react";
 import { Link } from "react-router-dom";
+import { save as saveStorage } from "../utils/storage.js";
 
 const CareerProgramPage = () => {
   const [data, setData] = useState(null);
@@ -94,7 +95,7 @@ const CareerProgramPage = () => {
             value={selectedProgram}
             onChange={(e) => setSelectedProgram(e.target.value)}
           >
-            <option value="">Choose Program</option>
+            <option value="">Choose Your Program</option>
             {allPrograms.map((p) => (
               <option key={p.name} value={p.name}>
                 {p.name}
@@ -110,7 +111,7 @@ const CareerProgramPage = () => {
             value={selectedDegree}
             onChange={(e) => setSelectedDegree(e.target.value)}
           >
-            <option value="">Choose Degree</option>
+            <option value="">Choose Your Degree</option>
             {degreeOptions.map((d) => (
               <option key={d.name} value={d.name}>
                 {d.name}
@@ -121,9 +122,14 @@ const CareerProgramPage = () => {
 
         <Link
           to="/intake"
+          onClick={() => {
+            if (selectedProgram) {
+              saveStorage("SelectedProgram", selectedProgram);
+            }
+          }}
           className="px-4 mt-6 py-2 rounded-lg text-center h-fit bg-[#281ed5] hover:bg-[#1977e3] text-white font-medium md:w-[200px]"
         >
-          Next
+          Continue
         </Link>
 
         <div className="md:col-span-3">
@@ -143,7 +149,6 @@ const CareerProgramPage = () => {
       </div>
 
       <section>
-
         {selectedProgramObj && selectedProgramObj.careers.length > 0 && (
           <div>
             <h3 className="text-xl font-semibold mb-3">Career Options</h3>
@@ -154,11 +159,9 @@ const CareerProgramPage = () => {
                   key={c.title + idx}
                   className="border rounded-md p-4 hover:shadow-lg transition"
                 >
-                  <div className="flex items-center justify-between">
-                    <strong className="text-lg text-[#0069e0]">
-                      {c.title}
-                    </strong>
-                    <span className="text-sm font-semibold text-slate-600">
+                  <div className="flex items-center text-lg gap-16">
+                    <strong className="text-[#0069e0]">{c.title}</strong>
+                    <span className="font-bold text-green-700">
                       Salary Range: {c.salary}
                     </span>
                   </div>
