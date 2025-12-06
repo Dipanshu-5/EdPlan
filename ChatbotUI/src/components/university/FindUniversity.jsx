@@ -133,17 +133,22 @@ const FindUniversity = ({ onSelectProgram }) => {
 
 	useEffect(() => {
 		const savedProgram = loadStorage("SelectedProgram", "");
+		const persistentProgram = loadStorage("Programname", "");
+
 		if (savedProgram && programOptions.includes(savedProgram)) {
 			setSelectedProgram(savedProgram);
 			// Save to Programname for persistence and clear temporary SelectedProgram
 			saveStorage("Programname", savedProgram);
 			saveStorage("SelectedProgram", "");
+		} else if (persistentProgram && programOptions.includes(persistentProgram)) {
+			// Use persisted program when available and valid
+			setSelectedProgram(persistentProgram);
 		} else {
-			// If no temporary program, try to load persistent one
-			const persistentProgram = loadStorage("Programname", "");
-			if (persistentProgram && programOptions.includes(persistentProgram)) {
-				setSelectedProgram(persistentProgram);
-			}
+			// No valid program was provided (neither temporary nor persistent).
+			// Clear stored university + program so page state resets on refresh.
+			setSelectedProgram("");
+			saveStorage("Programname", "");
+			saveStorage("University", "");
 		}
 		setStateFilter("NM");
 		fetchUniversities({ state: "NM" });
