@@ -134,11 +134,11 @@ const EducationPlanEditor = () => {
   const [availableCourses, setAvailableCourses] = useState([]);
   const [defaultPlan, setDefaultPlan] = useState([]);
   const [error, setError] = useState("");
-  const [yearFilter, setYearFilter] = useState("");
-  const [semesterFilter, setSemesterFilter] = useState("");
-  const [dependencyIssues, setDependencyIssues] = useState([]);
-  const userEmail = loadStorage("UserEmail");
-  const navigate = useNavigate();
+	const [yearFilter, setYearFilter] = useState("");
+	const [semesterFilter, setSemesterFilter] = useState("");
+	const [dependencyIssues, setDependencyIssues] = useState([]);
+	const userEmail = loadStorage("UserEmail");
+	const navigate = useNavigate();
 
   useEffect(() => {
     listPrograms()
@@ -286,13 +286,29 @@ const EducationPlanEditor = () => {
     }, {});
   }, [filteredPlanCourses]);
 
-  const yearOptions = useMemo(
-    () =>
-      [...new Set(availableCourses.map((course) => course.year))].filter(
-        Boolean
-      ),
-    [availableCourses]
-  );
+	const yearOptions = useMemo(
+		() =>
+			[...new Set(availableCourses.map((course) => course.year))].filter(
+				Boolean
+			),
+		[availableCourses]
+	);
+
+	const selectedProgramMeta = useMemo(() => {
+		if (!selectedProgram || !selectedUniversity) return null;
+		return (
+			programs.find(
+				(entry) =>
+					entry.program === selectedProgram && entry.university === selectedUniversity
+			) || null
+		);
+	}, [programs, selectedProgram, selectedUniversity]);
+
+	const averageAnnualCost =
+		selectedProgramMeta?.average_annual_cost ||
+		selectedProgramMeta?.averageAnnualCost ||
+		selectedProgramMeta?.college_profile?.average_annual_cost ||
+		null;
 
   // Filter courses to only show those not already in the plan
   const remainingCourses = useMemo(() => {
@@ -665,19 +681,25 @@ const EducationPlanEditor = () => {
                 Reset to Default Plan
               </button>
             </div>
-            {totalCourses > 0 && (
-              <div className="flex items-center gap-6 flex-wrap pt-3 border-t border-slate-200 text-sm text-slate-800 font-semibold">
-                <span>
-                  Total Courses:{" "}
-                  <span className="text-indigo-600">{totalCourses}</span>
-                </span>
-                <span>
-                  Total Credits:{" "}
-                  <span className="text-indigo-600">{totalCredits}</span>
-                </span>
-              </div>
-            )}
-          </div>
+						{totalCourses > 0 && (
+							<div className="flex items-center gap-6 flex-wrap pt-3 border-t border-slate-200 text-sm text-slate-800 font-semibold">
+								<span>
+									Total Courses:{" "}
+									<span className="text-indigo-600">{totalCourses}</span>
+								</span>
+								<span>
+									Total Credits:{" "}
+									<span className="text-indigo-600">{totalCredits}</span>
+								</span>
+								{averageAnnualCost && (
+									<span>
+										Avg Annual Cost:{" "}
+										<span className="text-emerald-700">{averageAnnualCost}</span>
+									</span>
+								)}
+							</div>
+						)}
+					</div>
 
           {Object.entries(groupedCourses).map(([groupKey, courseList]) => {
             const [courseYear, courseSemester] = groupKey.split("::");

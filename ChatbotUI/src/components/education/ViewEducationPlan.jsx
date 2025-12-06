@@ -1,5 +1,6 @@
-import { useEffect, useMemo, useState } from "react";
+import { Fragment, useEffect, useMemo, useState } from "react";
 import { getEducationPlanList } from "../../services/authService.js";
+import { listPrograms } from "../../services/educationPlanService.js";
 import { load as loadStorage } from "../../utils/storage.js";
 
 const normalizeRequirement = (value) => (value || "").trim();
@@ -48,6 +49,7 @@ const CourseMeta = ({ course }) => {
 
 const ViewEducationPlan = () => {
 	const [savedPlans, setSavedPlans] = useState([]);
+	const [programCatalogue, setProgramCatalogue] = useState([]);
 	const [filter, setFilter] = useState("");
 	const [error, setError] = useState("");
 	const [expandedPlanId, setExpandedPlanId] = useState(null);
@@ -71,6 +73,7 @@ const ViewEducationPlan = () => {
 			program: entry.program || "Program",
 			savedDate: entry.savedDate || new Date().toISOString(),
 			courses: entry.courses || [],
+			averageAnnualCost: entry.averageAnnualCost || "",
 			source: "local",
 		}));
 	};
@@ -85,6 +88,7 @@ const ViewEducationPlan = () => {
 		try {
 			const response = await getEducationPlanList({ email: userEmail });
 			const payload = response.data?.data || [];
+
 			const remotePlans = payload.map((entry, index) => ({
 				id: `remote-${index}`,
 				university: entry.university || entry.university_name || "University",
@@ -92,8 +96,14 @@ const ViewEducationPlan = () => {
 				savedDate:
 					entry.created_at || entry.savedDate || new Date().toISOString(),
 				courses: entry.program || [],
+				averageAnnualCost:
+					entry.average_annual_cost ||
+					entry.averageAnnualCost ||
+					entry.college_profile?.average_annual_cost ||
+					"",
 				source: "remote",
 			}));
+
 			setSavedPlans([...remotePlans, ...localPlans]);
 		} catch (err) {
 			console.error(err);
@@ -112,6 +122,12 @@ const ViewEducationPlan = () => {
 		loadPlans();
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [userEmail]);
+
+useEffect(() => {
+		listPrograms()
+			.then((items) => setProgramCatalogue(items))
+			.catch((err) => console.error("Unable to load program catalogue", err));
+	}, []);
 
 	const formatDate = (dateString) => {
 		try {
@@ -142,6 +158,25 @@ const ViewEducationPlan = () => {
 			acc[year][semester].push(course);
 			return acc;
 		}, {});
+	};
+
+	const findAverageAnnualCost = (plan) => {
+		if (!plan.university || !plan.program) return null;
+		const match = programCatalogue.find(
+			(entry) =>
+				String(entry.university).toLowerCase() ===
+					String(plan.university).toLowerCase() &&
+				String(entry.program).toLowerCase() ===
+					String(plan.program).toLowerCase()
+		);
+		return (
+			plan.average_annual_cost ||
+			plan.averageAnnualCost ||
+			match?.average_annual_cost ||
+			match?.averageAnnualCost ||
+			match?.college_profile?.average_annual_cost ||
+			null
+		);
 	};
 
 	const toggleExpand = (planId) => {
@@ -180,9 +215,10 @@ const ViewEducationPlan = () => {
 
 				{/* Plans Summary Table */}
 				<div className="overflow-x-auto">
-					<table className="min-w-full text-sm">
+					<table className="min-w-full text-sm table-auto">
 						<thead>
 							<tr className="text-left text-xs uppercase tracking-wide text-slate-500 border-b border-slate-200 bg-slate-50">
+								<th className="px-4 py-3 font-semibold text-center">No.</th>
 								<th className="px-4 py-3 font-semibold">University</th>
 								<th className="px-4 py-3 font-semibold">Program</th>
 								<th className="px-4 py-3 font-semibold">Total Credits</th>
@@ -192,12 +228,12 @@ const ViewEducationPlan = () => {
 							</tr>
 						</thead>
 						<tbody>
-							{filteredPlans.map((plan) => (
-								<>
-									<tr
-										key={plan.id}
-										className="border-b border-slate-100 hover:bg-slate-50 transition"
-									>
+							{filteredPlans.map((plan, index) => (
+								<Fragment key={plan.id}>
+									<tr className="border-b border-slate-100 hover:bg-slate-50 transition">
+										<td className="px-4 py-3 text-center text-slate-700 font-semibold w">
+											{index + 1}
+										</td>
 										<td className="px-4 py-3 text-slate-800 font-medium">
 											{plan.university}
 										</td>
@@ -241,13 +277,19 @@ const ViewEducationPlan = () => {
 									{/* Expanded Plan Details */}
 									{expandedPlanId === plan.id && (
 										<tr key={`${plan.id}-details`}>
-											<td colSpan={6} className="p-0">
+											<td colSpan={7} className="p-0">
 												<div className="bg-slate-50 border-t border-slate-200 p-6">
 													<div className="mb-4 flex items-center justify-between">
 														<h3 className="text-lg font-semibold text-slate-800">
 															{plan.program} - {plan.university}
 														</h3>
 														<div className="flex items-center gap-4 text-sm">
+															<span className="text-slate-600">
+																Avg Annual Cost:{" "}
+																<span className="font-bold text-emerald-700">
+																	{findAverageAnnualCost(plan) || "N/A"}
+																</span>
+															</span>
 															<span className="text-slate-600">
 																Total Credits:{" "}
 																<span className="font-bold text-indigo-600">
@@ -306,12 +348,12 @@ const ViewEducationPlan = () => {
 											</td>
 										</tr>
 									)}
-								</>
+								</Fragment>
 							))}
 							{filteredPlans.length === 0 && (
 								<tr>
 									<td
-										colSpan={6}
+										colSpan={7}
 										className="px-4 py-8 text-center text-slate-500"
 									>
 										<div className="flex flex-col items-center gap-2">
