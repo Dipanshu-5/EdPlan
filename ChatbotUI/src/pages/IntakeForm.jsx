@@ -53,10 +53,10 @@ const IntakeForm = () => {
 					<div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
 						<div className="flex flex-col">
 							<h1 className="text-xl sm:text-2xl font-semibold">
-							Student Onboarding Form
+								Student Onboarding Form
 							</h1>
 							<p className="text-xs sm:text-sm text-slate-200 mt-1">
-							Filling this form will help us make you a better education plan.
+								Filling this form will help us make you a better education plan.
 							</p>
 						</div>
 
@@ -81,8 +81,7 @@ const IntakeForm = () => {
 								Required
 							</span>
 						</div>
-
-						<div className="grid gap-4 md:grid-cols-3">
+						<div className="grid gap-4 md:grid-cols-4">
 							<label className="flex flex-col gap-1.5 text-sm font-medium text-slate-700">
 								<span className="flex items-center gap-1">
 									High School Name <span className="text-red-500">*</span>
@@ -123,9 +122,23 @@ const IntakeForm = () => {
 									required
 								/>
 							</label>
-						</div>
-
-						<div className="mt-6 grid gap-4 md:grid-cols-2">
+							<label className="flex flex-col gap-1.5 text-sm font-medium text-slate-700">
+								<span className="flex items-center gap-1">
+									Resident Status <span className="text-red-500">*</span>
+								</span>
+								<select
+									name="resident_status"
+									className="w-full rounded-lg border border-slate-300 px-3 py-2.5 text-sm shadow-sm bg-white focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 outline-none"
+									required
+								>
+									<option value="">Select status</option>
+									<option>In state</option>
+									<option>Out of state</option>
+									<option>International</option>
+								</select>
+							</label>
+						</div>{" "}
+						<div className="mt-6 grid gap-4 md:grid-cols-3">
 							<label className="flex flex-col gap-1.5 text-sm font-medium text-slate-700">
 								<span className="flex items-center gap-1">
 									GPA <span className="text-red-500">*</span>
@@ -138,7 +151,22 @@ const IntakeForm = () => {
 									className="w-full rounded-lg border border-slate-300 px-3 py-2.5 text-sm shadow-sm focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 outline-none"
 								/>
 								<span className="text-[13px] text-slate-500">
-									You can enter your GPA as 4.0 scale, 10-point, or percentage.
+									You can enter GPA as 4.0 scale, 10-point, or percentage.
+								</span>
+							</label>
+							<label className="flex flex-col gap-1.5 text-sm font-medium text-slate-700">
+								<span className="flex items-center gap-1">
+									Upload 12th Grade Marksheet{" "}
+								</span>
+								<input
+									name="marksheet_12th"
+									type="file"
+									accept=".pdf,.jpg,.jpeg,.png,.doc,.docx"
+									required
+									className="w-full rounded-lg border border-slate-300 px-3 py-2 text-sm shadow-sm focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 outline-none"
+								/>
+								<span className="text-[13px] text-slate-500">
+									PDF, JPG, PNG, DOC, or DOCX (max 10MB)
 								</span>
 							</label>
 							<label className="flex flex-col gap-1.5 text-sm font-medium text-slate-700">
@@ -155,7 +183,6 @@ const IntakeForm = () => {
 								</select>
 							</label>
 						</div>
-
 						<div className="mt-6">
 							<div className="flex items-center justify-between mb-2">
 								<p className="text-sm font-medium text-slate-700 uppercase tracking-wide">
