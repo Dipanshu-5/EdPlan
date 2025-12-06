@@ -128,12 +128,8 @@ const validatePlan = (planCourses, knownCodes) => {
 
 const EducationPlanEditor = () => {
 	const [programs, setPrograms] = useState([]);
-	const [selectedProgram, setSelectedProgram] = useState(
-		loadStorage("Programname") || ""
-	);
-	const [selectedUniversity, setSelectedUniversity] = useState(
-		loadStorage("University") || ""
-	);
+	const [selectedProgram, setSelectedProgram] = useState("");
+	const selectedUniversity= loadStorage("University") || "";
 	const [courses, setCourses] = useState([]);
 	const [availableCourses, setAvailableCourses] = useState([]);
 	const [defaultPlan, setDefaultPlan] = useState([]);
@@ -149,8 +145,13 @@ const EducationPlanEditor = () => {
 			.then((items) => setPrograms(items))
 			.catch((err) => {
 				console.error(err);
-				setError("Unable to load program catalogue.");
+				setError("Unable to load program catalog.");
 			});
+		// Load program from storage on mount
+		const savedProgram = loadStorage("Programname");
+		if (savedProgram) {
+			setSelectedProgram(savedProgram);
+		}
 	}, []);
 
 	// When no program is selected, clear available courses
@@ -225,23 +226,28 @@ const EducationPlanEditor = () => {
 
 	// Filter programs based on selected university
 	const uniqueProgramOptions = useMemo(() => {
-		if (!selectedUniversity) return [];
 		const seen = new Set();
-		return programs
-			.filter((program) => program.university === selectedUniversity)
-			.filter((program) => {
-				const name = (program.program || "").trim().toLowerCase();
-				if (!name || seen.has(name)) {
-					return false;
-				}
-				seen.add(name);
-				return true;
-			});
+		let filteredPrograms = programs;
+		
+		// If university is selected, filter by that university
+		if (selectedUniversity) {
+			filteredPrograms = programs.filter((program) => program.university === selectedUniversity);
+		}
+		
+		// Remove duplicates
+		return filteredPrograms.filter((program) => {
+			const name = (program.program || "").trim().toLowerCase();
+			if (!name || seen.has(name)) {
+				return false;
+			}
+			seen.add(name);
+			return true;
+		});
 	}, [programs, selectedUniversity]);
 
 	// Clear selected program when university changes if the program is not available
 	useEffect(() => {
-		if (selectedProgram && selectedUniversity) {
+		if (selectedProgram && selectedUniversity && uniqueProgramOptions.length > 0) {
 			const programExists = uniqueProgramOptions.some(
 				(p) => p.program === selectedProgram
 			);
@@ -535,9 +541,9 @@ const EducationPlanEditor = () => {
 							setSelectedProgram(event.target.value);
 							saveStorage("Programname", event.target.value);
 						}}
-						className="px-3 py-2 rounded-lg border font-normal border-slate-200"
+						className="px-3 py-2 rounded-lg border border-slate-200"
 					>
-						<option value="">Select program</option>
+						<option value="">Select Program</option>
 						{uniqueProgramOptions.map((program) => (
 							<option
 								key={`${program.university}-${program.program}`}
@@ -585,8 +591,8 @@ const EducationPlanEditor = () => {
 					<div className="bg-white border border-slate-200 rounded-xl shadow-sm p-4 space-y-4">
 						<div className="flex flex-wrap items-center gap-3">
 							<div className="flex items-center gap-2">
-								<label className="text-sm font-semibold text-slate-700">
-									Year
+								<label className="font-semibold text-slate-700">
+									Year:
 								</label>
 								<select
 									value={yearFilter}
@@ -602,8 +608,8 @@ const EducationPlanEditor = () => {
 								</select>
 							</div>
 							<div className="flex items-center gap-2">
-								<label className="text-sm font-semibold text-slate-700">
-									Semester
+								<label className="font-semibold text-slate-700">
+									Semester:
 								</label>
 								<select
 									value={semesterFilter}
@@ -628,14 +634,14 @@ const EducationPlanEditor = () => {
 								}}
 								className="text-sm font-semibold px-3 py-2 rounded-lg border border-slate-200 text-slate-700 hover:border-indigo-200 hover:text-blue-700 hover:bg-indigo-100"
 							>
-								Clear filters
+								Clear Filters
 							</button>
 							<button
 								type="button"
 								onClick={() => setCourses(defaultPlan)}
 								className="text-sm font-semibold px-3 py-2 rounded-lg border border-indigo-200 text-blue-700 hover:bg-indigo-100"
 							>
-								Reset to default plan
+								Reset to Default Plan
 							</button>
 						</div>
 						{totalCourses > 0 && (
@@ -653,8 +659,8 @@ const EducationPlanEditor = () => {
 					</div>
 
 					{Object.keys(groupedCourses).length === 0 && (
-						<div className="bg-white border border-slate-200 rounded-xl shadow-sm p-6 text-sm text-slate-500 text-center">
-							Add courses from the catalogue to build your plan.
+						<div className="bg-white border border-slate-200 rounded-xl shadow-sm p-6 text-md text-slate-500 text-center">
+							Add courses from the catalog to build your plan.
 						</div>
 					)}
 
@@ -776,12 +782,12 @@ const EducationPlanEditor = () => {
 				</div>
 
 				<div
-					className="bg-white border border-slate-200 rounded-xl shadow-sm mt-11 p-5 space-y-4 sticky top-4 self-start"
-					style={{ height: "calc(90vh - 130px)" }}
+					className="bg-white border border-slate-200 rounded-xl shadow-sm mt-11 p-5 space-y-4 sticky top-6"
+					style={{ height: "calc(95vh - 25px)" }}
 				>
 					<div className="flex items-center justify-between">
 						<h3 className="text-sm font-semibold text-slate-700 uppercase tracking-wide">
-							Course catalogue
+							Course catalog
 						</h3>
 						<button
 							type="button"
