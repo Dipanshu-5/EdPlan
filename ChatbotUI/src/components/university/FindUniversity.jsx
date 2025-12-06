@@ -217,7 +217,7 @@ const FindUniversity = ({ onSelectProgram }) => {
 		const queue = Array.isArray(latestQueue) ? latestQueue : compareSelection;
 		if (queue.length === 0) return;
 		saveStorage("CompareQueue", queue.slice(0, 3));
-		// navigate("/compare");
+		navigate("/compare");
 	};
 
 	const handleSearch = (event) => {
@@ -297,11 +297,11 @@ const FindUniversity = ({ onSelectProgram }) => {
 				</label>
 			</div>
 
-			{error && (
+			{/* {error && (
 				<div className="bg-rose-50 text-rose-700 border border-rose-100 rounded-lg px-4 py-3">
 					{error}
 				</div>
-			)}
+			)} */}
 
 			{loading ? (
 				<div className="text-sm text-slate-500">Loading data…</div>
@@ -345,6 +345,10 @@ const FindUniversity = ({ onSelectProgram }) => {
 											: "N/A"}
 									</li>
 									<li>
+										Acceptance Rate:{" "}
+										{university.acceptance_rate ? formatPercent(university.acceptance_rate): "100%"}
+									</li>
+									<li>
 										Average Annual Cost:{" "}
 										{university.average_annual_cost
 											? `$${Number(
@@ -353,14 +357,10 @@ const FindUniversity = ({ onSelectProgram }) => {
 											: "N/A"}
 									</li>
 									<li>
-										Median Earnings: {formatCurrency(university.typical_earnings)}
+										Median Earnings After Graduation: {formatCurrency(university.typical_earnings)}
 									</li>
 									<li>
-										Acceptance Rate:{" "}
-										{university.acceptance_rate ? formatPercent(university.acceptance_rate): "100%"}
-									</li>
-									<li>
-										Median Total Debt After Graduation:{" "}
+										Median Total Debt of Student After Graduation:{" "}
 										{formatCurrency(university.financial_aid_debt) ||
 										"Data unavailable"}
 									</li>

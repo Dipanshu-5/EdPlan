@@ -159,8 +159,8 @@ const CareerProgramPage = () => {
                   key={c.title + idx}
                   className="border rounded-md p-4 hover:shadow-lg transition"
                 >
-                  <div className="flex items-center text-lg gap-16">
-                    <strong className="text-[#0069e0]">{c.title}</strong>
+                  <div className="flex items-center text-lg gap-14">
+                    <strong className="text-[#0069e0] w-72">{c.title}</strong>
                     <span className="font-bold text-green-700">
                       Salary Range: {c.salary}
                     </span>
@@ -169,7 +169,7 @@ const CareerProgramPage = () => {
                   {c.competencies && c.competencies.length > 0 && (
                     <div className="mt-4">
                       <p className="font-semibold text-slate-700 mb-3">
-                        Key Competencies:
+                        Key Competencies acquired by the students upon completion of this program:
                       </p>
 
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
