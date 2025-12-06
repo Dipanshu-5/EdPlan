@@ -1,7 +1,10 @@
 import { Fragment, useEffect, useMemo, useState } from "react";
 import { getEducationPlanList } from "../../services/authService.js";
 import { listPrograms } from "../../services/educationPlanService.js";
-import { load as loadStorage } from "../../utils/storage.js";
+import {
+	load as loadStorage,
+	save as saveStorage,
+} from "../../utils/storage.js";
 
 const normalizeRequirement = (value) => (value || "").trim();
 const hasMeaningfulRequirement = (value) => {
@@ -123,7 +126,7 @@ const ViewEducationPlan = () => {
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [userEmail]);
 
-useEffect(() => {
+	useEffect(() => {
 		listPrograms()
 			.then((items) => setProgramCatalogue(items))
 			.catch((err) => console.error("Unable to load program catalogue", err));
@@ -174,9 +177,23 @@ useEffect(() => {
 			plan.averageAnnualCost ||
 			match?.average_annual_cost ||
 			match?.averageAnnualCost ||
-			match?.college_profile?.average_annual_cost ||
-			null
+			match?.college_profile?.average_annual_cost
 		);
+	};
+
+	const handleDeletePlan = (planId, source) => {
+		const confirmed = window.confirm("Delete this saved plan?");
+		if (!confirmed) return;
+
+		setSavedPlans((prev) => prev.filter((plan) => plan.id !== planId));
+
+		if (source === "local") {
+			const stored = loadStorage("LocalSavedPlans", []);
+			const updated = stored.filter(
+				(entry, index) => `local-${index}` !== planId
+			);
+			saveStorage("LocalSavedPlans", updated);
+		}
 	};
 
 	const toggleExpand = (planId) => {
@@ -270,6 +287,13 @@ useEffect(() => {
 												>
 													Send to Advisor
 												</button>
+												<button
+													type="button"
+													onClick={() => handleDeletePlan(plan.id, plan.source)}
+													className="px-4 py-1.5 rounded-lg bg-rose-100 text-rose-700 text-sm font-medium hover:bg-rose-200 transition"
+												>
+													Delete
+												</button>
 											</div>
 										</td>
 									</tr>
@@ -285,7 +309,7 @@ useEffect(() => {
 														</h3>
 														<div className="flex items-center gap-4 text-sm">
 															<span className="text-slate-600">
-																Avg Annual Cost:{" "}
+																Avg. annual cost:{" "}
 																<span className="font-bold text-emerald-700">
 																	{findAverageAnnualCost(plan) || "N/A"}
 																</span>
