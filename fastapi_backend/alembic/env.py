@@ -20,26 +20,43 @@ config = context.config
 if config.config_file_name is not None:
     fileConfig(config.config_file_name)
 
+# PostgreSQL 18 with asyncpg driver
 config.set_main_option("sqlalchemy.url", settings.database_url)
 target_metadata = Base.metadata
 
+
 def run_migrations_offline() -> None:
+    """Run migrations in 'offline' mode for PostgreSQL."""
     url = settings.database_url
-    context.configure(url=url, target_metadata=target_metadata, literal_binds=True, compare_type=True)
+    context.configure(
+        url=url,
+        target_metadata=target_metadata,
+        literal_binds=True,
+        compare_type=True,
+        dialect_opts={"paramstyle": "named"},
+    )
 
     with context.begin_transaction():
         context.run_migrations()
 
 
 def do_run_migrations(connection) -> None:
-    context.configure(connection=connection, target_metadata=target_metadata, compare_type=True)
+    """Run migrations with async connection."""
+    context.configure(
+        connection=connection,
+        target_metadata=target_metadata,
+        compare_type=True,
+    )
 
     with context.begin_transaction():
         context.run_migrations()
 
 
 def run_migrations_online() -> None:
+    """Run migrations in 'online' mode with async engine."""
     configuration = config.get_section(config.config_ini_section)
+    configuration["sqlalchemy.url"] = settings.database_url
+
     connectable = async_engine_from_config(
         configuration,
         prefix="sqlalchemy.",

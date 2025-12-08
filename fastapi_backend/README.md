@@ -1,7 +1,7 @@
 # EduPlan FastAPI Backend
 
 This service replaces the legacy ASP.NET Core API. It exposes the same routes the React
-frontend expects via FastAPI and persists data in Microsoft SQL Server using SQLAlchemy.
+frontend expects via FastAPI and persists data in PostgreSQL using SQLAlchemy.
 
 ## Features
 
@@ -21,9 +21,9 @@ cp .env.example .env
 uvicorn app.main:app --reload
 ```
 
-Set `DATABASE_URL` to an aioodbc SQL Server connection string (URL-encoded), e.g.
+Set `DATABASE_URL` to an async Postgres connection string (PostgreSQL 18), e.g.
 ```
-DATABASE_URL="mssql+aioodbc:///?odbc_connect=DRIVER%3DODBC+Driver+18+for+SQL+Server%3BSERVER%3Dlocalhost%2C1433%3BDATABASE%3DEduPlan%3BUID%3Dsa%3BPWD%3DStrongPass123%3BEncrypt%3Dno"
+DATABASE_URL="postgresql+asyncpg://USER:PASSWORD@HOST:PORT/DBNAME"
 ```
 
 Provide your College Scorecard API key via `COLLEGE_SCORECARD_API_KEY` (see
@@ -37,3 +37,11 @@ alembic upgrade head
 ```
 
 See `.env.example` for the full list of required settings.
+
+## Deploying to Render
+
+- Create a managed Postgres instance in Render and copy the connection string.
+- Create a Web Service from this repo, set `DATABASE_URL` to the Postgres async URL (`postgresql+asyncpg://...`) and add secrets (`JWT_SECRET`, `COLLEGE_SCORECARD_API_KEY`, SMTP/Twilio, etc.).
+- Start command: `uvicorn app.main:app --host 0.0.0.0 --port 10000`.
+- Run `alembic upgrade head` on deploy to migrate the schema.
+- Configure `CORS_ORIGINS` to your frontend domains.

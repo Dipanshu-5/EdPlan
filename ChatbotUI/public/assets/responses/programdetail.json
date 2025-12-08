@@ -45,7 +45,8 @@
                   "time": "10:30 AM - 11:45 AM"
                 },
                 "lecture_hours": 3,
-                "lab_hours": 0
+                "lab_hours": 0,
+                "corequisite": "C S 152L"
               },
               {
                 "code": "C S 152L",
@@ -136,7 +137,8 @@
                   "time": "1:30 PM - 2:20 PM"
                 },
                 "lecture_hours": 3,
-                "lab_hours": 0
+                "lab_hours": 0,
+                "corequisite": "PHYS 1310L"
               },
               {
                 "code": "PHYS 1310L",
@@ -208,7 +210,8 @@
                   "time": "1:30 PM - 2:20 PM"
                 },
                 "lecture_hours": 3,
-                "lab_hours": 0
+                "lab_hours": 0,
+                "corequisite": "PHYS 1320L"
               },
               {
                 "code": "PHYS 1320L",
@@ -630,14 +633,15 @@
       "transportation": "$4,698 estimated annual transportation/other allowance (IPEDS).",
       "miscellaneous_expenses": "$4,698 personal/other allowance used in cost of attendance.",
       "crime_rate": "Clery reports show typical public-flagship incident rates; residential campus with campus police and safety programs.",
-      "salary_range": "$21K–$62K (25th–75th percentile earnings 10 years after entry)",
+      "salary_range": "$21K\u2013$62K (25th\u201375th percentile earnings 10 years after entry)",
       "faculty_with_phd": "Most full-time faculty hold terminal degrees; full-time faculty share ~75%.",
       "field_of_study": "Computer Science",
       "rank": "ABET-accredited CS with strong research in AI, security, and networking.",
       "academic_excellence": "Rigorous algorithms, systems, and software sequence with senior design and research options.",
       "facilities": "High-performance computing labs, cybersecurity labs, maker/AI spaces, and collaborative classrooms.",
       "student_life": "ACM/IEEE-CS chapters, hackathons, cyber competitions, and internships with regional labs and industry."
-    }
+    },
+    "average_annual_cost": "$6,747 estimated annual cost for Computer Science"
   },
   {
     "program": "Nursing",
@@ -685,7 +689,8 @@
                   "time": "11:00 AM - 12:40 PM"
                 },
                 "lecture_hours": 4,
-                "lab_hours": 0
+                "lab_hours": 0,
+                "corequisite": "BIOL 225L"
               },
               {
                 "code": "BIOL 225L",
@@ -710,7 +715,8 @@
                   "time": "1:00 PM - 1:50 PM"
                 },
                 "lecture_hours": 3,
-                "lab_hours": 0
+                "lab_hours": 0,
+                "corequisite": "CHEM 1215L"
               },
               {
                 "code": "CHEM 1215L",
@@ -753,7 +759,8 @@
                   "time": "11:00 AM - 12:40 PM"
                 },
                 "lecture_hours": 4,
-                "lab_hours": 0
+                "lab_hours": 0,
+                "corequisite": "BIOL 226L"
               },
               {
                 "code": "BIOL 226L",
@@ -825,7 +832,8 @@
                   "time": "9:30 AM - 10:45 AM"
                 },
                 "lecture_hours": 3,
-                "lab_hours": 0
+                "lab_hours": 0,
+                "corequisite": "BIOL 231L"
               },
               {
                 "code": "BIOL 231L",
@@ -904,7 +912,8 @@
                   "time": "8:00 AM - 12:00 PM"
                 },
                 "lecture_hours": 6,
-                "lab_hours": 0
+                "lab_hours": 0,
+                "corequisite": "NURS 321L"
               },
               {
                 "code": "NURS 321L",
@@ -976,7 +985,8 @@
                   "time": "8:00 AM - 12:00 PM"
                 },
                 "lecture_hours": 6,
-                "lab_hours": 0
+                "lab_hours": 0,
+                "corequisite": "NURS 331L"
               },
               {
                 "code": "NURS 331L",
@@ -1001,7 +1011,8 @@
                   "time": "9:00 AM - 11:45 AM"
                 },
                 "lecture_hours": 3,
-                "lab_hours": 0
+                "lab_hours": 0,
+                "corequisite": "NURS 341L"
               },
               {
                 "code": "NURS 341L",
@@ -1044,7 +1055,8 @@
                   "time": "8:00 AM - 12:00 PM"
                 },
                 "lecture_hours": 6,
-                "lab_hours": 0
+                "lab_hours": 0,
+                "corequisite": "NURS 351L"
               },
               {
                 "code": "NURS 351L",
@@ -1069,7 +1081,8 @@
                   "time": "9:00 AM - 12:45 PM"
                 },
                 "lecture_hours": 4,
-                "lab_hours": 0
+                "lab_hours": 0,
+                "corequisite": "NURS 361L"
               },
               {
                 "code": "NURS 361L",
@@ -1117,7 +1130,8 @@
                   "time": "9:00 AM - 12:45 PM"
                 },
                 "lecture_hours": 4,
-                "lab_hours": 0
+                "lab_hours": 0,
+                "corequisite": "NURS 411L"
               },
               {
                 "code": "NURS 411L",
@@ -1142,7 +1156,8 @@
                   "time": "9:00 AM - 12:45 PM"
                 },
                 "lecture_hours": 4,
-                "lab_hours": 0
+                "lab_hours": 0,
+                "corequisite": "NURS 421L"
               },
               {
                 "code": "NURS 421L",
@@ -1197,7 +1212,8 @@
                   "time": "8:00 AM - 12:00 PM"
                 },
                 "lecture_hours": 6,
-                "lab_hours": 0
+                "lab_hours": 0,
+                "corequisite": "NURS 441L"
               },
               {
                 "code": "NURS 441L",
@@ -1303,14 +1319,15 @@
       "transportation": "$4,698 estimated annual transportation/other allowance (IPEDS).",
       "miscellaneous_expenses": "$4,698 personal/other allowance used in cost of attendance.",
       "crime_rate": "Clery reports show typical public-flagship incident rates; residential campus with campus police and safety programs.",
-      "salary_range": "$21K–$62K (25th–75th percentile earnings 10 years after entry)",
+      "salary_range": "$21K\u2013$62K (25th\u201375th percentile earnings 10 years after entry)",
       "faculty_with_phd": "Most full-time faculty hold terminal degrees; full-time faculty share ~75%.",
       "field_of_study": "Nursing (BSN)",
       "rank": "High NCLEX pass rates with clinical placements across southern New Mexico.",
       "academic_excellence": "Concept-based BSN with immersive simulation, integrated pharmacology, and evidence-based practice.",
       "facilities": "Simulation center, skills labs, and clinical partnerships with regional hospitals.",
       "student_life": "Student Nurses Association, peer tutoring, and NCLEX prep workshops."
-    }
+    },
+    "average_annual_cost": "$7,097 estimated annual cost for Nursing"
   },
   {
     "program": "Mechanical Engineering",
@@ -1358,7 +1375,8 @@
                   "time": "11:00 AM - 11:50 AM"
                 },
                 "lecture_hours": 3,
-                "lab_hours": 0
+                "lab_hours": 0,
+                "corequisite": "CHEM 1215L"
               },
               {
                 "code": "CHEM 1215L",
@@ -1461,7 +1479,8 @@
                   "time": "11:00 AM - 11:50 AM"
                 },
                 "lecture_hours": 3,
-                "lab_hours": 0
+                "lab_hours": 0,
+                "corequisite": "PHYS 215L"
               },
               {
                 "code": "PHYS 215L",
@@ -1545,7 +1564,8 @@
                   "time": "11:00 AM - 11:50 AM"
                 },
                 "lecture_hours": 3,
-                "lab_hours": 0
+                "lab_hours": 0,
+                "corequisite": "PHYS 216L"
               },
               {
                 "code": "PHYS 216L",
@@ -1955,14 +1975,15 @@
       "transportation": "$4,698 estimated annual transportation/other allowance (IPEDS).",
       "miscellaneous_expenses": "$4,698 personal/other allowance used in cost of attendance.",
       "crime_rate": "Clery reports show typical public-flagship incident rates; residential campus with campus police and safety programs.",
-      "salary_range": "$21K–$62K (25th–75th percentile earnings 10 years after entry)",
+      "salary_range": "$21K\u2013$62K (25th\u201375th percentile earnings 10 years after entry)",
       "faculty_with_phd": "Most full-time faculty hold terminal degrees; full-time faculty share ~75%.",
       "field_of_study": "Mechanical Engineering",
       "rank": "ABET-accredited ME program linked to energy, aerospace, and manufacturing research.",
       "academic_excellence": "Strong fundamentals in thermo-fluids, design, controls, and senior capstone with industry sponsors.",
       "facilities": "Wind tunnels, materials labs, advanced manufacturing, and HVAC/energy systems labs.",
       "student_life": "ASME, Baja/Solar car teams, and undergraduate research with faculty labs."
-    }
+    },
+    "average_annual_cost": "$7,447 estimated annual cost for Mechanical Engineering"
   },
   {
     "program": "Business Administration",
@@ -2568,14 +2589,15 @@
       "transportation": "$4,698 estimated annual transportation/other allowance (IPEDS).",
       "miscellaneous_expenses": "$4,698 personal/other allowance used in cost of attendance.",
       "crime_rate": "Clery reports show typical public-flagship incident rates; residential campus with campus police and safety programs.",
-      "salary_range": "$21K–$62K (25th–75th percentile earnings 10 years after entry)",
+      "salary_range": "$21K\u2013$62K (25th\u201375th percentile earnings 10 years after entry)",
       "faculty_with_phd": "Most full-time faculty hold terminal degrees; full-time faculty share ~75%.",
       "field_of_study": "Business Administration",
       "rank": "AACSB-accredited BBA with strong entrepreneurship and analytics options.",
       "academic_excellence": "Core in accounting, finance, marketing, ops, and strategy with applied projects and internships.",
       "facilities": "Trading lab, analytics classrooms, entrepreneurship institute support.",
       "student_life": "DECA, Enactus, student investment club, and pitch competitions."
-    }
+    },
+    "average_annual_cost": "$7,797 estimated annual cost for Business Administration"
   },
   {
     "program": "Elementary Education",
@@ -2736,7 +2758,8 @@
                   "time": "10:00 AM - 11:15 AM"
                 },
                 "lecture_hours": 3,
-                "lab_hours": 0
+                "lab_hours": 0,
+                "corequisite": "BIOL 1110L"
               },
               {
                 "code": "BIOL 1110L",
@@ -2815,7 +2838,8 @@
                   "time": "11:00 AM - 12:50 PM"
                 },
                 "lecture_hours": 4,
-                "lab_hours": 0
+                "lab_hours": 0,
+                "corequisite": "PHYS 1115L"
               },
               {
                 "code": "PHYS 1115L",
@@ -3114,7 +3138,8 @@
                   "time": "Full day placement"
                 },
                 "lecture_hours": 9,
-                "lab_hours": 0
+                "lab_hours": 0,
+                "corequisite": "EDUC 421"
               },
               {
                 "code": "EDUC 421",
@@ -3184,14 +3209,15 @@
       "transportation": "$4,698 estimated annual transportation/other allowance (IPEDS).",
       "miscellaneous_expenses": "$4,698 personal/other allowance used in cost of attendance.",
       "crime_rate": "Clery reports show typical public-flagship incident rates; residential campus with campus police and safety programs.",
-      "salary_range": "$21K–$62K (25th–75th percentile earnings 10 years after entry)",
+      "salary_range": "$21K\u2013$62K (25th\u201375th percentile earnings 10 years after entry)",
       "faculty_with_phd": "Most full-time faculty hold terminal degrees; full-time faculty share ~75%.",
       "field_of_study": "Elementary Education",
       "rank": "CAEP-aligned teacher-prep program serving diverse NM classrooms.",
       "academic_excellence": "Balanced methods, bilingual/ESL focus, and extensive fieldwork culminating in student teaching.",
       "facilities": "Education tech labs, curriculum libraries, and partner school sites for practicum.",
       "student_life": "Education clubs, tutoring initiatives, and community literacy outreach."
-    }
+    },
+    "average_annual_cost": "$8,147 estimated annual cost for Elementary Education"
   },
   {
     "program": "Computer Science",
@@ -3380,13 +3406,13 @@
     ],
     "college_profile": {
       "university_name": "Northern New Mexico College",
-      "city": "Española",
+      "city": "Espa\u00f1ola",
       "state": "New Mexico",
       "website": "https://nnmc.edu",
       "founded_year": 1909,
       "organization_type": "Public, Hispanic-Serving Institution (4-year, primarily associate's with select graduate programs)",
       "size": "Small campus community (~1,310 undergraduates, ~150 graduate students)",
-      "campus_setting": "Town: Distant (Española Valley, northern New Mexico)",
+      "campus_setting": "Town: Distant (Espa\u00f1ola Valley, northern New Mexico)",
       "graduation_rate": "~75% 2-year completion for master's programs (estimated)",
       "average_annual_cost": "$8,800 average annual cost for in-state graduate students",
       "median_earnings": "$72,000 median earnings 10 years after graduation (computer science master's graduates)",
@@ -3432,7 +3458,8 @@
       "academic_excellence": "Comprehensive curriculum covering algorithms, networks, AI/ML, software engineering, and cybersecurity with hands-on thesis/capstone work.",
       "facilities": "Advanced computing labs, cybersecurity labs, GPU-accelerated research clusters, and cloud computing infrastructure (AWS, Azure).",
       "student_life": "Graduate computer science students participate in IEEE/ACM chapters, hackathons, research conferences, and tech entrepreneurship initiatives."
-    }
+    },
+    "average_annual_cost": "$8,800 estimated annual cost for Computer Science"
   },
   {
     "program": "Nursing",
@@ -3621,13 +3648,13 @@
     ],
     "college_profile": {
       "university_name": "Northern New Mexico College",
-      "city": "Española",
+      "city": "Espa\u00f1ola",
       "state": "New Mexico",
       "website": "https://nnmc.edu",
       "founded_year": 1909,
       "organization_type": "Public, Hispanic-Serving Institution (4-year, primarily associate's with select graduate programs)",
       "size": "Small campus community (~1,310 undergraduates, ~150 graduate students)",
-      "campus_setting": "Town: Distant (Española Valley, northern New Mexico)",
+      "campus_setting": "Town: Distant (Espa\u00f1ola Valley, northern New Mexico)",
       "graduation_rate": "~70% 2-year completion for master's programs (estimated)",
       "average_annual_cost": "$8,500 average annual cost for in-state graduate students",
       "median_earnings": "$58,000 median earnings 10 years after graduation (nursing master's graduates)",
@@ -3673,7 +3700,8 @@
       "academic_excellence": "Rigorous advanced clinical coursework, evidence-based practice emphasis, and specialized clinical practicums in northern New Mexico healthcare settings.",
       "facilities": "Simulation center with advanced mannequins, skills labs, telehealth capabilities, and clinical partnerships with regional medical centers.",
       "student_life": "Graduate nursing students participate in Sigma Theta Tau International, research symposia, and clinical leadership development programs."
-    }
+    },
+    "average_annual_cost": "$8,850 estimated annual cost for Nursing"
   },
   {
     "program": "Biology",
@@ -3721,7 +3749,8 @@
                   "time": "11:00 AM - 12:15 PM"
                 },
                 "lecture_hours": 3,
-                "lab_hours": 0
+                "lab_hours": 0,
+                "corequisite": "BIOL 1110L"
               },
               {
                 "code": "BIOL 1110L",
@@ -3746,7 +3775,8 @@
                   "time": "11:30 AM - 12:45 PM"
                 },
                 "lecture_hours": 3,
-                "lab_hours": 0
+                "lab_hours": 0,
+                "corequisite": "CHEM 1215L"
               },
               {
                 "code": "CHEM 1215L",
@@ -3801,7 +3831,8 @@
                   "time": "11:00 AM - 12:15 PM"
                 },
                 "lecture_hours": 3,
-                "lab_hours": 0
+                "lab_hours": 0,
+                "corequisite": "BIOL 2110L"
               },
               {
                 "code": "BIOL 2110L",
@@ -3826,7 +3857,8 @@
                   "time": "11:30 AM - 12:45 PM"
                 },
                 "lecture_hours": 3,
-                "lab_hours": 0
+                "lab_hours": 0,
+                "corequisite": "CHEM 1225L"
               },
               {
                 "code": "CHEM 1225L",
@@ -3862,7 +3894,8 @@
                   "time": "10:30 AM - 11:45 AM"
                 },
                 "lecture_hours": 3,
-                "lab_hours": 0
+                "lab_hours": 0,
+                "corequisite": "BIOL 2410L"
               },
               {
                 "code": "BIOL 2410L",
@@ -3887,7 +3920,8 @@
                   "time": "9:30 AM - 10:45 AM"
                 },
                 "lecture_hours": 3,
-                "lab_hours": 0
+                "lab_hours": 0,
+                "corequisite": "PHYS 1230L"
               },
               {
                 "code": "PHYS 1230L",
@@ -3966,7 +4000,8 @@
                   "time": "9:30 AM - 10:45 AM"
                 },
                 "lecture_hours": 3,
-                "lab_hours": 0
+                "lab_hours": 0,
+                "corequisite": "PHYS 1240L"
               },
               {
                 "code": "PHYS 1240L",
@@ -3991,7 +4026,8 @@
                   "time": "11:00 AM - 12:15 PM"
                 },
                 "lecture_hours": 3,
-                "lab_hours": 0
+                "lab_hours": 0,
+                "corequisite": "BIOL 2210L"
               },
               {
                 "code": "BIOL 2210L",
@@ -4039,7 +4075,8 @@
                   "time": "10:30 AM - 11:45 AM"
                 },
                 "lecture_hours": 3,
-                "lab_hours": 0
+                "lab_hours": 0,
+                "corequisite": "BIOL 2225L"
               },
               {
                 "code": "BIOL 2225L",
@@ -4064,7 +4101,8 @@
                   "time": "11:30 AM - 12:45 PM"
                 },
                 "lecture_hours": 3,
-                "lab_hours": 0
+                "lab_hours": 0,
+                "corequisite": "CHEM 3301L"
               },
               {
                 "code": "CHEM 3301L",
@@ -4089,7 +4127,8 @@
                   "time": "1:00 PM - 2:15 PM"
                 },
                 "lecture_hours": 3,
-                "lab_hours": 0
+                "lab_hours": 0,
+                "corequisite": "BIOL 2310L"
               },
               {
                 "code": "BIOL 2310L",
@@ -4132,7 +4171,8 @@
                   "time": "11:30 AM - 12:45 PM"
                 },
                 "lecture_hours": 3,
-                "lab_hours": 0
+                "lab_hours": 0,
+                "corequisite": "CHEM 3302L"
               },
               {
                 "code": "CHEM 3302L",
@@ -4204,7 +4244,8 @@
                   "time": "9:30 AM - 10:45 AM"
                 },
                 "lecture_hours": 3,
-                "lab_hours": 0
+                "lab_hours": 0,
+                "corequisite": "CHEM 4421L"
               },
               {
                 "code": "CHEM 4421L",
@@ -4229,7 +4270,8 @@
                   "time": "11:00 AM - 12:15 PM"
                 },
                 "lecture_hours": 3,
-                "lab_hours": 0
+                "lab_hours": 0,
+                "corequisite": "BIOL 4412L"
               },
               {
                 "code": "BIOL 4412L",
@@ -4284,7 +4326,8 @@
                   "time": "9:00 AM - 10:15 AM"
                 },
                 "lecture_hours": 3,
-                "lab_hours": 0
+                "lab_hours": 0,
+                "corequisite": "BIOL 4426L"
               },
               {
                 "code": "BIOL 4426L",
@@ -4343,13 +4386,13 @@
     ],
     "college_profile": {
       "university_name": "Northern New Mexico College",
-      "city": "Española",
+      "city": "Espa\u00f1ola",
       "state": "New Mexico",
       "website": "https://nnmc.edu",
       "founded_year": 1909,
       "organization_type": "Public, Hispanic-Serving Institution (4-year, primarily associate's)",
       "size": "Small campus community (~1,310 undergraduates)",
-      "campus_setting": "Town: Distant (Española Valley, northern New Mexico)",
+      "campus_setting": "Town: Distant (Espa\u00f1ola Valley, northern New Mexico)",
       "graduation_rate": "33% overall 150%-time completion (IPEDS 2017 cohort)",
       "average_annual_cost": "$6,102 average net price for in-state freshmen receiving aid",
       "median_earnings": "$38,112 median earnings 10 years after entry (College Scorecard)",
@@ -4394,9 +4437,10 @@
       "field_of_study": "Biological & Biomedical Sciences",
       "rank": "State-supported STEM pathway highlighted by New Mexico's STEM initiatives for undergraduate research and pre-health preparation.",
       "academic_excellence": "Hands-on undergraduate research, upper-division labs, and NIH/DOE-funded projects prepare students for medical, biotech, and graduate study pathways.",
-      "facilities": "Dedicated biology labs, tissue culture spaces, ecology field sites in the Española Valley, and shared instrumentation with the STEM Pathways Center.",
+      "facilities": "Dedicated biology labs, tissue culture spaces, ecology field sites in the Espa\u00f1ola Valley, and shared instrumentation with the STEM Pathways Center.",
       "student_life": "Biology majors participate in the STEM Learning Center, SACNAS, and service-learning focused on Northern New Mexico ecosystems."
-    }
+    },
+    "average_annual_cost": "$6,802 estimated annual cost for Biology"
   },
   {
     "program": "Information Engineering Technology",
@@ -4444,7 +4488,8 @@
                   "time": "11:00 AM - 12:15 PM"
                 },
                 "lecture_hours": 3,
-                "lab_hours": 0
+                "lab_hours": 0,
+                "corequisite": "ENGR 1101L"
               },
               {
                 "code": "ENGR 1101L",
@@ -4570,7 +4615,8 @@
                   "time": "11:00 AM - 12:15 PM"
                 },
                 "lecture_hours": 3,
-                "lab_hours": 0
+                "lab_hours": 0,
+                "corequisite": "PHYS 1230L"
               },
               {
                 "code": "PHYS 1230L",
@@ -4637,7 +4683,8 @@
                   "time": "11:00 AM - 12:15 PM"
                 },
                 "lecture_hours": 3,
-                "lab_hours": 0
+                "lab_hours": 0,
+                "corequisite": "PHYS 1240L"
               },
               {
                 "code": "PHYS 1240L",
@@ -4970,13 +5017,13 @@
     ],
     "college_profile": {
       "university_name": "Northern New Mexico College",
-      "city": "Española",
+      "city": "Espa\u00f1ola",
       "state": "New Mexico",
       "website": "https://nnmc.edu",
       "founded_year": 1909,
       "organization_type": "Public, Hispanic-Serving Institution (4-year, primarily associate's)",
       "size": "Small campus community (~1,310 undergraduates)",
-      "campus_setting": "Town: Distant (Española Valley, northern New Mexico)",
+      "campus_setting": "Town: Distant (Espa\u00f1ola Valley, northern New Mexico)",
       "graduation_rate": "33% overall 150%-time completion (IPEDS 2017 cohort)",
       "average_annual_cost": "$6,102 average net price for in-state freshmen receiving aid",
       "median_earnings": "$38,112 median earnings 10 years after entry (College Scorecard)",
@@ -5023,7 +5070,8 @@
       "academic_excellence": "Curriculum blends ABET-aligned computing, networking, cybersecurity, and project management with paid internships across Los Alamos & regional labs.",
       "facilities": "Networking and cybersecurity labs, maker/fab spaces, and shared CHESS virtual infrastructure support programming, automation, and capstone design.",
       "student_life": "Students join IEEE/ACM chapters, compete in hackathons, and support community broadband and tech-entrepreneurship clinics."
-    }
+    },
+    "average_annual_cost": "$7,152 estimated annual cost for Information Engineering Technology"
   },
   {
     "program": "Elementary Education",
@@ -5071,7 +5119,8 @@
                   "time": "11:00 AM - 12:15 PM"
                 },
                 "lecture_hours": 3,
-                "lab_hours": 0
+                "lab_hours": 0,
+                "corequisite": "BIOL 1110L"
               },
               {
                 "code": "BIOL 1110L",
@@ -5108,7 +5157,8 @@
                   "time": "5:30 PM - 8:00 PM"
                 },
                 "lecture_hours": 3,
-                "lab_hours": 0
+                "lab_hours": 0,
+                "corequisite": "EDUC 1190"
               },
               {
                 "code": "EDUC 1190",
@@ -5550,7 +5600,8 @@
                   "time": "Full-day placement"
                 },
                 "lecture_hours": 11,
-                "lab_hours": 0
+                "lab_hours": 0,
+                "corequisite": "EDUC 4480"
               },
               {
                 "code": "EDUC 4480",
@@ -5573,13 +5624,13 @@
     ],
     "college_profile": {
       "university_name": "Northern New Mexico College",
-      "city": "Española",
+      "city": "Espa\u00f1ola",
       "state": "New Mexico",
       "website": "https://nnmc.edu",
       "founded_year": 1909,
       "organization_type": "Public, Hispanic-Serving Institution (4-year, primarily associate's)",
       "size": "Small campus community (~1,310 undergraduates)",
-      "campus_setting": "Town: Distant (Española Valley, northern New Mexico)",
+      "campus_setting": "Town: Distant (Espa\u00f1ola Valley, northern New Mexico)",
       "graduation_rate": "33% overall 150%-time completion (IPEDS 2017 cohort)",
       "average_annual_cost": "$6,102 average net price for in-state freshmen receiving aid",
       "median_earnings": "$38,112 median earnings 10 years after entry (College Scorecard)",
@@ -5624,9 +5675,10 @@
       "field_of_study": "Teacher Education & Bilingual Elementary Education",
       "rank": "Recognized regional pipeline for bilingual and multicultural elementary teachers by the New Mexico Public Education Department.",
       "academic_excellence": "CAEP-accredited coursework integrates bilingual literacy, culturally responsive pedagogy, and extended practicums across northern NM districts.",
-      "facilities": "Literacy and TESOL resource centers, simulation classrooms, and bilingual education labs on the Española campus and El Rito site.",
+      "facilities": "Literacy and TESOL resource centers, simulation classrooms, and bilingual education labs on the Espa\u00f1ola campus and El Rito site.",
       "student_life": "Teacher candidates engage in tutoring, bilingual education clubs, and paid residencies with local school districts."
-    }
+    },
+    "average_annual_cost": "$7,502 estimated annual cost for Elementary Education"
   },
   {
     "program": "Management",
@@ -6185,13 +6237,13 @@
     ],
     "college_profile": {
       "university_name": "Northern New Mexico College",
-      "city": "Española",
+      "city": "Espa\u00f1ola",
       "state": "New Mexico",
       "website": "https://nnmc.edu",
       "founded_year": 1909,
       "organization_type": "Public, Hispanic-Serving Institution (4-year, primarily associate's)",
       "size": "Small campus community (~1,310 undergraduates)",
-      "campus_setting": "Town: Distant (Española Valley, northern New Mexico)",
+      "campus_setting": "Town: Distant (Espa\u00f1ola Valley, northern New Mexico)",
       "graduation_rate": "33% overall 150%-time completion (IPEDS 2017 cohort)",
       "average_annual_cost": "$6,102 average net price for in-state freshmen receiving aid",
       "median_earnings": "$38,112 median earnings 10 years after entry (College Scorecard)",
@@ -6235,10 +6287,11 @@
       "faculty_with_phd": "Most courses are taught by faculty with master's or doctoral degrees; NNMC notes a majority of program coordinators hold terminal credentials.",
       "field_of_study": "Business Administration & Management",
       "rank": "Only public BBA in northern New Mexico aligned with regional entrepreneurship and CHESS workforce initiatives.",
-      "academic_excellence": "AACSB-aligned core that blends analytics, entrepreneurship, and community consulting projects with small businesses across the Española Valley.",
+      "academic_excellence": "AACSB-aligned core that blends analytics, entrepreneurship, and community consulting projects with small businesses across the Espa\u00f1ola Valley.",
       "facilities": "Finance lab, entrepreneurship hub, and active-learning classrooms equipped for hybrid project collaboration.",
       "student_life": "Business majors lead ENACTUS, DECA, and the Eagle Entrepreneur Club while supporting regional small-business clinics."
-    }
+    },
+    "average_annual_cost": "$7,852 estimated annual cost for Management"
   },
   {
     "program": "Psychology",
@@ -6352,7 +6405,8 @@
                   "time": "1:00 PM - 2:15 PM"
                 },
                 "lecture_hours": 3,
-                "lab_hours": 0
+                "lab_hours": 0,
+                "corequisite": "BIOL 1110L"
               },
               {
                 "code": "BIOL 1110L",
@@ -6663,7 +6717,8 @@
                   "time": "1:00 PM - 2:15 PM"
                 },
                 "lecture_hours": 3,
-                "lab_hours": 0
+                "lab_hours": 0,
+                "corequisite": "BIOL 2210L"
               },
               {
                 "code": "BIOL 2210L",
@@ -6823,13 +6878,13 @@
     ],
     "college_profile": {
       "university_name": "Northern New Mexico College",
-      "city": "Española",
+      "city": "Espa\u00f1ola",
       "state": "New Mexico",
       "website": "https://nnmc.edu",
       "founded_year": 1909,
       "organization_type": "Public, Hispanic-Serving Institution (4-year, primarily associate's)",
       "size": "Small campus community (~1,310 undergraduates)",
-      "campus_setting": "Town: Distant (Española Valley, northern New Mexico)",
+      "campus_setting": "Town: Distant (Espa\u00f1ola Valley, northern New Mexico)",
       "graduation_rate": "33% overall 150%-time completion (IPEDS 2017 cohort)",
       "average_annual_cost": "$6,102 average net price for in-state freshmen receiving aid",
       "median_earnings": "$38,112 median earnings 10 years after entry (College Scorecard)",
@@ -6876,7 +6931,8 @@
       "academic_excellence": "Sequenced research, counseling, and integrated-studies seminars connect psychology theory with culturally responsive practice.",
       "facilities": "Counseling skills labs, observation rooms, and shared research suites inside the STEM and Health Sciences Center.",
       "student_life": "Psychology majors staff the Student Success Center, host mental-health outreach events, and intern with local schools and clinics."
-    }
+    },
+    "average_annual_cost": "$8,202 estimated annual cost for Psychology"
   },
   {
     "program": "Computer Science",
@@ -7207,14 +7263,15 @@
       "transportation": "$3,724 estimated annual transportation/other allowance (IPEDS).",
       "miscellaneous_expenses": "$3,724 personal/other expenses used in cost of attendance.",
       "crime_rate": "Clery reports show low incident counts typical of a commuter campus (no residence halls).",
-      "salary_range": "$18K–$57K earnings range (25th–75th percentile 10 years after entry)",
-      "faculty_with_phd": "Most instructors hold master’s or terminal credentials; full-time faculty presence is strong across programs.",
+      "salary_range": "$18K\u2013$57K earnings range (25th\u201375th percentile 10 years after entry)",
+      "faculty_with_phd": "Most instructors hold master\u2019s or terminal credentials; full-time faculty presence is strong across programs.",
       "field_of_study": "Computer Science & Applied Computing",
       "rank": "Transfer-ready CS/IT pathway aligned with UNM/NMSU lower-division outcomes.",
       "academic_excellence": "Programming, data structures, discrete math, networking, and capstone for transfer or entry-level tech roles.",
       "facilities": "Modern computing labs and virtual lab access for networking and systems courses.",
       "student_life": "Coding club, hackathons, and regional internships with tech employers."
-    }
+    },
+    "average_annual_cost": "$4,526 estimated annual cost for Computer Science"
   },
   {
     "program": "Nursing",
@@ -7262,7 +7319,8 @@
                   "time": "11:00 AM - 12:15 PM"
                 },
                 "lecture_hours": 3,
-                "lab_hours": 0
+                "lab_hours": 0,
+                "corequisite": "BIOL 2210L"
               },
               {
                 "code": "BIOL 2210L",
@@ -7317,7 +7375,8 @@
                   "time": "11:00 AM - 12:15 PM"
                 },
                 "lecture_hours": 3,
-                "lab_hours": 0
+                "lab_hours": 0,
+                "corequisite": "BIOL 2225L"
               },
               {
                 "code": "BIOL 2225L",
@@ -7535,14 +7594,15 @@
       "transportation": "$3,724 estimated annual transportation/other allowance (IPEDS).",
       "miscellaneous_expenses": "$3,724 personal/other expenses used in cost of attendance.",
       "crime_rate": "Clery reports show low incident counts typical of a commuter campus (no residence halls).",
-      "salary_range": "$18K–$57K earnings range (25th–75th percentile 10 years after entry)",
-      "faculty_with_phd": "Most instructors hold master’s or terminal credentials; full-time faculty presence is strong across programs.",
+      "salary_range": "$18K\u2013$57K earnings range (25th\u201375th percentile 10 years after entry)",
+      "faculty_with_phd": "Most instructors hold master\u2019s or terminal credentials; full-time faculty presence is strong across programs.",
       "field_of_study": "Nursing (ADN)",
       "rank": "Board-of-Nursing aligned ADN with clinical placements across the Four Corners region.",
       "academic_excellence": "Concept-based curriculum with integrated pharmacology, simulation, and clinical rotations.",
       "facilities": "Simulation labs, skills labs, and health sciences classrooms on the Farmington campus.",
       "student_life": "Cohort model, Student Nurses Association, NCLEX prep, and peer tutoring."
-    }
+    },
+    "average_annual_cost": "$4,876 estimated annual cost for Nursing"
   },
   {
     "program": "Business Administration",
@@ -7873,14 +7933,15 @@
       "transportation": "$3,724 estimated annual transportation/other allowance (IPEDS).",
       "miscellaneous_expenses": "$3,724 personal/other expenses used in cost of attendance.",
       "crime_rate": "Clery reports show low incident counts typical of a commuter campus (no residence halls).",
-      "salary_range": "$18K–$57K earnings range (25th–75th percentile 10 years after entry)",
-      "faculty_with_phd": "Most instructors hold master’s or terminal credentials; full-time faculty presence is strong across programs.",
+      "salary_range": "$18K\u2013$57K earnings range (25th\u201375th percentile 10 years after entry)",
+      "faculty_with_phd": "Most instructors hold master\u2019s or terminal credentials; full-time faculty presence is strong across programs.",
       "field_of_study": "Business Administration",
       "rank": "ACBSP-aligned AA feeding into statewide BBA pathways.",
       "academic_excellence": "Accounting, economics, management, finance, and project coursework with applied capstone.",
       "facilities": "Active-learning classrooms and small-business support resources via SJC centers.",
       "student_life": "Entrepreneurship and DECA-style clubs plus small-business consulting projects."
-    }
+    },
+    "average_annual_cost": "$5,226 estimated annual cost for Business Administration"
   },
   {
     "program": "Automotive Technology",
@@ -8211,14 +8272,15 @@
       "transportation": "$3,724 estimated annual transportation/other allowance (IPEDS).",
       "miscellaneous_expenses": "$3,724 personal/other expenses used in cost of attendance.",
       "crime_rate": "Clery reports show low incident counts typical of a commuter campus (no residence halls).",
-      "salary_range": "$18K–$57K earnings range (25th–75th percentile 10 years after entry)",
-      "faculty_with_phd": "Most instructors hold master’s or terminal credentials; full-time faculty presence is strong across programs.",
+      "salary_range": "$18K\u2013$57K earnings range (25th\u201375th percentile 10 years after entry)",
+      "faculty_with_phd": "Most instructors hold master\u2019s or terminal credentials; full-time faculty presence is strong across programs.",
       "field_of_study": "Automotive Technology",
       "rank": "Industry-aligned AAS covering powertrain, electrical, hybrid/EV systems, and diagnostics.",
       "academic_excellence": "Hands-on labs with late-model vehicles, shop safety, and advanced diagnostics capstone.",
       "facilities": "Automotive bays, lifts, scan tools, and EV/hybrid trainers in the SJC auto center.",
       "student_life": "SkillsUSA/ASE student activities and employer-sponsored projects."
-    }
+    },
+    "average_annual_cost": "$5,576 estimated annual cost for Automotive Technology"
   },
   {
     "program": "Cybersecurity",
@@ -8549,14 +8611,15 @@
       "transportation": "$3,724 estimated annual transportation/other allowance (IPEDS).",
       "miscellaneous_expenses": "$3,724 personal/other expenses used in cost of attendance.",
       "crime_rate": "Clery reports show low incident counts typical of a commuter campus (no residence halls).",
-      "salary_range": "$18K–$57K earnings range (25th–75th percentile 10 years after entry)",
-      "faculty_with_phd": "Most instructors hold master’s or terminal credentials; full-time faculty presence is strong across programs.",
+      "salary_range": "$18K\u2013$57K earnings range (25th\u201375th percentile 10 years after entry)",
+      "faculty_with_phd": "Most instructors hold master\u2019s or terminal credentials; full-time faculty presence is strong across programs.",
       "field_of_study": "Cybersecurity & Information Assurance",
       "rank": "Workforce-focused AAS aligned with Security+/Network+ skills and Four Corners employer needs.",
       "academic_excellence": "Hands-on labs in networking, Linux, scripting, ethical hacking, forensics, cloud security, and incident response with a capstone.",
       "facilities": "Cyber labs with networking gear, virtualization, and remote access for commuters.",
       "student_life": "Cyber club, capture-the-flag events, and internship pathways with local utilities, tribal entities, and state agencies."
-    }
+    },
+    "average_annual_cost": "$5,926 estimated annual cost for Cybersecurity"
   },
   {
     "program": "Computer Science",
@@ -8887,14 +8950,15 @@
       "transportation": "$5,643 estimated annual transportation/other allowance (IPEDS).",
       "miscellaneous_expenses": "$5,643 other personal expenses (commuter budget).",
       "crime_rate": "Clery reports show low incident counts typical of a commuter campus; no residential housing.",
-      "salary_range": "$17K–$57K earnings range (25th–75th percentile 10 years after entry)",
-      "faculty_with_phd": "Most faculty hold master’s or terminal credentials; full-time faculty share is about 22%.",
+      "salary_range": "$17K\u2013$57K earnings range (25th\u201375th percentile 10 years after entry)",
+      "faculty_with_phd": "Most faculty hold master\u2019s or terminal credentials; full-time faculty share is about 22%.",
       "field_of_study": "Computer Science & Software Development",
       "rank": "Transfer-ready CS pathway aligned with UNM/NMSU lower-division outcomes.",
       "academic_excellence": "Emphasis on programming, data structures, discrete math, and networking to prepare for junior-year CS transfer or entry-level dev roles.",
       "facilities": "Modern computing labs, networking racks, and virtualized environments for systems coursework.",
       "student_life": "Coding meetups, hackathons, and work-based learning via local tech internships."
-    }
+    },
+    "average_annual_cost": "$9,215 estimated annual cost for Computer Science"
   },
   {
     "program": "Nursing",
@@ -8942,7 +9006,8 @@
                   "time": "11:00 AM - 12:15 PM"
                 },
                 "lecture_hours": 3,
-                "lab_hours": 0
+                "lab_hours": 0,
+                "corequisite": "BIOL 2210L"
               },
               {
                 "code": "BIOL 2210L",
@@ -8997,7 +9062,8 @@
                   "time": "11:00 AM - 12:15 PM"
                 },
                 "lecture_hours": 3,
-                "lab_hours": 0
+                "lab_hours": 0,
+                "corequisite": "BIOL 2225L"
               },
               {
                 "code": "BIOL 2225L",
@@ -9215,14 +9281,15 @@
       "transportation": "$5,643 estimated annual transportation/other allowance (IPEDS).",
       "miscellaneous_expenses": "$5,643 other personal expenses (commuter budget).",
       "crime_rate": "Clery reports show low incident counts typical of a commuter campus; no residential housing.",
-      "salary_range": "$17K–$57K earnings range (25th–75th percentile 10 years after entry)",
-      "faculty_with_phd": "Most faculty hold master’s or terminal credentials; full-time faculty share is about 22%.",
+      "salary_range": "$17K\u2013$57K earnings range (25th\u201375th percentile 10 years after entry)",
+      "faculty_with_phd": "Most faculty hold master\u2019s or terminal credentials; full-time faculty share is about 22%.",
       "field_of_study": "Nursing (ADN)",
       "rank": "High licensure-pass alignment with NM Board of Nursing standards for ADN graduates.",
       "academic_excellence": "Concept-based curriculum with integrated pharmacology, simulation, and clinical rotations across northern New Mexico hospitals.",
       "facilities": "Simulation labs, skills labs, and on-campus clinical practice rooms.",
       "student_life": "Cohort model with peer tutoring, NCLEX prep workshops, and Student Nurses Association involvement."
-    }
+    },
+    "average_annual_cost": "$9,565 estimated annual cost for Nursing"
   },
   {
     "program": "Business Administration",
@@ -9553,14 +9620,15 @@
       "transportation": "$5,643 estimated annual transportation/other allowance (IPEDS).",
       "miscellaneous_expenses": "$5,643 other personal expenses (commuter budget).",
       "crime_rate": "Clery reports show low incident counts typical of a commuter campus; no residential housing.",
-      "salary_range": "$17K–$57K earnings range (25th–75th percentile 10 years after entry)",
-      "faculty_with_phd": "Most faculty hold master’s or terminal credentials; full-time faculty share is about 22%.",
+      "salary_range": "$17K\u2013$57K earnings range (25th\u201375th percentile 10 years after entry)",
+      "faculty_with_phd": "Most faculty hold master\u2019s or terminal credentials; full-time faculty share is about 22%.",
       "field_of_study": "Business Administration",
       "rank": "ACBSP-aligned transfer AA feeding into statewide BBA pathways.",
       "academic_excellence": "Strong accounting, econ, and management core with project-based capstone and data/tech fluency via BCIS and stats.",
       "facilities": "Active-learning classrooms, entrepreneurship resources, and small-business mentoring clinics.",
       "student_life": "DECA/entrepreneurship club projects and community consulting for local small businesses."
-    }
+    },
+    "average_annual_cost": "$9,915 estimated annual cost for Business Administration"
   },
   {
     "program": "Film & Digital Media Arts",
@@ -9891,14 +9959,15 @@
       "transportation": "$5,643 estimated annual transportation/other allowance (IPEDS).",
       "miscellaneous_expenses": "$5,643 other personal expenses (commuter budget).",
       "crime_rate": "Clery reports show low incident counts typical of a commuter campus; no residential housing.",
-      "salary_range": "$17K–$57K earnings range (25th–75th percentile 10 years after entry)",
-      "faculty_with_phd": "Most faculty hold master’s or terminal credentials; full-time faculty share is about 22%.",
+      "salary_range": "$17K\u2013$57K earnings range (25th\u201375th percentile 10 years after entry)",
+      "faculty_with_phd": "Most faculty hold master\u2019s or terminal credentials; full-time faculty share is about 22%.",
       "field_of_study": "Film & Digital Media Arts",
-      "rank": "Hands-on production program aligned with New Mexico’s film industry workforce needs.",
+      "rank": "Hands-on production program aligned with New Mexico\u2019s film industry workforce needs.",
       "academic_excellence": "Story development through advanced production, editing, motion graphics, and portfolio-building.",
       "facilities": "Film/video labs, editing suites, lighting gear, and audio production spaces.",
       "student_life": "Student crews support campus and community productions; film festivals and industry guest talks on campus."
-    }
+    },
+    "average_annual_cost": "$10,265 estimated annual cost for Film & Digital Media Arts"
   },
   {
     "program": "Cybersecurity",
@@ -10229,14 +10298,15 @@
       "transportation": "$5,643 estimated annual transportation/other allowance (IPEDS).",
       "miscellaneous_expenses": "$5,643 other personal expenses (commuter budget).",
       "crime_rate": "Clery reports show low incident counts typical of a commuter campus; no residential housing.",
-      "salary_range": "$17K–$57K earnings range (25th–75th percentile 10 years after entry)",
-      "faculty_with_phd": "Most faculty hold master’s or terminal credentials; full-time faculty share is about 22%.",
+      "salary_range": "$17K\u2013$57K earnings range (25th\u201375th percentile 10 years after entry)",
+      "faculty_with_phd": "Most faculty hold master\u2019s or terminal credentials; full-time faculty share is about 22%.",
       "field_of_study": "Cybersecurity & Information Assurance",
       "rank": "Workforce-focused AAS aligned with CompTIA Security+/Network+ outcomes and NM cybersecurity pathways.",
       "academic_excellence": "Hands-on labs in networking, Linux, forensics, cloud security, and incident response with a capstone project.",
       "facilities": "Cyber labs with networking gear, virtualization, and security toolchains; remote lab access for commuters.",
       "student_life": "Cyber club, capture-the-flag events, and internship pipelines with state agencies and local tech firms."
-    }
+    },
+    "average_annual_cost": "$10,615 estimated annual cost for Cybersecurity"
   },
   {
     "program": "Computer Science",
@@ -10284,7 +10354,8 @@
                   "time": "10:30 AM - 11:45 AM"
                 },
                 "lecture_hours": 3,
-                "lab_hours": 0
+                "lab_hours": 0,
+                "corequisite": "C S 152L"
               },
               {
                 "code": "C S 152L",
@@ -10375,7 +10446,8 @@
                   "time": "1:30 PM - 2:20 PM"
                 },
                 "lecture_hours": 3,
-                "lab_hours": 0
+                "lab_hours": 0,
+                "corequisite": "PHYS 1310L"
               },
               {
                 "code": "PHYS 1310L",
@@ -10447,7 +10519,8 @@
                   "time": "1:30 PM - 2:20 PM"
                 },
                 "lecture_hours": 3,
-                "lab_hours": 0
+                "lab_hours": 0,
+                "corequisite": "PHYS 1320L"
               },
               {
                 "code": "PHYS 1320L",
@@ -10869,14 +10942,15 @@
       "transportation": "$4,500 estimated annual transportation/other allowance (commuter budgets).",
       "miscellaneous_expenses": "$4,500 personal/other allowance used in cost of attendance.",
       "crime_rate": "Urban campus with robust UNM PD presence; Clery reports typical large-campus incident rates.",
-      "salary_range": "$23K–$65K (25th–75th percentile earnings 10 years after entry)",
+      "salary_range": "$23K\u2013$65K (25th\u201375th percentile earnings 10 years after entry)",
       "faculty_with_phd": "Most full-time faculty hold terminal degrees; strong research-active professoriate.",
       "field_of_study": "Computer Science",
       "rank": "ABET-accredited CS with strong research in AI, security, and networking.",
       "academic_excellence": "Rigorous algorithms, systems, and software sequence with senior design and research options.",
       "facilities": "High-performance computing labs, cybersecurity labs, maker/AI spaces, and collaborative classrooms.",
       "student_life": "ACM/IEEE-CS chapters, hackathons, cyber competitions, and internships with regional labs and industry."
-    }
+    },
+    "average_annual_cost": "$11,000 estimated annual cost for Computer Science"
   },
   {
     "program": "Nursing",
@@ -10924,7 +10998,8 @@
                   "time": "11:00 AM - 12:40 PM"
                 },
                 "lecture_hours": 4,
-                "lab_hours": 0
+                "lab_hours": 0,
+                "corequisite": "BIOL 225L"
               },
               {
                 "code": "BIOL 225L",
@@ -10949,7 +11024,8 @@
                   "time": "1:00 PM - 1:50 PM"
                 },
                 "lecture_hours": 3,
-                "lab_hours": 0
+                "lab_hours": 0,
+                "corequisite": "CHEM 1215L"
               },
               {
                 "code": "CHEM 1215L",
@@ -10992,7 +11068,8 @@
                   "time": "11:00 AM - 12:40 PM"
                 },
                 "lecture_hours": 4,
-                "lab_hours": 0
+                "lab_hours": 0,
+                "corequisite": "BIOL 226L"
               },
               {
                 "code": "BIOL 226L",
@@ -11064,7 +11141,8 @@
                   "time": "9:30 AM - 10:45 AM"
                 },
                 "lecture_hours": 3,
-                "lab_hours": 0
+                "lab_hours": 0,
+                "corequisite": "BIOL 231L"
               },
               {
                 "code": "BIOL 231L",
@@ -11143,7 +11221,8 @@
                   "time": "8:00 AM - 12:00 PM"
                 },
                 "lecture_hours": 6,
-                "lab_hours": 0
+                "lab_hours": 0,
+                "corequisite": "NURS 321L"
               },
               {
                 "code": "NURS 321L",
@@ -11215,7 +11294,8 @@
                   "time": "8:00 AM - 12:00 PM"
                 },
                 "lecture_hours": 6,
-                "lab_hours": 0
+                "lab_hours": 0,
+                "corequisite": "NURS 331L"
               },
               {
                 "code": "NURS 331L",
@@ -11240,7 +11320,8 @@
                   "time": "9:00 AM - 11:45 AM"
                 },
                 "lecture_hours": 3,
-                "lab_hours": 0
+                "lab_hours": 0,
+                "corequisite": "NURS 341L"
               },
               {
                 "code": "NURS 341L",
@@ -11283,7 +11364,8 @@
                   "time": "8:00 AM - 12:00 PM"
                 },
                 "lecture_hours": 6,
-                "lab_hours": 0
+                "lab_hours": 0,
+                "corequisite": "NURS 351L"
               },
               {
                 "code": "NURS 351L",
@@ -11308,7 +11390,8 @@
                   "time": "9:00 AM - 12:45 PM"
                 },
                 "lecture_hours": 4,
-                "lab_hours": 0
+                "lab_hours": 0,
+                "corequisite": "NURS 361L"
               },
               {
                 "code": "NURS 361L",
@@ -11356,7 +11439,8 @@
                   "time": "9:00 AM - 12:45 PM"
                 },
                 "lecture_hours": 4,
-                "lab_hours": 0
+                "lab_hours": 0,
+                "corequisite": "NURS 411L"
               },
               {
                 "code": "NURS 411L",
@@ -11381,7 +11465,8 @@
                   "time": "9:00 AM - 12:45 PM"
                 },
                 "lecture_hours": 4,
-                "lab_hours": 0
+                "lab_hours": 0,
+                "corequisite": "NURS 421L"
               },
               {
                 "code": "NURS 421L",
@@ -11436,7 +11521,8 @@
                   "time": "8:00 AM - 12:00 PM"
                 },
                 "lecture_hours": 6,
-                "lab_hours": 0
+                "lab_hours": 0,
+                "corequisite": "NURS 441L"
               },
               {
                 "code": "NURS 441L",
@@ -11542,14 +11628,15 @@
       "transportation": "$4,500 estimated annual transportation/other allowance (commuter budgets).",
       "miscellaneous_expenses": "$4,500 personal/other allowance used in cost of attendance.",
       "crime_rate": "Urban campus with robust UNM PD presence; Clery reports typical large-campus incident rates.",
-      "salary_range": "$23K–$65K (25th–75th percentile earnings 10 years after entry)",
+      "salary_range": "$23K\u2013$65K (25th\u201375th percentile earnings 10 years after entry)",
       "faculty_with_phd": "Most full-time faculty hold terminal degrees; strong research-active professoriate.",
       "field_of_study": "Nursing (BSN)",
       "rank": "High NCLEX pass rates with clinical placements across southern New Mexico.",
       "academic_excellence": "Concept-based BSN with immersive simulation, integrated pharmacology, and evidence-based practice.",
       "facilities": "Simulation center, skills labs, and clinical partnerships with regional hospitals.",
       "student_life": "Student Nurses Association, peer tutoring, and NCLEX prep workshops."
-    }
+    },
+    "average_annual_cost": "$11,350 estimated annual cost for Nursing"
   },
   {
     "program": "Mechanical Engineering",
@@ -11597,7 +11684,8 @@
                   "time": "11:00 AM - 11:50 AM"
                 },
                 "lecture_hours": 3,
-                "lab_hours": 0
+                "lab_hours": 0,
+                "corequisite": "CHEM 1215L"
               },
               {
                 "code": "CHEM 1215L",
@@ -11700,7 +11788,8 @@
                   "time": "11:00 AM - 11:50 AM"
                 },
                 "lecture_hours": 3,
-                "lab_hours": 0
+                "lab_hours": 0,
+                "corequisite": "PHYS 215L"
               },
               {
                 "code": "PHYS 215L",
@@ -11784,7 +11873,8 @@
                   "time": "11:00 AM - 11:50 AM"
                 },
                 "lecture_hours": 3,
-                "lab_hours": 0
+                "lab_hours": 0,
+                "corequisite": "PHYS 216L"
               },
               {
                 "code": "PHYS 216L",
@@ -12194,14 +12284,15 @@
       "transportation": "$4,500 estimated annual transportation/other allowance (commuter budgets).",
       "miscellaneous_expenses": "$4,500 personal/other allowance used in cost of attendance.",
       "crime_rate": "Urban campus with robust UNM PD presence; Clery reports typical large-campus incident rates.",
-      "salary_range": "$23K–$65K (25th–75th percentile earnings 10 years after entry)",
+      "salary_range": "$23K\u2013$65K (25th\u201375th percentile earnings 10 years after entry)",
       "faculty_with_phd": "Most full-time faculty hold terminal degrees; strong research-active professoriate.",
       "field_of_study": "Mechanical Engineering",
       "rank": "ABET-accredited ME program linked to energy, aerospace, and manufacturing research.",
       "academic_excellence": "Strong fundamentals in thermo-fluids, design, controls, and senior capstone with industry sponsors.",
       "facilities": "Wind tunnels, materials labs, advanced manufacturing, and HVAC/energy systems labs.",
       "student_life": "ASME, Baja/Solar car teams, and undergraduate research with faculty labs."
-    }
+    },
+    "average_annual_cost": "$11,700 estimated annual cost for Mechanical Engineering"
   },
   {
     "program": "Business Administration",
@@ -12807,14 +12898,15 @@
       "transportation": "$4,500 estimated annual transportation/other allowance (commuter budgets).",
       "miscellaneous_expenses": "$4,500 personal/other allowance used in cost of attendance.",
       "crime_rate": "Urban campus with robust UNM PD presence; Clery reports typical large-campus incident rates.",
-      "salary_range": "$23K–$65K (25th–75th percentile earnings 10 years after entry)",
+      "salary_range": "$23K\u2013$65K (25th\u201375th percentile earnings 10 years after entry)",
       "faculty_with_phd": "Most full-time faculty hold terminal degrees; strong research-active professoriate.",
       "field_of_study": "Business Administration",
       "rank": "AACSB-accredited BBA with strong entrepreneurship and analytics options.",
       "academic_excellence": "Core in accounting, finance, marketing, ops, and strategy with applied projects and internships.",
       "facilities": "Trading lab, analytics classrooms, entrepreneurship institute support.",
       "student_life": "DECA, Enactus, student investment club, and pitch competitions."
-    }
+    },
+    "average_annual_cost": "$12,050 estimated annual cost for Business Administration"
   },
   {
     "program": "Elementary Education",
@@ -12975,7 +13067,8 @@
                   "time": "10:00 AM - 11:15 AM"
                 },
                 "lecture_hours": 3,
-                "lab_hours": 0
+                "lab_hours": 0,
+                "corequisite": "BIOL 1110L"
               },
               {
                 "code": "BIOL 1110L",
@@ -13054,7 +13147,8 @@
                   "time": "11:00 AM - 12:50 PM"
                 },
                 "lecture_hours": 4,
-                "lab_hours": 0
+                "lab_hours": 0,
+                "corequisite": "PHYS 1115L"
               },
               {
                 "code": "PHYS 1115L",
@@ -13353,7 +13447,8 @@
                   "time": "Full day placement"
                 },
                 "lecture_hours": 9,
-                "lab_hours": 0
+                "lab_hours": 0,
+                "corequisite": "EDUC 421"
               },
               {
                 "code": "EDUC 421",
@@ -13423,13 +13518,14 @@
       "transportation": "$4,500 estimated annual transportation/other allowance (commuter budgets).",
       "miscellaneous_expenses": "$4,500 personal/other allowance used in cost of attendance.",
       "crime_rate": "Urban campus with robust UNM PD presence; Clery reports typical large-campus incident rates.",
-      "salary_range": "$23K–$65K (25th–75th percentile earnings 10 years after entry)",
+      "salary_range": "$23K\u2013$65K (25th\u201375th percentile earnings 10 years after entry)",
       "faculty_with_phd": "Most full-time faculty hold terminal degrees; strong research-active professoriate.",
       "field_of_study": "Elementary Education",
       "rank": "CAEP-aligned teacher-prep program serving diverse NM classrooms.",
       "academic_excellence": "Balanced methods, bilingual/ESL focus, and extensive fieldwork culminating in student teaching.",
       "facilities": "Education tech labs, curriculum libraries, and partner school sites for practicum.",
       "student_life": "Education clubs, tutoring initiatives, and community literacy outreach."
-    }
+    },
+    "average_annual_cost": "$12,400 estimated annual cost for Elementary Education"
   }
 ]
