@@ -6,6 +6,7 @@ import ViewEducationPlanPage from "./pages/ViewEducationPlanPage.jsx";
 import FindUniversityPage from "./pages/FindUniversityPage.jsx";
 import CollegeComparePage from "./pages/CollegeComparePage.jsx";
 import CareerProgramPage from "./pages/CareerProgramPage.jsx";
+import ChatbotPage from "./pages/ChatbotPage.jsx";
 import LoginPage from "./pages/LoginPage.jsx";
 import SignupPage from "./pages/SignupPage.jsx";
 import IntakeForm from "./pages/IntakeForm.jsx";
@@ -18,7 +19,7 @@ const App = () => (
 			<Route path="/intake" element={<IntakeForm />} />
 			{/* <Route path="/edu" element={<EducationPlanPage />} /> */}
 			{/* <Route path="/eduai" element={<LandingPage />} /> */}
-			{/* <Route path="/chatbot" element={<ChatbotPage />} /> */}
+			<Route path="/chatbot" element={<ChatbotPage />} />
 			{/* <Route path="/programdetails" element={<ProgramDetailsPage />} /> */}
 			<Route path="/educationplan" element={<EducationPlanEditPage />} />
 			<Route path="/career" element={<CareerProgramPage />} />

@@ -140,11 +140,11 @@ const Chatbot = () => {
           </div>
 
           <div className="flex-1 overflow-y-auto p-4 space-y-4">
-            {messages.length === 0 && (
+            {/* {messages.length === 0 && (
               <p className="text-sm text-slate-500">
                 Start by selecting a suggestion or typing your own question.
               </p>
-            )}
+            )} */}
             {messages.map((message) => (
               <div
                 key={message.id}
@@ -160,7 +160,7 @@ const Chatbot = () => {
           </div>
         </div>
 
-        <aside className="flex flex-col gap-4">
+        {/* <aside className="flex flex-col gap-4">
           <div className="bg-white rounded-xl border border-slate-200 shadow-sm p-4">
             <h3 className="text-sm font-semibold text-slate-700 uppercase tracking-wide">
               Quick suggestions
@@ -217,7 +217,7 @@ const Chatbot = () => {
               </button>
             </div>
           )}
-        </aside>
+        </aside> */}
       </div>
     </section>
   );

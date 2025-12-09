@@ -1,6 +1,7 @@
-import { NavLink, useLocation, useNavigate } from "react-router-dom";
+import { Link, NavLink, useLocation, useNavigate } from "react-router-dom";
 import clsx from "clsx";
 import { load, remove } from "../../utils/storage.js";
+import { RiRobot3Line } from "react-icons/ri";
 
 const NavItem = ({ to, label }) => (
 	<NavLink
@@ -67,6 +68,9 @@ const Navigation = () => {
 				<NavItem to="/schedule" label="Schedule" />
 				<NavItem to="/chatbot" label="Chatbot" /> */}
 			</nav>
+			<Link to={'/chatbot'} className="mt-[250px] items-center">
+				<RiRobot3Line className="bg-[#281ed5] hover:shadow-lg text-white rounded-full h-12 w-12"/>
+			</Link>
 		</aside>
 	);
 };
