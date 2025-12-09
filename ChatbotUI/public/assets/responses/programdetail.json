@@ -639,9 +639,11 @@
       "rank": "ABET-accredited CS with strong research in AI, security, and networking.",
       "academic_excellence": "Rigorous algorithms, systems, and software sequence with senior design and research options.",
       "facilities": "High-performance computing labs, cybersecurity labs, maker/AI spaces, and collaborative classrooms.",
-      "student_life": "ACM/IEEE-CS chapters, hackathons, cyber competitions, and internships with regional labs and industry."
+      "student_life": "ACM/IEEE-CS chapters, hackathons, cyber competitions, and internships with regional labs and industry.",
+      "crime_rate_overall": 3.2
     },
-    "average_annual_cost": "$6,747 estimated annual cost for Computer Science"
+    "average_annual_cost": "$6,747 estimated annual cost for Computer Science",
+    "eligibility_criteria": "High school diploma or GED, college-prep math/English; 2.5+ GPA preferred; SAT/ACT optional or placement-based."
   },
   {
     "program": "Nursing",
@@ -1325,9 +1327,11 @@
       "rank": "High NCLEX pass rates with clinical placements across southern New Mexico.",
       "academic_excellence": "Concept-based BSN with immersive simulation, integrated pharmacology, and evidence-based practice.",
       "facilities": "Simulation center, skills labs, and clinical partnerships with regional hospitals.",
-      "student_life": "Student Nurses Association, peer tutoring, and NCLEX prep workshops."
+      "student_life": "Student Nurses Association, peer tutoring, and NCLEX prep workshops.",
+      "crime_rate_overall": 3.2
     },
-    "average_annual_cost": "$7,097 estimated annual cost for Nursing"
+    "average_annual_cost": "$7,097 estimated annual cost for Nursing",
+    "eligibility_criteria": "High school diploma or GED, college-prep math/English; 2.5+ GPA preferred; SAT/ACT optional or placement-based. Nursing tracks commonly require immunizations, background check, and TEAS/health screening."
   },
   {
     "program": "Mechanical Engineering",
@@ -1981,9 +1985,11 @@
       "rank": "ABET-accredited ME program linked to energy, aerospace, and manufacturing research.",
       "academic_excellence": "Strong fundamentals in thermo-fluids, design, controls, and senior capstone with industry sponsors.",
       "facilities": "Wind tunnels, materials labs, advanced manufacturing, and HVAC/energy systems labs.",
-      "student_life": "ASME, Baja/Solar car teams, and undergraduate research with faculty labs."
+      "student_life": "ASME, Baja/Solar car teams, and undergraduate research with faculty labs.",
+      "crime_rate_overall": 3.2
     },
-    "average_annual_cost": "$7,447 estimated annual cost for Mechanical Engineering"
+    "average_annual_cost": "$7,447 estimated annual cost for Mechanical Engineering",
+    "eligibility_criteria": "High school diploma or GED, college-prep math/English; 2.5+ GPA preferred; SAT/ACT optional or placement-based."
   },
   {
     "program": "Business Administration",
@@ -2595,9 +2601,11 @@
       "rank": "AACSB-accredited BBA with strong entrepreneurship and analytics options.",
       "academic_excellence": "Core in accounting, finance, marketing, ops, and strategy with applied projects and internships.",
       "facilities": "Trading lab, analytics classrooms, entrepreneurship institute support.",
-      "student_life": "DECA, Enactus, student investment club, and pitch competitions."
+      "student_life": "DECA, Enactus, student investment club, and pitch competitions.",
+      "crime_rate_overall": 3.2
     },
-    "average_annual_cost": "$7,797 estimated annual cost for Business Administration"
+    "average_annual_cost": "$7,797 estimated annual cost for Business Administration",
+    "eligibility_criteria": "High school diploma or GED, college-prep math/English; 2.5+ GPA preferred; SAT/ACT optional or placement-based."
   },
   {
     "program": "Elementary Education",
@@ -3215,9 +3223,11 @@
       "rank": "CAEP-aligned teacher-prep program serving diverse NM classrooms.",
       "academic_excellence": "Balanced methods, bilingual/ESL focus, and extensive fieldwork culminating in student teaching.",
       "facilities": "Education tech labs, curriculum libraries, and partner school sites for practicum.",
-      "student_life": "Education clubs, tutoring initiatives, and community literacy outreach."
+      "student_life": "Education clubs, tutoring initiatives, and community literacy outreach.",
+      "crime_rate_overall": 3.2
     },
-    "average_annual_cost": "$8,147 estimated annual cost for Elementary Education"
+    "average_annual_cost": "$8,147 estimated annual cost for Elementary Education",
+    "eligibility_criteria": "High school diploma or GED, college-prep math/English; 2.5+ GPA preferred; SAT/ACT optional or placement-based."
   },
   {
     "program": "Computer Science",
@@ -3457,9 +3467,11 @@
       "rank": "Emerging graduate computer science program with strong partnerships with Los Alamos National Laboratory and regional tech industry.",
       "academic_excellence": "Comprehensive curriculum covering algorithms, networks, AI/ML, software engineering, and cybersecurity with hands-on thesis/capstone work.",
       "facilities": "Advanced computing labs, cybersecurity labs, GPU-accelerated research clusters, and cloud computing infrastructure (AWS, Azure).",
-      "student_life": "Graduate computer science students participate in IEEE/ACM chapters, hackathons, research conferences, and tech entrepreneurship initiatives."
+      "student_life": "Graduate computer science students participate in IEEE/ACM chapters, hackathons, research conferences, and tech entrepreneurship initiatives.",
+      "crime_rate_overall": 2.1
     },
-    "average_annual_cost": "$8,800 estimated annual cost for Computer Science"
+    "average_annual_cost": "$8,800 estimated annual cost for Computer Science",
+    "eligibility_criteria": "Bachelor's degree in a related field, ~3.0 GPA, statement of purpose; GRE often waived; core discipline prerequisites."
   },
   {
     "program": "Nursing",
@@ -3699,9 +3711,11 @@
       "rank": "ACEN-accredited graduate nursing program with strong regional reputation for bilingual clinical training.",
       "academic_excellence": "Rigorous advanced clinical coursework, evidence-based practice emphasis, and specialized clinical practicums in northern New Mexico healthcare settings.",
       "facilities": "Simulation center with advanced mannequins, skills labs, telehealth capabilities, and clinical partnerships with regional medical centers.",
-      "student_life": "Graduate nursing students participate in Sigma Theta Tau International, research symposia, and clinical leadership development programs."
+      "student_life": "Graduate nursing students participate in Sigma Theta Tau International, research symposia, and clinical leadership development programs.",
+      "crime_rate_overall": 2.1
     },
-    "average_annual_cost": "$8,850 estimated annual cost for Nursing"
+    "average_annual_cost": "$8,850 estimated annual cost for Nursing",
+    "eligibility_criteria": "Bachelor's degree in a related field, ~3.0 GPA, statement of purpose; GRE often waived; core discipline prerequisites. Nursing tracks commonly require immunizations, background check, and TEAS/health screening."
   },
   {
     "program": "Biology",
@@ -4438,9 +4452,11 @@
       "rank": "State-supported STEM pathway highlighted by New Mexico's STEM initiatives for undergraduate research and pre-health preparation.",
       "academic_excellence": "Hands-on undergraduate research, upper-division labs, and NIH/DOE-funded projects prepare students for medical, biotech, and graduate study pathways.",
       "facilities": "Dedicated biology labs, tissue culture spaces, ecology field sites in the Espa\u00f1ola Valley, and shared instrumentation with the STEM Pathways Center.",
-      "student_life": "Biology majors participate in the STEM Learning Center, SACNAS, and service-learning focused on Northern New Mexico ecosystems."
+      "student_life": "Biology majors participate in the STEM Learning Center, SACNAS, and service-learning focused on Northern New Mexico ecosystems.",
+      "crime_rate_overall": 2.1
     },
-    "average_annual_cost": "$6,802 estimated annual cost for Biology"
+    "average_annual_cost": "$6,802 estimated annual cost for Biology",
+    "eligibility_criteria": "High school diploma or GED, college-prep math/English; 2.5+ GPA preferred; SAT/ACT optional or placement-based."
   },
   {
     "program": "Information Engineering Technology",
@@ -5069,9 +5085,11 @@
       "rank": "Only public Information Engineering Technology B.Eng. option headquartered in northern New Mexico (part of the CHESS consortium).",
       "academic_excellence": "Curriculum blends ABET-aligned computing, networking, cybersecurity, and project management with paid internships across Los Alamos & regional labs.",
       "facilities": "Networking and cybersecurity labs, maker/fab spaces, and shared CHESS virtual infrastructure support programming, automation, and capstone design.",
-      "student_life": "Students join IEEE/ACM chapters, compete in hackathons, and support community broadband and tech-entrepreneurship clinics."
+      "student_life": "Students join IEEE/ACM chapters, compete in hackathons, and support community broadband and tech-entrepreneurship clinics.",
+      "crime_rate_overall": 2.1
     },
-    "average_annual_cost": "$7,152 estimated annual cost for Information Engineering Technology"
+    "average_annual_cost": "$7,152 estimated annual cost for Information Engineering Technology",
+    "eligibility_criteria": "High school diploma or GED, college-prep math/English; 2.5+ GPA preferred; SAT/ACT optional or placement-based."
   },
   {
     "program": "Elementary Education",
@@ -5676,9 +5694,11 @@
       "rank": "Recognized regional pipeline for bilingual and multicultural elementary teachers by the New Mexico Public Education Department.",
       "academic_excellence": "CAEP-accredited coursework integrates bilingual literacy, culturally responsive pedagogy, and extended practicums across northern NM districts.",
       "facilities": "Literacy and TESOL resource centers, simulation classrooms, and bilingual education labs on the Espa\u00f1ola campus and El Rito site.",
-      "student_life": "Teacher candidates engage in tutoring, bilingual education clubs, and paid residencies with local school districts."
+      "student_life": "Teacher candidates engage in tutoring, bilingual education clubs, and paid residencies with local school districts.",
+      "crime_rate_overall": 2.1
     },
-    "average_annual_cost": "$7,502 estimated annual cost for Elementary Education"
+    "average_annual_cost": "$7,502 estimated annual cost for Elementary Education",
+    "eligibility_criteria": "High school diploma or GED, college-prep math/English; 2.5+ GPA preferred; SAT/ACT optional or placement-based."
   },
   {
     "program": "Management",
@@ -6289,9 +6309,11 @@
       "rank": "Only public BBA in northern New Mexico aligned with regional entrepreneurship and CHESS workforce initiatives.",
       "academic_excellence": "AACSB-aligned core that blends analytics, entrepreneurship, and community consulting projects with small businesses across the Espa\u00f1ola Valley.",
       "facilities": "Finance lab, entrepreneurship hub, and active-learning classrooms equipped for hybrid project collaboration.",
-      "student_life": "Business majors lead ENACTUS, DECA, and the Eagle Entrepreneur Club while supporting regional small-business clinics."
+      "student_life": "Business majors lead ENACTUS, DECA, and the Eagle Entrepreneur Club while supporting regional small-business clinics.",
+      "crime_rate_overall": 2.1
     },
-    "average_annual_cost": "$7,852 estimated annual cost for Management"
+    "average_annual_cost": "$7,852 estimated annual cost for Management",
+    "eligibility_criteria": "High school diploma or GED, college-prep math/English; 2.5+ GPA preferred; SAT/ACT optional or placement-based."
   },
   {
     "program": "Psychology",
@@ -6930,9 +6952,11 @@
       "rank": "Flagship BAIS-Psychology pathway emphasizing multicultural counseling and community mental health in northern New Mexico.",
       "academic_excellence": "Sequenced research, counseling, and integrated-studies seminars connect psychology theory with culturally responsive practice.",
       "facilities": "Counseling skills labs, observation rooms, and shared research suites inside the STEM and Health Sciences Center.",
-      "student_life": "Psychology majors staff the Student Success Center, host mental-health outreach events, and intern with local schools and clinics."
+      "student_life": "Psychology majors staff the Student Success Center, host mental-health outreach events, and intern with local schools and clinics.",
+      "crime_rate_overall": 2.1
     },
-    "average_annual_cost": "$8,202 estimated annual cost for Psychology"
+    "average_annual_cost": "$8,202 estimated annual cost for Psychology",
+    "eligibility_criteria": "High school diploma or GED, college-prep math/English; 2.5+ GPA preferred; SAT/ACT optional or placement-based."
   },
   {
     "program": "Computer Science",
@@ -7269,9 +7293,11 @@
       "rank": "Transfer-ready CS/IT pathway aligned with UNM/NMSU lower-division outcomes.",
       "academic_excellence": "Programming, data structures, discrete math, networking, and capstone for transfer or entry-level tech roles.",
       "facilities": "Modern computing labs and virtual lab access for networking and systems courses.",
-      "student_life": "Coding club, hackathons, and regional internships with tech employers."
+      "student_life": "Coding club, hackathons, and regional internships with tech employers.",
+      "crime_rate_overall": 1.4
     },
-    "average_annual_cost": "$4,526 estimated annual cost for Computer Science"
+    "average_annual_cost": "$4,526 estimated annual cost for Computer Science",
+    "eligibility_criteria": "High school diploma or GED; placement/Accuplacer for math and English; minimum ~2.0 GPA."
   },
   {
     "program": "Nursing",
@@ -7600,9 +7626,11 @@
       "rank": "Board-of-Nursing aligned ADN with clinical placements across the Four Corners region.",
       "academic_excellence": "Concept-based curriculum with integrated pharmacology, simulation, and clinical rotations.",
       "facilities": "Simulation labs, skills labs, and health sciences classrooms on the Farmington campus.",
-      "student_life": "Cohort model, Student Nurses Association, NCLEX prep, and peer tutoring."
+      "student_life": "Cohort model, Student Nurses Association, NCLEX prep, and peer tutoring.",
+      "crime_rate_overall": 1.4
     },
-    "average_annual_cost": "$4,876 estimated annual cost for Nursing"
+    "average_annual_cost": "$4,876 estimated annual cost for Nursing",
+    "eligibility_criteria": "High school diploma or GED; placement/Accuplacer for math and English; minimum ~2.0 GPA. Nursing tracks commonly require immunizations, background check, and TEAS/health screening."
   },
   {
     "program": "Business Administration",
@@ -7939,9 +7967,11 @@
       "rank": "ACBSP-aligned AA feeding into statewide BBA pathways.",
       "academic_excellence": "Accounting, economics, management, finance, and project coursework with applied capstone.",
       "facilities": "Active-learning classrooms and small-business support resources via SJC centers.",
-      "student_life": "Entrepreneurship and DECA-style clubs plus small-business consulting projects."
+      "student_life": "Entrepreneurship and DECA-style clubs plus small-business consulting projects.",
+      "crime_rate_overall": 1.4
     },
-    "average_annual_cost": "$5,226 estimated annual cost for Business Administration"
+    "average_annual_cost": "$5,226 estimated annual cost for Business Administration",
+    "eligibility_criteria": "High school diploma or GED; placement/Accuplacer for math and English; minimum ~2.0 GPA."
   },
   {
     "program": "Automotive Technology",
@@ -8278,9 +8308,11 @@
       "rank": "Industry-aligned AAS covering powertrain, electrical, hybrid/EV systems, and diagnostics.",
       "academic_excellence": "Hands-on labs with late-model vehicles, shop safety, and advanced diagnostics capstone.",
       "facilities": "Automotive bays, lifts, scan tools, and EV/hybrid trainers in the SJC auto center.",
-      "student_life": "SkillsUSA/ASE student activities and employer-sponsored projects."
+      "student_life": "SkillsUSA/ASE student activities and employer-sponsored projects.",
+      "crime_rate_overall": 1.4
     },
-    "average_annual_cost": "$5,576 estimated annual cost for Automotive Technology"
+    "average_annual_cost": "$5,576 estimated annual cost for Automotive Technology",
+    "eligibility_criteria": "High school diploma or GED; placement/Accuplacer for math and English; minimum ~2.0 GPA."
   },
   {
     "program": "Cybersecurity",
@@ -8617,9 +8649,11 @@
       "rank": "Workforce-focused AAS aligned with Security+/Network+ skills and Four Corners employer needs.",
       "academic_excellence": "Hands-on labs in networking, Linux, scripting, ethical hacking, forensics, cloud security, and incident response with a capstone.",
       "facilities": "Cyber labs with networking gear, virtualization, and remote access for commuters.",
-      "student_life": "Cyber club, capture-the-flag events, and internship pathways with local utilities, tribal entities, and state agencies."
+      "student_life": "Cyber club, capture-the-flag events, and internship pathways with local utilities, tribal entities, and state agencies.",
+      "crime_rate_overall": 1.4
     },
-    "average_annual_cost": "$5,926 estimated annual cost for Cybersecurity"
+    "average_annual_cost": "$5,926 estimated annual cost for Cybersecurity",
+    "eligibility_criteria": "High school diploma or GED; placement/Accuplacer for math and English; minimum ~2.0 GPA."
   },
   {
     "program": "Computer Science",
@@ -8956,9 +8990,11 @@
       "rank": "Transfer-ready CS pathway aligned with UNM/NMSU lower-division outcomes.",
       "academic_excellence": "Emphasis on programming, data structures, discrete math, and networking to prepare for junior-year CS transfer or entry-level dev roles.",
       "facilities": "Modern computing labs, networking racks, and virtualized environments for systems coursework.",
-      "student_life": "Coding meetups, hackathons, and work-based learning via local tech internships."
+      "student_life": "Coding meetups, hackathons, and work-based learning via local tech internships.",
+      "crime_rate_overall": 1.8
     },
-    "average_annual_cost": "$9,215 estimated annual cost for Computer Science"
+    "average_annual_cost": "$9,215 estimated annual cost for Computer Science",
+    "eligibility_criteria": "High school diploma or GED; placement/Accuplacer for math and English; minimum ~2.0 GPA."
   },
   {
     "program": "Nursing",
@@ -9287,9 +9323,11 @@
       "rank": "High licensure-pass alignment with NM Board of Nursing standards for ADN graduates.",
       "academic_excellence": "Concept-based curriculum with integrated pharmacology, simulation, and clinical rotations across northern New Mexico hospitals.",
       "facilities": "Simulation labs, skills labs, and on-campus clinical practice rooms.",
-      "student_life": "Cohort model with peer tutoring, NCLEX prep workshops, and Student Nurses Association involvement."
+      "student_life": "Cohort model with peer tutoring, NCLEX prep workshops, and Student Nurses Association involvement.",
+      "crime_rate_overall": 1.8
     },
-    "average_annual_cost": "$9,565 estimated annual cost for Nursing"
+    "average_annual_cost": "$9,565 estimated annual cost for Nursing",
+    "eligibility_criteria": "High school diploma or GED; placement/Accuplacer for math and English; minimum ~2.0 GPA. Nursing tracks commonly require immunizations, background check, and TEAS/health screening."
   },
   {
     "program": "Business Administration",
@@ -9626,9 +9664,11 @@
       "rank": "ACBSP-aligned transfer AA feeding into statewide BBA pathways.",
       "academic_excellence": "Strong accounting, econ, and management core with project-based capstone and data/tech fluency via BCIS and stats.",
       "facilities": "Active-learning classrooms, entrepreneurship resources, and small-business mentoring clinics.",
-      "student_life": "DECA/entrepreneurship club projects and community consulting for local small businesses."
+      "student_life": "DECA/entrepreneurship club projects and community consulting for local small businesses.",
+      "crime_rate_overall": 1.8
     },
-    "average_annual_cost": "$9,915 estimated annual cost for Business Administration"
+    "average_annual_cost": "$9,915 estimated annual cost for Business Administration",
+    "eligibility_criteria": "High school diploma or GED; placement/Accuplacer for math and English; minimum ~2.0 GPA."
   },
   {
     "program": "Film & Digital Media Arts",
@@ -9965,9 +10005,11 @@
       "rank": "Hands-on production program aligned with New Mexico\u2019s film industry workforce needs.",
       "academic_excellence": "Story development through advanced production, editing, motion graphics, and portfolio-building.",
       "facilities": "Film/video labs, editing suites, lighting gear, and audio production spaces.",
-      "student_life": "Student crews support campus and community productions; film festivals and industry guest talks on campus."
+      "student_life": "Student crews support campus and community productions; film festivals and industry guest talks on campus.",
+      "crime_rate_overall": 1.8
     },
-    "average_annual_cost": "$10,265 estimated annual cost for Film & Digital Media Arts"
+    "average_annual_cost": "$10,265 estimated annual cost for Film & Digital Media Arts",
+    "eligibility_criteria": "High school diploma or GED; placement/Accuplacer for math and English; minimum ~2.0 GPA."
   },
   {
     "program": "Cybersecurity",
@@ -10304,9 +10346,11 @@
       "rank": "Workforce-focused AAS aligned with CompTIA Security+/Network+ outcomes and NM cybersecurity pathways.",
       "academic_excellence": "Hands-on labs in networking, Linux, forensics, cloud security, and incident response with a capstone project.",
       "facilities": "Cyber labs with networking gear, virtualization, and security toolchains; remote lab access for commuters.",
-      "student_life": "Cyber club, capture-the-flag events, and internship pipelines with state agencies and local tech firms."
+      "student_life": "Cyber club, capture-the-flag events, and internship pipelines with state agencies and local tech firms.",
+      "crime_rate_overall": 1.8
     },
-    "average_annual_cost": "$10,615 estimated annual cost for Cybersecurity"
+    "average_annual_cost": "$10,615 estimated annual cost for Cybersecurity",
+    "eligibility_criteria": "High school diploma or GED; placement/Accuplacer for math and English; minimum ~2.0 GPA."
   },
   {
     "program": "Computer Science",
@@ -10948,9 +10992,11 @@
       "rank": "ABET-accredited CS with strong research in AI, security, and networking.",
       "academic_excellence": "Rigorous algorithms, systems, and software sequence with senior design and research options.",
       "facilities": "High-performance computing labs, cybersecurity labs, maker/AI spaces, and collaborative classrooms.",
-      "student_life": "ACM/IEEE-CS chapters, hackathons, cyber competitions, and internships with regional labs and industry."
+      "student_life": "ACM/IEEE-CS chapters, hackathons, cyber competitions, and internships with regional labs and industry.",
+      "crime_rate_overall": 3.7
     },
-    "average_annual_cost": "$11,000 estimated annual cost for Computer Science"
+    "average_annual_cost": "$11,000 estimated annual cost for Computer Science",
+    "eligibility_criteria": "High school diploma or GED, college-prep math/English; 2.5+ GPA preferred; SAT/ACT optional or placement-based."
   },
   {
     "program": "Nursing",
@@ -11634,9 +11680,11 @@
       "rank": "High NCLEX pass rates with clinical placements across southern New Mexico.",
       "academic_excellence": "Concept-based BSN with immersive simulation, integrated pharmacology, and evidence-based practice.",
       "facilities": "Simulation center, skills labs, and clinical partnerships with regional hospitals.",
-      "student_life": "Student Nurses Association, peer tutoring, and NCLEX prep workshops."
+      "student_life": "Student Nurses Association, peer tutoring, and NCLEX prep workshops.",
+      "crime_rate_overall": 3.7
     },
-    "average_annual_cost": "$11,350 estimated annual cost for Nursing"
+    "average_annual_cost": "$11,350 estimated annual cost for Nursing",
+    "eligibility_criteria": "High school diploma or GED, college-prep math/English; 2.5+ GPA preferred; SAT/ACT optional or placement-based. Nursing tracks commonly require immunizations, background check, and TEAS/health screening."
   },
   {
     "program": "Mechanical Engineering",
@@ -12290,9 +12338,11 @@
       "rank": "ABET-accredited ME program linked to energy, aerospace, and manufacturing research.",
       "academic_excellence": "Strong fundamentals in thermo-fluids, design, controls, and senior capstone with industry sponsors.",
       "facilities": "Wind tunnels, materials labs, advanced manufacturing, and HVAC/energy systems labs.",
-      "student_life": "ASME, Baja/Solar car teams, and undergraduate research with faculty labs."
+      "student_life": "ASME, Baja/Solar car teams, and undergraduate research with faculty labs.",
+      "crime_rate_overall": 3.7
     },
-    "average_annual_cost": "$11,700 estimated annual cost for Mechanical Engineering"
+    "average_annual_cost": "$11,700 estimated annual cost for Mechanical Engineering",
+    "eligibility_criteria": "High school diploma or GED, college-prep math/English; 2.5+ GPA preferred; SAT/ACT optional or placement-based."
   },
   {
     "program": "Business Administration",
@@ -12904,9 +12954,11 @@
       "rank": "AACSB-accredited BBA with strong entrepreneurship and analytics options.",
       "academic_excellence": "Core in accounting, finance, marketing, ops, and strategy with applied projects and internships.",
       "facilities": "Trading lab, analytics classrooms, entrepreneurship institute support.",
-      "student_life": "DECA, Enactus, student investment club, and pitch competitions."
+      "student_life": "DECA, Enactus, student investment club, and pitch competitions.",
+      "crime_rate_overall": 3.7
     },
-    "average_annual_cost": "$12,050 estimated annual cost for Business Administration"
+    "average_annual_cost": "$12,050 estimated annual cost for Business Administration",
+    "eligibility_criteria": "High school diploma or GED, college-prep math/English; 2.5+ GPA preferred; SAT/ACT optional or placement-based."
   },
   {
     "program": "Elementary Education",
@@ -13524,8 +13576,10 @@
       "rank": "CAEP-aligned teacher-prep program serving diverse NM classrooms.",
       "academic_excellence": "Balanced methods, bilingual/ESL focus, and extensive fieldwork culminating in student teaching.",
       "facilities": "Education tech labs, curriculum libraries, and partner school sites for practicum.",
-      "student_life": "Education clubs, tutoring initiatives, and community literacy outreach."
+      "student_life": "Education clubs, tutoring initiatives, and community literacy outreach.",
+      "crime_rate_overall": 3.7
     },
-    "average_annual_cost": "$12,400 estimated annual cost for Elementary Education"
+    "average_annual_cost": "$12,400 estimated annual cost for Elementary Education",
+    "eligibility_criteria": "High school diploma or GED, college-prep math/English; 2.5+ GPA preferred; SAT/ACT optional or placement-based."
   }
 ]

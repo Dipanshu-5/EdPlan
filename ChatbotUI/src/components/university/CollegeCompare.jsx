@@ -108,7 +108,7 @@ const researchMetrics = [
 	},
 	{
 		key: "centres_of_excellence",
-		label: "Centers Of Excellence",
+		label: "Centers of Excellence",
 		accessor: (s) => s.centres_of_excellence || s.centers_of_excellence || s.centres_count,
 		format: formatNumber,
 	},
@@ -161,7 +161,7 @@ const enrollmentMetrics = [
 const outcomeMetrics = [
 	{
 		key: "campus_visits",
-		label: "Annual Campus Visitors",
+		label: "Annual Campus Drives",
 		accessor: (s) => s.campus_visits || s.visits_count || s.open_days_count,
 		format: formatNumber,
 	},

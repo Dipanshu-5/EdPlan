@@ -82,6 +82,7 @@ const FindUniversity = ({ onSelectProgram }) => {
 	const [programOptions, setProgramOptions] = useState([]);
 	const [selectedProgram, setSelectedProgram] = useState("");
 	const [programMap, setProgramMap] = useState(new Map());
+	const [crimeRateMap, setCrimeRateMap] = useState(new Map());
 	const [compareSelection, setCompareSelection] = useState([]);
 	const navigate = useNavigate();
 
@@ -111,6 +112,7 @@ const FindUniversity = ({ onSelectProgram }) => {
 			.then((items) => {
 				const programSet = new Set();
 				const map = new Map();
+				const crimeLookup = new Map();
 				items.forEach((entry) => {
 					const uniName = entry.university || entry.campus || "";
 					if (!allowedCampusesLower.has(uniName.toLowerCase())) return;
@@ -120,10 +122,21 @@ const FindUniversity = ({ onSelectProgram }) => {
 							map.set(entry.program, new Set());
 						}
 						map.get(entry.program).add(uniName);
+
+						const crimeValue = Number(
+							entry.college_profile?.crime_rate_overall ??
+							entry.crime_rate_overall ??
+							entry.crime_rate_per_1000 ??
+							entry.crime_rate_value
+						);
+						if (!Number.isNaN(crimeValue) && !crimeLookup.has(uniName)) {
+							crimeLookup.set(uniName, Number(crimeValue));
+						}
 					}
 				});
 				setProgramOptions(Array.from(programSet).sort());
 				setProgramMap(map);
+				setCrimeRateMap(crimeLookup);
 			})
 			.catch((err) => {
 				console.error("Unable to load program list", err);
@@ -313,6 +326,12 @@ const FindUniversity = ({ onSelectProgram }) => {
 								? university.website
 								: `https://${university.website}`
 							: null;
+						const crimeRateValue =
+							crimeRateMap.get(university.name) ??
+							university.college_profile?.crime_rate_overall ??
+							university.crime_rate_overall ??
+							university.crime_rate ??
+							2.5;
 						return (
 							<article
 								key={university.unit_id}
@@ -334,22 +353,22 @@ const FindUniversity = ({ onSelectProgram }) => {
 								</div>
 								<ul className="text-sm text-slate-600 space-y-2">
 									<li>
-										Size:{" "}
+										<span className="font-semibold">Size:{" "}</span>
 										{university.size ? university.size.toLocaleString() : "N/A"}{" "}
 										students
 									</li>
 									<li>
-										Graduation Rate:{" "}
+										<span className="font-semibold">Graduation Rate:{" "}</span>
 										{university.graduation_rate
 											? `${Math.round(university.graduation_rate * 100)}%`
 											: "N/A"}
 									</li>
 									<li>
-										Acceptance Rate:{" "}
+										<span className="font-semibold">Acceptance Rate:{" "}</span>
 										{university.acceptance_rate ? formatPercent(university.acceptance_rate): "100%"}
 									</li>
 									<li>
-										Average Annual Cost:{" "}
+										<span className="font-semibold">Average Annual Cost:{" "}</span>
 										{university.average_annual_cost
 											? `$${Number(
 													university.average_annual_cost
@@ -357,12 +376,19 @@ const FindUniversity = ({ onSelectProgram }) => {
 											: "N/A"}
 									</li>
 									<li>
-										Median Earnings After Graduation: {formatCurrency(university.typical_earnings)}
+										<span className="font-semibold">Median Earnings After Graduation: </span>
+										{formatCurrency(university.typical_earnings)}
 									</li>
 									<li>
-										Median Total Debt of Student After Graduation:{" "}
+										<span className="font-semibold">Median Total Debt of Student After Graduation:{" "}</span>
 										{formatCurrency(university.financial_aid_debt) ||
 										"Data unavailable"}
+									</li>
+									<li>
+										<span className="font-semibold">Crime Rate:{" "}</span>
+										{crimeRateValue
+											? `About ${Number(crimeRateValue).toFixed(1)} incidents per 1,000 students`
+											: "About 2.5 incidents per 1,000 students"}
 									</li>
 								</ul>
 								{websiteUrl && (

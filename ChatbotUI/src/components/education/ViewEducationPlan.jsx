@@ -132,19 +132,6 @@ const ViewEducationPlan = () => {
 			.catch((err) => console.error("Unable to load program catalogue", err));
 	}, []);
 
-	const formatDate = (dateString) => {
-		try {
-			const date = new Date(dateString);
-			return date.toLocaleDateString("en-US", {
-				year: "numeric",
-				month: "short",
-				day: "numeric",
-			});
-		} catch {
-			return "N/A";
-		}
-	};
-
 	const getTotalCredits = (courses) => {
 		return courses.reduce((sum, course) => {
 			const value = Number(course.credits);
@@ -238,9 +225,8 @@ const ViewEducationPlan = () => {
 								<th className="px-4 py-3 font-semibold text-center">No.</th>
 								<th className="px-4 py-3 font-semibold">University</th>
 								<th className="px-4 py-3 font-semibold">Program</th>
-								<th className="px-4 py-3 font-semibold">Total Credits</th>
 								<th className="px-4 py-3 font-semibold">Courses</th>
-								<th className="px-4 py-3 font-semibold">Date Saved</th>
+								<th className="px-4 py-3 font-semibold">Total Credits</th>
 								<th className="px-4 py-3 font-semibold text-center">Actions</th>
 							</tr>
 						</thead>
@@ -256,17 +242,14 @@ const ViewEducationPlan = () => {
 										</td>
 										<td className="px-4 py-3 text-slate-700">{plan.program}</td>
 										<td className="px-4 py-3 text-slate-700">
-											<span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-indigo-100 text-indigo-800">
-												{getTotalCredits(plan.courses)} credits
-											</span>
-										</td>
-										<td className="px-4 py-3 text-slate-700">
-											<span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-slate-100 text-slate-800">
+											<span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-slate-200 text-slate-800">
 												{plan.courses.length} courses
 											</span>
 										</td>
-										<td className="px-4 py-3 text-slate-600">
-											{formatDate(plan.savedDate)}
+										<td className="px-4 py-3 text-slate-700">
+											<span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-indigo-100 text-indigo-800">
+												{getTotalCredits(plan.courses)} credits
+											</span>
 										</td>
 										<td className="px-4 py-3 text-center">
 											<div className="flex items-center justify-center gap-2">
@@ -279,7 +262,7 @@ const ViewEducationPlan = () => {
 															: "bg-indigo-100 text-indigo-700 hover:bg-indigo-200"
 													}`}
 												>
-													{expandedPlanId === plan.id ? "Hide" : "View"}
+													{expandedPlanId === plan.id ? "Hide" : "View Plan"}
 												</button>
 												<button
 													type="button"
@@ -292,7 +275,7 @@ const ViewEducationPlan = () => {
 													onClick={() => handleDeletePlan(plan.id, plan.source)}
 													className="px-4 py-1.5 rounded-lg bg-rose-100 text-rose-700 text-sm font-medium hover:bg-rose-200 transition"
 												>
-													Delete
+													Delete Plan
 												</button>
 											</div>
 										</td>

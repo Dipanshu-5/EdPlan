@@ -310,6 +310,11 @@ const EducationPlanEditor = () => {
 		selectedProgramMeta?.averageAnnualCost ||
 		selectedProgramMeta?.college_profile?.average_annual_cost ||
 		null;
+	const eligibilityCriteria =
+		selectedProgramMeta?.eligibility_criteria ||
+		selectedProgramMeta?.eligibility ||
+		selectedProgramMeta?.college_profile?.eligibility_criteria ||
+		"";
 
 	// Filter courses to only show those not already in the plan
 	const remainingCourses = useMemo(() => {
@@ -683,20 +688,28 @@ const EducationPlanEditor = () => {
 							</button>
 						</div>
 						{totalCourses > 0 && (
-							<div className="flex items-center gap-6 flex-wrap pt-3 border-t border-slate-200 text-sm text-slate-800 font-semibold">
+							<div className="flex items-center gap-4 flex-wrap pt-3 border-t border-slate-200 text-sm text-slate-800 font-semibold">
 								<span>
 									Total Courses:{" "}
 									<span className="text-indigo-600">{totalCourses}</span>
 								</span>
-								<span>
+								<span className="w-36">
 									Total Credits:{" "}
 									<span className="text-indigo-600">{totalCredits}</span>
 								</span>
 								{averageAnnualCost && (
 									<span>
-										Avg. annual cost:{" "}
+										Avg. Annual Cost:{" "}
 										<span className="text-emerald-700">
 											{averageAnnualCost}
+										</span>
+									</span>
+								)}
+								{eligibilityCriteria && (
+									<span >
+										Eligibility Criteria:{" "}
+										<span className="font-normal text-slate-600">
+											{eligibilityCriteria}
 										</span>
 									</span>
 								)}
