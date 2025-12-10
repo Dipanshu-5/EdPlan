@@ -1,0 +1,1438 @@
+{
+  "Certificate": {
+    "Automotive Service Technician": [
+      "Garcia Automotive Group (Albuquerque)",
+      "Reliable Nissan (Albuquerque)",
+      "Lithia Chrysler Jeep Dodge (Santa Fe)",
+      "Fiesta Subaru (Albuquerque)",
+      "American Toyota (Albuquerque)"
+    ],
+    "Tire and Alignment Specialist": [
+      "Reliable Nissan (Albuquerque)",
+      "Lithia Chrysler Jeep Dodge (Santa Fe)",
+      "Fiesta Subaru (Albuquerque)",
+      "American Toyota (Albuquerque)",
+      "Rich Ford (Albuquerque)"
+    ],
+    "Automotive Electrician": [
+      "Lithia Chrysler Jeep Dodge (Santa Fe)",
+      "Fiesta Subaru (Albuquerque)",
+      "American Toyota (Albuquerque)",
+      "Rich Ford (Albuquerque)",
+      "Melloy Dodge (Albuquerque)"
+    ],
+    "Service Advisor": [
+      "PNM Resources (Albuquerque)",
+      "Pattern Energy (Albuquerque)",
+      "Intel Rio Rancho",
+      "Meta Data Center (Los Lunas)",
+      "Bank of Albuquerque"
+    ],
+    "Auto Body Technician": [
+      "Fiesta Subaru (Albuquerque)",
+      "American Toyota (Albuquerque)",
+      "Rich Ford (Albuquerque)",
+      "Melloy Dodge (Albuquerque)",
+      "Subaru of Las Cruces"
+    ],
+    "Vehicle Inspector": [
+      "American Toyota (Albuquerque)",
+      "Rich Ford (Albuquerque)",
+      "Melloy Dodge (Albuquerque)",
+      "Subaru of Las Cruces",
+      "Jack Key Auto Group (Las Cruces)"
+    ],
+    "Parts Specialist": [
+      "Pattern Energy (Albuquerque)",
+      "Intel Rio Rancho",
+      "Meta Data Center (Los Lunas)",
+      "Bank of Albuquerque",
+      "U.S. Eagle Federal Credit Union"
+    ],
+    "Detailing Technician": [
+      "City of Albuquerque IT Services",
+      "State of New Mexico DoIT",
+      "Virgin Galactic (Spaceport America)",
+      "Torch Technologies (Albuquerque)",
+      "Encantado Technical Solutions (Los Alamos)"
+    ],
+    "Automotive Apprentice": [
+      "Rich Ford (Albuquerque)",
+      "Melloy Dodge (Albuquerque)",
+      "Subaru of Las Cruces",
+      "Jack Key Auto Group (Las Cruces)",
+      "CarMax (Albuquerque)"
+    ],
+    "Security Analyst": [
+      "Sandia National Laboratories (Albuquerque)",
+      "Los Alamos National Laboratory",
+      "Kirtland AFB Cyber Ops (Albuquerque)",
+      "Northrop Grumman (Albuquerque)",
+      "Raytheon Technologies (Albuquerque)"
+    ],
+    "SOC Technician": [
+      "Los Alamos National Laboratory",
+      "Kirtland AFB Cyber Ops (Albuquerque)",
+      "Northrop Grumman (Albuquerque)",
+      "Raytheon Technologies (Albuquerque)",
+      "Leidos (Albuquerque)"
+    ],
+    "IT Security Support": [
+      "Kirtland AFB Cyber Ops (Albuquerque)",
+      "Northrop Grumman (Albuquerque)",
+      "Raytheon Technologies (Albuquerque)",
+      "Leidos (Albuquerque)",
+      "Accenture Federal (Albuquerque)"
+    ],
+    "Compliance Assistant": [
+      "Intel Rio Rancho",
+      "Meta Data Center (Los Lunas)",
+      "Bank of Albuquerque",
+      "U.S. Eagle Federal Credit Union",
+      "Blue Cross and Blue Shield of New Mexico"
+    ],
+    "Network Security Technician": [
+      "Northrop Grumman (Albuquerque)",
+      "Raytheon Technologies (Albuquerque)",
+      "Leidos (Albuquerque)",
+      "Accenture Federal (Albuquerque)",
+      "SAIC (Albuquerque)"
+    ],
+    "Penetration Testing Assistant": [
+      "Meta Data Center (Los Lunas)",
+      "Bank of Albuquerque",
+      "U.S. Eagle Federal Credit Union",
+      "Blue Cross and Blue Shield of New Mexico",
+      "Presbyterian Health Plan (Business Ops)"
+    ],
+    "Cybersecurity Technician": [
+      "Raytheon Technologies (Albuquerque)",
+      "Leidos (Albuquerque)",
+      "Accenture Federal (Albuquerque)",
+      "SAIC (Albuquerque)",
+      "Parsons (Albuquerque)"
+    ],
+    "IT Support Security Specialist": [
+      "Leidos (Albuquerque)",
+      "Accenture Federal (Albuquerque)",
+      "SAIC (Albuquerque)",
+      "Parsons (Albuquerque)",
+      "Booz Allen Hamilton (Albuquerque)"
+    ],
+    "Video Editor": [
+      "Bank of Albuquerque",
+      "U.S. Eagle Federal Credit Union",
+      "Blue Cross and Blue Shield of New Mexico",
+      "Presbyterian Health Plan (Business Ops)",
+      "Flagship Food Group (Albuquerque)"
+    ],
+    "Production Assistant": [
+      "U.S. Eagle Federal Credit Union",
+      "Blue Cross and Blue Shield of New Mexico",
+      "Presbyterian Health Plan (Business Ops)",
+      "Flagship Food Group (Albuquerque)",
+      "Array Technologies (Albuquerque)"
+    ],
+    "Camera Operator": [
+      "Blue Cross and Blue Shield of New Mexico",
+      "Presbyterian Health Plan (Business Ops)",
+      "Flagship Food Group (Albuquerque)",
+      "Array Technologies (Albuquerque)",
+      "PNM Resources (Albuquerque)"
+    ],
+    "Lighting Technician": [
+      "State of New Mexico DoIT",
+      "Virgin Galactic (Spaceport America)",
+      "Torch Technologies (Albuquerque)",
+      "Encantado Technical Solutions (Los Alamos)",
+      "General Dynamics IT (Albuquerque)"
+    ],
+    "Sound Technician": [
+      "Virgin Galactic (Spaceport America)",
+      "Torch Technologies (Albuquerque)",
+      "Encantado Technical Solutions (Los Alamos)",
+      "General Dynamics IT (Albuquerque)",
+      "NTT Data (Albuquerque)"
+    ],
+    "Graphic Designer": [
+      "Presbyterian Health Plan (Business Ops)",
+      "Flagship Food Group (Albuquerque)",
+      "Array Technologies (Albuquerque)",
+      "PNM Resources (Albuquerque)",
+      "Pattern Energy (Albuquerque)"
+    ],
+    "Animator": [
+      "Flagship Food Group (Albuquerque)",
+      "Array Technologies (Albuquerque)",
+      "PNM Resources (Albuquerque)",
+      "Pattern Energy (Albuquerque)",
+      "Intel Rio Rancho"
+    ],
+    "Post-Production Assistant": [
+      "Array Technologies (Albuquerque)",
+      "PNM Resources (Albuquerque)",
+      "Pattern Energy (Albuquerque)",
+      "Intel Rio Rancho",
+      "Meta Data Center (Los Lunas)"
+    ],
+    "IT Support Technician": [
+      "Torch Technologies (Albuquerque)",
+      "Encantado Technical Solutions (Los Alamos)",
+      "General Dynamics IT (Albuquerque)",
+      "NTT Data (Albuquerque)",
+      "Lovelace IT & Security (Albuquerque)"
+    ],
+    "Network Technician": [
+      "Encantado Technical Solutions (Los Alamos)",
+      "General Dynamics IT (Albuquerque)",
+      "NTT Data (Albuquerque)",
+      "Lovelace IT & Security (Albuquerque)",
+      "GapTech (Albuquerque)"
+    ],
+    "Systems Administrator Assistant": [
+      "General Dynamics IT (Albuquerque)",
+      "NTT Data (Albuquerque)",
+      "Lovelace IT & Security (Albuquerque)",
+      "GapTech (Albuquerque)",
+      "Noventum Custom Software (Santa Fe)"
+    ],
+    "Help Desk Technician": [
+      "NTT Data (Albuquerque)",
+      "Lovelace IT & Security (Albuquerque)",
+      "GapTech (Albuquerque)",
+      "Noventum Custom Software (Santa Fe)",
+      "City of Albuquerque IT Services"
+    ],
+    "Junior Network Administrator": [
+      "Lovelace IT & Security (Albuquerque)",
+      "GapTech (Albuquerque)",
+      "Noventum Custom Software (Santa Fe)",
+      "City of Albuquerque IT Services",
+      "State of New Mexico DoIT"
+    ],
+    "IT Operations Assistant": [
+      "GapTech (Albuquerque)",
+      "Noventum Custom Software (Santa Fe)",
+      "City of Albuquerque IT Services",
+      "State of New Mexico DoIT",
+      "Virgin Galactic (Spaceport America)"
+    ],
+    "Field Support Technician": [
+      "Noventum Custom Software (Santa Fe)",
+      "City of Albuquerque IT Services",
+      "State of New Mexico DoIT",
+      "Virgin Galactic (Spaceport America)",
+      "Torch Technologies (Albuquerque)"
+    ]
+  },
+  "Associate": {
+    "Automotive Service Technician": [
+      "Garcia Automotive Group (Albuquerque)",
+      "Reliable Nissan (Albuquerque)",
+      "Lithia Chrysler Jeep Dodge (Santa Fe)",
+      "Fiesta Subaru (Albuquerque)",
+      "American Toyota (Albuquerque)"
+    ],
+    "Automotive Electrician": [
+      "Reliable Nissan (Albuquerque)",
+      "Lithia Chrysler Jeep Dodge (Santa Fe)",
+      "Fiesta Subaru (Albuquerque)",
+      "American Toyota (Albuquerque)",
+      "Rich Ford (Albuquerque)"
+    ],
+    "Service Advisor": [
+      "PNM Resources (Albuquerque)",
+      "Pattern Energy (Albuquerque)",
+      "Intel Rio Rancho",
+      "Meta Data Center (Los Lunas)",
+      "Bank of Albuquerque"
+    ],
+    "Auto Body Technician": [
+      "Lithia Chrysler Jeep Dodge (Santa Fe)",
+      "Fiesta Subaru (Albuquerque)",
+      "American Toyota (Albuquerque)",
+      "Rich Ford (Albuquerque)",
+      "Melloy Dodge (Albuquerque)"
+    ],
+    "Tire & Alignment Specialist": [
+      "Fiesta Subaru (Albuquerque)",
+      "American Toyota (Albuquerque)",
+      "Rich Ford (Albuquerque)",
+      "Melloy Dodge (Albuquerque)",
+      "Subaru of Las Cruces"
+    ],
+    "Automotive Instructor Assistant": [
+      "American Toyota (Albuquerque)",
+      "Rich Ford (Albuquerque)",
+      "Melloy Dodge (Albuquerque)",
+      "Subaru of Las Cruces",
+      "Jack Key Auto Group (Las Cruces)"
+    ],
+    "Parts Specialist": [
+      "Pattern Energy (Albuquerque)",
+      "Intel Rio Rancho",
+      "Meta Data Center (Los Lunas)",
+      "Bank of Albuquerque",
+      "U.S. Eagle Federal Credit Union"
+    ],
+    "Detailing & Prep Technician": [
+      "City of Albuquerque IT Services",
+      "State of New Mexico DoIT",
+      "Virgin Galactic (Spaceport America)",
+      "Torch Technologies (Albuquerque)",
+      "Encantado Technical Solutions (Los Alamos)"
+    ],
+    "Security Analyst": [
+      "Sandia National Laboratories (Albuquerque)",
+      "Los Alamos National Laboratory",
+      "Kirtland AFB Cyber Ops (Albuquerque)",
+      "Northrop Grumman (Albuquerque)",
+      "Raytheon Technologies (Albuquerque)"
+    ],
+    "SOC Analyst": [
+      "Los Alamos National Laboratory",
+      "Kirtland AFB Cyber Ops (Albuquerque)",
+      "Northrop Grumman (Albuquerque)",
+      "Raytheon Technologies (Albuquerque)",
+      "Leidos (Albuquerque)"
+    ],
+    "Network Security Technician": [
+      "Kirtland AFB Cyber Ops (Albuquerque)",
+      "Northrop Grumman (Albuquerque)",
+      "Raytheon Technologies (Albuquerque)",
+      "Leidos (Albuquerque)",
+      "Accenture Federal (Albuquerque)"
+    ],
+    "IT Security Specialist": [
+      "Northrop Grumman (Albuquerque)",
+      "Raytheon Technologies (Albuquerque)",
+      "Leidos (Albuquerque)",
+      "Accenture Federal (Albuquerque)",
+      "SAIC (Albuquerque)"
+    ],
+    "Compliance Analyst": [
+      "Raytheon Technologies (Albuquerque)",
+      "Leidos (Albuquerque)",
+      "Accenture Federal (Albuquerque)",
+      "SAIC (Albuquerque)",
+      "Parsons (Albuquerque)"
+    ],
+    "Junior Penetration Tester": [
+      "Intel Rio Rancho",
+      "Meta Data Center (Los Lunas)",
+      "Bank of Albuquerque",
+      "U.S. Eagle Federal Credit Union",
+      "Blue Cross and Blue Shield of New Mexico"
+    ],
+    "IT Support Security": [
+      "Leidos (Albuquerque)",
+      "Accenture Federal (Albuquerque)",
+      "SAIC (Albuquerque)",
+      "Parsons (Albuquerque)",
+      "Booz Allen Hamilton (Albuquerque)"
+    ],
+    "Administrative Supervisor": [
+      "Meta Data Center (Los Lunas)",
+      "Bank of Albuquerque",
+      "U.S. Eagle Federal Credit Union",
+      "Blue Cross and Blue Shield of New Mexico",
+      "Presbyterian Health Plan (Business Ops)"
+    ],
+    "Accounting Clerk": [
+      "Bank of Albuquerque",
+      "U.S. Eagle Federal Credit Union",
+      "Blue Cross and Blue Shield of New Mexico",
+      "Presbyterian Health Plan (Business Ops)",
+      "Flagship Food Group (Albuquerque)"
+    ],
+    "Customer Service Supervisor": [
+      "U.S. Eagle Federal Credit Union",
+      "Blue Cross and Blue Shield of New Mexico",
+      "Presbyterian Health Plan (Business Ops)",
+      "Flagship Food Group (Albuquerque)",
+      "Array Technologies (Albuquerque)"
+    ],
+    "Sales Coordinator": [
+      "Blue Cross and Blue Shield of New Mexico",
+      "Presbyterian Health Plan (Business Ops)",
+      "Flagship Food Group (Albuquerque)",
+      "Array Technologies (Albuquerque)",
+      "PNM Resources (Albuquerque)"
+    ],
+    "Marketing Assistant": [
+      "Presbyterian Health Plan (Business Ops)",
+      "Flagship Food Group (Albuquerque)",
+      "Array Technologies (Albuquerque)",
+      "PNM Resources (Albuquerque)",
+      "Pattern Energy (Albuquerque)"
+    ],
+    "HR Assistant": [
+      "Flagship Food Group (Albuquerque)",
+      "Array Technologies (Albuquerque)",
+      "PNM Resources (Albuquerque)",
+      "Pattern Energy (Albuquerque)",
+      "Intel Rio Rancho"
+    ],
+    "Office Coordinator": [
+      "Array Technologies (Albuquerque)",
+      "PNM Resources (Albuquerque)",
+      "Pattern Energy (Albuquerque)",
+      "Intel Rio Rancho",
+      "Meta Data Center (Los Lunas)"
+    ],
+    "Registered Nurse (RN)": [
+      "UNM Hospital (Albuquerque)",
+      "Presbyterian Healthcare Services (Statewide)",
+      "Lovelace Health System (Albuquerque)",
+      "Christus St. Vincent (Santa Fe)",
+      "Gerald Champion Regional Medical Center (Alamogordo)"
+    ],
+    "Nursing Assistant": [
+      "PNM Resources (Albuquerque)",
+      "Pattern Energy (Albuquerque)",
+      "Intel Rio Rancho",
+      "Meta Data Center (Los Lunas)",
+      "Bank of Albuquerque"
+    ],
+    "Home Health Aide": [
+      "Presbyterian Healthcare Services (Statewide)",
+      "Lovelace Health System (Albuquerque)",
+      "Christus St. Vincent (Santa Fe)",
+      "Gerald Champion Regional Medical Center (Alamogordo)",
+      "San Juan Regional Medical Center (Farmington)"
+    ],
+    "Clinic Nurse": [
+      "Lovelace Health System (Albuquerque)",
+      "Christus St. Vincent (Santa Fe)",
+      "Gerald Champion Regional Medical Center (Alamogordo)",
+      "San Juan Regional Medical Center (Farmington)",
+      "Memorial Medical Center (Las Cruces)"
+    ],
+    "Medical Office Nurse": [
+      "Christus St. Vincent (Santa Fe)",
+      "Gerald Champion Regional Medical Center (Alamogordo)",
+      "San Juan Regional Medical Center (Farmington)",
+      "Memorial Medical Center (Las Cruces)",
+      "Mimbres Memorial Hospital (Deming)"
+    ],
+    "Nursing Educator Assistant": [
+      "Pattern Energy (Albuquerque)",
+      "Intel Rio Rancho",
+      "Meta Data Center (Los Lunas)",
+      "Bank of Albuquerque",
+      "U.S. Eagle Federal Credit Union"
+    ],
+    "Behavioral Health Technician": [
+      "Gerald Champion Regional Medical Center (Alamogordo)",
+      "San Juan Regional Medical Center (Farmington)",
+      "Memorial Medical Center (Las Cruces)",
+      "Mimbres Memorial Hospital (Deming)",
+      "MountainView Regional Medical Center (Las Cruces)"
+    ],
+    "Psychiatric Aide": [
+      "UNM Health Behavioral Health",
+      "Presbyterian Behavioral Health",
+      "Turquoise Lodge Hospital",
+      "New Mexico VA Health Care System",
+      "La Familia Medical Center (Santa Fe)"
+    ],
+    "Research Assistant": [
+      "Intel Rio Rancho",
+      "Meta Data Center (Los Lunas)",
+      "Bank of Albuquerque",
+      "U.S. Eagle Federal Credit Union",
+      "Blue Cross and Blue Shield of New Mexico"
+    ],
+    "Case Management Assistant": [
+      "Meta Data Center (Los Lunas)",
+      "Bank of Albuquerque",
+      "U.S. Eagle Federal Credit Union",
+      "Blue Cross and Blue Shield of New Mexico",
+      "Presbyterian Health Plan (Business Ops)"
+    ],
+    "Community Support Worker": [
+      "Bank of Albuquerque",
+      "U.S. Eagle Federal Credit Union",
+      "Blue Cross and Blue Shield of New Mexico",
+      "Presbyterian Health Plan (Business Ops)",
+      "Flagship Food Group (Albuquerque)"
+    ]
+  },
+  "Bachelors": {
+    "Research Biologist": [
+      "PNM Resources (Albuquerque)",
+      "Pattern Energy (Albuquerque)",
+      "Intel Rio Rancho",
+      "Meta Data Center (Los Lunas)",
+      "Bank of Albuquerque"
+    ],
+    "Environmental Consultant": [
+      "Pattern Energy (Albuquerque)",
+      "Intel Rio Rancho",
+      "Meta Data Center (Los Lunas)",
+      "Bank of Albuquerque",
+      "U.S. Eagle Federal Credit Union"
+    ],
+    "Laboratory Technician": [
+      "City of Albuquerque IT Services",
+      "State of New Mexico DoIT",
+      "Virgin Galactic (Spaceport America)",
+      "Torch Technologies (Albuquerque)",
+      "Encantado Technical Solutions (Los Alamos)"
+    ],
+    "Biotech Specialist": [
+      "Intel Rio Rancho",
+      "Meta Data Center (Los Lunas)",
+      "Bank of Albuquerque",
+      "U.S. Eagle Federal Credit Union",
+      "Blue Cross and Blue Shield of New Mexico"
+    ],
+    "Wildlife Biologist": [
+      "Meta Data Center (Los Lunas)",
+      "Bank of Albuquerque",
+      "U.S. Eagle Federal Credit Union",
+      "Blue Cross and Blue Shield of New Mexico",
+      "Presbyterian Health Plan (Business Ops)"
+    ],
+    "Biochemistry Researcher": [
+      "Bank of Albuquerque",
+      "U.S. Eagle Federal Credit Union",
+      "Blue Cross and Blue Shield of New Mexico",
+      "Presbyterian Health Plan (Business Ops)",
+      "Flagship Food Group (Albuquerque)"
+    ],
+    "Pharmaceutical Sales Representative": [
+      "U.S. Eagle Federal Credit Union",
+      "Blue Cross and Blue Shield of New Mexico",
+      "Presbyterian Health Plan (Business Ops)",
+      "Flagship Food Group (Albuquerque)",
+      "Array Technologies (Albuquerque)"
+    ],
+    "Genetic Counselor": [
+      "UNM Health Behavioral Health",
+      "Presbyterian Behavioral Health",
+      "Turquoise Lodge Hospital",
+      "New Mexico VA Health Care System",
+      "La Familia Medical Center (Santa Fe)"
+    ],
+    "Microbiologist": [
+      "Blue Cross and Blue Shield of New Mexico",
+      "Presbyterian Health Plan (Business Ops)",
+      "Flagship Food Group (Albuquerque)",
+      "Array Technologies (Albuquerque)",
+      "PNM Resources (Albuquerque)"
+    ],
+    "Clinical Research Coordinator": [
+      "Presbyterian Health Plan (Business Ops)",
+      "Flagship Food Group (Albuquerque)",
+      "Array Technologies (Albuquerque)",
+      "PNM Resources (Albuquerque)",
+      "Pattern Energy (Albuquerque)"
+    ],
+    "Business Analyst": [
+      "Leidos (Albuquerque)",
+      "Accenture Federal (Albuquerque)",
+      "SAIC (Albuquerque)",
+      "Parsons (Albuquerque)",
+      "Booz Allen Hamilton (Albuquerque)"
+    ],
+    "Marketing Specialist": [
+      "Flagship Food Group (Albuquerque)",
+      "Array Technologies (Albuquerque)",
+      "PNM Resources (Albuquerque)",
+      "Pattern Energy (Albuquerque)",
+      "Intel Rio Rancho"
+    ],
+    "Financial Analyst": [
+      "Los Alamos National Laboratory",
+      "Kirtland AFB Cyber Ops (Albuquerque)",
+      "Northrop Grumman (Albuquerque)",
+      "Raytheon Technologies (Albuquerque)",
+      "Leidos (Albuquerque)"
+    ],
+    "Operations Manager": [
+      "Meta Data Center (Los Lunas)",
+      "Bank of Albuquerque",
+      "U.S. Eagle Federal Credit Union",
+      "Blue Cross and Blue Shield of New Mexico",
+      "Presbyterian Health Plan (Business Ops)"
+    ],
+    "Consultant": [
+      "PNM Resources (Albuquerque)",
+      "Pattern Energy (Albuquerque)",
+      "Intel Rio Rancho",
+      "Meta Data Center (Los Lunas)",
+      "Bank of Albuquerque"
+    ],
+    "Product Manager": [
+      "Pattern Energy (Albuquerque)",
+      "Intel Rio Rancho",
+      "Meta Data Center (Los Lunas)",
+      "Bank of Albuquerque",
+      "U.S. Eagle Federal Credit Union"
+    ],
+    "Sales Manager": [
+      "Flagship Food Group (Albuquerque)",
+      "Array Technologies (Albuquerque)",
+      "PNM Resources (Albuquerque)",
+      "Pattern Energy (Albuquerque)",
+      "Intel Rio Rancho"
+    ],
+    "Operations Analyst": [
+      "Accenture Federal (Albuquerque)",
+      "SAIC (Albuquerque)",
+      "Parsons (Albuquerque)",
+      "Booz Allen Hamilton (Albuquerque)",
+      "Sandia National Laboratories (Albuquerque)"
+    ],
+    "Human Resources Specialist": [
+      "Bank of Albuquerque",
+      "U.S. Eagle Federal Credit Union",
+      "Blue Cross and Blue Shield of New Mexico",
+      "Presbyterian Health Plan (Business Ops)",
+      "Flagship Food Group (Albuquerque)"
+    ],
+    "Software Developer": [
+      "Intel Rio Rancho",
+      "Meta Data Center (Los Lunas)",
+      "Bank of Albuquerque",
+      "U.S. Eagle Federal Credit Union",
+      "Blue Cross and Blue Shield of New Mexico"
+    ],
+    "Front-End Developer": [
+      "U.S. Eagle Federal Credit Union",
+      "Blue Cross and Blue Shield of New Mexico",
+      "Presbyterian Health Plan (Business Ops)",
+      "Flagship Food Group (Albuquerque)",
+      "Array Technologies (Albuquerque)"
+    ],
+    "Back-End Developer": [
+      "Blue Cross and Blue Shield of New Mexico",
+      "Presbyterian Health Plan (Business Ops)",
+      "Flagship Food Group (Albuquerque)",
+      "Array Technologies (Albuquerque)",
+      "PNM Resources (Albuquerque)"
+    ],
+    "Full-Stack Developer": [
+      "Presbyterian Health Plan (Business Ops)",
+      "Flagship Food Group (Albuquerque)",
+      "Array Technologies (Albuquerque)",
+      "PNM Resources (Albuquerque)",
+      "Pattern Energy (Albuquerque)"
+    ],
+    "Data Analyst": [
+      "Northrop Grumman (Albuquerque)",
+      "Raytheon Technologies (Albuquerque)",
+      "Leidos (Albuquerque)",
+      "Accenture Federal (Albuquerque)",
+      "SAIC (Albuquerque)"
+    ],
+    "Machine Learning Engineer": [
+      "Flagship Food Group (Albuquerque)",
+      "Array Technologies (Albuquerque)",
+      "PNM Resources (Albuquerque)",
+      "Pattern Energy (Albuquerque)",
+      "Intel Rio Rancho"
+    ],
+    "Systems Administrator": [
+      "State of New Mexico DoIT",
+      "Virgin Galactic (Spaceport America)",
+      "Torch Technologies (Albuquerque)",
+      "Encantado Technical Solutions (Los Alamos)",
+      "General Dynamics IT (Albuquerque)"
+    ],
+    "DevOps Engineer": [
+      "Array Technologies (Albuquerque)",
+      "PNM Resources (Albuquerque)",
+      "Pattern Energy (Albuquerque)",
+      "Intel Rio Rancho",
+      "Meta Data Center (Los Lunas)"
+    ],
+    "Cybersecurity Analyst": [
+      "Raytheon Technologies (Albuquerque)",
+      "Leidos (Albuquerque)",
+      "Accenture Federal (Albuquerque)",
+      "SAIC (Albuquerque)",
+      "Parsons (Albuquerque)"
+    ],
+    "Security Analyst": [
+      "Leidos (Albuquerque)",
+      "Accenture Federal (Albuquerque)",
+      "SAIC (Albuquerque)",
+      "Parsons (Albuquerque)",
+      "Booz Allen Hamilton (Albuquerque)"
+    ],
+    "SOC Analyst": [
+      "Accenture Federal (Albuquerque)",
+      "SAIC (Albuquerque)",
+      "Parsons (Albuquerque)",
+      "Booz Allen Hamilton (Albuquerque)",
+      "Sandia National Laboratories (Albuquerque)"
+    ],
+    "Penetration Tester": [
+      "PNM Resources (Albuquerque)",
+      "Pattern Energy (Albuquerque)",
+      "Intel Rio Rancho",
+      "Meta Data Center (Los Lunas)",
+      "Bank of Albuquerque"
+    ],
+    "Cybersecurity Engineer": [
+      "SAIC (Albuquerque)",
+      "Parsons (Albuquerque)",
+      "Booz Allen Hamilton (Albuquerque)",
+      "Sandia National Laboratories (Albuquerque)",
+      "Los Alamos National Laboratory"
+    ],
+    "IT Security Consultant": [
+      "Parsons (Albuquerque)",
+      "Booz Allen Hamilton (Albuquerque)",
+      "Sandia National Laboratories (Albuquerque)",
+      "Los Alamos National Laboratory",
+      "Kirtland AFB Cyber Ops (Albuquerque)"
+    ],
+    "Forensic Analyst": [
+      "Booz Allen Hamilton (Albuquerque)",
+      "Sandia National Laboratories (Albuquerque)",
+      "Los Alamos National Laboratory",
+      "Kirtland AFB Cyber Ops (Albuquerque)",
+      "Northrop Grumman (Albuquerque)"
+    ],
+    "Network Security Engineer": [
+      "Sandia National Laboratories (Albuquerque)",
+      "Los Alamos National Laboratory",
+      "Kirtland AFB Cyber Ops (Albuquerque)",
+      "Northrop Grumman (Albuquerque)",
+      "Raytheon Technologies (Albuquerque)"
+    ],
+    "Cybersecurity Architect": [
+      "Los Alamos National Laboratory",
+      "Kirtland AFB Cyber Ops (Albuquerque)",
+      "Northrop Grumman (Albuquerque)",
+      "Raytheon Technologies (Albuquerque)",
+      "Leidos (Albuquerque)"
+    ],
+    "Cybersecurity Manager": [
+      "Kirtland AFB Cyber Ops (Albuquerque)",
+      "Northrop Grumman (Albuquerque)",
+      "Raytheon Technologies (Albuquerque)",
+      "Leidos (Albuquerque)",
+      "Accenture Federal (Albuquerque)"
+    ],
+    "Elementary School Teacher": [
+      "Albuquerque Public Schools",
+      "Las Cruces Public Schools",
+      "Rio Rancho Public Schools",
+      "Santa Fe Public Schools",
+      "New Mexico State University"
+    ],
+    "Special Education Teacher": [
+      "Las Cruces Public Schools",
+      "Rio Rancho Public Schools",
+      "Santa Fe Public Schools",
+      "New Mexico State University",
+      "University of New Mexico"
+    ],
+    "Curriculum Developer": [
+      "Pattern Energy (Albuquerque)",
+      "Intel Rio Rancho",
+      "Meta Data Center (Los Lunas)",
+      "Bank of Albuquerque",
+      "U.S. Eagle Federal Credit Union"
+    ],
+    "Instructional Coordinator": [
+      "Intel Rio Rancho",
+      "Meta Data Center (Los Lunas)",
+      "Bank of Albuquerque",
+      "U.S. Eagle Federal Credit Union",
+      "Blue Cross and Blue Shield of New Mexico"
+    ],
+    "Educational Consultant": [
+      "Rio Rancho Public Schools",
+      "Santa Fe Public Schools",
+      "New Mexico State University",
+      "University of New Mexico",
+      "Central New Mexico CC"
+    ],
+    "Literacy Specialist": [
+      "Meta Data Center (Los Lunas)",
+      "Bank of Albuquerque",
+      "U.S. Eagle Federal Credit Union",
+      "Blue Cross and Blue Shield of New Mexico",
+      "Presbyterian Health Plan (Business Ops)"
+    ],
+    "School Counselor": [
+      "Presbyterian Behavioral Health",
+      "Turquoise Lodge Hospital",
+      "New Mexico VA Health Care System",
+      "La Familia Medical Center (Santa Fe)",
+      "Santa Fe Recovery Center"
+    ],
+    "Educational Technology Specialist": [
+      "Santa Fe Public Schools",
+      "New Mexico State University",
+      "University of New Mexico",
+      "Central New Mexico CC",
+      "Santa Fe Community College"
+    ],
+    "After-School Program Coordinator": [
+      "Bank of Albuquerque",
+      "U.S. Eagle Federal Credit Union",
+      "Blue Cross and Blue Shield of New Mexico",
+      "Presbyterian Health Plan (Business Ops)",
+      "Flagship Food Group (Albuquerque)"
+    ],
+    "Film Director": [
+      "Netflix Albuquerque Studios",
+      "NBCUniversal Albuquerque Production Hub",
+      "Santa Fe Studios",
+      "Meow Wolf (Santa Fe)",
+      "Reel NM Productions (Albuquerque)"
+    ],
+    "Cinematographer": [
+      "U.S. Eagle Federal Credit Union",
+      "Blue Cross and Blue Shield of New Mexico",
+      "Presbyterian Health Plan (Business Ops)",
+      "Flagship Food Group (Albuquerque)",
+      "Array Technologies (Albuquerque)"
+    ],
+    "Video Editor": [
+      "Blue Cross and Blue Shield of New Mexico",
+      "Presbyterian Health Plan (Business Ops)",
+      "Flagship Food Group (Albuquerque)",
+      "Array Technologies (Albuquerque)",
+      "PNM Resources (Albuquerque)"
+    ],
+    "Animator": [
+      "Presbyterian Health Plan (Business Ops)",
+      "Flagship Food Group (Albuquerque)",
+      "Array Technologies (Albuquerque)",
+      "PNM Resources (Albuquerque)",
+      "Pattern Energy (Albuquerque)"
+    ],
+    "Sound Designer": [
+      "Flagship Food Group (Albuquerque)",
+      "Array Technologies (Albuquerque)",
+      "PNM Resources (Albuquerque)",
+      "Pattern Energy (Albuquerque)",
+      "Intel Rio Rancho"
+    ],
+    "Media Producer": [
+      "NBCUniversal Albuquerque Production Hub",
+      "Santa Fe Studios",
+      "Meow Wolf (Santa Fe)",
+      "Reel NM Productions (Albuquerque)",
+      "Mountainair Films (Santa Fe)"
+    ],
+    "Visual Effects Artist": [
+      "Array Technologies (Albuquerque)",
+      "PNM Resources (Albuquerque)",
+      "Pattern Energy (Albuquerque)",
+      "Intel Rio Rancho",
+      "Meta Data Center (Los Lunas)"
+    ],
+    "Scriptwriter": [
+      "PNM Resources (Albuquerque)",
+      "Pattern Energy (Albuquerque)",
+      "Intel Rio Rancho",
+      "Meta Data Center (Los Lunas)",
+      "Bank of Albuquerque"
+    ],
+    "Broadcast Technician": [
+      "Virgin Galactic (Spaceport America)",
+      "Torch Technologies (Albuquerque)",
+      "Encantado Technical Solutions (Los Alamos)",
+      "General Dynamics IT (Albuquerque)",
+      "NTT Data (Albuquerque)"
+    ],
+    "Network Engineer": [
+      "Torch Technologies (Albuquerque)",
+      "Encantado Technical Solutions (Los Alamos)",
+      "General Dynamics IT (Albuquerque)",
+      "NTT Data (Albuquerque)",
+      "Lovelace IT & Security (Albuquerque)"
+    ],
+    "Systems Analyst": [
+      "Northrop Grumman (Albuquerque)",
+      "Raytheon Technologies (Albuquerque)",
+      "Leidos (Albuquerque)",
+      "Accenture Federal (Albuquerque)",
+      "SAIC (Albuquerque)"
+    ],
+    "IT Support Specialist": [
+      "Encantado Technical Solutions (Los Alamos)",
+      "General Dynamics IT (Albuquerque)",
+      "NTT Data (Albuquerque)",
+      "Lovelace IT & Security (Albuquerque)",
+      "GapTech (Albuquerque)"
+    ],
+    "Database Administrator": [
+      "General Dynamics IT (Albuquerque)",
+      "NTT Data (Albuquerque)",
+      "Lovelace IT & Security (Albuquerque)",
+      "GapTech (Albuquerque)",
+      "Noventum Custom Software (Santa Fe)"
+    ],
+    "Cybersecurity Specialist": [
+      "Raytheon Technologies (Albuquerque)",
+      "Leidos (Albuquerque)",
+      "Accenture Federal (Albuquerque)",
+      "SAIC (Albuquerque)",
+      "Parsons (Albuquerque)"
+    ],
+    "Cloud Engineer": [
+      "Pattern Energy (Albuquerque)",
+      "Intel Rio Rancho",
+      "Meta Data Center (Los Lunas)",
+      "Bank of Albuquerque",
+      "U.S. Eagle Federal Credit Union"
+    ],
+    "IT Project Manager": [
+      "NTT Data (Albuquerque)",
+      "Lovelace IT & Security (Albuquerque)",
+      "GapTech (Albuquerque)",
+      "Noventum Custom Software (Santa Fe)",
+      "City of Albuquerque IT Services"
+    ],
+    "IT Consultant": [
+      "Lovelace IT & Security (Albuquerque)",
+      "GapTech (Albuquerque)",
+      "Noventum Custom Software (Santa Fe)",
+      "City of Albuquerque IT Services",
+      "State of New Mexico DoIT"
+    ],
+    "Project Manager": [
+      "U.S. Eagle Federal Credit Union",
+      "Blue Cross and Blue Shield of New Mexico",
+      "Presbyterian Health Plan (Business Ops)",
+      "Flagship Food Group (Albuquerque)",
+      "Array Technologies (Albuquerque)"
+    ],
+    "Marketing Coordinator": [
+      "Blue Cross and Blue Shield of New Mexico",
+      "Presbyterian Health Plan (Business Ops)",
+      "Flagship Food Group (Albuquerque)",
+      "Array Technologies (Albuquerque)",
+      "PNM Resources (Albuquerque)"
+    ],
+    "Entrepreneur / Startup Founder": [
+      "Presbyterian Health Plan (Business Ops)",
+      "Flagship Food Group (Albuquerque)",
+      "Array Technologies (Albuquerque)",
+      "PNM Resources (Albuquerque)",
+      "Pattern Energy (Albuquerque)"
+    ],
+    "Management Consultant": [
+      "Array Technologies (Albuquerque)",
+      "PNM Resources (Albuquerque)",
+      "Pattern Energy (Albuquerque)",
+      "Intel Rio Rancho",
+      "Meta Data Center (Los Lunas)"
+    ],
+    "Mechanical Design Engineer": [
+      "PNM Resources (Albuquerque)",
+      "Pattern Energy (Albuquerque)",
+      "Intel Rio Rancho",
+      "Meta Data Center (Los Lunas)",
+      "Bank of Albuquerque"
+    ],
+    "Manufacturing Engineer": [
+      "Pattern Energy (Albuquerque)",
+      "Intel Rio Rancho",
+      "Meta Data Center (Los Lunas)",
+      "Bank of Albuquerque",
+      "U.S. Eagle Federal Credit Union"
+    ],
+    "HVAC Engineer": [
+      "Intel Rio Rancho",
+      "Meta Data Center (Los Lunas)",
+      "Bank of Albuquerque",
+      "U.S. Eagle Federal Credit Union",
+      "Blue Cross and Blue Shield of New Mexico"
+    ],
+    "Automotive Engineer": [
+      "Garcia Automotive Group (Albuquerque)",
+      "Reliable Nissan (Albuquerque)",
+      "Lithia Chrysler Jeep Dodge (Santa Fe)",
+      "Fiesta Subaru (Albuquerque)",
+      "American Toyota (Albuquerque)"
+    ],
+    "Maintenance Engineer": [
+      "Meta Data Center (Los Lunas)",
+      "Bank of Albuquerque",
+      "U.S. Eagle Federal Credit Union",
+      "Blue Cross and Blue Shield of New Mexico",
+      "Presbyterian Health Plan (Business Ops)"
+    ],
+    "Robotics Engineer": [
+      "Bank of Albuquerque",
+      "U.S. Eagle Federal Credit Union",
+      "Blue Cross and Blue Shield of New Mexico",
+      "Presbyterian Health Plan (Business Ops)",
+      "Flagship Food Group (Albuquerque)"
+    ],
+    "Thermal Engineer": [
+      "U.S. Eagle Federal Credit Union",
+      "Blue Cross and Blue Shield of New Mexico",
+      "Presbyterian Health Plan (Business Ops)",
+      "Flagship Food Group (Albuquerque)",
+      "Array Technologies (Albuquerque)"
+    ],
+    "Aerospace Engineer": [
+      "Blue Cross and Blue Shield of New Mexico",
+      "Presbyterian Health Plan (Business Ops)",
+      "Flagship Food Group (Albuquerque)",
+      "Array Technologies (Albuquerque)",
+      "PNM Resources (Albuquerque)"
+    ],
+    "Product Engineer": [
+      "Presbyterian Health Plan (Business Ops)",
+      "Flagship Food Group (Albuquerque)",
+      "Array Technologies (Albuquerque)",
+      "PNM Resources (Albuquerque)",
+      "Pattern Energy (Albuquerque)"
+    ],
+    "Registered Nurse (RN)": [
+      "UNM Hospital (Albuquerque)",
+      "Presbyterian Healthcare Services (Statewide)",
+      "Lovelace Health System (Albuquerque)",
+      "Christus St. Vincent (Santa Fe)",
+      "Gerald Champion Regional Medical Center (Alamogordo)"
+    ],
+    "Nurse Practitioner (NP)": [
+      "Presbyterian Healthcare Services (Statewide)",
+      "Lovelace Health System (Albuquerque)",
+      "Christus St. Vincent (Santa Fe)",
+      "Gerald Champion Regional Medical Center (Alamogordo)",
+      "San Juan Regional Medical Center (Farmington)"
+    ],
+    "Clinical Nurse Specialist": [
+      "Lovelace Health System (Albuquerque)",
+      "Christus St. Vincent (Santa Fe)",
+      "Gerald Champion Regional Medical Center (Alamogordo)",
+      "San Juan Regional Medical Center (Farmington)",
+      "Memorial Medical Center (Las Cruces)"
+    ],
+    "Public Health Nurse": [
+      "Christus St. Vincent (Santa Fe)",
+      "Gerald Champion Regional Medical Center (Alamogordo)",
+      "San Juan Regional Medical Center (Farmington)",
+      "Memorial Medical Center (Las Cruces)",
+      "Mimbres Memorial Hospital (Deming)"
+    ],
+    "Pediatric Nurse": [
+      "Gerald Champion Regional Medical Center (Alamogordo)",
+      "San Juan Regional Medical Center (Farmington)",
+      "Memorial Medical Center (Las Cruces)",
+      "Mimbres Memorial Hospital (Deming)",
+      "MountainView Regional Medical Center (Las Cruces)"
+    ],
+    "Geriatric Nurse": [
+      "San Juan Regional Medical Center (Farmington)",
+      "Memorial Medical Center (Las Cruces)",
+      "Mimbres Memorial Hospital (Deming)",
+      "MountainView Regional Medical Center (Las Cruces)",
+      "Taos Health Systems / Holy Cross Hospital"
+    ],
+    "Emergency Room Nurse": [
+      "Memorial Medical Center (Las Cruces)",
+      "Mimbres Memorial Hospital (Deming)",
+      "MountainView Regional Medical Center (Las Cruces)",
+      "Taos Health Systems / Holy Cross Hospital",
+      "UNM Hospital (Albuquerque)"
+    ],
+    "Nurse Educator": [
+      "Mimbres Memorial Hospital (Deming)",
+      "MountainView Regional Medical Center (Las Cruces)",
+      "Taos Health Systems / Holy Cross Hospital",
+      "UNM Hospital (Albuquerque)",
+      "Presbyterian Healthcare Services (Statewide)"
+    ],
+    "Critical Care Nurse": [
+      "MountainView Regional Medical Center (Las Cruces)",
+      "Taos Health Systems / Holy Cross Hospital",
+      "UNM Hospital (Albuquerque)",
+      "Presbyterian Healthcare Services (Statewide)",
+      "Lovelace Health System (Albuquerque)"
+    ],
+    "Clinical Psychologist": [
+      "Turquoise Lodge Hospital",
+      "New Mexico VA Health Care System",
+      "La Familia Medical Center (Santa Fe)",
+      "Santa Fe Recovery Center",
+      "Peak Behavioral Health (Santa Teresa)"
+    ],
+    "Counseling Psychologist": [
+      "New Mexico VA Health Care System",
+      "La Familia Medical Center (Santa Fe)",
+      "Santa Fe Recovery Center",
+      "Peak Behavioral Health (Santa Teresa)",
+      "Haven Behavioral Hospital (Albuquerque)"
+    ],
+    "Industrial-Organizational Psychologist": [
+      "La Familia Medical Center (Santa Fe)",
+      "Santa Fe Recovery Center",
+      "Peak Behavioral Health (Santa Teresa)",
+      "Haven Behavioral Hospital (Albuquerque)",
+      "Gerald Champion Behavioral Health (Alamogordo)"
+    ],
+    "School Psychologist": [
+      "Santa Fe Recovery Center",
+      "Peak Behavioral Health (Santa Teresa)",
+      "Haven Behavioral Hospital (Albuquerque)",
+      "Gerald Champion Behavioral Health (Alamogordo)",
+      "San Juan Behavioral Health (Farmington)"
+    ],
+    "Forensic Psychologist": [
+      "Peak Behavioral Health (Santa Teresa)",
+      "Haven Behavioral Hospital (Albuquerque)",
+      "Gerald Champion Behavioral Health (Alamogordo)",
+      "San Juan Behavioral Health (Farmington)",
+      "UNM Health Behavioral Health"
+    ],
+    "Health Psychologist": [
+      "Taos Health Systems / Holy Cross Hospital",
+      "UNM Hospital (Albuquerque)",
+      "Presbyterian Healthcare Services (Statewide)",
+      "Lovelace Health System (Albuquerque)",
+      "Christus St. Vincent (Santa Fe)"
+    ],
+    "Neuropsychologist": [
+      "Haven Behavioral Hospital (Albuquerque)",
+      "Gerald Champion Behavioral Health (Alamogordo)",
+      "San Juan Behavioral Health (Farmington)",
+      "UNM Health Behavioral Health",
+      "Presbyterian Behavioral Health"
+    ],
+    "Sports Psychologist": [
+      "Gerald Champion Behavioral Health (Alamogordo)",
+      "San Juan Behavioral Health (Farmington)",
+      "UNM Health Behavioral Health",
+      "Presbyterian Behavioral Health",
+      "Turquoise Lodge Hospital"
+    ]
+  },
+  "Masters": {
+    "Product Manager": [
+      "PNM Resources (Albuquerque)",
+      "Pattern Energy (Albuquerque)",
+      "Intel Rio Rancho",
+      "Meta Data Center (Los Lunas)",
+      "Bank of Albuquerque"
+    ],
+    "Management Consultant": [
+      "Pattern Energy (Albuquerque)",
+      "Intel Rio Rancho",
+      "Meta Data Center (Los Lunas)",
+      "Bank of Albuquerque",
+      "U.S. Eagle Federal Credit Union"
+    ],
+    "Finance Manager": [
+      "Intel Rio Rancho",
+      "Meta Data Center (Los Lunas)",
+      "Bank of Albuquerque",
+      "U.S. Eagle Federal Credit Union",
+      "Blue Cross and Blue Shield of New Mexico"
+    ],
+    "Operations Director": [
+      "Intel Rio Rancho",
+      "Meta Data Center (Los Lunas)",
+      "Bank of Albuquerque",
+      "U.S. Eagle Federal Credit Union",
+      "Blue Cross and Blue Shield of New Mexico"
+    ],
+    "Marketing Director": [
+      "Bank of Albuquerque",
+      "U.S. Eagle Federal Credit Union",
+      "Blue Cross and Blue Shield of New Mexico",
+      "Presbyterian Health Plan (Business Ops)",
+      "Flagship Food Group (Albuquerque)"
+    ],
+    "Entrepreneur / Founder": [
+      "U.S. Eagle Federal Credit Union",
+      "Blue Cross and Blue Shield of New Mexico",
+      "Presbyterian Health Plan (Business Ops)",
+      "Flagship Food Group (Albuquerque)",
+      "Array Technologies (Albuquerque)"
+    ],
+    "Corporate Strategy Lead": [
+      "Blue Cross and Blue Shield of New Mexico",
+      "Presbyterian Health Plan (Business Ops)",
+      "Flagship Food Group (Albuquerque)",
+      "Array Technologies (Albuquerque)",
+      "PNM Resources (Albuquerque)"
+    ],
+    "Data Scientist": [
+      "Presbyterian Health Plan (Business Ops)",
+      "Flagship Food Group (Albuquerque)",
+      "Array Technologies (Albuquerque)",
+      "PNM Resources (Albuquerque)",
+      "Pattern Energy (Albuquerque)"
+    ],
+    "Machine Learning Engineer": [
+      "Flagship Food Group (Albuquerque)",
+      "Array Technologies (Albuquerque)",
+      "PNM Resources (Albuquerque)",
+      "Pattern Energy (Albuquerque)",
+      "Intel Rio Rancho"
+    ],
+    "Cybersecurity Manager": [
+      "Sandia National Laboratories (Albuquerque)",
+      "Los Alamos National Laboratory",
+      "Kirtland AFB Cyber Ops (Albuquerque)",
+      "Northrop Grumman (Albuquerque)",
+      "Raytheon Technologies (Albuquerque)"
+    ],
+    "Ethical Hacker / Penetration Tester": [
+      "Array Technologies (Albuquerque)",
+      "PNM Resources (Albuquerque)",
+      "Pattern Energy (Albuquerque)",
+      "Intel Rio Rancho",
+      "Meta Data Center (Los Lunas)"
+    ],
+    "Security Architect": [
+      "Los Alamos National Laboratory",
+      "Kirtland AFB Cyber Ops (Albuquerque)",
+      "Northrop Grumman (Albuquerque)",
+      "Raytheon Technologies (Albuquerque)",
+      "Leidos (Albuquerque)"
+    ],
+    "Cloud Security Engineer": [
+      "Kirtland AFB Cyber Ops (Albuquerque)",
+      "Northrop Grumman (Albuquerque)",
+      "Raytheon Technologies (Albuquerque)",
+      "Leidos (Albuquerque)",
+      "Accenture Federal (Albuquerque)"
+    ],
+    "SOC Lead": [
+      "Northrop Grumman (Albuquerque)",
+      "Raytheon Technologies (Albuquerque)",
+      "Leidos (Albuquerque)",
+      "Accenture Federal (Albuquerque)",
+      "SAIC (Albuquerque)"
+    ],
+    "Cyber Risk Analyst": [
+      "Raytheon Technologies (Albuquerque)",
+      "Leidos (Albuquerque)",
+      "Accenture Federal (Albuquerque)",
+      "SAIC (Albuquerque)",
+      "Parsons (Albuquerque)"
+    ],
+    "Compliance Officer": [
+      "PNM Resources (Albuquerque)",
+      "Pattern Energy (Albuquerque)",
+      "Intel Rio Rancho",
+      "Meta Data Center (Los Lunas)",
+      "Bank of Albuquerque"
+    ],
+    "Security Consultant": [
+      "Leidos (Albuquerque)",
+      "Accenture Federal (Albuquerque)",
+      "SAIC (Albuquerque)",
+      "Parsons (Albuquerque)",
+      "Booz Allen Hamilton (Albuquerque)"
+    ],
+    "Security Researcher": [
+      "Accenture Federal (Albuquerque)",
+      "SAIC (Albuquerque)",
+      "Parsons (Albuquerque)",
+      "Booz Allen Hamilton (Albuquerque)",
+      "Sandia National Laboratories (Albuquerque)"
+    ],
+    "General Manager": [
+      "Pattern Energy (Albuquerque)",
+      "Intel Rio Rancho",
+      "Meta Data Center (Los Lunas)",
+      "Bank of Albuquerque",
+      "U.S. Eagle Federal Credit Union"
+    ],
+    "Strategy Consultant": [
+      "Meta Data Center (Los Lunas)",
+      "Bank of Albuquerque",
+      "U.S. Eagle Federal Credit Union",
+      "Blue Cross and Blue Shield of New Mexico",
+      "Presbyterian Health Plan (Business Ops)"
+    ],
+    "Human Resources Director": [
+      "Bank of Albuquerque",
+      "U.S. Eagle Federal Credit Union",
+      "Blue Cross and Blue Shield of New Mexico",
+      "Presbyterian Health Plan (Business Ops)",
+      "Flagship Food Group (Albuquerque)"
+    ],
+    "Organizational Development Manager": [
+      "U.S. Eagle Federal Credit Union",
+      "Blue Cross and Blue Shield of New Mexico",
+      "Presbyterian Health Plan (Business Ops)",
+      "Flagship Food Group (Albuquerque)",
+      "Array Technologies (Albuquerque)"
+    ],
+    "Project Management Director": [
+      "Blue Cross and Blue Shield of New Mexico",
+      "Presbyterian Health Plan (Business Ops)",
+      "Flagship Food Group (Albuquerque)",
+      "Array Technologies (Albuquerque)",
+      "PNM Resources (Albuquerque)"
+    ],
+    "Operations Manager": [
+      "Presbyterian Health Plan (Business Ops)",
+      "Flagship Food Group (Albuquerque)",
+      "Array Technologies (Albuquerque)",
+      "PNM Resources (Albuquerque)",
+      "Pattern Energy (Albuquerque)"
+    ],
+    "Program Director": [
+      "Flagship Food Group (Albuquerque)",
+      "Array Technologies (Albuquerque)",
+      "PNM Resources (Albuquerque)",
+      "Pattern Energy (Albuquerque)",
+      "Intel Rio Rancho"
+    ],
+    "Business Development Manager": [
+      "Array Technologies (Albuquerque)",
+      "PNM Resources (Albuquerque)",
+      "Pattern Energy (Albuquerque)",
+      "Intel Rio Rancho",
+      "Meta Data Center (Los Lunas)"
+    ],
+    "Entrepreneur / Startup Founder": [
+      "PNM Resources (Albuquerque)",
+      "Pattern Energy (Albuquerque)",
+      "Intel Rio Rancho",
+      "Meta Data Center (Los Lunas)",
+      "Bank of Albuquerque"
+    ],
+    "Nurse Practitioner": [
+      "UNM Hospital (Albuquerque)",
+      "Presbyterian Healthcare Services (Statewide)",
+      "Lovelace Health System (Albuquerque)",
+      "Christus St. Vincent (Santa Fe)",
+      "Gerald Champion Regional Medical Center (Alamogordo)"
+    ],
+    "Clinical Nurse Specialist": [
+      "Presbyterian Healthcare Services (Statewide)",
+      "Lovelace Health System (Albuquerque)",
+      "Christus St. Vincent (Santa Fe)",
+      "Gerald Champion Regional Medical Center (Alamogordo)",
+      "San Juan Regional Medical Center (Farmington)"
+    ],
+    "Nurse Educator": [
+      "Lovelace Health System (Albuquerque)",
+      "Christus St. Vincent (Santa Fe)",
+      "Gerald Champion Regional Medical Center (Alamogordo)",
+      "San Juan Regional Medical Center (Farmington)",
+      "Memorial Medical Center (Las Cruces)"
+    ],
+    "Nurse Manager": [
+      "Christus St. Vincent (Santa Fe)",
+      "Gerald Champion Regional Medical Center (Alamogordo)",
+      "San Juan Regional Medical Center (Farmington)",
+      "Memorial Medical Center (Las Cruces)",
+      "Mimbres Memorial Hospital (Deming)"
+    ],
+    "Nurse Anesthetist": [
+      "Gerald Champion Regional Medical Center (Alamogordo)",
+      "San Juan Regional Medical Center (Farmington)",
+      "Memorial Medical Center (Las Cruces)",
+      "Mimbres Memorial Hospital (Deming)",
+      "MountainView Regional Medical Center (Las Cruces)"
+    ],
+    "Nurse Administrator": [
+      "San Juan Regional Medical Center (Farmington)",
+      "Memorial Medical Center (Las Cruces)",
+      "Mimbres Memorial Hospital (Deming)",
+      "MountainView Regional Medical Center (Las Cruces)",
+      "Taos Health Systems / Holy Cross Hospital"
+    ],
+    "Public Health Nurse": [
+      "Memorial Medical Center (Las Cruces)",
+      "Mimbres Memorial Hospital (Deming)",
+      "MountainView Regional Medical Center (Las Cruces)",
+      "Taos Health Systems / Holy Cross Hospital",
+      "UNM Hospital (Albuquerque)"
+    ],
+    "Clinical Nurse Leader": [
+      "Mimbres Memorial Hospital (Deming)",
+      "MountainView Regional Medical Center (Las Cruces)",
+      "Taos Health Systems / Holy Cross Hospital",
+      "UNM Hospital (Albuquerque)",
+      "Presbyterian Healthcare Services (Statewide)"
+    ],
+    "Nurse Researcher": [
+      "MountainView Regional Medical Center (Las Cruces)",
+      "Taos Health Systems / Holy Cross Hospital",
+      "UNM Hospital (Albuquerque)",
+      "Presbyterian Healthcare Services (Statewide)",
+      "Lovelace Health System (Albuquerque)"
+    ],
+    "Nurse Informatics Specialist": [
+      "Taos Health Systems / Holy Cross Hospital",
+      "UNM Hospital (Albuquerque)",
+      "Presbyterian Healthcare Services (Statewide)",
+      "Lovelace Health System (Albuquerque)",
+      "Christus St. Vincent (Santa Fe)"
+    ],
+    "Clinical Psychologist": [
+      "UNM Health Behavioral Health",
+      "Presbyterian Behavioral Health",
+      "Turquoise Lodge Hospital",
+      "New Mexico VA Health Care System",
+      "La Familia Medical Center (Santa Fe)"
+    ],
+    "Counseling Psychologist": [
+      "Presbyterian Behavioral Health",
+      "Turquoise Lodge Hospital",
+      "New Mexico VA Health Care System",
+      "La Familia Medical Center (Santa Fe)",
+      "Santa Fe Recovery Center"
+    ],
+    "Industrial-Organizational Psychologist": [
+      "Turquoise Lodge Hospital",
+      "New Mexico VA Health Care System",
+      "La Familia Medical Center (Santa Fe)",
+      "Santa Fe Recovery Center",
+      "Peak Behavioral Health (Santa Teresa)"
+    ],
+    "Neuropsychologist": [
+      "New Mexico VA Health Care System",
+      "La Familia Medical Center (Santa Fe)",
+      "Santa Fe Recovery Center",
+      "Peak Behavioral Health (Santa Teresa)",
+      "Haven Behavioral Hospital (Albuquerque)"
+    ],
+    "School Psychologist": [
+      "La Familia Medical Center (Santa Fe)",
+      "Santa Fe Recovery Center",
+      "Peak Behavioral Health (Santa Teresa)",
+      "Haven Behavioral Hospital (Albuquerque)",
+      "Gerald Champion Behavioral Health (Alamogordo)"
+    ],
+    "Forensic Psychologist": [
+      "Santa Fe Recovery Center",
+      "Peak Behavioral Health (Santa Teresa)",
+      "Haven Behavioral Hospital (Albuquerque)",
+      "Gerald Champion Behavioral Health (Alamogordo)",
+      "San Juan Behavioral Health (Farmington)"
+    ],
+    "Rehabilitation Psychologist": [
+      "Peak Behavioral Health (Santa Teresa)",
+      "Haven Behavioral Hospital (Albuquerque)",
+      "Gerald Champion Behavioral Health (Alamogordo)",
+      "San Juan Behavioral Health (Farmington)",
+      "UNM Health Behavioral Health"
+    ],
+    "Health Psychologist": [
+      "UNM Hospital (Albuquerque)",
+      "Presbyterian Healthcare Services (Statewide)",
+      "Lovelace Health System (Albuquerque)",
+      "Christus St. Vincent (Santa Fe)",
+      "Gerald Champion Regional Medical Center (Alamogordo)"
+    ],
+    "Neuropsychology Researcher": [
+      "Haven Behavioral Hospital (Albuquerque)",
+      "Gerald Champion Behavioral Health (Alamogordo)",
+      "San Juan Behavioral Health (Farmington)",
+      "UNM Health Behavioral Health",
+      "Presbyterian Behavioral Health"
+    ]
+  }
+}
