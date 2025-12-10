@@ -137,6 +137,7 @@ const EducationPlanEditor = () => {
 	const [yearFilter, setYearFilter] = useState("");
 	const [semesterFilter, setSemesterFilter] = useState("");
 	const [dependencyIssues, setDependencyIssues] = useState([]);
+	const [creditLimitModal, setCreditLimitModal] = useState(null);
 	const userEmail = loadStorage("UserEmail");
 	const navigate = useNavigate();
 
@@ -204,18 +205,20 @@ const EducationPlanEditor = () => {
 
 		setAvailableCourses(uniqueCourses);
 
-		const builtDefaultPlan = uniqueCourses.map((course) => ({
-			program: selectedProgram,
-			university: selectedUniversity,
-			year: course.year,
-			semester: course.semester,
-			courseName: course.name,
-			code: course.code,
-			credits: course.credits,
-			prerequisite: course.prerequisite,
-			corequisite: course.corequisite,
-			schedule: course.schedule,
-		}));
+		const builtDefaultPlan = uniqueCourses
+			.filter((course) => !course.code?.toUpperCase().startsWith("ELEC"))
+			.map((course) => ({
+				program: selectedProgram,
+				university: selectedUniversity,
+				year: course.year,
+				semester: course.semester,
+				courseName: course.name,
+				code: course.code,
+				credits: course.credits,
+				prerequisite: course.prerequisite,
+				corequisite: course.corequisite,
+				schedule: course.schedule,
+			}));
 		setDefaultPlan(builtDefaultPlan);
 		setCourses(builtDefaultPlan);
 	}, [programs, selectedProgram, selectedUniversity]);
@@ -342,6 +345,30 @@ const EducationPlanEditor = () => {
 			if (prev.some((item) => item.code === newEntry.code)) {
 				alert("Course already in your plan.");
 				return prev;
+			}
+
+			// Check if adding this course would exceed total credit hours
+			const requiredCredits = selectedProgramMeta?.total_credit_hours;
+			if (requiredCredits) {
+				const currentCredits = prev.reduce((sum, c) => {
+					const value = Number(c.credits);
+					return sum + (Number.isFinite(value) ? value : 0);
+				}, 0);
+				const newCourseCredits = Number(newEntry.credits);
+				const validNewCredits = Number.isFinite(newCourseCredits)
+					? newCourseCredits
+					: 0;
+
+				if (currentCredits + validNewCredits > requiredCredits) {
+					setCreditLimitModal({
+						courseName: newEntry.courseName,
+						currentCredits,
+						addingCredits: validNewCredits,
+						totalWouldBe: currentCredits + validNewCredits,
+						programLimit: requiredCredits,
+					});
+					return prev;
+				}
 			}
 
 			const { prereqCodes, coreqCodes } = getDependencies(newEntry, knownCodes);
@@ -561,6 +588,77 @@ const EducationPlanEditor = () => {
 
 	return (
 		<section className="space-y-6">
+			{/* Credit Limit Modal */}
+			{creditLimitModal && (
+				<div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
+					<div className="bg-white rounded-2xl shadow-2xl max-w-md w-full p-6 space-y-4 animate-in fade-in zoom-in duration-200">
+						<div className="flex items-start gap-4">
+							<div className="flex-shrink-0 w-12 h-12 rounded-full bg-rose-100 flex items-center justify-center">
+								<svg
+									className="w-6 h-6 text-rose-600"
+									fill="none"
+									viewBox="0 0 24 24"
+									stroke="currentColor"
+								>
+									<path
+										strokeLinecap="round"
+										strokeLinejoin="round"
+										strokeWidth={2}
+										d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"
+									/>
+								</svg>
+							</div>
+							<div className="flex-1">
+								<h3 className="text-lg font-semibold text-slate-900">
+									Cannot Add {creditLimitModal.courseName}
+								</h3>
+								<p className="text-sm text-slate-600 mt-1">
+									This would exceed the program's total credit hours limit.
+								</p>
+							</div>
+						</div>
+
+						<div className="bg-slate-50 rounded-lg p-4 space-y-2 text-sm">
+							<div className="flex justify-between items-center">
+								<span className="text-slate-600">Current:</span>
+								<span className="font-semibold text-slate-900">
+									{creditLimitModal.currentCredits} credits
+								</span>
+							</div>
+							<div className="flex justify-between items-center">
+								<span className="text-slate-600">Adding:</span>
+								<span className="font-semibold text-indigo-600">
+									+{creditLimitModal.addingCredits} credits
+								</span>
+							</div>
+							<div className="border-t border-slate-200 pt-2 flex justify-between items-center">
+								<span className="text-slate-600">Total would be:</span>
+								<span className="font-bold text-rose-600">
+									{creditLimitModal.totalWouldBe} credits
+								</span>
+							</div>
+							<div className="flex justify-between items-center">
+								<span className="text-slate-600">Program limit:</span>
+								<span className="font-bold text-slate-900">
+									{creditLimitModal.programLimit} credits
+								</span>
+							</div>
+						</div>
+
+						<p className="text-sm text-slate-600">
+							Remove some courses first to make room for this one.
+						</p>
+
+						<button
+							onClick={() => setCreditLimitModal(null)}
+							className="w-full px-4 py-2.5 bg-indigo-600 hover:bg-indigo-700 text-white font-medium rounded-lg transition-colors"
+						>
+							OK
+						</button>
+					</div>
+				</div>
+			)}
+
 			<h2 className="text-2xl font-semibold text-slate-900">
 				Customize Your Education Plan
 			</h2>
@@ -706,7 +804,7 @@ const EducationPlanEditor = () => {
 									</span>
 								)}
 								{eligibilityCriteria && (
-									<span >
+									<span>
 										Eligibility Criteria:{" "}
 										<span className="font-normal text-slate-600">
 											{eligibilityCriteria}
