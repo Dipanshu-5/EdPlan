@@ -58,6 +58,24 @@ const ViewEducationPlan = () => {
 	const [expandedPlanId, setExpandedPlanId] = useState(null);
 	const userEmail = loadStorage("UserEmail");
 
+	const resolveDegree = (plan) => {
+		const inline =
+			plan.degree ||
+			plan.program_degree ||
+			plan.programDegree ||
+			plan.program_meta?.degree ||
+			"";
+		if (inline) return inline;
+		const match = programCatalogue.find(
+			(entry) =>
+				String(entry.university).toLowerCase() ===
+					String(plan.university).toLowerCase() &&
+				String(entry.program).toLowerCase() ===
+					String(plan.program).toLowerCase()
+		);
+		return match?.degree || "";
+	};
+
 	const filteredPlans = useMemo(() => {
 		if (!filter.trim()) return savedPlans;
 		const term = filter.toLowerCase();
@@ -74,6 +92,12 @@ const ViewEducationPlan = () => {
 			id: `local-${index}`,
 			university: entry.university || "University",
 			program: entry.program || "Program",
+			degree:
+				entry.degree ||
+				entry.programDegree ||
+				entry.program_degree ||
+				entry.program_meta?.degree ||
+				"",
 			savedDate: entry.savedDate || new Date().toISOString(),
 			courses: entry.courses || [],
 			averageAnnualCost: entry.averageAnnualCost || "",
@@ -96,6 +120,11 @@ const ViewEducationPlan = () => {
 				id: `remote-${index}`,
 				university: entry.university || entry.university_name || "University",
 				program: entry.program_name || entry.programTitle || "Program",
+				degree:
+					entry.program_meta?.degree ||
+					entry.program_degree ||
+					entry.degree ||
+					"",
 				savedDate:
 					entry.created_at || entry.savedDate || new Date().toISOString(),
 				courses: entry.program || [],
@@ -222,36 +251,42 @@ const ViewEducationPlan = () => {
 					<table className="min-w-full text-sm table-auto">
 						<thead>
 							<tr className="text-left text-xs uppercase tracking-wide text-slate-500 border-b border-slate-200 bg-slate-50">
-								<th className="px-4 py-3 font-semibold text-center">No.</th>
-								<th className="px-4 py-3 font-semibold">University</th>
-								<th className="px-4 py-3 font-semibold">Program</th>
-								<th className="px-4 py-3 font-semibold">Courses</th>
-								<th className="px-4 py-3 font-semibold">Total Credits</th>
-								<th className="px-4 py-3 font-semibold text-center">Actions</th>
+								<th className="px-2 py-3 font-semibold text-center">No.</th>
+								<th className="px-2 py-3 font-semibold">University</th>
+								<th className="px-2 py-3 font-semibold">Program (Degree)</th>
+								<th className="px-2 py-3 font-semibold">Courses</th>
+								<th className="px-2 py-3 font-semibold">Total Credits</th>
+								<th className="px-2 py-3 font-semibold text-center">Actions</th>
 							</tr>
 						</thead>
 						<tbody>
 							{filteredPlans.map((plan, index) => (
 								<Fragment key={plan.id}>
 									<tr className="border-b border-slate-100 hover:bg-slate-50 transition">
-										<td className="px-4 py-3 text-center text-slate-700 font-semibold w">
+										<td className="px-1 py-3 text-center text-slate-700 font-semibold w">
 											{index + 1}
 										</td>
-										<td className="px-4 py-3 text-slate-800 font-medium">
+										<td className="px-2 py-3 md:w-[20%] text-slate-800 font-medium">
 											{plan.university}
 										</td>
-										<td className="px-4 py-3 text-slate-700">{plan.program}</td>
-										<td className="px-4 py-3 text-slate-700">
+										<td className="px-2 py-3 text-slate-700">
+											{plan.program}
+											{(() => {
+												const degree = resolveDegree(plan);
+												return degree ? ` (${degree})` : "";
+											})()}
+										</td>
+										<td className="px-2 py-3 text-slate-700">
 											<span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-slate-200 text-slate-800">
 												{plan.courses.length} courses
 											</span>
 										</td>
-										<td className="px-4 py-3 text-slate-700">
+										<td className="px-2 py-3 text-slate-700">
 											<span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-indigo-100 text-indigo-800">
 												{getTotalCredits(plan.courses)} credits
 											</span>
 										</td>
-										<td className="px-4 py-3 text-center">
+										<td className="px-2 py-3 text-center">
 											<div className="flex items-center justify-center gap-2">
 												<button
 													type="button"
