@@ -2,7 +2,7 @@ let educationCache = null;
 
 const loadPrograms = async () => {
 	if (educationCache) return educationCache;
-	const response = await fetch("/assets/responses/programdetail.json");
+	const response = await fetch("/assets/programdetail.json");
 	if (!response.ok) {
 		throw new Error("Unable to load education plans");
 	}

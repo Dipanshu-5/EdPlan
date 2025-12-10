@@ -126,6 +126,9 @@ const CareerProgramPage = () => {
             if (selectedProgram) {
               saveStorage("SelectedProgram", selectedProgram);
             }
+            if (selectedDegree) {
+              saveStorage("SelectedDegreeLevel", selectedDegree);
+            }
           }}
           className="px-4 mt-6 py-2 rounded-lg text-center h-fit bg-[#281ed5] hover:bg-[#1977e3] text-white font-medium md:w-[200px]"
         >

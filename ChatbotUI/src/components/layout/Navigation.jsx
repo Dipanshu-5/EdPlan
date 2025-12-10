@@ -68,9 +68,11 @@ const Navigation = () => {
 				<NavItem to="/schedule" label="Schedule" />
 				<NavItem to="/chatbot" label="Chatbot" /> */}
 			</nav>
-			<Link to={'/chatbot'} className="mt-[250px] items-center">
-				<RiRobot3Line className="bg-[#281ed5] hover:shadow-lg text-white rounded-full h-12 w-12"/>
-			</Link>
+			<div className="mt-auto ml-1 flex">
+				<Link to="/chatbot">
+					<RiRobot3Line className="bg-[#281ed5] hover:shadow-lg text-white rounded-full h-12 w-12"/>
+				</Link>
+			</div>
 		</aside>
 	);
 };
