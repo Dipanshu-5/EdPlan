@@ -1,4 +1,5 @@
 import { useState } from "react";
+import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 
 const API_BASE_URL =
@@ -36,11 +37,11 @@ const IntakeForm = () => {
 				const detail = await response.text();
 				throw new Error(detail || "Save failed");
 			}
-			alert("Form saved!");
+			toast.success("Form saved!");
 			navigate("/uni");
 		} catch (error) {
 			console.error("Intake submit failed", error);
-			alert(
+			toast.error(
 				"Could not save form. Please try again. If this keeps happening, make sure the backend is running at /api/intake."
 			);
 		}

@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { login, register } from '../services/authService.js';
 import { save as saveStorage } from '../utils/storage.js';
+import toast from 'react-hot-toast';
 
 const LoginPage = ({ initialMode = 'login' }) => {
   const [isLogin, setIsLogin] = useState(initialMode !== 'signup');
@@ -57,7 +58,7 @@ const LoginPage = ({ initialMode = 'login' }) => {
       const response = await register(payload);
       const { success, message } = response.data || {};
       if (success) {
-        alert('Registration successful! You can now login.');
+        toast.success('Registration successful! You can now login.');
         setIsLogin(true);
       } else {
         setError(message || 'Registration failed.');

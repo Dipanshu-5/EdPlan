@@ -1,6 +1,7 @@
 import { useEffect, useState, useMemo } from "react";
 import { Link } from "react-router-dom";
 import { save as saveStorage } from "../utils/storage.js";
+import toast from "react-hot-toast";
 
 const CareerProgramPage = () => {
   const [data, setData] = useState(null);
@@ -63,6 +64,12 @@ const CareerProgramPage = () => {
     }
   }, [selectedProgram, selectedDegree, programsForDegree]);
 
+  useEffect(() => {
+    if (notAvailable) {
+      toast.error(notAvailable);
+    }
+  }, [notAvailable]);
+
   const selectedProgramObj =
     selectedProgram && selectedDegree
       ? programsForDegree.find((p) => p.name === selectedProgram) || null
@@ -104,12 +111,6 @@ const CareerProgramPage = () => {
             competencies.
           </p>
         </header>
-
-        {notAvailable && (
-          <p className="text-sm font-semibold text-center text-rose-600 mb-2">
-            {notAvailable}
-          </p>
-        )}
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
           <div>
