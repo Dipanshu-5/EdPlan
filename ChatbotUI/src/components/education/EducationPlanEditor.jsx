@@ -6,6 +6,7 @@ import {
 	load as loadStorage,
 	save as saveStorage,
 } from "../../utils/storage.js";
+import toast from "react-hot-toast";
 
 const LOCAL_PLAN_KEY = "LocalSavedPlans";
 const normalizeRequirement = (value) => (value || "").trim();
@@ -13,6 +14,8 @@ const hasMeaningfulRequirement = (value) => {
 	const normalized = normalizeRequirement(value).toLowerCase();
 	return normalized && normalized !== "none" && normalized !== "n/a";
 };
+const dedupeCourses = (list = []) =>
+	Array.from(new Map((list || []).map((c) => [c.code, c])).values());
 const YEAR_ORDER = [
 	"First Year",
 	"Second Year",
@@ -130,6 +133,7 @@ const EducationPlanEditor = () => {
 	const [programs, setPrograms] = useState([]);
 	const [selectedProgram, setSelectedProgram] = useState("");
 	const selectedUniversity = loadStorage("University") || "";
+	const [selectedDegree, setSelectedDegree] = useState("");
 	const [courses, setCourses] = useState([]);
 	const [availableCourses, setAvailableCourses] = useState([]);
 	const [defaultPlan, setDefaultPlan] = useState([]);
@@ -173,6 +177,7 @@ const EducationPlanEditor = () => {
 			setAvailableCourses((prev) => prev || []);
 			setCourses([]);
 			setDefaultPlan([]);
+			setSelectedDegree("");
 			return;
 		}
 
@@ -185,6 +190,7 @@ const EducationPlanEditor = () => {
 			setAvailableCourses([]);
 			setCourses([]);
 			setDefaultPlan([]);
+			setSelectedDegree("");
 			return;
 		}
 		const uniqueCourses =
@@ -203,24 +209,29 @@ const EducationPlanEditor = () => {
 				)
 			) || [];
 
-		setAvailableCourses(uniqueCourses);
+		const cleanedCourses = dedupeCourses(uniqueCourses);
+		setAvailableCourses(cleanedCourses);
 
-		const builtDefaultPlan = uniqueCourses
-			.filter((course) => !course.code?.toUpperCase().startsWith("ELEC"))
-			.map((course) => ({
-				program: selectedProgram,
-				university: selectedUniversity,
-				year: course.year,
-				semester: course.semester,
-				courseName: course.name,
-				code: course.code,
-				credits: course.credits,
-				prerequisite: course.prerequisite,
-				corequisite: course.corequisite,
-				schedule: course.schedule,
-			}));
+		const builtDefaultPlan = dedupeCourses(
+			cleanedCourses
+				.filter((course) => !course.code?.toUpperCase().startsWith("ELEC"))
+				.map((course) => ({
+					program: selectedProgram,
+					university: selectedUniversity,
+					year: course.year,
+					semester: course.semester,
+					courseName: course.name,
+					code: course.code,
+					credits: course.credits,
+					prerequisite: course.prerequisite,
+					corequisite: course.corequisite,
+					schedule: course.schedule,
+				}))
+		);
 		setDefaultPlan(builtDefaultPlan);
 		setCourses(builtDefaultPlan);
+		setSelectedDegree(match.degree || "");
+		saveStorage("ProgramDegree", match.degree || "");
 	}, [programs, selectedProgram, selectedUniversity]);
 
 	const knownCodes = useMemo(
@@ -319,6 +330,8 @@ const EducationPlanEditor = () => {
 		selectedProgramMeta?.college_profile?.eligibility_criteria ||
 		"";
 
+	const programTotalCredits = selectedProgramMeta?.total_credit_hours ?? 0;
+
 	// Filter courses to only show those not already in the plan
 	const remainingCourses = useMemo(() => {
 		const addedCourseCodes = new Set(courses.map((course) => course.code));
@@ -343,7 +356,7 @@ const EducationPlanEditor = () => {
 			};
 
 			if (prev.some((item) => item.code === newEntry.code)) {
-				alert("Course already in your plan.");
+				toast.error("Course already in your plan.");
 				return prev;
 			}
 
@@ -376,14 +389,14 @@ const EducationPlanEditor = () => {
 			for (const prereqCode of prereqCodes) {
 				const prereqCourse = prev.find((item) => item.code === prereqCode);
 				if (!prereqCourse) {
-					alert(
-						`${newEntry.courseName} requires ${prereqCode} in a prior term. Add the prerequisite first.`
+					toast(
+						`${newEntry.courseName} requires ${prereqCode} in a prior term. Add the pre-requisite first.`
 					);
 					return prev;
 				}
 				if (!isBefore(prereqCourse, newEntry)) {
-					alert(
-						`${prereqCode} must be scheduled before ${newEntry.courseName}. Move the prerequisite to an earlier term.`
+					toast(
+						`${prereqCode} must be scheduled before ${newEntry.courseName}. Move the pre-requisite to an earlier term.`
 					);
 					return prev;
 				}
@@ -397,7 +410,7 @@ const EducationPlanEditor = () => {
 					continue;
 				}
 				if (!isSameTerm(match, newEntry)) {
-					alert(
+					toast(
 						`${code} must be scheduled in ${newEntry.year} · ${newEntry.semester} with ${newEntry.courseName}. Move the co-requisite to the same term.`
 					);
 					return prev;
@@ -444,7 +457,7 @@ const EducationPlanEditor = () => {
 							});
 						});
 					} else {
-						alert(
+						toast(
 							`Co-requisite ${missingCoreqs.join(", ")} must be taken with ${
 								newEntry.courseName
 							}.`
@@ -452,82 +465,78 @@ const EducationPlanEditor = () => {
 						return prev;
 					}
 				} else {
-					alert(
-						`Co-requisite ${missingCoreqs.join(", ")} must be taken with ${
-							newEntry.courseName
-						} in the same term.`
-					);
+				toast(
+					`Co-requisite ${missingCoreqs.join(", ")} must be taken with ${
+						newEntry.courseName
+					} in the same term.`
+				);
+				return dedupeCourses(prev);
+			}
+		}
+
+			toast.success("Successfully Added")
+			return dedupeCourses([...prev, newEntry, ...extraCourses]);
+		});
+	};
+
+		const removeCourse = (code) => {
+			setCourses((prev) => {
+				const target = prev.find((course) => course.code === code);
+				if (!target) return prev;
+
+				const { coreqCodes, prereqCodes } = getDependencies(target, knownCodes);
+				const dependents = prev.filter((course) =>
+					getDependencies(course, knownCodes).coreqCodes.includes(code)
+				);
+				const prereqDependents = prev.filter((course) =>
+					getDependencies(course, knownCodes).prereqCodes.includes(code)
+				);
+
+				// Block removal when other courses depend on this one and show a single toast message.
+				if (coreqCodes.length > 0 || dependents.length > 0 || prereqDependents.length > 0) {
+					const parts = [];
+					if (coreqCodes.length > 0) {
+						parts.push(
+							`${target.courseName} has co-requisites: ${coreqCodes.join(", ")}.`
+						);
+					}
+					if (dependents.length > 0) {
+						parts.push(
+							`${target.courseName} is tied to co-requisite relationships with: ${dependents
+								.map((item) => `${item.courseName} (${item.code})`)
+								.join(", ")}.`
+						);
+					}
+					if (prereqDependents.length > 0) {
+						parts.push(
+							`Can't Remove ${target.courseName} because it is a pre-requisite for: ${prereqDependents
+								.map((item) => `${item.courseName} (${item.code})`)
+								.join(", ")}.`
+						);
+					}
+					toast.error(parts.join(" "));
 					return prev;
 				}
-			}
 
-			return [...prev, newEntry, ...extraCourses];
-		});
-	};
-
-	const removeCourse = (code) => {
-		setCourses((prev) => {
-			const target = prev.find((course) => course.code === code);
-			if (!target) return prev;
-
-			const { coreqCodes, prereqCodes } = getDependencies(target, knownCodes);
-			const dependents = prev.filter((course) =>
-				getDependencies(course, knownCodes).coreqCodes.includes(code)
-			);
-			const prereqDependents = prev.filter((course) =>
-				getDependencies(course, knownCodes).prereqCodes.includes(code)
-			);
-
-			const toRemove = new Set([code]);
-			coreqCodes.forEach((coreq) => toRemove.add(coreq));
-			dependents.forEach((course) => toRemove.add(course.code));
-
-			const warnings = [];
-
-			if (coreqCodes.length > 0 || dependents.length > 0) {
-				const linked = [...coreqCodes, ...dependents.map((item) => item.code)]
-					.filter(Boolean)
-					.join(", ");
-				if (linked) {
-					warnings.push(
-						`Removing ${target.courseName} will also remove linked co-requisites: ${linked}.`
-					);
-				}
-			}
-
-			if (prereqDependents.length > 0) {
-				warnings.push(
-					`${target.courseName} is a prerequisite for: ${prereqDependents
-						.map((item) => `${item.courseName} (${item.code})`)
-						.join(
-							", "
-						)}. Restore this prerequisite or remove those courses before saving.`
-				);
-			}
-
-			if (prereqCodes.length > 0) {
-				warnings.push(
-					`Prerequisite course(s) ${prereqCodes.join(
-						", "
-					)} become optional after removing ${target.courseName}.`
-				);
-			}
-
-			if (warnings.length > 0) {
-				alert(warnings.join("\n\n"));
-			}
-
-			return prev.filter((course) => !toRemove.has(course.code));
-		});
-	};
+				// Safe to remove only the selected course
+				toast.success("Successfully Removed")
+				return dedupeCourses(prev.filter((course) => course.code !== code));
+			});
+		};
 
 	const savePlanLocally = () => {
 		if (!selectedUniversity || !selectedProgram) {
-			alert("Select a university and program before saving.");
+			toast.error("Select a university and program before saving.")
 			return;
 		}
 		if (dependencyIssues.some((issue) => issue.blocking)) {
-			alert("Fix prerequisite/co-requisite issues before saving.");
+			toast.error("Fix pre-requisite/co-requisite issues before saving.");
+			return;
+		}
+		if (programTotalCredits > 0 && totalCredits < programTotalCredits) {
+			toast.error(
+				`Add ${programTotalCredits - totalCredits} more credits to meet the required ${programTotalCredits}  credits before saving.`
+			);
 			return;
 		}
 		const stored = loadStorage(LOCAL_PLAN_KEY, []);
@@ -545,7 +554,7 @@ const EducationPlanEditor = () => {
 			},
 		];
 		saveStorage(LOCAL_PLAN_KEY, updated);
-		alert("Education plan saved locally.");
+		toast.success("Education plan saved.");
 		navigate("/view");
 	};
 
@@ -555,7 +564,13 @@ const EducationPlanEditor = () => {
 			return;
 		}
 		if (dependencyIssues.some((issue) => issue.blocking)) {
-			alert("Fix prerequisite/co-requisite issues before saving.");
+			toast.error("Fix pre-requisite/co-requisite issues before saving.");
+			return;
+		}
+		if (programTotalCredits > 0 && totalCredits < programTotalCredits) {
+			toast.error(
+				`Add ${programTotalCredits - totalCredits} more credits to meet the required ${programTotalCredits}  credits before saving.`
+			);
 			return;
 		}
 		try {
@@ -563,19 +578,35 @@ const EducationPlanEditor = () => {
 				email: userEmail,
 				program: courses,
 			});
-			alert("Education plan saved.");
+			toast.success("Education plan saved.");
 			saveStorage("vieweducation", courses);
 			navigate("/view");
 		} catch (err) {
 			console.error(err);
 			if (err.response?.status === 401) {
-				alert("Your session has expired. Please login again.");
+				toast.error("Your session has expired. Please login again.");
 			} else {
-				alert("Unable to save plan. Please try again later.");
+				toast.error("Unable to save plan. Please try again later.");
 			}
 		}
 	};
 
+	// Program-level counts (static; do not change when user adds/removes)
+	const prereqProgramCount = useMemo(
+		() =>
+			defaultPlan.filter((course) =>
+				hasMeaningfulRequirement(course.prerequisite)
+			).length,
+		[defaultPlan]
+	);
+	const coreqProgramCount = useMemo(
+		() =>
+			defaultPlan.filter((course) =>
+				hasMeaningfulRequirement(course.corequisite)
+			).length,
+		[defaultPlan]
+	);
+	// Live plan totals (only total courses should change as user edits)
 	const totalCourses = useMemo(() => courses.length, [courses]);
 	const totalCredits = useMemo(
 		() =>
@@ -610,10 +641,10 @@ const EducationPlanEditor = () => {
 							</div>
 							<div className="flex-1">
 								<h3 className="text-lg font-semibold text-slate-900">
-									Cannot Add {creditLimitModal.courseName}
+									Cannot add {creditLimitModal.courseName}
 								</h3>
 								<p className="text-sm text-slate-600 mt-1">
-									This would exceed the program's total credit hours limit.
+									This exceeds the programs total credit hours limit.
 								</p>
 							</div>
 						</div>
@@ -646,7 +677,7 @@ const EducationPlanEditor = () => {
 						</div>
 
 						<p className="text-sm text-slate-600">
-							Remove some courses first to make room for this one.
+							Remove some courses first to add {creditLimitModal.courseName} course.
 						</p>
 
 						<button
@@ -668,6 +699,11 @@ const EducationPlanEditor = () => {
 					{selectedUniversity ? (
 						<div className="px-3 py-2 w-fit bg-indigo-50 border font-normal border-indigo-200 rounded-lg text-sm text-indigo-700">
 							Selected: <strong>{selectedUniversity}</strong>
+							{selectedDegree && (
+								<span className="ml-2 text-indigo-600">
+									({selectedDegree})
+								</span>
+							)}
 						</div>
 					) : (
 						<p className="text-base mt-1 font-normal ">
@@ -683,6 +719,18 @@ const EducationPlanEditor = () => {
 						onChange={(event) => {
 							setSelectedProgram(event.target.value);
 							saveStorage("Programname", event.target.value);
+							const found = programs.find(
+								(p) =>
+									p.program === event.target.value &&
+									p.university === selectedUniversity
+							);
+							if (found) {
+								setSelectedDegree(found.degree || "");
+								saveStorage("ProgramDegree", found.degree || "");
+							} else {
+								setSelectedDegree("");
+								saveStorage("ProgramDegree", "");
+							}
 						}}
 						className="px-3 py-2 rounded-lg border border-slate-200"
 					>
@@ -787,14 +835,14 @@ const EducationPlanEditor = () => {
 						</div>
 						{totalCourses > 0 && (
 							<div className="flex items-center gap-4 flex-wrap pt-3 border-t border-slate-200 text-sm text-slate-800 font-semibold">
-								<span>
-									Total Courses:{" "}
-									<span className="text-indigo-600">{totalCourses}</span>
-								</span>
-								<span className="w-36">
-									Total Credits:{" "}
-									<span className="text-indigo-600">{totalCredits}</span>
-								</span>
+								{totalCourses > 0 && (
+									<span>
+										Plan Overview:{" "}
+										<span className="font-normal text-slate-700">
+											This program includes <span className="font-semibold text-indigo-600">{totalCourses}</span> courses, <span className="font-semibold text-indigo-600">{prereqProgramCount}</span> with pre-requisites, <span className="font-semibold text-indigo-600">{coreqProgramCount}</span> with co-requisites.
+										</span>
+									</span>
+								)}
 								{averageAnnualCost && (
 									<span>
 										Avg. Annual Cost:{" "}
@@ -806,11 +854,15 @@ const EducationPlanEditor = () => {
 								{eligibilityCriteria && (
 									<span>
 										Eligibility Criteria:{" "}
-										<span className="font-normal text-slate-600">
+										<span className="font-normal text-slate-700">
 											{eligibilityCriteria}
 										</span>
 									</span>
 								)}
+								<span className="w-36">
+									Total Credits:{" "}
+									<span className="text-indigo-600">{totalCredits}</span>
+								</span>
 							</div>
 						)}
 					</div>
