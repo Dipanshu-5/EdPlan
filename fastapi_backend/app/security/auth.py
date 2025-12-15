@@ -12,7 +12,9 @@ from app.core.config import settings
 from app.db.session import get_db
 from app.models.user import User
 
-pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
+# NOTE: Use a pure-Python password hash scheme to avoid bcrypt backend issues on some
+# deployment runtimes (e.g., Python 3.13 wheels / bcrypt backend incompatibilities).
+pwd_context = CryptContext(schemes=["pbkdf2_sha256"], deprecated="auto")
 oauth2_scheme = OAuth2PasswordBearer(tokenUrl=f"{settings.api_prefix}/users/login")
 
 

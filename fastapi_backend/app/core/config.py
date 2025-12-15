@@ -52,6 +52,24 @@ class Settings(BaseSettings):
             return [origin.strip() for origin in value.split(",") if origin.strip()]
         return value
 
+    @field_validator("database_url", mode="before")
+    @classmethod
+    def normalize_database_url(cls, value: str) -> str:
+        if not isinstance(value, str):
+            return value
+
+        url = value.strip()
+
+        # Render and other platforms commonly provide "postgres://" URLs.
+        if url.startswith("postgres://"):
+            url = "postgresql://" + url[len("postgres://") :]
+
+        # This app uses SQLAlchemy asyncio; ensure an async driver is selected by default.
+        if url.startswith("postgresql://"):
+            url = url.replace("postgresql://", "postgresql+asyncpg://", 1)
+
+        return url
+
 
 @lru_cache(maxsize=1)
 def get_settings() -> Settings:

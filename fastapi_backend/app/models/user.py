@@ -6,7 +6,7 @@ from datetime import datetime
 from enum import Enum as PyEnum
 from typing import List
 
-from sqlalchemy import Boolean, DateTime, Enum, Integer, String
+from sqlalchemy import Boolean, DateTime, Enum, Integer, String, func
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 
 from app.db.base import Base
@@ -26,13 +26,16 @@ class User(Base):
     first_name: Mapped[str | None] = mapped_column(String(100))
     last_name: Mapped[str | None] = mapped_column(String(100))
     phone_number: Mapped[str | None] = mapped_column(String(32))
-    role: Mapped[UserRole] = mapped_column(Enum(UserRole), default=UserRole.CUSTOMER)
+    role: Mapped[UserRole] = mapped_column(
+        Enum(UserRole, name="userrole", values_callable=lambda enum: [e.value for e in enum]),
+        default=UserRole.CUSTOMER,
+    )
     is_active: Mapped[bool] = mapped_column(Boolean, default=True)
     is_deactivated: Mapped[bool] = mapped_column(Boolean, default=False)
     last_login_at: Mapped[datetime | None] = mapped_column(DateTime(timezone=True))
-    created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), default=datetime.utcnow)
+    created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), server_default=func.now())
     updated_at: Mapped[datetime] = mapped_column(
-        DateTime(timezone=True), default=datetime.utcnow, onupdate=datetime.utcnow
+        DateTime(timezone=True), server_default=func.now(), onupdate=func.now()
     )
 
     education_plans: Mapped[List["EducationPlan"]] = relationship(
@@ -49,4 +52,4 @@ class Customer(Base):
     company_name: Mapped[str | None] = mapped_column(String(150))
     title: Mapped[str | None] = mapped_column(String(150))
     notes: Mapped[str | None] = mapped_column(String(4000))
-    created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), default=datetime.utcnow)
+    created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), server_default=func.now())

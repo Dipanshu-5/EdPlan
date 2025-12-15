@@ -1,7 +1,7 @@
 """create core tables
 
 Revision ID: 0001
-Revises: 
+Revises:
 Create Date: 2024-11-07
 """
 
@@ -23,7 +23,12 @@ def upgrade() -> None:
         sa.Column("first_name", sa.String(length=100)),
         sa.Column("last_name", sa.String(length=100)),
         sa.Column("phone_number", sa.String(length=32)),
-        sa.Column("role", sa.Enum("admin", "customer", name="userrole"), nullable=False, server_default="customer"),
+        sa.Column(
+            "role",
+            sa.Enum("admin", "customer", name="userrole"),
+            nullable=False,
+            server_default="customer",
+        ),
         sa.Column("is_active", sa.Boolean, nullable=False, server_default=sa.true()),
         sa.Column("is_deactivated", sa.Boolean, nullable=False, server_default=sa.false()),
         sa.Column("last_login_at", sa.DateTime(timezone=True)),
@@ -55,7 +60,9 @@ def upgrade() -> None:
     op.create_table(
         "program_courses",
         sa.Column("id", sa.Integer, primary_key=True),
-        sa.Column("education_plan_id", sa.Integer, sa.ForeignKey("education_plans.id", ondelete="CASCADE")),
+        sa.Column(
+            "education_plan_id", sa.Integer, sa.ForeignKey("education_plans.id", ondelete="CASCADE")
+        ),
         sa.Column("year_label", sa.String(length=64)),
         sa.Column("semester_label", sa.String(length=64)),
         sa.Column("course_code", sa.String(length=64)),
@@ -69,8 +76,12 @@ def upgrade() -> None:
     op.create_table(
         "course_schedules",
         sa.Column("id", sa.Integer, primary_key=True),
-        sa.Column("education_plan_id", sa.Integer, sa.ForeignKey("education_plans.id", ondelete="CASCADE")),
-        sa.Column("course_id", sa.Integer, sa.ForeignKey("program_courses.id", ondelete="SET NULL")),
+        sa.Column(
+            "education_plan_id", sa.Integer, sa.ForeignKey("education_plans.id", ondelete="CASCADE")
+        ),
+        sa.Column(
+            "course_id", sa.Integer, sa.ForeignKey("program_courses.id", ondelete="SET NULL")
+        ),
         sa.Column("day", sa.String(length=32)),
         sa.Column("time", sa.String(length=32)),
         sa.Column("available", sa.Boolean, server_default=sa.true()),
@@ -107,4 +118,3 @@ def downgrade() -> None:
     op.drop_table("education_plans")
     op.drop_table("customers")
     op.drop_table("users")
-*** End of File

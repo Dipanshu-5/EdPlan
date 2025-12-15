@@ -1,39 +1,29 @@
 from __future__ import annotations
 
-import json
-from datetime import datetime
-from pathlib import Path
 from typing import Any, Dict
+import logging
 
-from fastapi import APIRouter, HTTPException
+from fastapi import APIRouter, Depends, HTTPException
+from sqlalchemy.exc import SQLAlchemyError
+from sqlalchemy.ext.asyncio import AsyncSession
+
+from app.db.session import get_db
+from app.models.intake import IntakeSubmission
 
 router = APIRouter(prefix="/intake", tags=["intake"])
-
-_STORE = Path(__file__).resolve().parents[3] / "data" / "intake_submissions.json"
-_STORE.parent.mkdir(parents=True, exist_ok=True)
+logger = logging.getLogger(__name__)
 
 
 @router.post("")
-async def save_intake(payload: Dict[str, Any]):
-    """Append intake form submission to a JSON file."""
+async def save_intake(payload: Dict[str, Any], db: AsyncSession = Depends(get_db)):
+    """Save intake form submission to the database."""
     try:
-        # Ensure file exists and is valid JSON
-        if not _STORE.exists():
-            _STORE.parent.mkdir(parents=True, exist_ok=True)
-            _STORE.write_text("[]", encoding="utf-8")
-
-        text = _STORE.read_text(encoding="utf-8").strip() or "[]"
-        try:
-            existing: list[dict[str, Any]] = json.loads(text)
-        except json.JSONDecodeError:
-            existing = []
-
-        submission = {
-            "submitted_at": datetime.utcnow().isoformat() + "Z",
-            "data": payload,
-        }
-        existing.append(submission)
-        _STORE.write_text(json.dumps(existing, indent=2), encoding="utf-8")
-        return {"success": True, "message": "Saved"}
-    except Exception as exc:  # pragma: no cover - simple persistence
+        entry = IntakeSubmission(payload=payload)
+        db.add(entry)
+        await db.commit()
+        await db.refresh(entry)
+        return {"success": True, "message": "Saved", "data": {"id": entry.id}}
+    except SQLAlchemyError as exc:
+        await db.rollback()
+        logger.exception("Failed to save intake submission")
         raise HTTPException(status_code=500, detail="Failed to save intake data") from exc
