@@ -45,7 +45,9 @@ const Navigation = () => {
 		<aside className="w-full lg:w-72 bg-white border-r border-slate-200 shadow-sm p-6 flex flex-col gap-6 lg:fixed lg:h-screen lg:top-0 lg:left-0 lg:overflow-y-auto">
 			<header className="flex items-center justify-between">
 				<div>
-					<h1 className="ml-4 text-xl font-semibold text-slate-900">EdPlan.ai</h1>
+					<h1 className="ml-4 text-xl font-semibold text-slate-900">
+						EdPlan.ai
+					</h1>
 				</div>
 				<button
 					type="button"
@@ -71,7 +73,7 @@ const Navigation = () => {
 			</nav>
 			<div className="mt-auto ml-1 flex">
 				<Link to="/chatbot">
-					<RiRobot3Line className="bg-[#281ed5] hover:shadow-lg text-white rounded-full h-12 w-12"/>
+					<RiRobot3Line className="bg-[#281ed5] hover:shadow-lg text-white rounded-full h-12 w-12" />
 				</Link>
 			</div>
 		</aside>

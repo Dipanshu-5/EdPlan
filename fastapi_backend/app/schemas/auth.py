@@ -40,3 +40,7 @@ class UserProfile(BaseModel):
 
     class Config:
         from_attributes = True
+
+
+class EmailVerificationRequest(BaseModel):
+    email: EmailStr

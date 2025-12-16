@@ -57,7 +57,9 @@ const ViewEducationPlan = () => {
 	const [filter, setFilter] = useState("");
 	const [error, setError] = useState("");
 	const [expandedPlanId, setExpandedPlanId] = useState(null);
-	const userEmail = loadStorage("UserEmail");
+	const storedEmail = loadStorage("UserEmail");
+	const userEmail =
+		typeof storedEmail === "string" ? storedEmail : storedEmail?.email;
 	const navigate = useNavigate();
 
 	const resolveDegree = (plan) => {
@@ -124,28 +126,40 @@ const ViewEducationPlan = () => {
 		}
 		setError("");
 		try {
-			const response = await getEducationPlanList({ email: userEmail });
+			const response = await getEducationPlanList(userEmail);
 			const payload = response.data?.data || [];
 
-			const remotePlans = payload.map((entry, index) => ({
-				id: `remote-${index}`,
-				university: entry.university || entry.university_name || "University",
-				program: entry.program_name || entry.programTitle || "Program",
-				degree:
-					entry.program_meta?.degree ||
-					entry.program_degree ||
-					entry.degree ||
-					"",
-				savedDate:
-					entry.created_at || entry.savedDate || new Date().toISOString(),
-				courses: entry.program || [],
-				averageAnnualCost:
-					entry.average_annual_cost ||
-					entry.averageAnnualCost ||
-					entry.college_profile?.average_annual_cost ||
-					"",
-				source: "remote",
-			}));
+			const remotePlans = payload.map((entry, index) => {
+				const courses = entry.program || entry.courses || [];
+				const firstCourse = courses.find(Boolean);
+				return {
+					id: `remote-${index}`,
+					university:
+						entry.university ||
+						entry.university_name ||
+						firstCourse?.university ||
+						"University",
+					program:
+						entry.program_name ||
+						entry.programTitle ||
+						firstCourse?.program ||
+						"Program",
+					degree:
+						entry.program_meta?.degree ||
+						entry.program_degree ||
+						entry.degree ||
+						"",
+					savedDate:
+						entry.created_at || entry.savedDate || new Date().toISOString(),
+					courses,
+					averageAnnualCost:
+						entry.average_annual_cost ||
+						entry.averageAnnualCost ||
+						entry.college_profile?.average_annual_cost ||
+						"",
+					source: "remote",
+				};
+			});
 
 			setSavedPlans([...remotePlans, ...localPlans]);
 		} catch (err) {
@@ -154,6 +168,8 @@ const ViewEducationPlan = () => {
 				setError(
 					"Your session has expired. Please login again to view saved plans."
 				);
+			} else if (err.response?.status === 422) {
+				setError("Unable to load saved plans. Please login again and retry.");
 			} else {
 				setError("Unable to fetch education plans at the moment.");
 			}
@@ -314,8 +330,8 @@ const ViewEducationPlan = () => {
 															? "bg-indigo-600 text-white"
 															: "bg-indigo-100 text-indigo-700 hover:bg-indigo-200"
 													}`}
-													>
-														{expandedPlanId === plan.id ? "Hide" : "View Plan"}
+												>
+													{expandedPlanId === plan.id ? "Hide" : "View Plan"}
 												</button>
 												<button
 													type="button"

@@ -1,6 +1,11 @@
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { login, register } from "../services/authService.js";
+import { useEffect, useState } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
+import {
+	login,
+	register,
+	requestEmailVerification,
+	getEmailVerificationStatus,
+} from "../services/authService.js";
 import { save as saveStorage } from "../utils/storage.js";
 import toast from "react-hot-toast";
 
@@ -13,12 +18,94 @@ const LoginPage = ({ initialMode = "login" }) => {
 		lastName: "",
 		phoneNumber: "",
 	});
+	const [verificationSent, setVerificationSent] = useState(false);
+	const [emailVerified, setEmailVerified] = useState(false);
+	const [verificationSending, setVerificationSending] = useState(false);
+	const [verificationChecking, setVerificationChecking] = useState(false);
 	const [error, setError] = useState("");
 	const navigate = useNavigate();
+	const location = useLocation();
 
 	const handleChange = (event) => {
 		const { name, value } = event.target;
 		setForm((prev) => ({ ...prev, [name]: value }));
+		if (!isLogin && name === "email") {
+			setVerificationSent(false);
+			setEmailVerified(false);
+		}
+	};
+
+	useEffect(() => {
+		if (isLogin) return;
+		const params = new URLSearchParams(location.search);
+		const verifiedParam = params.get("verified");
+		const emailParam = params.get("email");
+
+		if (emailParam) {
+			setForm((prev) => ({ ...prev, email: emailParam }));
+		}
+
+		if (verifiedParam === "1" || verifiedParam === "true") {
+			setEmailVerified(true);
+			setVerificationSent(true);
+		}
+	}, [isLogin, location.search]);
+
+	const handleSendVerificationLink = async () => {
+		const email = form.email?.trim();
+		if (!email) {
+			setError("Please enter your email first.");
+			return;
+		}
+
+		setError("");
+		setVerificationSending(true);
+		try {
+			await requestEmailVerification(email);
+			toast.success("Verification link sent to your email.");
+			setVerificationSent(true);
+		} catch (err) {
+			console.error(err);
+			const serverMessage =
+				err.response?.data?.message ||
+				err.response?.data?.detail ||
+				err.message;
+			setError(
+				serverMessage || "Failed to send verification email. Please try again."
+			);
+		} finally {
+			setVerificationSending(false);
+		}
+	};
+
+	const handleCheckVerification = async () => {
+		const email = form.email?.trim();
+		if (!email) {
+			setError("Please enter your email first.");
+			return;
+		}
+
+		setError("");
+		setVerificationChecking(true);
+		try {
+			const response = await getEmailVerificationStatus(email);
+			const verified = Boolean(response.data?.data?.verified);
+			if (verified) {
+				toast.success("Email verified.");
+				setEmailVerified(true);
+				return;
+			}
+			setError("Email not verified yet. Please click the link in your email.");
+		} catch (err) {
+			console.error(err);
+			const serverMessage =
+				err.response?.data?.message ||
+				err.response?.data?.detail ||
+				err.message;
+			setError(serverMessage || "Unable to check verification status.");
+		} finally {
+			setVerificationChecking(false);
+		}
 	};
 
 	const handleSubmit = async (event) => {
@@ -43,6 +130,11 @@ const LoginPage = ({ initialMode = "login" }) => {
 				} else {
 					setError(message || "Login failed. Please check your credentials.");
 				}
+				return;
+			}
+
+			if (!emailVerified) {
+				setError("Please verify your email before signing up.");
 				return;
 			}
 
@@ -127,15 +219,56 @@ const LoginPage = ({ initialMode = "login" }) => {
 
 					<label className="text-sm text-slate-600 space-y-1">
 						Email
-						<input
-							type="email"
-							name="email"
-							value={form.email}
-							onChange={handleChange}
-							className="w-full px-3 py-2 rounded-lg border border-slate-200"
-							required
-						/>
+						<div className="flex items-center gap-2">
+							<input
+								type="email"
+								name="email"
+								value={form.email}
+								onChange={handleChange}
+								className="w-full px-3 py-2 rounded-lg border border-slate-200"
+								required
+							/>
+							{!isLogin && (
+								<button
+									type="button"
+									onClick={handleSendVerificationLink}
+									disabled={verificationSending || !form.email}
+									className="whitespace-nowrap px-3 py-2 rounded-lg border border-slate-200 bg-slate-50 text-slate-700 text-sm font-medium hover:bg-slate-100 disabled:opacity-60"
+								>
+									{verificationSending
+										? "Sending…"
+										: verificationSent
+										? "Resend Link"
+										: "Send Link"}
+								</button>
+							)}
+						</div>
 					</label>
+
+					{!isLogin && verificationSent && !emailVerified && (
+						<div className="rounded-lg border border-slate-200 bg-slate-50 px-4 py-3 text-sm text-slate-700">
+							<div className="flex flex-col gap-2">
+								<span>
+									A verification link was sent to <strong>{form.email}</strong>.
+									Click the link, then return here.
+								</span>
+								<button
+									type="button"
+									onClick={handleCheckVerification}
+									disabled={verificationChecking}
+									className="self-start px-3 py-2 rounded-lg bg-emerald-600 text-white font-medium hover:bg-emerald-500 disabled:opacity-60"
+								>
+									{verificationChecking ? "Checking…" : "I clicked the link"}
+								</button>
+							</div>
+						</div>
+					)}
+
+					{!isLogin && emailVerified && (
+						<div className="text-sm text-emerald-700 bg-emerald-50 border border-emerald-100 rounded-lg px-4 py-3">
+							Email verified. You can complete signup.
+						</div>
+					)}
 
 					{!isLogin && (
 						<label className="text-sm text-slate-600 space-y-1">
@@ -163,6 +296,7 @@ const LoginPage = ({ initialMode = "login" }) => {
 
 					<button
 						type="submit"
+						disabled={!isLogin && !emailVerified}
 						className="w-full px-4 py-2.5 rounded-lg bg-slate-900 text-white font-medium hover:bg-slate-700"
 					>
 						{isLogin ? "Login" : "Sign up"}
