@@ -1,4 +1,5 @@
 import { Fragment, useEffect, useMemo, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { getEducationPlanList } from "../../services/authService.js";
 import { listPrograms } from "../../services/educationPlanService.js";
 import {
@@ -57,6 +58,7 @@ const ViewEducationPlan = () => {
 	const [error, setError] = useState("");
 	const [expandedPlanId, setExpandedPlanId] = useState(null);
 	const userEmail = loadStorage("UserEmail");
+	const navigate = useNavigate();
 
 	const resolveDegree = (plan) => {
 		const inline =
@@ -74,6 +76,15 @@ const ViewEducationPlan = () => {
 					String(plan.program).toLowerCase()
 		);
 		return match?.degree || "";
+	};
+	const handleEdit = (plan) => {
+		const degree = resolveDegree(plan);
+		saveStorage("University", plan.university || "");
+		saveStorage("Programname", plan.program || "");
+		saveStorage("ProgramDegree", degree || "");
+		saveStorage("SelectedProgram", plan.program || "");
+		saveStorage("SelectedDegreeLevel", degree || "");
+		navigate("/educationplan");
 	};
 
 	const filteredPlans = useMemo(() => {
@@ -221,7 +232,7 @@ const ViewEducationPlan = () => {
 			<header className="flex flex-col md:flex-row md:items-center justify-between gap-4">
 				<div>
 					<h2 className="text-2xl font-semibold text-slate-900">
-						Saved Education Plans
+						Saved Education <span className="text-[#0069e0]">Plans</span>
 					</h2>
 					<p className="text-sm text-slate-500">
 						Browse and share the education plans you&apos;ve saved.
@@ -278,7 +289,7 @@ const ViewEducationPlan = () => {
 										</td>
 										<td className="px-2 py-3 text-slate-700">
 											<span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-slate-200 text-slate-800">
-												{plan.courses.length} courses
+												{plan.courses.length}
 											</span>
 										</td>
 										<td className="px-2 py-3 text-slate-700">
@@ -290,14 +301,21 @@ const ViewEducationPlan = () => {
 											<div className="flex items-center justify-center gap-2">
 												<button
 													type="button"
+													onClick={() => handleEdit(plan)}
+													className="px-4 py-1.5 rounded-lg bg-orange-300 text-orange-800 text-sm font-medium hover:bg-orange-400 transition"
+												>
+													Edit
+												</button>
+												<button
+													type="button"
 													onClick={() => toggleExpand(plan.id)}
 													className={`px-4 py-1.5 rounded-lg text-sm font-medium transition ${
 														expandedPlanId === plan.id
 															? "bg-indigo-600 text-white"
 															: "bg-indigo-100 text-indigo-700 hover:bg-indigo-200"
 													}`}
-												>
-													{expandedPlanId === plan.id ? "Hide" : "View Plan"}
+													>
+														{expandedPlanId === plan.id ? "Hide" : "View Plan"}
 												</button>
 												<button
 													type="button"

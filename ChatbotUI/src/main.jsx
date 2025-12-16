@@ -12,6 +12,10 @@ ReactDOM.createRoot(document.getElementById("root")).render(
       position="bottom-right"
       toastOptions={{
         duration: 3000,
+        style: {
+          fontSize: "18px",
+          padding: "16px",
+        },
       }}
     />
   </BrowserRouter>

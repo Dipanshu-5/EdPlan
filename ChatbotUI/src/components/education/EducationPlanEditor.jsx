@@ -691,7 +691,7 @@ const EducationPlanEditor = () => {
 			)}
 
 			<h2 className="text-2xl font-semibold text-slate-900">
-				Customize Your Education Plan
+				Customize Your Education <span className="text-[#0069e0]">Plan</span>
 			</h2>
 			<header className="grid gap-4 md:grid-cols-2 bg-white border border-slate-200 rounded-xl shadow-sm p-5">
 				<label className="flex flex-col gap-2 text-sm font-semibold text-slate-600">
@@ -706,8 +706,8 @@ const EducationPlanEditor = () => {
 							)}
 						</div>
 					) : (
-						<p className="text-base mt-1 font-normal ">
-							Select a University/College from the Find Programs Page.
+						<p className="text-base text-red-600 font-semibold mt-1">
+							Select a University/College from the Find Program Page.
 						</p>
 					)}
 				</label>

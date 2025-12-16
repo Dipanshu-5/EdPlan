@@ -3,6 +3,7 @@ import { searchUniversities } from "../../services/universityService.js";
 import { listPrograms } from "../../services/educationPlanService.js";
 import { load as loadStorage, save as saveStorage } from "../../utils/storage.js";
 import { useNavigate } from 'react-router-dom';
+import toast from 'react-hot-toast';
 
 const stateOptions = [
 	"",
@@ -78,7 +79,7 @@ const FindUniversity = ({ onSelectProgram }) => {
 	const [error, setError] = useState("");
 	const [searchTerm, setSearchTerm] = useState("");
 	const [stateFilter, setStateFilter] = useState("");
-	const [costFilter, setCostFilter] = useState(50000);
+	const [costFilter, setCostFilter] = useState(18000);
 	const [programOptions, setProgramOptions] = useState([]);
 	const [selectedProgram, setSelectedProgram] = useState("");
 	const [programMap, setProgramMap] = useState(new Map());
@@ -216,11 +217,16 @@ const FindUniversity = ({ onSelectProgram }) => {
 			if (exists) {
 				const next = prev.filter((entry) => entry.unit_id !== university.unit_id);
 				saveStorage("CompareQueue", next);
+				toast.success("Successfully Removed from the Comparison list!");
 				return next;
 			}
-			if (prev.length >= 3) return prev;
+			if (prev.length >= 3) {
+				toast.error("You can only compare upto 3 universities at a time.");
+				return prev;
+			}
 			const next = [...prev, university];
 			saveStorage("CompareQueue", next);
+			toast.success("Successfully Added to the Comparison list!");
 			return next;
 		});
 	};
@@ -241,7 +247,7 @@ const FindUniversity = ({ onSelectProgram }) => {
 	return (
 		<section className="space-y-6">
 			<header className="flex flex-col gap-4">
-			    <h2 className="text-2xl font-semibold text-slate-900">Explore Colleges</h2>
+			    <h2 className="text-2xl font-semibold text-slate-900">Explore <span className="text-[#0069e0]">Colleges</span></h2>
 				<form
 					onSubmit={handleSearch}
 					className="flex flex-col md:flex-row gap-3"
@@ -294,11 +300,11 @@ const FindUniversity = ({ onSelectProgram }) => {
 
 			<div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
 				<label className="flex flex-col gap-1 text-sm text-slate-600 font-semibold">
-					Max annual cost
+					Max. Annual Cost
 					<input
 						type="range"
-						min="10000"
-						max="100000"
+						min="1000"
+						max="30000"
 						step="1000"
 						value={costFilter}
 						onChange={(event) => setCostFilter(Number(event.target.value))}

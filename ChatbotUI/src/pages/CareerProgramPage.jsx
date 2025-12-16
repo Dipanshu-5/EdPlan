@@ -75,6 +75,8 @@ const CareerProgramPage = () => {
       ? programsForDegree.find((p) => p.name === selectedProgram) || null
       : null;
 
+  const hasValidData = Boolean(selectedProgramObj);
+
   const getEmployersForCareer = (careerTitle) => {
     if (!careerTitle || !selectedDegree) return [];
     return employers?.[selectedDegree]?.[careerTitle] || [];
@@ -90,21 +92,27 @@ const CareerProgramPage = () => {
   return (
     <div
       className="p-6 min-h-screen relative"
-      style={{
-        backgroundImage: "url('/assets/bg.png')",
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-        backgroundAttachment: "fixed",
-      }}
+      style={
+        hasValidData
+          ? {}
+          : {
+              backgroundImage: "url('/assets/bg.png')",
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+              backgroundAttachment: "fixed",
+            }
+      }
     >
-      <div
-        className="absolute inset-0 bg-white"
-        style={{ opacity: 0.82 }}
-      ></div>
+      {!hasValidData && (
+        <div
+          className="absolute inset-0 bg-white"
+          style={{ opacity: 0.82 }}
+        ></div>
+      )}
       <div className="relative z-10">
         <header>
           <h2 className="text-2xl font-semibold mb-2">
-            Career & Program Explorer
+            Career & Program <span className="text-[#0069e0]">Explorer</span>
           </h2>
           <p className="text-sm text-slate-600 mb-4">
             Select a program and degree to view careers, salary ranges, and
@@ -169,7 +177,7 @@ const CareerProgramPage = () => {
                 </p>
               </div>
             ) : (
-              <p className="mt-52 text-center text-slate-600">
+              <p className="mt-52 text-center font-semibold text-slate-600">
                 Please select both program and degree to view details.
               </p>
             )}
@@ -185,7 +193,7 @@ const CareerProgramPage = () => {
                 {selectedProgramObj.careers.map((c, idx) => (
                   <li
                     key={c.title + idx}
-                    className="border rounded-md p-4 hover:shadow-lg transition"
+                    className="border border-slate-300 rounded-md p-4 hover:shadow-lg transition"
                   >
                     <div className="flex items-center text-lg gap-14">
                       <strong className="text-[#0069e0] w-72">{c.title}</strong>
@@ -213,8 +221,8 @@ const CareerProgramPage = () => {
                     )}
 
                     {c.competencies && c.competencies.length > 0 && (
-                      <div className="mt-4">
-                        <p className="font-semibold text-slate-700 mb-3">
+                      <div className="mt-8">
+                        <p className="text-base font-semibold text-slate-700 mb-3">
                           Key Competencies acquired by the students upon
                           completion of this program:
                         </p>

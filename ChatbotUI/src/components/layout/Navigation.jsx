@@ -58,7 +58,8 @@ const Navigation = () => {
 			<nav className="flex flex-col gap-2">
 				<NavItem to="/home" label="Home" />
 				<NavItem to="/career" label="Career & Program" />
-				<NavItem to="/uni" label="Find Programs" />
+				<NavItem to="/intake" label="Onboarding Form" />
+				<NavItem to="/uni" label="Find Program" />
 				{/* <NavItem to="/programdetails" label="Program Details" /> */}
 				<NavItem to="/educationplan" label="Create Education Plan" />
 				<NavItem to="/view" label="Saved Plans" />
