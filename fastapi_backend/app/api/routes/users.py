@@ -95,29 +95,16 @@ async def email_advisor(data: dict):
 
 @router.post("/users/email-verification/request")
 async def request_email_verification(data: dict):
-    """Send email verification link (simplified implementation)"""
+    """Email verification is currently disabled."""
     email = data.get("email")
     if not email:
         raise HTTPException(status_code=400, detail="email is required")
 
-    # In a production app, you would:
-    # 1. Generate a unique verification token
-    # 2. Store it in the database with expiration
-    # 3. Send an email with a verification link
-    # For now, we'll just return success to allow development
-
-    verification_link = f"http://localhost:5173/signup?verified=1&email={email}"
-    try:
-        send_email(
-            "Email Verification",
-            f"Click this link to verify your email: {verification_link}",
-            email,
-        )
-    except Exception as e:
-        # If email fails, still return success for development
-        print(f"Email verification send failed: {e}")
-
-    return {"success": True, "message": "Verification email sent", "data": None}
+    return {
+        "success": True,
+        "message": "Email verification is disabled. You can continue signup.",
+        "data": {"email": email},
+    }
 
 
 @router.get("/users/email-verification/status")

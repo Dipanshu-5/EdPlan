@@ -30,6 +30,14 @@ def create_application() -> FastAPI:
         version="1.0.0",
     )
 
+    @app.get("/")
+    async def root():
+        return {
+            "success": True,
+            "message": "EduPlan API is running",
+            "data": {"name": settings.app_name, "version": "1.0.0"},
+        }
+
     @app.exception_handler(Exception)
     async def unhandled_exception_handler(request: Request, exc: Exception):
         request_id = uuid.uuid4().hex

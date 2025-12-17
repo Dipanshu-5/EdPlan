@@ -1,5 +1,7 @@
 import { Fragment, useEffect, useMemo, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { jsPDF } from "jspdf";
+import { FaDownload } from "react-icons/fa6";
 import { getEducationPlanList } from "../../services/authService.js";
 import { listPrograms } from "../../services/educationPlanService.js";
 import {
@@ -243,6 +245,70 @@ const ViewEducationPlan = () => {
 		setExpandedPlanId((prev) => (prev === planId ? null : planId));
 	};
 
+	const downloadPlan = (plan) => {
+		const doc = new jsPDF();
+		let y = 12;
+
+		const addLine = (text, options = {}) => {
+			const lines = doc.splitTextToSize(String(text || ""), 180);
+			lines.forEach((line) => {
+				if (y > 280) {
+					doc.addPage();
+					y = 12;
+				}
+				doc.text(line, 14, y, options);
+				y += 6;
+			});
+		};
+
+		const grouped = groupCoursesByYearAndSemester(plan.courses || []);
+		const totalCredits = getTotalCredits(plan.courses || []);
+		const totalCourses = plan.courses?.length || 0;
+		const degree = resolveDegree(plan);
+
+		doc.setFontSize(14);
+		addLine(`Education Plan: ${plan.program || "Program"}`);
+		doc.setFontSize(11);
+		addLine(`University: ${plan.university || "University"}`);
+		if (degree) addLine(`Degree: ${degree}`);
+		addLine(`Total Credits: ${totalCredits}`);
+		addLine(`Total Courses: ${totalCourses}`);
+		addLine(" ");
+
+		Object.keys(grouped)
+			.sort()
+			.forEach((yearKey) => {
+				doc.setFontSize(12);
+				addLine(yearKey);
+				const semesters = grouped[yearKey] || {};
+				Object.keys(semesters)
+					.sort()
+					.forEach((semKey) => {
+						doc.setFontSize(11);
+						addLine(`  ${semKey}`);
+						doc.setFontSize(10);
+						semesters[semKey].forEach((course) => {
+							const prereq = normalizeRequirement(course.prerequisite);
+							const coreq = normalizeRequirement(course.corequisite);
+							addLine(
+								`    • ${course.code || ""} — ${
+									course.courseName || course.name || "Course"
+								} (${course.credits ?? "N/A"} credits)`
+							);
+							if (hasMeaningfulRequirement(prereq)) {
+								addLine(`      Prerequisite: ${prereq}`);
+							}
+							if (hasMeaningfulRequirement(coreq)) {
+								addLine(`      Corequisite: ${coreq}`);
+							}
+						});
+						addLine(" ");
+					});
+			});
+
+		doc.save(`${plan.program || "education-plan"}.pdf`);
+	};
+
 	return (
 		<section className="space-y-6">
 			<header className="flex flex-col md:flex-row md:items-center justify-between gap-4">
@@ -345,6 +411,13 @@ const ViewEducationPlan = () => {
 													className="px-4 py-1.5 rounded-lg bg-rose-100 text-rose-700 text-sm font-medium hover:bg-rose-200 transition"
 												>
 													Delete Plan
+												</button>
+												<button
+													type="button"
+													onClick={() => downloadPlan(plan)}
+													className="px-4 py-1.5 rounded-lg bg-emerald-100 hover:bg-emerald-200 transition"
+												>
+													<FaDownload className="inline-block text-emerald-700" />
 												</button>
 											</div>
 										</td>
