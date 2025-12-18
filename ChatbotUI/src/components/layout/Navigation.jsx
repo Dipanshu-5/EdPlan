@@ -1,16 +1,15 @@
-import { Link, NavLink, useLocation, useNavigate } from "react-router-dom";
+import { NavLink, useLocation, useNavigate } from "react-router-dom";
 import clsx from "clsx";
 import { load, remove } from "../../utils/storage.js";
-import { RiRobot3Line } from "react-icons/ri";
 
 const NavItem = ({ to, label }) => (
 	<NavLink
 		to={to}
 		className={({ isActive }) =>
 			clsx(
-				"w-full px-4 py-3 text-left rounded-md transition",
+				"w-full px-4 py-3 font-semibold bg-slate-100 text-left rounded-md transition",
 				isActive
-					? "bg-[#281ed5] text-white shadow-lg"
+					? "bg-[#685cff] text-white shadow-lg"
 					: "text-slate-600 hover:bg-slate-200"
 			)
 		}
@@ -71,11 +70,6 @@ const Navigation = () => {
 				<NavItem to="/schedule" label="Schedule" />
 				<NavItem to="/chatbot" label="Chatbot" /> */}
 			</nav>
-			<div className="mt-auto ml-1 flex">
-				<Link to="/chatbot">
-					<RiRobot3Line className="bg-[#281ed5] hover:shadow-lg text-white rounded-full h-12 w-12" />
-				</Link>
-			</div>
 		</aside>
 	);
 };

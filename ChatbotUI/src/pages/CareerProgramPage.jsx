@@ -106,23 +106,22 @@ const CareerProgramPage = () => {
       {!hasValidData && (
         <div
           className="absolute inset-0 bg-white"
-          style={{ opacity: 0.82 }}
+          style={{ opacity: 0.60 }}
         ></div>
       )}
       <div className="relative z-10">
         <header>
-          <h2 className="text-2xl font-semibold mb-2">
-            Career & Program <span className="text-[#0069e0]">Explorer</span>
-          </h2>
-          <p className="text-sm text-slate-600 mb-4">
-            Select a program and degree to view careers, salary ranges, and
-            competencies.
+          <h1 className="text-5xl mt-1 font-semibold mb-2">
+            Discover <span className="text-[#0069e0]">Careers</span> and <span className="text-[#0069e0]">Programs</span> That Fit You
+          </h1>
+          <p className="text-[23px] font-medium text-slate-600 mb-5">
+            Connect your program to real careers and the competencies you need.
           </p>
         </header>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
           <div>
-            <label className="block text-sm font-medium mb-1">Program</label>
+            <label className="block font-medium mb-1">Program</label>
             <select
               className="w-full border rounded-md p-2"
               value={selectedProgram}
@@ -138,7 +137,7 @@ const CareerProgramPage = () => {
           </div>
 
           <div>
-            <label className="block text-sm font-medium mb-1">Degree</label>
+            <label className="block font-medium mb-1">Degree</label>
             <select
               className="w-full border rounded-md p-2"
               value={selectedDegree}
@@ -163,23 +162,19 @@ const CareerProgramPage = () => {
                 saveStorage("SelectedDegreeLevel", selectedDegree);
               }
             }}
-            className="px-4 mt-6 py-2 rounded-lg text-center h-fit bg-[#281ed5] hover:bg-[#1977e3] text-white font-medium md:w-[200px]"
+            className="px-4 mt-7 py-2 rounded-lg text-center h-fit bg-[#281ed5] hover:bg-[#1977e3] text-white font-medium md:w-[200px]"
           >
             Continue
           </Link>
 
           <div className="md:col-span-3">
-            {selectedProgramObj ? (
+            {selectedProgramObj && (
               <div className="mt-4">
-                <h3 className="text-lg font-medium">Program Summary</h3>
-                <p className="text-slate-600 mb-2">
+                <h3 className="text-xl font-medium">Program Summary</h3>
+                <p className="text-slate-600 text-lg mb-2">
                   {selectedProgramObj.description}
                 </p>
               </div>
-            ) : (
-              <p className="mt-52 text-center font-semibold text-slate-600">
-                Please select both program and degree to view details.
-              </p>
             )}
           </div>
         </div>
@@ -189,11 +184,11 @@ const CareerProgramPage = () => {
             <div>
               <h3 className="text-xl font-semibold mb-3">Career Options</h3>
 
-              <ul className="space-y-4">
+              <ul className="space-y-12">
                 {selectedProgramObj.careers.map((c, idx) => (
                   <li
                     key={c.title + idx}
-                    className="border border-slate-300 rounded-md p-4 hover:shadow-lg transition"
+                    className="border border-slate-300  rounded-md p-4 hover:shadow-xl transition"
                   >
                     <div className="flex items-center text-lg gap-14">
                       <strong className="text-[#0069e0] w-72">{c.title}</strong>
@@ -211,7 +206,7 @@ const CareerProgramPage = () => {
                           {getEmployersForCareer(c.title).map((emp) => (
                             <li
                               key={emp}
-                              className="px-3 py-2 text-xs font-semibold rounded-2xl border border-slate-200 bg-indigo-50 text-slate-700"
+                              className="px-3 py-2 text-base font-medium rounded-2xl border border-slate-200 bg-indigo-50 text-slate-700 hover:shadow-md transition"
                             >
                               {emp}
                             </li>
@@ -246,7 +241,7 @@ const CareerProgramPage = () => {
                             return (
                               <div
                                 key={topic + idx}
-                                className="flex gap-3 text-base p-3 bg-indigo-50 rounded-md border-l-4 border-indigo-400"
+                                className="flex gap-3 text-base p-3 bg-indigo-50 rounded-md border-l-4 border-indigo-400 hover:shadow-md transition"
                               >
                                 <div>
                                   <strong className="text-indigo-700">

@@ -54,7 +54,7 @@ const IntakeForm = () => {
 					<div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
 						<div className="flex flex-col">
 							<h1 className="text-xl sm:text-2xl font-semibold">
-								Student Onboarding Form
+								Tell Us About Yourself to Get Started
 							</h1>
 							<p className="text-xs sm:text-sm text-slate-200 mt-1">
 								Filling this form will help us make you a better education plan.
@@ -163,7 +163,6 @@ const IntakeForm = () => {
 									name="marksheet_12th"
 									type="file"
 									accept=".pdf,.jpg,.jpeg,.png,.doc,.docx"
-									required
 									className="w-full rounded-lg border border-slate-300 px-3 py-2 text-sm shadow-sm focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 outline-none"
 								/>
 								<span className="text-[13px] text-slate-500">

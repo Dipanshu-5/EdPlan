@@ -384,7 +384,7 @@ const ViewEducationPlan = () => {
 												<button
 													type="button"
 													onClick={() => handleEdit(plan)}
-													className="px-4 py-1.5 rounded-lg bg-orange-300 text-orange-800 text-sm font-medium hover:bg-orange-400 transition"
+													className="px-4 py-1.5 rounded-lg bg-orange-200 text-orange-700 text-sm font-medium hover:bg-orange-300 transition"
 												>
 													Edit
 												</button>
