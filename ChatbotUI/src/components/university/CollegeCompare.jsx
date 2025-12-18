@@ -357,9 +357,12 @@ const ComparisonTable = ({ title, metrics, schools, note }) => (
 			<table className="min-w-full text-sm">
 				<thead>
 					<tr className="text-sm uppercase tracking-wide text-slate-600">
-						<th className="text-left px-3 py-2 font-semibold">Metric</th>
+						<th className="text-left px-3 py-2 font-bold w-1/4">Metric</th>
 						{schools.map((school) => (
-							<th key={school.unit_id || school.name} className="text-left px-3 py-2 font-semibold">
+							<th
+								key={school.unit_id || school.name}
+								className={`text-left px-3 py-2 font-bold w-3/12`}
+							>
 								{school.name || "Selected college"}
 							</th>
 						))}

@@ -244,6 +244,15 @@ const FindUniversity = ({ onSelectProgram }) => {
 		fetchUniversities({ search: searchTerm, state: stateFilter });
 	};
 
+	const handleViewDetails = (university) => {
+		if (!university?.unit_id) {
+			toast.error("College details unavailable for this entry.");
+			return;
+		}
+		saveStorage("LastCollegeDetail", university);
+		navigate(`/college/${university.unit_id}`, { state: { college: university } });
+	};
+
 	return (
 		<section className="space-y-6">
 			<header className="flex flex-col gap-4">
@@ -417,6 +426,13 @@ const FindUniversity = ({ onSelectProgram }) => {
 										className="self-start px-4 py-2 rounded-lg bg-[#281ed5] hover:bg-[#1977e3] text-white text-sm font-medium"
 									>
 										Create Education Plan
+									</button>
+									<button
+										type="button"
+										onClick={() => handleViewDetails(university)}
+										className="text-sm font-medium text-indigo-700 hover:text-indigo-600 bg-indigo-100 hover:opacity-90 px-3 py-1 rounded-lg"
+									>
+										View Details
 									</button>
 									<button
 										type="button"
