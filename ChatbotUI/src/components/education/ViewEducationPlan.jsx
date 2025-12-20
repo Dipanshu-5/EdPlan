@@ -313,10 +313,10 @@ const ViewEducationPlan = () => {
 		<section className="space-y-6">
 			<header className="flex flex-col md:flex-row md:items-center justify-between gap-4">
 				<div>
-					<h2 className="text-2xl font-semibold text-slate-900">
+					<h1 className="text-3xl font-semibold text-slate-900">
 						Saved Education <span className="text-[#0069e0]">Plans</span>
-					</h2>
-					<p className="text-sm text-slate-500">
+					</h1>
+					<p className="text-lg mt-1 text-slate-500">
 						Browse and share the education plans you&apos;ve saved.
 					</p>
 				</div>

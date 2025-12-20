@@ -404,7 +404,7 @@ const CollegeDetail = ({ college }) => {
   if (!college) {
     return (
       <div className="bg-white border border-slate-200 rounded-xl shadow-sm p-5 text-sm text-slate-600">
-        No college selected.
+        No College/University selected.
       </div>
     );
   }

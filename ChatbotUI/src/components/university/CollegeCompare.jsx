@@ -574,9 +574,9 @@ const CollegeCompare = () => {
 
 	return (
 		<section className="space-y-6">
-			<header className="space-y-2">
-				<h1 className="text-2xl font-semibold text-slate-900">Compare <span className="text-[#0069e0]">Colleges</span></h1>
-				<p className="text-md text-slate-600">
+			<header className="space-y-1">
+				<h1 className="text-3xl font-semibold text-slate-900">Compare <span className="text-[#0069e0]">Colleges</span></h1>
+				<p className="text-lg text-slate-600">
 					Use the Find Program page to pick upto three colleges, then click Compare Now.
 				</p>
 			</header>

@@ -111,10 +111,10 @@ const CareerProgramPage = () => {
       )}
       <div className="relative z-10">
         <header>
-          <h1 className="text-5xl mt-1 font-semibold mb-2">
-            Discover <span className="text-[#0069e0]">Careers</span> and <span className="text-[#0069e0]">Programs</span> That Fit You
+          <h1 className="text-[40px] -mt-2 font-semibold">
+            Discover <span className="text-[#0069e0]">Careers</span> and <span className="text-[#0069e0]">Programs</span> that fit you
           </h1>
-          <p className="text-[23px] font-medium text-slate-600 mb-5">
+          <p className="text-[20px] font-medium text-slate-600 mb-5">
             Connect your program to real careers and the competencies you need.
           </p>
         </header>

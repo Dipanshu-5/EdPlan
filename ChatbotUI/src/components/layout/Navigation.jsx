@@ -7,10 +7,10 @@ const NavItem = ({ to, label }) => (
 		to={to}
 		className={({ isActive }) =>
 			clsx(
-				"w-full px-4 py-3 font-semibold bg-slate-100 text-left rounded-md transition",
+				"w-full px-4 py-3 font-semibold text-left rounded-md transition",
 				isActive
-					? "bg-[#685cff] text-white shadow-lg"
-					: "text-slate-600 hover:bg-slate-200"
+					? "bg-[#016ce6] text-white shadow-lg"
+					: "text-slate-600 bg-slate-100 hover:bg-slate-200"
 			)
 		}
 	>
@@ -44,14 +44,14 @@ const Navigation = () => {
 		<aside className="w-full lg:w-72 bg-white border-r border-slate-200 shadow-sm p-6 flex flex-col gap-6 lg:fixed lg:h-screen lg:top-0 lg:left-0 lg:overflow-y-auto">
 			<header className="flex items-center justify-between">
 				<div>
-					<h1 className="ml-4 text-xl font-semibold text-slate-900">
+					<h1 className="ml-4 text-3xl font-semibold text-slate-900">
 						EdPlan.ai
 					</h1>
 				</div>
 				<button
 					type="button"
 					onClick={handleAuthClick}
-					className="font-medium text-indigo-600 hover:text-indigo-500"
+					className="font-medium text-lg text-indigo-600 hover:text-indigo-500"
 				>
 					{buttonLabel}
 				</button>

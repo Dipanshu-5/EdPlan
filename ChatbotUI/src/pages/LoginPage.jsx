@@ -84,7 +84,7 @@ const LoginPage = ({ initialMode = "login" }) => {
 			<div className="max-w-md w-full bg-white border border-slate-200 rounded-xl shadow-lg p-8 space-y-6">
 				<header className="space-y-2 text-center">
 					<h1 className="text-2xl font-semibold text-slate-900">
-						{isLogin ? "Welcome back" : "Create your account"}
+						{isLogin ? "Welcome Back" : "Create your Account"}
 					</h1>
 					<p className="text-sm text-slate-600">
 						{isLogin
@@ -103,7 +103,7 @@ const LoginPage = ({ initialMode = "login" }) => {
 					{!isLogin && (
 						<div className="grid grid-cols-1 md:grid-cols-2 gap-3">
 							<label className="text-sm text-slate-600 space-y-1">
-								First name
+								<span className="font-semibold">First Name</span>
 								<input
 									name="firstName"
 									value={form.firstName}
@@ -112,7 +112,7 @@ const LoginPage = ({ initialMode = "login" }) => {
 								/>
 							</label>
 							<label className="text-sm text-slate-600 space-y-1">
-								Last name
+								<span className="font-semibold">Last Name</span>
 								<input
 									name="lastName"
 									value={form.lastName}
@@ -124,12 +124,13 @@ const LoginPage = ({ initialMode = "login" }) => {
 					)}
 
 					<label className="text-sm text-slate-600 space-y-1">
-						Email
+						<span className="font-semibold">Email</span>
 						<input
 							type="email"
 							name="email"
 							value={form.email}
 							onChange={handleChange}
+							placeholder="jackvigil@gmail.com"
 							className="w-full px-3 py-2 rounded-lg border border-slate-200"
 							required
 						/>
@@ -137,7 +138,7 @@ const LoginPage = ({ initialMode = "login" }) => {
 
 					{!isLogin && (
 						<label className="text-sm text-slate-600 space-y-1">
-							Phone number
+							<span className="font-semibold">Contact Number</span>
 							<input
 								name="phoneNumber"
 								value={form.phoneNumber}
@@ -148,12 +149,13 @@ const LoginPage = ({ initialMode = "login" }) => {
 					)}
 
 					<label className="text-sm text-slate-600 space-y-1">
-						Password
+						<span className="font-semibold">Password</span>
 						<input
 							type="password"
 							name="password"
 							value={form.password}
 							onChange={handleChange}
+							placeholder="********"
 							className="w-full px-3 py-2 rounded-lg border border-slate-200"
 							required
 						/>
@@ -163,7 +165,7 @@ const LoginPage = ({ initialMode = "login" }) => {
 						type="submit"
 						className="w-full px-4 py-2.5 rounded-lg bg-slate-900 text-white font-medium hover:bg-slate-700"
 					>
-						{isLogin ? "Login" : "Sign up"}
+						{isLogin ? "Login" : "Sign Up"}
 					</button>
 				</form>
 
@@ -176,7 +178,7 @@ const LoginPage = ({ initialMode = "login" }) => {
 								onClick={() => setIsLogin(false)}
 								className="text-indigo-600 hover:text-indigo-500 font-medium"
 							>
-								Create one
+								Create One
 							</button>
 						</>
 					) : (
@@ -187,7 +189,7 @@ const LoginPage = ({ initialMode = "login" }) => {
 								onClick={() => setIsLogin(true)}
 								className="text-indigo-600 hover:text-indigo-500 font-medium"
 							>
-								Sign in
+								Sign In
 							</button>
 						</>
 					)}

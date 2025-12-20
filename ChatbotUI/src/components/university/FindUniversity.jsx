@@ -185,17 +185,31 @@ const FindUniversity = ({ onSelectProgram }) => {
 	}, []);
 
 	const filteredUniversities = useMemo(() => {
-		return universities.filter((university) => {
+	return universities
+		.filter((university) => {
 			const matchesProgram =
 				!selectedProgram ||
 				programMap.get(selectedProgram)?.has(university.name) ||
 				false;
+
 			const matchesCost =
 				!university.average_annual_cost ||
 				Number(university.average_annual_cost || 0) <= Number(costFilter);
+
 			return matchesCost && matchesProgram;
+		})
+		.sort((a, b) => {
+			const target = "northern new mexico college";
+
+			const aIsTarget = a.name?.toLowerCase() === target;
+			const bIsTarget = b.name?.toLowerCase() === target;
+
+			if (aIsTarget && !bIsTarget) return -1;
+			if (!aIsTarget && bIsTarget) return 1;
+			return 0;
 		});
-	}, [universities, costFilter, selectedProgram, programMap]);
+}, [universities, costFilter, selectedProgram, programMap]);
+
 
 	const handleSelect = (university) => {
 		const programToSave = selectedProgram || university.program || "";
@@ -217,7 +231,7 @@ const FindUniversity = ({ onSelectProgram }) => {
 			if (exists) {
 				const next = prev.filter((entry) => entry.unit_id !== university.unit_id);
 				saveStorage("CompareQueue", next);
-				toast.success("Successfully Removed from the Comparison list!");
+				toast.success("Removed from the Comparison list!");
 				return next;
 			}
 			if (prev.length >= 3) {
@@ -226,7 +240,7 @@ const FindUniversity = ({ onSelectProgram }) => {
 			}
 			const next = [...prev, university];
 			saveStorage("CompareQueue", next);
-			toast.success("Successfully Added to the Comparison list!");
+			toast.success("Added to the Comparison list!");
 			return next;
 		});
 	};
@@ -256,7 +270,7 @@ const FindUniversity = ({ onSelectProgram }) => {
 	return (
 		<section className="space-y-6">
 			<header className="flex flex-col gap-4">
-			    <h2 className="text-2xl font-semibold text-slate-900">Explore <span className="text-[#0069e0]">Colleges</span></h2>
+			    <h1 className="text-3xl font-semibold text-slate-900">Explore <span className="text-[#0069e0]">Colleges</span></h1>
 				<form
 					onSubmit={handleSearch}
 					className="flex flex-col md:flex-row gap-3"

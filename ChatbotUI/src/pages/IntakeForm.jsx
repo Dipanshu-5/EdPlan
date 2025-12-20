@@ -54,7 +54,7 @@ const IntakeForm = () => {
 					<div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
 						<div className="flex flex-col">
 							<h1 className="text-xl sm:text-2xl font-semibold">
-								Tell Us About Yourself to Get Started
+								Tell us about yourself to get started
 							</h1>
 							<p className="text-xs sm:text-sm text-slate-200 mt-1">
 								Filling this form will help us make you a better education plan.

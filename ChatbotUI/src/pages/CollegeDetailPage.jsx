@@ -46,7 +46,7 @@ const CollegeDetailPage = () => {
     <section className="p-6 space-y-4">
       <header className="flex items-center justify-between">
         <div>
-          <h1 className="text-2xl font-semibold text-slate-900">
+          <h1 className="text-3xl font-semibold text-slate-900">
             College <span className="text-[#0069e0]">Details</span>
           </h1>
           {college ? (
@@ -56,7 +56,7 @@ const CollegeDetailPage = () => {
             </p>
           ) : (
             <p className="text-sm text-slate-600">
-              Loading college information…
+              Loading College/University information…
             </p>
           )}
         </div>
@@ -70,7 +70,7 @@ const CollegeDetailPage = () => {
 
       {loading ? (
         <div className="text-sm text-slate-600 bg-white border border-slate-200 rounded-xl p-4">
-          Loading college information…
+          Loading College/University information…
         </div>
       ) : college ? (
         <CollegeDetail college={college} />
