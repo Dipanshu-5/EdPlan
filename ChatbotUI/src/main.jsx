@@ -9,12 +9,14 @@ ReactDOM.createRoot(document.getElementById("root")).render(
   <BrowserRouter>
     <App />
     <Toaster
-      position="bottom-right"
+      position="bottom-left"
       toastOptions={{
         duration: 3000,
         style: {
-          fontSize: "18px",
-          padding: "16px",
+          fontSize: "16px",
+          padding: "14px",
+          width: "250px",
+          boxShadow: "0 8px 24px rgba(0, 0, 0, 0.25)",
         },
       }}
     />

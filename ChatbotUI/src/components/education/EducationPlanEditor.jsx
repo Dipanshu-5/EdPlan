@@ -484,7 +484,6 @@ const EducationPlanEditor = () => {
 				const target = prev.find((course) => course.code === code);
 				if (!target) return prev;
 
-				const { coreqCodes, prereqCodes } = getDependencies(target, knownCodes);
 				const dependents = prev.filter((course) =>
 					getDependencies(course, knownCodes).coreqCodes.includes(code)
 				);
@@ -493,25 +492,17 @@ const EducationPlanEditor = () => {
 				);
 
 				// Block removal when other courses depend on this one and show a single toast message.
-				if (coreqCodes.length > 0 || dependents.length > 0 || prereqDependents.length > 0) {
+				if (dependents.length > 0 || prereqDependents.length > 0) {
 					const parts = [];
-					if (coreqCodes.length > 0) {
-						parts.push(
-							`${target.courseName} has co-requisites: ${coreqCodes.join(", ")}.`
-						);
-					}
+					
 					if (dependents.length > 0) {
 						parts.push(
-							`${target.courseName} is tied to co-requisite relationships with: ${dependents
-								.map((item) => `${item.courseName} (${item.code})`)
-								.join(", ")}.`
+							`${target.courseName} is tied to a co-requisite course.\n\n`
 						);
 					}
 					if (prereqDependents.length > 0) {
 						parts.push(
-							`Can't Remove ${target.courseName} because it is a pre-requisite for: ${prereqDependents
-								.map((item) => `${item.courseName} (${item.code})`)
-								.join(", ")}.`
+							`Can't Remove ${target.courseName} because it is a pre-requisite course.`
 						);
 					}
 					toast.error(parts.join(" "));
@@ -535,7 +526,7 @@ const EducationPlanEditor = () => {
 		}
 		if (programTotalCredits > 0 && totalCredits < programTotalCredits) {
 			toast.error(
-				`Add ${programTotalCredits - totalCredits} more credits to meet the required ${programTotalCredits}  credits before saving.`
+				`Add ${programTotalCredits - totalCredits} more credits to meet the required ${programTotalCredits}  credits.`
 			);
 			return;
 		}
@@ -569,7 +560,7 @@ const EducationPlanEditor = () => {
 		}
 		if (programTotalCredits > 0 && totalCredits < programTotalCredits) {
 			toast.error(
-				`Add ${programTotalCredits - totalCredits} more credits to meet the required ${programTotalCredits}  credits before saving.`
+				`Add ${programTotalCredits - totalCredits} more credits to meet the required ${programTotalCredits}  credits.`
 			);
 			return;
 		}
@@ -618,7 +609,7 @@ const EducationPlanEditor = () => {
 	);
 
 	return (
-		<section className="space-y-6">
+		<section className="space-y-4">
 			{/* Credit Limit Modal */}
 			{creditLimitModal && (
 				<div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
@@ -690,9 +681,9 @@ const EducationPlanEditor = () => {
 				</div>
 			)}
 
-			<h2 className="text-2xl font-semibold text-slate-900">
+			<h1 className="text-3xl font-semibold text-slate-900">
 				Customize Your Education <span className="text-[#0069e0]">Plan</span>
-			</h2>
+			</h1>
 			<header className="grid gap-4 md:grid-cols-2 bg-white border border-slate-200 rounded-xl shadow-sm p-5">
 				<label className="flex flex-col gap-2 text-sm font-semibold text-slate-600">
 					University
@@ -753,291 +744,293 @@ const EducationPlanEditor = () => {
 				</div>
 			)}
 
-			<div className="grid gap-6 lg:grid-cols-[2fr,1.4fr]">
-				<div className="space-y-4">
-					<h3 className="text-xl font-semibold text-slate-800">
-						My Education Plan
-					</h3>
+			{selectedProgram && selectedUniversity && (
+				<div className="grid gap-6 lg:grid-cols-[2fr,1.4fr]">
+					<div className="space-y-4">
+						<h3 className="text-xl font-semibold text-slate-800">
+							My Education Plan
+						</h3>
 
-					{dependencyIssues.length > 0 && (
-						<div className="bg-rose-50 text-rose-700 border border-rose-200 rounded-xl shadow-sm p-4 space-y-2 text-sm">
-							<div className="font-semibold flex items-center gap-2">
-								<span aria-hidden="true">⚠</span>
-								<span>Resolve these before saving:</span>
-							</div>
-							<ul className="list-disc list-inside space-y-1">
-								{dependencyIssues.map((issue) => (
-									<li
-										key={`${issue.type}-${issue.courseCode}-${
-											issue.relatedCode || ""
-										}`}
-									>
-										{issue.message}
-									</li>
-								))}
-							</ul>
-						</div>
-					)}
-
-					<div className="bg-white border border-slate-200 rounded-xl shadow-sm p-4 space-y-4">
-						<div className="flex flex-wrap items-center gap-3">
-							<div className="flex items-center gap-2">
-								<label className="font-semibold text-slate-700">Year:</label>
-								<select
-									value={yearFilter}
-									onChange={(e) => setYearFilter(e.target.value)}
-									className="border border-slate-200 rounded-lg px-3 py-2 text-sm font-semibold"
-								>
-									<option value="">All</option>
-									{yearOptions.map((yr) => (
-										<option key={yr} value={yr}>
-											{yr}
-										</option>
-									))}
-								</select>
-							</div>
-							<div className="flex items-center gap-2">
-								<label className="font-semibold text-slate-700">
-									Semester:
-								</label>
-								<select
-									value={semesterFilter}
-									onChange={(e) => setSemesterFilter(e.target.value)}
-									className="border border-slate-200 rounded-lg px-3 py-2 text-sm font-semibold"
-								>
-									<option value="">All</option>
-									{[
-										...new Set(courses.map((c) => c.semester).filter(Boolean)),
-									].map((sem) => (
-										<option key={sem} value={sem}>
-											{sem}
-										</option>
-									))}
-								</select>
-							</div>
-							<button
-								type="button"
-								onClick={() => {
-									setYearFilter("");
-									setSemesterFilter("");
-								}}
-								className="text-sm font-semibold px-3 py-2 rounded-lg border border-slate-200 text-slate-700 hover:border-indigo-200 hover:text-blue-700 hover:bg-indigo-100"
-							>
-								Clear Filters
-							</button>
-							<button
-								type="button"
-								onClick={() => setCourses(defaultPlan)}
-								className="text-sm font-semibold px-3 py-2 rounded-lg border border-indigo-200 text-blue-700 hover:bg-indigo-100"
-							>
-								Reset to Default Plan
-							</button>
-						</div>
-						{totalCourses > 0 && (
-							<div className="flex items-center gap-4 flex-wrap pt-3 border-t border-slate-200 text-sm text-slate-800 font-semibold">
-								{totalCourses > 0 && (
-									<span>
-										Plan Overview:{" "}
-										<span className="font-normal text-slate-700">
-											This program includes <span className="font-semibold text-indigo-600">{totalCourses}</span> courses, <span className="font-semibold text-indigo-600">{prereqProgramCount}</span> with pre-requisites, <span className="font-semibold text-indigo-600">{coreqProgramCount}</span> with co-requisites.
-										</span>
-									</span>
-								)}
-								{averageAnnualCost && (
-									<span>
-										Avg. Annual Cost:{" "}
-										<span className="text-emerald-700">
-											{averageAnnualCost}
-										</span>
-									</span>
-								)}
-								{eligibilityCriteria && (
-									<span>
-										Eligibility Criteria:{" "}
-										<span className="font-normal text-slate-700">
-											{eligibilityCriteria}
-										</span>
-									</span>
-								)}
-								<span className="w-36">
-									Total Credits:{" "}
-									<span className="text-indigo-600">{totalCredits}</span>
-								</span>
-							</div>
-						)}
-					</div>
-
-					{Object.entries(groupedCourses).map(([groupKey, courseList]) => {
-						const [courseYear, courseSemester] = groupKey.split("::");
-						const semesterCredits = courseList.reduce((sum, course) => {
-							const value = Number(course.credits);
-							return sum + (Number.isFinite(value) ? value : 0);
-						}, 0);
-						return (
-							<div
-								key={groupKey}
-								className="bg-white border border-slate-200 rounded-xl shadow-sm p-5 space-y-3"
-							>
-								<header className="flex items-center justify-between">
-									<h4 className="text-sm font-semibold text-slate-700 uppercase tracking-wide">
-										{courseYear} · {courseSemester}
-									</h4>
-									<span className="text-sm font-semibold text-indigo-600 mr-3">
-										{semesterCredits} Credits
-									</span>
-								</header>
-								<ul className="space-y-3">
-									{courseList.map((course) => (
+						{dependencyIssues.length > 0 && (
+							<div className="bg-rose-50 text-rose-700 border border-rose-200 rounded-xl shadow-sm p-4 space-y-2 text-sm">
+								<div className="font-semibold flex items-center gap-2">
+									<span aria-hidden="true">⚠</span>
+									<span>Resolve these before saving:</span>
+								</div>
+								<ul className="list-disc list-inside space-y-1">
+									{dependencyIssues.map((issue) => (
 										<li
-											key={course.code}
-											className={`border rounded-lg p-3 flex flex-col gap-1 hover:border-indigo-200 hover:bg-indigo-50 ${
-												dependencyIssues.some(
-													(issue) => issue.courseCode === course.code
-												)
-													? "border-rose-200 bg-rose-50/60"
-													: "border-slate-100"
+											key={`${issue.type}-${issue.courseCode}-${
+												issue.relatedCode || ""
 											}`}
 										>
-											<div className="flex items-center justify-between gap-2">
-												<span className="font-medium text-slate-800">
-													{course.courseName}
-												</span>
-												<button
-													type="button"
-													onClick={() => removeCourse(course.code)}
-													className="text-xs font-bold text-rose-500 hover:text-rose-600"
-												>
-													Remove
-												</button>
-											</div>
-											{(() => {
-												const prereqText = normalizeRequirement(
-													course.prerequisite
-												);
-												const coreqText = normalizeRequirement(
-													course.corequisite
-												);
-												const showPrereq = hasMeaningfulRequirement(prereqText);
-												const showCoreq = hasMeaningfulRequirement(coreqText);
-
-												return (
-													<div className="text-xs text-slate-600 flex flex-wrap items-center gap-x-6 gap-y-2 leading-relaxed">
-														<span className="inline-flex items-center gap-1 whitespace-nowrap">
-															<span className="text-slate-600">Code:</span>
-															<span className="font-medium text-slate-800">
-																{course.code}
-															</span>
-														</span>
-														<span className="inline-flex items-center gap-1 whitespace-nowrap">
-															<span className="text-slate-600">Credits:</span>
-															<span className="font-medium text-slate-800">
-																{course.credits ?? "N/A"}
-															</span>
-														</span>
-														<span className="inline-flex items-center gap-1 whitespace-nowrap">
-															<span className="text-sky-700">
-																Pre-requisite:
-															</span>
-															<span
-																className={
-																	showPrereq
-																		? "text-orange-500 font-medium"
-																		: "text-slate-500"
-																}
-															>
-																{prereqText || "N/A"}
-															</span>
-														</span>
-														{showCoreq && (
-															<span className="inline-flex items-center gap-1 whitespace-nowrap">
-																<span className="text-sky-700">
-																	Corequisite:
-																</span>
-																<span className="text-yellow-500 font-medium">
-																	{coreqText}
-																</span>
-															</span>
-														)}
-														{dependencyIssues
-															.filter(
-																(issue) => issue.courseCode === course.code
-															)
-															.map((issue) => (
-																<span
-																	key={`${issue.type}-${
-																		issue.relatedCode || ""
-																	}`}
-																	className="inline-flex items-center gap-1 text-rose-600 font-semibold"
-																>
-																	<span aria-hidden="true">⚠</span>
-																	{issue.message}
-																</span>
-															))}
-													</div>
-												);
-											})()}
+											{issue.message}
 										</li>
 									))}
 								</ul>
 							</div>
-						);
-					})}
-				</div>
-
-				<div className="bg-white border border-slate-200 rounded-xl shadow-sm mt-11 p-5 space-y-4 sticky top-6 h-fit">
-					<div className="flex items-center justify-between">
-						<h3 className="text-sm font-semibold text-slate-700 uppercase tracking-wide">
-							Course catalog
-						</h3>
-						<button
-							type="button"
-							onClick={savePlan}
-							disabled={dependencyIssues.some((issue) => issue.blocking)}
-							className="px-4 py-2 rounded-lg bg-indigo-600 text-white text-sm font-medium hover:bg-indigo-500 disabled:opacity-60 disabled:cursor-not-allowed"
-						>
-							Save Plan
-						</button>
-					</div>
-					<div
-						className="overflow-y-auto space-y-3 text-sm"
-						style={{ height: "calc(100% - 60px)" }}
-					>
-						{remainingCourses.length === 0 && (
-							<p className="text-slate-500 text-base text-center">
-								{availableCourses.length === 0
-									? "Select a program to create your Education Plan."
-									: "All courses have been added to your plan."}
-							</p>
 						)}
-						{remainingCourses.map((course) => (
-							<button
-								key={`${course.code}-${course.semester}`}
-								type="button"
-								className="w-full text-left border border-slate-100 rounded-lg p-3 hover:border-indigo-200 hover:bg-indigo-50 transition"
-								onClick={() => addCourse(course)}
-							>
-								<div className="flex">
-									<div>
-										<div className="font-medium text-slate-800">
-											{course.name}
-										</div>
-										<div className="text-md text-slate-500 flex gap-3">
-											<span>Code: {course.code}</span>
-											<span>Year: {course.year}</span>
-											<span>Semester: {course.semester}</span>
-										</div>
-									</div>
-									<div className="flex justify-end ml-auto">
-										<span className="text-md font-bold text-blue-700 mt-2">
-											Add
-										</span>
-									</div>
+
+						<div className="bg-white border border-slate-200 rounded-xl shadow-sm p-4 space-y-4">
+							<div className="flex flex-wrap items-center gap-3">
+								<div className="flex items-center gap-2">
+									<label className="font-semibold text-slate-700">Year:</label>
+									<select
+										value={yearFilter}
+										onChange={(e) => setYearFilter(e.target.value)}
+										className="border border-slate-200 rounded-lg px-3 py-2 text-sm font-semibold"
+									>
+										<option value="">All</option>
+										{yearOptions.map((yr) => (
+											<option key={yr} value={yr}>
+												{yr}
+											</option>
+										))}
+									</select>
 								</div>
+								<div className="flex items-center gap-2">
+									<label className="font-semibold text-slate-700">
+										Semester:
+									</label>
+									<select
+										value={semesterFilter}
+										onChange={(e) => setSemesterFilter(e.target.value)}
+										className="border border-slate-200 rounded-lg px-3 py-2 text-sm font-semibold"
+									>
+										<option value="">All</option>
+										{[
+											...new Set(courses.map((c) => c.semester).filter(Boolean)),
+										].map((sem) => (
+											<option key={sem} value={sem}>
+												{sem}
+											</option>
+										))}
+									</select>
+								</div>
+								<button
+									type="button"
+									onClick={() => {
+										setYearFilter("");
+										setSemesterFilter("");
+									}}
+									className="text-sm font-semibold px-3 py-2 rounded-lg border border-slate-200 text-slate-700 hover:border-indigo-200 hover:text-blue-700 hover:bg-indigo-100"
+								>
+									Clear Filters
+								</button>
+								<button
+									type="button"
+									onClick={() => setCourses(defaultPlan)}
+									className="text-sm font-semibold px-3 py-2 rounded-lg border border-indigo-200 text-blue-700 hover:bg-indigo-100"
+								>
+									Reset to Default Plan
+								</button>
+							</div>
+							{totalCourses > 0 && (
+								<div className="flex items-center gap-4 flex-wrap pt-3 border-t border-slate-200 text-sm text-slate-800 font-semibold">
+									{totalCourses > 0 && (
+										<span>
+											Plan Overview:{" "}
+											<span className="font-normal text-slate-700">
+												This program includes <span className="font-semibold text-indigo-600">{totalCourses}</span> courses, <span className="font-semibold text-indigo-600">{prereqProgramCount}</span> with pre-requisites, <span className="font-semibold text-indigo-600">{coreqProgramCount}</span> with co-requisites.
+											</span>
+										</span>
+									)}
+									{averageAnnualCost && (
+										<span>
+											Avg. Annual Cost:{" "}
+											<span className="text-emerald-700">
+												{averageAnnualCost}
+											</span>
+										</span>
+									)}
+									{eligibilityCriteria && (
+										<span>
+											Eligibility Criteria:{" "}
+											<span className="font-normal text-slate-700">
+												{eligibilityCriteria}
+											</span>
+										</span>
+									)}
+									<span className="w-36">
+										Total Credits:{" "}
+										<span className="text-indigo-600">{totalCredits}</span>
+									</span>
+								</div>
+							)}
+						</div>
+
+						{Object.entries(groupedCourses).map(([groupKey, courseList]) => {
+							const [courseYear, courseSemester] = groupKey.split("::");
+							const semesterCredits = courseList.reduce((sum, course) => {
+								const value = Number(course.credits);
+								return sum + (Number.isFinite(value) ? value : 0);
+							}, 0);
+							return (
+								<div
+									key={groupKey}
+									className="bg-white border border-slate-200 rounded-xl shadow-sm p-5 space-y-3"
+								>
+									<header className="flex items-center justify-between">
+										<h4 className="text-sm font-semibold text-slate-700 uppercase tracking-wide">
+											{courseYear} · {courseSemester}
+										</h4>
+										<span className="text-sm font-semibold text-indigo-600 mr-3">
+											{semesterCredits} Credits
+										</span>
+									</header>
+									<ul className="space-y-3">
+										{courseList.map((course) => (
+											<li
+												key={course.code}
+												className={`border rounded-lg p-3 flex flex-col gap-1 hover:border-indigo-200 hover:bg-indigo-50 ${
+													dependencyIssues.some(
+														(issue) => issue.courseCode === course.code
+													)
+														? "border-rose-200 bg-rose-50/60"
+														: "border-slate-100"
+												}`}
+											>
+												<div className="flex items-center justify-between gap-2">
+													<span className="font-medium text-slate-800">
+														{course.courseName}
+													</span>
+													<button
+														type="button"
+														onClick={() => removeCourse(course.code)}
+														className="text-xs font-bold text-rose-500 hover:text-rose-600"
+													>
+														Remove
+													</button>
+												</div>
+												{(() => {
+													const prereqText = normalizeRequirement(
+														course.prerequisite
+													);
+													const coreqText = normalizeRequirement(
+														course.corequisite
+													);
+													const showPrereq = hasMeaningfulRequirement(prereqText);
+													const showCoreq = hasMeaningfulRequirement(coreqText);
+
+													return (
+														<div className="text-xs text-slate-600 flex flex-wrap items-center gap-x-6 gap-y-2 leading-relaxed">
+															<span className="inline-flex items-center gap-1 whitespace-nowrap">
+																<span className="text-slate-600">Code:</span>
+																<span className="font-medium text-slate-800">
+																	{course.code}
+																</span>
+															</span>
+															<span className="inline-flex items-center gap-1 whitespace-nowrap">
+																<span className="text-slate-600">Credits:</span>
+																<span className="font-medium text-slate-800">
+																	{course.credits ?? "N/A"}
+																</span>
+															</span>
+															<span className="inline-flex items-center gap-1 whitespace-nowrap">
+																<span className="text-sky-700">
+																	Pre-requisite:
+																</span>
+																<span
+																	className={
+																		showPrereq
+																			? "text-orange-500 font-medium"
+																			: "text-slate-500"
+																	}
+																>
+																	{prereqText || "N/A"}
+																</span>
+															</span>
+															{showCoreq && (
+																<span className="inline-flex items-center gap-1 whitespace-nowrap">
+																	<span className="text-sky-700">
+																		Corequisite:
+																	</span>
+																	<span className="text-yellow-500 font-medium">
+																		{coreqText}
+																	</span>
+																</span>
+															)}
+															{dependencyIssues
+																.filter(
+																	(issue) => issue.courseCode === course.code
+																)
+																.map((issue) => (
+																	<span
+																		key={`${issue.type}-${
+																			issue.relatedCode || ""
+																		}`}
+																		className="inline-flex items-center gap-1 text-rose-600 font-semibold"
+																	>
+																		<span aria-hidden="true">⚠</span>
+																		{issue.message}
+																	</span>
+																))}
+														</div>
+													);
+												})()}
+											</li>
+										))}
+									</ul>
+								</div>
+							);
+						})}
+					</div>
+
+					<div className="bg-white border border-slate-200 rounded-xl shadow-sm mt-11 p-5 space-y-4 sticky top-6 h-fit">
+						<div className="flex items-center justify-between">
+							<h3 className="text-sm font-semibold text-slate-700 uppercase tracking-wide">
+								Course catalog
+							</h3>
+							<button
+								type="button"
+								onClick={savePlan}
+								disabled={dependencyIssues.some((issue) => issue.blocking)}
+								className="px-4 py-2 rounded-lg bg-indigo-600 text-white text-sm font-medium hover:bg-indigo-500 disabled:opacity-60 disabled:cursor-not-allowed"
+							>
+								Save Plan
 							</button>
-						))}
+						</div>
+						<div
+							className="overflow-y-auto space-y-3 text-sm"
+							style={{ height: "calc(100% - 60px)" }}
+						>
+							{remainingCourses.length === 0 && (
+								<p className="text-slate-500 text-base text-center">
+									{availableCourses.length === 0
+										? "Select a program to create your Education Plan."
+										: "All courses have been added to your plan."}
+								</p>
+							)}
+							{remainingCourses.map((course) => (
+								<button
+									key={`${course.code}-${course.semester}`}
+									type="button"
+									className="w-full text-left border border-slate-100 rounded-lg p-3 hover:border-indigo-200 hover:bg-indigo-50 transition"
+									onClick={() => addCourse(course)}
+								>
+									<div className="flex">
+										<div>
+											<div className="font-medium text-slate-800">
+												{course.name}
+											</div>
+											<div className="text-md text-slate-500 flex gap-3">
+												<span>Code: {course.code}</span>
+												<span>Year: {course.year}</span>
+												<span>Semester: {course.semester}</span>
+											</div>
+										</div>
+										<div className="flex justify-end ml-auto">
+											<span className="text-md font-bold text-blue-700 mt-2">
+												Add
+											</span>
+										</div>
+									</div>
+								</button>
+							))}
+						</div>
 					</div>
 				</div>
-			</div>
+			)}
 		</section>
 	);
 };
