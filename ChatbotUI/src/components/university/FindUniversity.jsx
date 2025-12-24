@@ -72,6 +72,26 @@ const allowedCampuses = [
 	"San Juan College",
 ];
 const allowedCampusesLower = new Set(allowedCampuses.map((name) => name.toLowerCase()));
+const normalizeDegree = (value = "") => {
+	const raw = String(value).trim().toLowerCase();
+	const aliases = {
+		certificate: "certificate",
+		certificates: "certificate",
+		certification: "certificate",
+		associate: "associate",
+		associates: "associate",
+		"associate degree": "associate",
+		bachelor: "bachelor",
+		bachelors: "bachelor",
+		"bachelor's": "bachelor",
+		master: "master",
+		masters: "master",
+		"master's": "master",
+	};
+	if (aliases[raw]) return aliases[raw];
+	if (raw.endsWith("s") && raw.length > 4) return raw.slice(0, -1);
+	return raw;
+};
 
 const FindUniversity = ({ onSelectProgram }) => {
 	const [universities, setUniversities] = useState([]);
@@ -82,7 +102,12 @@ const FindUniversity = ({ onSelectProgram }) => {
 	const [costFilter, setCostFilter] = useState(18000);
 	const [programOptions, setProgramOptions] = useState([]);
 	const [selectedProgram, setSelectedProgram] = useState("");
+	const [selectedDegree, setSelectedDegree] = useState("");
 	const [programMap, setProgramMap] = useState(new Map());
+	const [programDegreeMap, setProgramDegreeMap] = useState(new Map());
+	const [programDegreeByUniversity, setProgramDegreeByUniversity] = useState(
+		new Map()
+	);
 	const [crimeRateMap, setCrimeRateMap] = useState(new Map());
 	const [compareSelection, setCompareSelection] = useState([]);
 	const navigate = useNavigate();
@@ -113,6 +138,8 @@ const FindUniversity = ({ onSelectProgram }) => {
 			.then((items) => {
 				const programSet = new Set();
 				const map = new Map();
+				const degreeLookup = new Map();
+				const degreeByUniversity = new Map();
 				const crimeLookup = new Map();
 				items.forEach((entry) => {
 					const uniName = entry.university || entry.campus || "";
@@ -123,6 +150,22 @@ const FindUniversity = ({ onSelectProgram }) => {
 							map.set(entry.program, new Set());
 						}
 						map.get(entry.program).add(uniName);
+
+						const degreeNorm = normalizeDegree(entry.degree);
+						if (degreeNorm) {
+							if (!degreeLookup.has(entry.program)) {
+								degreeLookup.set(entry.program, new Map());
+							}
+							const degreeMapForProgram = degreeLookup.get(entry.program);
+							if (!degreeMapForProgram.has(degreeNorm)) {
+								degreeMapForProgram.set(degreeNorm, new Set());
+							}
+							degreeMapForProgram.get(degreeNorm).add(uniName);
+							degreeByUniversity.set(
+								`${entry.program}::${uniName}`,
+								entry.degree || ""
+							);
+						}
 
 						const crimeValue = Number(
 							entry.college_profile?.crime_rate_overall ??
@@ -137,6 +180,8 @@ const FindUniversity = ({ onSelectProgram }) => {
 				});
 				setProgramOptions(Array.from(programSet).sort());
 				setProgramMap(map);
+				setProgramDegreeMap(degreeLookup);
+				setProgramDegreeByUniversity(degreeByUniversity);
 				setCrimeRateMap(crimeLookup);
 			})
 			.catch((err) => {
@@ -148,19 +193,24 @@ const FindUniversity = ({ onSelectProgram }) => {
 	useEffect(() => {
 		const savedProgram = loadStorage("SelectedProgram", "");
 		const persistentProgram = loadStorage("Programname", "");
+		const savedDegree =
+			loadStorage("SelectedDegreeLevel", "") || loadStorage("ProgramDegree", "");
 
 		if (savedProgram && programOptions.includes(savedProgram)) {
 			setSelectedProgram(savedProgram);
+			setSelectedDegree(savedDegree || "");
 			// Save to Programname for persistence and clear temporary SelectedProgram
 			saveStorage("Programname", savedProgram);
 			saveStorage("SelectedProgram", "");
 		} else if (persistentProgram && programOptions.includes(persistentProgram)) {
 			// Use persisted program when available and valid
 			setSelectedProgram(persistentProgram);
+			setSelectedDegree(savedDegree || "");
 		} else {
 			// No valid program was provided (neither temporary nor persistent).
 			// Clear stored university + program so page state resets on refresh.
 			setSelectedProgram("");
+			setSelectedDegree("");
 			saveStorage("Programname", "");
 			saveStorage("University", "");
 		}
@@ -185,40 +235,61 @@ const FindUniversity = ({ onSelectProgram }) => {
 	}, []);
 
 	const filteredUniversities = useMemo(() => {
-	return universities
-		.filter((university) => {
-			const matchesProgram =
-				!selectedProgram ||
-				programMap.get(selectedProgram)?.has(university.name) ||
-				false;
+		const degreeNorm = normalizeDegree(selectedDegree);
+		const degreeSetForProgram = selectedProgram
+			? programDegreeMap.get(selectedProgram)
+			: null;
+		if (selectedProgram && degreeNorm && degreeSetForProgram && !degreeSetForProgram.has(degreeNorm)) {
+			// Program selected with a degree that isn't offered by any university in the catalog
+			return [];
+		}
 
-			const matchesCost =
-				!university.average_annual_cost ||
-				Number(university.average_annual_cost || 0) <= Number(costFilter);
+		return universities
+			.filter((university) => {
+				const matchesProgram =
+					!selectedProgram ||
+					programMap.get(selectedProgram)?.has(university.name) ||
+					false;
 
-			return matchesCost && matchesProgram;
-		})
-		.sort((a, b) => {
-			const target = "northern new mexico college";
+				const matchesDegree =
+					!selectedProgram ||
+					!degreeNorm ||
+					(degreeSetForProgram
+						?.get(degreeNorm)
+						?.has(university.name) ?? false);
 
-			const aIsTarget = a.name?.toLowerCase() === target;
-			const bIsTarget = b.name?.toLowerCase() === target;
+				const matchesCost =
+					!university.average_annual_cost ||
+					Number(university.average_annual_cost || 0) <= Number(costFilter);
 
-			if (aIsTarget && !bIsTarget) return -1;
-			if (!aIsTarget && bIsTarget) return 1;
-			return 0;
-		});
-}, [universities, costFilter, selectedProgram, programMap]);
+				return matchesCost && matchesProgram && matchesDegree;
+			})
+			.sort((a, b) => {
+				const target = "northern new mexico college";
+
+				const aIsTarget = a.name?.toLowerCase() === target;
+				const bIsTarget = b.name?.toLowerCase() === target;
+
+				if (aIsTarget && !bIsTarget) return -1;
+				if (!aIsTarget && bIsTarget) return 1;
+				return 0;
+			});
+	}, [universities, costFilter, selectedProgram, selectedDegree, programMap, programDegreeMap]);
 
 
 	const handleSelect = (university) => {
 		const programToSave = selectedProgram || university.program || "";
+		const degreeKey = `${programToSave}::${university.name}`;
+		const degreeValue =
+			programDegreeByUniversity.get(degreeKey) || selectedDegree || "";
 		saveStorage("University", university.name);
 		saveStorage("UniversityUnitId", university.unit_id);
 		saveStorage("UniversityState", university.state);
 		saveStorage("Programname", programToSave || university.name);
 		saveStorage("Programnameview", programToSave || university.name);
 		saveStorage("universityview", university.name);
+		saveStorage("ProgramDegree", degreeValue);
+		saveStorage("SelectedDegreeLevel", degreeValue);
 		saveStorage("selectedComponent", "program");
 		if (onSelectProgram) {
 			onSelectProgram(university);
@@ -268,7 +339,7 @@ const FindUniversity = ({ onSelectProgram }) => {
 	};
 
 	return (
-		<section className="space-y-6">
+		<section className="space-y-4">
 			<header className="flex flex-col gap-4">
 			    <h1 className="text-3xl font-semibold text-slate-900">Explore <span className="text-[#0069e0]">Colleges</span></h1>
 				<form
@@ -294,7 +365,13 @@ const FindUniversity = ({ onSelectProgram }) => {
 					</select>
 					<select
 						value={selectedProgram}
-						onChange={(event) => setSelectedProgram(event.target.value)}
+						onChange={(event) => {
+							setSelectedProgram(event.target.value);
+							setSelectedDegree("");
+							saveStorage("Programname", event.target.value);
+							saveStorage("ProgramDegree", "");
+							saveStorage("SelectedDegreeLevel", "");
+						}}
 						className="px-3 py-2 rounded-lg border border-slate-200 md:w-[400px]"
 					>
 						<option value="">All programs</option>
@@ -305,23 +382,16 @@ const FindUniversity = ({ onSelectProgram }) => {
 						))}
 					</select>
 					<button
-						type="submit"
-						className="px-4 py-2 rounded-lg bg-[#281ed5] hover:bg-[#1977e3] text-white font-medium md:w-[300px]"
-						disabled={loading}
-					>
-						Search
-					</button>
-					<button
 						type="button"
 						onClick={handleCompareNow}
-						className="px-4 py-2 rounded-lg bg-slate-900 text-white font-medium hover:bg-slate-700 md:w-[300px]"
+						className="px-4 py-2 rounded-lg bg-[#016ce6] hover:bg-[#1977e3] text-white font-medium md:w-[300px]"
 					>
 						Compare Now
 					</button>
 				</form>
 			</header>
 
-			<div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+			<div className="grid gap-4 space-x-16 md:grid-cols-2 lg:grid-cols-4">
 				<label className="flex flex-col gap-1 text-sm text-slate-600 font-semibold">
 					Max. Annual Cost
 					<input
@@ -338,6 +408,25 @@ const FindUniversity = ({ onSelectProgram }) => {
 					</span>
 				</label>
 			</div>
+
+			{compareSelection.length > 0 && (
+				<>
+					{compareSelection.map((entry) => (
+						<span
+							key={entry.unit_id}
+							className="inline-flex ml-2 items-center gap-3 px-3 py-1 rounded-full bg-indigo-100 text-indigo-700 "
+						>
+							{entry.name}
+							<button
+								onClick={() => handleToggleCompare(entry)}
+								className="text-indigo-500 hover:text-indigo-700"
+							>
+								x
+							</button>
+						</span>
+					))}
+				</>)
+			}
 
 			{/* {error && (
 				<div className="bg-rose-50 text-rose-700 border border-rose-100 rounded-lg px-4 py-3">

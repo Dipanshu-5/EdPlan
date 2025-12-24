@@ -577,7 +577,7 @@ const CollegeCompare = () => {
 			<header className="space-y-1">
 				<h1 className="text-3xl font-semibold text-slate-900">Compare <span className="text-[#0069e0]">Colleges</span></h1>
 				<p className="text-lg text-slate-600">
-					Use the Find Program page to pick upto three colleges, then click Compare Now.
+					Use the Find University page to pick upto three colleges, then click Compare Now.
 				</p>
 			</header>
 

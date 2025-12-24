@@ -146,13 +146,15 @@ const IntakeForm = () => {
 								</span>
 								<input
 									name="gpa"
-									type="text"
-									placeholder="e.g. 3.8 / 4.0 or 92%"
+									type="number"
+									placeholder="e.g. 3.8 / 4.0"
+									min="0"
+									max="4"
 									required
 									className="w-full rounded-lg border border-slate-300 px-3 py-2.5 text-sm shadow-sm focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 outline-none"
 								/>
 								<span className="text-[13px] text-slate-500">
-									You can enter GPA as 4.0 scale, 10-point, or percentage.
+									You can enter GPA as 4.0 scale
 								</span>
 							</label>
 							<label className="flex flex-col gap-1.5 text-sm font-medium text-slate-700">
@@ -180,6 +182,22 @@ const IntakeForm = () => {
 									<option>Top 10%</option>
 									<option>Top 25%</option>
 									<option>Top 50%</option>
+								</select>
+							</label>
+							<label className="flex flex-col gap-1.5 text-sm font-medium text-slate-700">
+								<span className="flex items-center gap-1">
+									Student Type <span className="text-red-500">*</span>
+								</span>
+								<select
+									name="student_type"
+									className="w-full rounded-lg border border-slate-300 px-3 py-2.5 text-sm shadow-sm bg-white focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 outline-none"
+									required
+								>
+									<option value="">Select</option>
+									<option>First Generation</option>
+									<option>African-American</option>
+									<option>Hispanic</option>
+									<option>Low Income</option>
 								</select>
 							</label>
 						</div>
