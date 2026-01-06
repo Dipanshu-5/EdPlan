@@ -15,6 +15,8 @@ const LoginPage = ({ initialMode = "login" }) => {
 	});
 	const [error, setError] = useState("");
 	const navigate = useNavigate();
+	const isValidEmail = (value) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
+	const hasUppercase = (value) => /[A-Z]/.test(value);
 
 	const handleChange = (event) => {
 		const { name, value } = event.target;
@@ -24,6 +26,14 @@ const LoginPage = ({ initialMode = "login" }) => {
 	const handleSubmit = async (event) => {
 		event.preventDefault();
 		setError("");
+		if (hasUppercase(form.email)) {
+			setError("Please enter a valid email address.");
+			return;
+		}
+		if (!isValidEmail(form.email)) {
+			setError("Please enter a valid email address.");
+			return;
+		}
 		try {
 			if (isLogin) {
 				const response = await login({
@@ -109,6 +119,7 @@ const LoginPage = ({ initialMode = "login" }) => {
 									value={form.firstName}
 									onChange={handleChange}
 									className="w-full px-3 py-2 rounded-lg border border-slate-200"
+									required
 								/>
 							</label>
 							<label className="text-sm text-slate-600 space-y-1">
@@ -118,6 +129,7 @@ const LoginPage = ({ initialMode = "login" }) => {
 									value={form.lastName}
 									onChange={handleChange}
 									className="w-full px-3 py-2 rounded-lg border border-slate-200"
+									required
 								/>
 							</label>
 						</div>
@@ -131,6 +143,10 @@ const LoginPage = ({ initialMode = "login" }) => {
 							value={form.email}
 							onChange={handleChange}
 							placeholder="jackvigil@gmail.com"
+							autoCapitalize="none"
+							autoCorrect="off"
+							pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,}$"
+							title="Use a lowercase email address."
 							className="w-full px-3 py-2 rounded-lg border border-slate-200"
 							required
 						/>
@@ -144,6 +160,7 @@ const LoginPage = ({ initialMode = "login" }) => {
 								value={form.phoneNumber}
 								onChange={handleChange}
 								className="w-full px-3 py-2 rounded-lg border border-slate-200"
+								required
 							/>
 						</label>
 					)}

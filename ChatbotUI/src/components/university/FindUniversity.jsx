@@ -75,18 +75,10 @@ const allowedCampusesLower = new Set(allowedCampuses.map((name) => name.toLowerC
 const normalizeDegree = (value = "") => {
 	const raw = String(value).trim().toLowerCase();
 	const aliases = {
-		certificate: "certificate",
 		certificates: "certificate",
-		certification: "certificate",
 		associate: "associate",
-		associates: "associate",
-		"associate degree": "associate",
-		bachelor: "bachelor",
 		bachelors: "bachelor",
-		"bachelor's": "bachelor",
-		master: "master",
 		masters: "master",
-		"master's": "master",
 	};
 	if (aliases[raw]) return aliases[raw];
 	if (raw.endsWith("s") && raw.length > 4) return raw.slice(0, -1);
@@ -230,7 +222,7 @@ const FindUniversity = ({ onSelectProgram }) => {
 					unique.push(entry);
 				}
 			});
-			setCompareSelection(unique.slice(0, 3));
+			setCompareSelection([]);
 		}
 	}, []);
 
@@ -281,7 +273,9 @@ const FindUniversity = ({ onSelectProgram }) => {
 		const programToSave = selectedProgram || university.program || "";
 		const degreeKey = `${programToSave}::${university.name}`;
 		const degreeValue =
-			programDegreeByUniversity.get(degreeKey) || selectedDegree || "";
+			selectedDegree ||
+			programDegreeByUniversity.get(degreeKey) ||
+			"";
 		saveStorage("University", university.name);
 		saveStorage("UniversityUnitId", university.unit_id);
 		saveStorage("UniversityState", university.state);
@@ -291,6 +285,8 @@ const FindUniversity = ({ onSelectProgram }) => {
 		saveStorage("ProgramDegree", degreeValue);
 		saveStorage("SelectedDegreeLevel", degreeValue);
 		saveStorage("selectedComponent", "program");
+		// Ensure downstream pages know the chosen program/degree pairing
+		saveStorage("Programname", programToSave);
 		if (onSelectProgram) {
 			onSelectProgram(university);
 		}
@@ -366,11 +362,19 @@ const FindUniversity = ({ onSelectProgram }) => {
 					<select
 						value={selectedProgram}
 						onChange={(event) => {
-							setSelectedProgram(event.target.value);
-							setSelectedDegree("");
-							saveStorage("Programname", event.target.value);
-							saveStorage("ProgramDegree", "");
-							saveStorage("SelectedDegreeLevel", "");
+							const nextProgram = event.target.value;
+							setSelectedProgram(nextProgram);
+							saveStorage("Programname", nextProgram);
+							// Preserve degree only if the new program offers it; otherwise clear.
+							const degreeNorm = normalizeDegree(selectedDegree);
+							const degreeSet = programDegreeMap.get(nextProgram);
+							const canKeep =
+								degreeNorm && degreeSet && degreeSet.has(degreeNorm);
+							if (!canKeep) {
+								setSelectedDegree("");
+								saveStorage("ProgramDegree", "");
+								saveStorage("SelectedDegreeLevel", "");
+							}
 						}}
 						className="px-3 py-2 rounded-lg border border-slate-200 md:w-[400px]"
 					>
@@ -384,15 +388,22 @@ const FindUniversity = ({ onSelectProgram }) => {
 					<button
 						type="button"
 						onClick={handleCompareNow}
-						className="px-4 py-2 rounded-lg bg-[#016ce6] hover:bg-[#1977e3] text-white font-medium md:w-[300px]"
+						className={`px-4 py-2 rounded-lg font-medium md:w-[300px]
+							${
+								compareSelection.length < 2
+								? "bg-gray-400 text-gray-700 cursor-not-allowed opacity-60"
+								: "bg-[#016ce6] hover:bg-[#1977e3] text-white"
+							}
+  						`}
+						disabled={compareSelection.length < 2}
 					>
 						Compare Now
 					</button>
 				</form>
 			</header>
 
-			<div className="grid gap-4 space-x-16 md:grid-cols-2 lg:grid-cols-4">
-				<label className="flex flex-col gap-1 text-sm text-slate-600 font-semibold">
+			<div className="flex items-center gap-6 w-full flex-nowrap">
+				<label className="flex flex-col gap-1 w-44 text-sm text-slate-600 font-semibold">
 					Max. Annual Cost
 					<input
 						type="range"
@@ -407,35 +418,35 @@ const FindUniversity = ({ onSelectProgram }) => {
 						${costFilter.toLocaleString()}
 					</span>
 				</label>
+
+				<div className="flex items-center gap-2 flex-nowrap">
+					{compareSelection.length > 0 &&
+						compareSelection.map((entry) => (
+							<span
+								key={entry.unit_id}
+								className="inline-flex items-center gap-3 px-3 py-1 rounded-full bg-indigo-100 text-indigo-700"
+							>
+								{entry.name}
+								<button
+									onClick={() => handleToggleCompare(entry)}
+									className="text-indigo-500 hover:text-indigo-700"
+								>
+									x
+								</button>
+							</span>
+						))
+					}
+				</div>
 			</div>
 
-			{compareSelection.length > 0 && (
-				<>
-					{compareSelection.map((entry) => (
-						<span
-							key={entry.unit_id}
-							className="inline-flex ml-2 items-center gap-3 px-3 py-1 rounded-full bg-indigo-100 text-indigo-700 "
-						>
-							{entry.name}
-							<button
-								onClick={() => handleToggleCompare(entry)}
-								className="text-indigo-500 hover:text-indigo-700"
-							>
-								x
-							</button>
-						</span>
-					))}
-				</>)
-			}
-
-			{/* {error && (
+			{error && (
 				<div className="bg-rose-50 text-rose-700 border border-rose-100 rounded-lg px-4 py-3">
 					{error}
 				</div>
-			)} */}
+			)}
 
 			{loading ? (
-				<div className="text-sm text-slate-500">Loading data…</div>
+				<div className="text-center font-semibold text-slate-500">Loading Colleges…</div>
 			) : (
 				<div className="grid gap-4 md:grid-cols-2">
 					{filteredUniversities.map((university) => {
@@ -552,7 +563,7 @@ const FindUniversity = ({ onSelectProgram }) => {
 					})}
 					{filteredUniversities.length === 0 && (
 						<div className="bg-white border border-slate-200 rounded-xl shadow-sm p-6 text-sm text-slate-500">
-							No universities found with the current filters.
+							No Colleges/Universities found with the selected Program and Degree.
 						</div>
 					)}
 				</div>

@@ -348,7 +348,7 @@ const ComparisonTable = ({
     >
       {(!collapsible || open) && (
         <div className="overflow-x-auto">
-          <table className="min-w-full text-sm">
+          <table className="min-w-full">
             <tbody>
               {metrics.map((metric) => (
                 <tr
