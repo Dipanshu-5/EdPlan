@@ -22,6 +22,20 @@ const Navigation = () => {
 	const location = useLocation();
 	const navigate = useNavigate();
 	const isAuthenticated = Boolean(load("AuthToken"));
+	const profile = load("UserProfile");
+	const firstName =
+		typeof profile?.first_name === "string"
+			? profile.first_name
+			: typeof profile?.firstName === "string"
+			? profile.firstName
+			: "";
+	const lastName =
+		typeof profile?.last_name === "string"
+			? profile.last_name
+			: typeof profile?.lastName === "string"
+			? profile.lastName
+			: "";
+	const fullName = [firstName, lastName].filter(Boolean).join(" ");
 
 	const buttonLabel = isAuthenticated
 		? "Logout"
@@ -42,19 +56,26 @@ const Navigation = () => {
 
 	return (
 		<aside className="w-full lg:w-72 bg-white border-r border-slate-200 shadow-sm p-6 flex flex-col gap-6 lg:fixed lg:h-screen lg:top-0 lg:left-0 lg:overflow-y-auto">
-			<header className="flex items-center justify-between">
+			<header className="flex items-start justify-between gap-4">
 				<div>
 					<h1 className="ml-4 text-3xl font-semibold text-slate-900">
 						EdPlan.ai
 					</h1>
 				</div>
-				<button
-					type="button"
-					onClick={handleAuthClick}
-					className="font-medium text-lg text-indigo-600 hover:text-indigo-500"
-				>
-					{buttonLabel}
-				</button>
+				<div className="flex flex-col items-end">
+					{isAuthenticated && fullName && (
+						<span className="text-md font-medium text-slate-600">
+							{fullName}
+						</span>
+					)}
+					<button
+						type="button"
+						onClick={handleAuthClick}
+						className="font-medium text-lg text-indigo-600 hover:text-indigo-500"
+					>
+						{buttonLabel}
+					</button>
+				</div>
 			</header>
 			<nav className="flex flex-col gap-2">
 				<NavItem to="/home" label="Home" />
