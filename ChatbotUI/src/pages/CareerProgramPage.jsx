@@ -27,6 +27,13 @@ const CareerProgramPage = () => {
     return [...data.degrees].sort((a, b) => a.name.localeCompare(b.name));
   }, [data]);
 
+  const degreeOptionsForProgram = useMemo(() => {
+    if (!selectedProgram) return degreeOptions;
+    return degreeOptions.filter((degree) =>
+      (degree.programs || []).some((program) => program.name === selectedProgram)
+    );
+  }, [degreeOptions, selectedProgram]);
+
   const allPrograms = useMemo(() => {
     if (!data?.degrees) return [];
     const map = new Map();
@@ -46,6 +53,16 @@ const CareerProgramPage = () => {
         .sort((a, b) => a.name.localeCompare(b.name)) || []
     );
   }, [selectedDegree, degreeOptions]);
+
+  useEffect(() => {
+    if (!selectedDegree) return;
+    const isValid = degreeOptionsForProgram.some(
+      (degree) => degree.name === selectedDegree
+    );
+    if (!isValid) {
+      setSelectedDegree("");
+    }
+  }, [selectedDegree, degreeOptionsForProgram]);
 
   useEffect(() => {
     if (!selectedProgram || !selectedDegree) {
@@ -144,7 +161,7 @@ const CareerProgramPage = () => {
               onChange={(e) => setSelectedDegree(e.target.value)}
             >
               <option value="">Choose Your Degree</option>
-              {degreeOptions.map((d) => (
+              {degreeOptionsForProgram.map((d) => (
                 <option key={d.name} value={d.name}>
                   {d.name}
                 </option>

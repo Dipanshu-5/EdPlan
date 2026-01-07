@@ -10,6 +10,26 @@ import toast from "react-hot-toast";
 
 const LOCAL_PLAN_KEY = "LocalSavedPlans";
 const normalizeRequirement = (value) => (value || "").trim();
+const normalizeDegree = (value = "") => {
+	const raw = value.trim().toLowerCase();
+	const aliases = {
+		certificate: "certificate",
+		certificates: "certificate",
+		certification: "certificate",
+		associate: "associate",
+		associates: "associate",
+		"associate degree": "associate",
+		bachelor: "bachelor",
+		bachelors: "bachelor",
+		"bachelor's": "bachelor",
+		master: "master",
+		masters: "master",
+		"master's": "master",
+	};
+	if (aliases[raw]) return aliases[raw];
+	if (raw.endsWith("s") && raw.length > 4) return raw.slice(0, -1);
+	return raw;
+};
 const hasMeaningfulRequirement = (value) => {
 	const normalized = normalizeRequirement(value).toLowerCase();
 	return normalized && normalized !== "none" && normalized !== "n/a";
@@ -152,15 +172,13 @@ const EducationPlanEditor = () => {
 				console.error(err);
 				setError("Unable to load program catalog.");
 			});
-		// Load program from storage on mount
+		// Load program from storage on mount (keep university even if program is missing)
 		const savedProgram = loadStorage("Programname", "");
-		if (savedProgram) {
-			setSelectedProgram(savedProgram);
-		} else {
-			// No persisted program: clear stored university + program so editor resets on refresh
-			saveStorage("University", "");
-			saveStorage("Programname", "");
-			setSelectedProgram("");
+		setSelectedProgram(savedProgram || "");
+		const savedDegree =
+			loadStorage("ProgramDegree", "") || loadStorage("SelectedDegreeLevel", "");
+		if (savedDegree) {
+			setSelectedDegree(savedDegree);
 		}
 	}, []);
 
@@ -177,20 +195,30 @@ const EducationPlanEditor = () => {
 			setAvailableCourses((prev) => prev || []);
 			setCourses([]);
 			setDefaultPlan([]);
-			setSelectedDegree("");
 			return;
 		}
 
-		const match = programs.find(
-			(program) =>
-				program.program === selectedProgram &&
-				program.university === selectedUniversity
-		);
+		const selectedDegreeNorm = normalizeDegree(selectedDegree);
+		let match = null;
+		if (selectedDegreeNorm) {
+			match = programs.find(
+				(program) =>
+					program.program === selectedProgram &&
+					program.university === selectedUniversity &&
+					normalizeDegree(program.degree) === selectedDegreeNorm
+			);
+		} else {
+			match = programs.find(
+				(program) =>
+					program.program === selectedProgram &&
+					program.university === selectedUniversity
+			);
+		}
 		if (!match) {
 			setAvailableCourses([]);
 			setCourses([]);
 			setDefaultPlan([]);
-			setSelectedDegree("");
+			// preserve selectedDegree to reflect user's intent even if no data found
 			return;
 		}
 		const uniqueCourses =
@@ -230,9 +258,10 @@ const EducationPlanEditor = () => {
 		);
 		setDefaultPlan(builtDefaultPlan);
 		setCourses(builtDefaultPlan);
-		setSelectedDegree(match.degree || "");
-		saveStorage("ProgramDegree", match.degree || "");
-	}, [programs, selectedProgram, selectedUniversity]);
+		const degreeToUse = selectedDegree || match.degree || "";
+		setSelectedDegree(degreeToUse);
+		saveStorage("ProgramDegree", degreeToUse);
+	}, [programs, selectedProgram, selectedDegree, selectedUniversity]);
 
 	const knownCodes = useMemo(
 		() => buildCodeSet([...availableCourses, ...courses]),
@@ -310,6 +339,17 @@ const EducationPlanEditor = () => {
 
 	const selectedProgramMeta = useMemo(() => {
 		if (!selectedProgram || !selectedUniversity) return null;
+		const degreeNorm = normalizeDegree(selectedDegree);
+		if (degreeNorm) {
+			return (
+				programs.find(
+					(entry) =>
+						entry.program === selectedProgram &&
+						entry.university === selectedUniversity &&
+						normalizeDegree(entry.degree) === degreeNorm
+				) || null
+			);
+		}
 		return (
 			programs.find(
 				(entry) =>
@@ -317,7 +357,7 @@ const EducationPlanEditor = () => {
 					entry.university === selectedUniversity
 			) || null
 		);
-	}, [programs, selectedProgram, selectedUniversity]);
+	}, [programs, selectedProgram, selectedUniversity, selectedDegree]);
 
 	const averageAnnualCost =
 		selectedProgramMeta?.average_annual_cost ||
@@ -698,7 +738,7 @@ const EducationPlanEditor = () => {
 						</div>
 					) : (
 						<p className="text-base text-red-600 font-semibold mt-1">
-							Select a University/College from the Find Program Page.
+							Select a University/College from the Find University Page.
 						</p>
 					)}
 				</label>

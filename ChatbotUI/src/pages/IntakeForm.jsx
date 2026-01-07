@@ -147,14 +147,14 @@ const IntakeForm = () => {
 								<input
 									name="gpa"
 									type="number"
-									placeholder="e.g. 3.8 / 4.0"
+									placeholder="e.g. 3 / 4"
 									min="0"
 									max="4"
 									required
 									className="w-full rounded-lg border border-slate-300 px-3 py-2.5 text-sm shadow-sm focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 outline-none"
 								/>
 								<span className="text-[13px] text-slate-500">
-									You can enter GPA as 4.0 scale
+									You can enter GPA as 4 scale
 								</span>
 							</label>
 							<label className="flex flex-col gap-1.5 text-sm font-medium text-slate-700">
@@ -293,14 +293,14 @@ const IntakeForm = () => {
 									{
 										name: "sat_total",
 										label: "Total (1600)",
-										min: 400,
+										min: 0,
 										max: 1600,
 									},
-									{ name: "sat_math", label: "Math (800)", min: 200, max: 800 },
+									{ name: "sat_math", label: "Math (800)", min: 0, max: 800 },
 									{
 										name: "sat_reading",
 										label: "Reading & Writing (800)",
-										min: 200,
+										min: 0,
 										max: 800,
 									},
 								].map((field) => (
@@ -314,7 +314,7 @@ const IntakeForm = () => {
 											type="number"
 											min={field.min}
 											max={field.max}
-											placeholder="e.g. 1380"
+											placeholder="e.g. 400"
 											disabled={satDisabled}
 											className="w-full rounded-lg border border-slate-300 px-3 py-2 text-sm shadow-sm focus:ring-2 focus:ring-sky-500 focus:border-sky-500 outline-none"
 										/>

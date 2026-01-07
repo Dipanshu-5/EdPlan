@@ -337,7 +337,7 @@ const FindUniversity = ({ onSelectProgram }) => {
 	return (
 		<section className="space-y-4">
 			<header className="flex flex-col gap-4">
-			    <h1 className="text-3xl font-semibold text-slate-900">Explore <span className="text-[#0069e0]">Colleges</span></h1>
+			    <h1 className="text-3xl font-semibold text-slate-900">Explore <span className="text-[#0069e0]">Colleges</span> & <span className="text-[#0069e0]">Universities</span></h1>
 				<form
 					onSubmit={handleSearch}
 					className="flex flex-col md:flex-row gap-3"
@@ -563,7 +563,7 @@ const FindUniversity = ({ onSelectProgram }) => {
 					})}
 					{filteredUniversities.length === 0 && (
 						<div className="bg-white border border-slate-200 rounded-xl shadow-sm p-6 text-sm text-slate-500">
-							No Colleges/Universities found with the selected Program and Degree.
+							No Colleges/Universities found for the selected Program and Degree.
 						</div>
 					)}
 				</div>
