@@ -4,6 +4,7 @@ from sqlalchemy.ext.asyncio import AsyncSession
 from app.db.session import get_db
 from app.schemas.auth import LoginRequest, RegisterRequest, UserProfile
 from app.schemas.education import (
+    EducationPlanDeleteRequest,
     EducationPlanListQuery,
     EducationPlanQuery,
     EducationPlanRequest,
@@ -69,6 +70,17 @@ async def list_plans(request: EducationPlanListQuery, db: AsyncSession = Depends
     plans = await education_plan_service.list_plans(db, request)
     data = [plan.payload for plan in plans]
     return {"success": True, "message": "Plans loaded", "data": data}
+
+
+@router.post("/users/education-plan/delete")
+async def delete_plan(request: EducationPlanDeleteRequest, db: AsyncSession = Depends(get_db)):
+    user = await user_service.get_user_by_email(db, request.email.lower())
+    if not user:
+        raise HTTPException(status_code=404, detail="User not found")
+    await education_plan_service.delete_plan(
+        db, user, request.programname, request.univerityname
+    )
+    return {"success": True, "message": "Education plan deleted", "data": None}
 
 
 @router.post("/users/education-plan/reschedule")

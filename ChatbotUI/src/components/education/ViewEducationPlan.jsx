@@ -2,7 +2,10 @@ import { Fragment, useEffect, useMemo, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { jsPDF } from "jspdf";
 import { FaDownload } from "react-icons/fa6";
-import { getEducationPlanList } from "../../services/authService.js";
+import {
+	deleteEducationPlan,
+	getEducationPlanList,
+} from "../../services/authService.js";
 import { listPrograms } from "../../services/educationPlanService.js";
 import {
 	load as loadStorage,
@@ -59,6 +62,8 @@ const ViewEducationPlan = () => {
 	const [filter, setFilter] = useState("");
 	const [error, setError] = useState("");
 	const [expandedPlanId, setExpandedPlanId] = useState(null);
+	const [deletingPlanId, setDeletingPlanId] = useState(null);
+	const [deleteTarget, setDeleteTarget] = useState(null);
 	const storedEmail = loadStorage("UserEmail");
 	const userEmail =
 		typeof storedEmail === "string" ? storedEmail : storedEmail?.email;
@@ -226,18 +231,61 @@ const ViewEducationPlan = () => {
 		);
 	};
 
-	const handleDeletePlan = (planId, source) => {
-		const confirmed = window.confirm("Delete this saved plan?");
-		if (!confirmed) return;
+	const handleDeletePlan = (plan) => {
+		setDeleteTarget(plan);
+	};
 
-		setSavedPlans((prev) => prev.filter((plan) => plan.id !== planId));
+	const confirmDeletePlan = async () => {
+		if (!deleteTarget) return;
+		const plan = deleteTarget;
 
-		if (source === "local") {
+		if (plan.source === "local") {
+			setSavedPlans((prev) => prev.filter((item) => item.id !== plan.id));
 			const stored = loadStorage("LocalSavedPlans", []);
 			const updated = stored.filter(
-				(entry, index) => `local-${index}` !== planId
+				(entry, index) => `local-${index}` !== plan.id
 			);
 			saveStorage("LocalSavedPlans", updated);
+			setDeleteTarget(null);
+			return;
+		}
+
+		if (!userEmail) {
+			setError("Please login again to delete saved plans.");
+			setDeleteTarget(null);
+			return;
+		}
+
+		setError("");
+		setDeletingPlanId(plan.id);
+		try {
+			await deleteEducationPlan({
+				email: userEmail,
+				programName: plan.program,
+				universityName: plan.university,
+			});
+			setSavedPlans((prev) => prev.filter((item) => item.id !== plan.id));
+		} catch (err) {
+			console.error(err);
+			if (err.response?.status === 401) {
+				setError(
+					"Your session has expired. Please login again to manage saved plans."
+				);
+			} else if (err.response?.status === 404) {
+				setError("This saved plan was not found. Please refresh and retry.");
+			} else {
+				setError("Unable to delete the saved plan at the moment.");
+			}
+		} finally {
+			setDeletingPlanId(null);
+			setDeleteTarget(null);
+		}
+	};
+
+	const closeDeleteModal = (event) => {
+		if (deletingPlanId) return;
+		if (!event || event.target === event.currentTarget) {
+			setDeleteTarget(null);
 		}
 	};
 
@@ -311,6 +359,49 @@ const ViewEducationPlan = () => {
 
 	return (
 		<section className="space-y-6">
+			{deleteTarget && (
+				<div
+					className="fixed inset-0 z-50 flex items-center justify-center bg-slate-900/50 px-4"
+					onClick={closeDeleteModal}
+				>
+					<div
+						className="w-full max-w-sm rounded-2xl bg-white shadow-xl border border-slate-200"
+						role="dialog"
+						aria-modal="true"
+						aria-labelledby="delete-plan-title"
+					>
+						<div className="px-9 py-4">
+							<h2
+								id="delete-plan-title"
+								className="text-lg font-semibold text-slate-900"
+							>
+								You are about to delete a saved plan
+							</h2>
+						</div>
+
+						<div className="py-5 flex items-center justify-center gap-4">
+							<button
+								type="button"
+								onClick={closeDeleteModal}
+								disabled={deletingPlanId === deleteTarget.id}
+								className="px-4 py-2 rounded-lg border border-slate-200 text-slate-700 hover:bg-slate-200 disabled:cursor-not-allowed disabled:text-slate-400"
+							>
+								Cancel
+							</button>
+							<button
+								type="button"
+								onClick={confirmDeletePlan}
+								disabled={deletingPlanId === deleteTarget.id}
+								className="px-4 py-2 rounded-lg bg-rose-600 text-white hover:bg-rose-700 disabled:cursor-not-allowed disabled:bg-rose-300"
+							>
+								{deletingPlanId === deleteTarget.id
+									? "Deleting..."
+									: "Delete Plan"}
+							</button>
+						</div>
+					</div>
+				</div>
+			)}
 			<header className="flex flex-col md:flex-row md:items-center justify-between gap-4">
 				<div>
 					<h1 className="text-3xl font-semibold text-slate-900">
@@ -407,10 +498,17 @@ const ViewEducationPlan = () => {
 												</button>
 												<button
 													type="button"
-													onClick={() => handleDeletePlan(plan.id, plan.source)}
-													className="px-4 py-1.5 rounded-lg bg-rose-100 text-rose-700 text-sm font-medium hover:bg-rose-200 transition"
+													onClick={() => handleDeletePlan(plan)}
+													disabled={deletingPlanId === plan.id}
+													className={`px-4 py-1.5 rounded-lg text-sm font-medium transition ${
+														deletingPlanId === plan.id
+															? "bg-rose-200 text-rose-400 cursor-not-allowed"
+															: "bg-rose-100 text-rose-700 hover:bg-rose-200"
+													}`}
 												>
-													Delete Plan
+													{deletingPlanId === plan.id
+														? "Deleting..."
+														: "Delete Plan"}
 												</button>
 												<button
 													type="button"

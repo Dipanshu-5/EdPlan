@@ -78,4 +78,11 @@ export const getEducationPlanList = (email) => {
 	return client.post("/users/education-plan/list", { email: normalizedEmail });
 };
 
+export const deleteEducationPlan = ({ email, programName, universityName }) =>
+	client.post("/users/education-plan/delete", {
+		email,
+		programname: programName,
+		univerityname: universityName,
+	});
+
 export default client;

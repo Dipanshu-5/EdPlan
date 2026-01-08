@@ -37,6 +37,12 @@ class EducationPlanQuery(BaseModel):
     univerityname: str
 
 
+class EducationPlanDeleteRequest(BaseModel):
+    email: EmailStr
+    programname: str
+    univerityname: str
+
+
 class EducationPlanListQuery(BaseModel):
     email: EmailStr
 

@@ -110,6 +110,16 @@ async def list_plans(db: AsyncSession, query: EducationPlanListQuery) -> Sequenc
     return result.scalars().all()
 
 
+async def delete_plan(
+    db: AsyncSession, user: User, program_name: str, university_name: str
+) -> None:
+    plan = await get_plan_by_program(db, user.id, program_name, university_name)
+    if not plan:
+        raise HTTPException(status_code=404, detail="Education plan not found")
+    await db.delete(plan)
+    await db.commit()
+
+
 async def save_reschedule(db: AsyncSession, user: User, payload: RescheduleRequest) -> CourseReschedule:
     entry = CourseReschedule(user_id=user.id, payload={"reschedule": [item.dict() for item in payload.reschedule]})
     db.add(entry)
