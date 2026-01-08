@@ -5,59 +5,59 @@ import { load as loadStorage, save as saveStorage } from "../../utils/storage.js
 import { useNavigate } from 'react-router-dom';
 import toast from 'react-hot-toast';
 
-const stateOptions = [
-	"",
-	"AL",
-	"AK",
-	"AZ",
-	"AR",
-	"CA",
-	"CO",
-	"CT",
-	"DE",
-	"FL",
-	"GA",
-	"HI",
-	"ID",
-	"IL",
-	"IN",
-	"IA",
-	"KS",
-	"KY",
-	"LA",
-	"ME",
-	"MD",
-	"MA",
-	"MI",
-	"MN",
-	"MS",
-	"MO",
-	"MT",
-	"NE",
-	"NV",
-	"NH",
-	"NJ",
-	"NM",
-	"NY",
-	"NC",
-	"ND",
-	"OH",
-	"OK",
-	"OR",
-	"PA",
-	"RI",
-	"SC",
-	"SD",
-	"TN",
-	"TX",
-	"UT",
-	"VT",
-	"VA",
-	"WA",
-	"WV",
-	"WI",
-	"WY",
-];
+// const stateOptions = [
+// 	"",
+// 	"AL",
+// 	"AK",
+// 	"AZ",
+// 	"AR",
+// 	"CA",
+// 	"CO",
+// 	"CT",
+// 	"DE",
+// 	"FL",
+// 	"GA",
+// 	"HI",
+// 	"ID",
+// 	"IL",
+// 	"IN",
+// 	"IA",
+// 	"KS",
+// 	"KY",
+// 	"LA",
+// 	"ME",
+// 	"MD",
+// 	"MA",
+// 	"MI",
+// 	"MN",
+// 	"MS",
+// 	"MO",
+// 	"MT",
+// 	"NE",
+// 	"NV",
+// 	"NH",
+// 	"NJ",
+// 	"NM",
+// 	"NY",
+// 	"NC",
+// 	"ND",
+// 	"OH",
+// 	"OK",
+// 	"OR",
+// 	"PA",
+// 	"RI",
+// 	"SC",
+// 	"SD",
+// 	"TN",
+// 	"TX",
+// 	"UT",
+// 	"VT",
+// 	"VA",
+// 	"WA",
+// 	"WV",
+// 	"WI",
+// 	"WY",
+// ];
 
 const formatPercent = (value) =>
 	value || value === 0 ? `${Math.round(value * 100)}%` : "N/A";
@@ -97,6 +97,7 @@ const FindUniversity = ({ onSelectProgram }) => {
 	const [selectedDegree, setSelectedDegree] = useState("");
 	const [programMap, setProgramMap] = useState(new Map());
 	const [programDegreeMap, setProgramDegreeMap] = useState(new Map());
+	const [programDegreeLabelMap, setProgramDegreeLabelMap] = useState(new Map());
 	const [programDegreeByUniversity, setProgramDegreeByUniversity] = useState(
 		new Map()
 	);
@@ -131,6 +132,7 @@ const FindUniversity = ({ onSelectProgram }) => {
 				const programSet = new Set();
 				const map = new Map();
 				const degreeLookup = new Map();
+				const degreeLabelLookup = new Map();
 				const degreeByUniversity = new Map();
 				const crimeLookup = new Map();
 				items.forEach((entry) => {
@@ -147,10 +149,18 @@ const FindUniversity = ({ onSelectProgram }) => {
 						if (degreeNorm) {
 							if (!degreeLookup.has(entry.program)) {
 								degreeLookup.set(entry.program, new Map());
+								degreeLabelLookup.set(entry.program, new Map());
 							}
 							const degreeMapForProgram = degreeLookup.get(entry.program);
+							const degreeLabelMapForProgram = degreeLabelLookup.get(
+								entry.program
+							);
 							if (!degreeMapForProgram.has(degreeNorm)) {
 								degreeMapForProgram.set(degreeNorm, new Set());
+								degreeLabelMapForProgram.set(
+									degreeNorm,
+									entry.degree || ""
+								);
 							}
 							degreeMapForProgram.get(degreeNorm).add(uniName);
 							degreeByUniversity.set(
@@ -173,6 +183,7 @@ const FindUniversity = ({ onSelectProgram }) => {
 				setProgramOptions(Array.from(programSet).sort());
 				setProgramMap(map);
 				setProgramDegreeMap(degreeLookup);
+				setProgramDegreeLabelMap(degreeLabelLookup);
 				setProgramDegreeByUniversity(degreeByUniversity);
 				setCrimeRateMap(crimeLookup);
 			})
@@ -188,28 +199,56 @@ const FindUniversity = ({ onSelectProgram }) => {
 		const savedDegree =
 			loadStorage("SelectedDegreeLevel", "") || loadStorage("ProgramDegree", "");
 
+		if (programOptions.length === 0) {
+			const fallbackProgram = savedProgram || persistentProgram || "";
+			if (fallbackProgram) {
+				setSelectedProgram(fallbackProgram);
+				setSelectedDegree(savedDegree || "");
+			}
+			setStateFilter("NM");
+			fetchUniversities({ state: "NM" });
+			return;
+		}
+
 		if (savedProgram && programOptions.includes(savedProgram)) {
 			setSelectedProgram(savedProgram);
 			setSelectedDegree(savedDegree || "");
-			// Save to Programname for persistence and clear temporary SelectedProgram
+			// Save to Programname for persistence and keep SelectedProgram so selections are preserved when navigating back
 			saveStorage("Programname", savedProgram);
-			saveStorage("SelectedProgram", "");
 		} else if (persistentProgram && programOptions.includes(persistentProgram)) {
 			// Use persisted program when available and valid
 			setSelectedProgram(persistentProgram);
 			setSelectedDegree(savedDegree || "");
 		} else {
 			// No valid program was provided (neither temporary nor persistent).
-			// Clear stored university + program so page state resets on refresh.
 			setSelectedProgram("");
 			setSelectedDegree("");
-			saveStorage("Programname", "");
-			saveStorage("University", "");
 		}
 		setStateFilter("NM");
 		fetchUniversities({ state: "NM" });
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [programOptions]);
+
+	const degreeOptionsForProgram = useMemo(() => {
+		if (!programDegreeLabelMap.size) return [];
+		if (selectedProgram) {
+			const mapForProgram = programDegreeLabelMap.get(selectedProgram);
+			if (!mapForProgram) return [];
+			return Array.from(mapForProgram.values())
+				.filter(Boolean)
+				.sort((a, b) => a.localeCompare(b));
+		}
+		const seen = new Set();
+		const all = [];
+		programDegreeLabelMap.forEach((map) => {
+			map.forEach((label) => {
+				if (!label || seen.has(label)) return;
+				seen.add(label);
+				all.push(label);
+			});
+		});
+		return all.sort((a, b) => a.localeCompare(b));
+	}, [programDegreeLabelMap, selectedProgram]);
 
 	useEffect(() => {
 		const stored = loadStorage("CompareQueue", []);
@@ -348,7 +387,7 @@ const FindUniversity = ({ onSelectProgram }) => {
 						className="px-4 py-2 rounded-lg border border-slate-200 md:w-[500px] text-center"
 						placeholder="Search by University Name"
 					/>
-					<select
+					{/* <select
 						value={stateFilter}
 						onChange={(event) => setStateFilter(event.target.value)}
 						className="px-3 py-2 rounded-lg border border-slate-200 md:w-[400px]"
@@ -358,7 +397,7 @@ const FindUniversity = ({ onSelectProgram }) => {
 								{state ? state : "All states"}
 							</option>
 						))}
-					</select>
+					</select> */}
 					<select
 						value={selectedProgram}
 						onChange={(event) => {
@@ -382,6 +421,23 @@ const FindUniversity = ({ onSelectProgram }) => {
 						{programOptions.map((program) => (
 							<option key={program} value={program}>
 								{program}
+							</option>
+						))}
+					</select>
+					<select
+						value={selectedDegree}
+						onChange={(event) => {
+							const nextDegree = event.target.value;
+							setSelectedDegree(nextDegree);
+							saveStorage("ProgramDegree", nextDegree);
+							saveStorage("SelectedDegreeLevel", nextDegree);
+						}}
+						className="px-3 py-2 rounded-lg border border-slate-200 md:w-[400px]"
+					>
+						<option value="">All degrees</option>
+						{degreeOptionsForProgram.map((degree) => (
+							<option key={degree} value={degree}>
+								{degree}
 							</option>
 						))}
 					</select>
