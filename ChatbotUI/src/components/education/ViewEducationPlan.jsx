@@ -93,6 +93,14 @@ const ViewEducationPlan = () => {
 		saveStorage("ProgramDegree", degree || "");
 		saveStorage("SelectedProgram", plan.program || "");
 		saveStorage("SelectedDegreeLevel", degree || "");
+		saveStorage("EditingPlan", {
+			university: plan.university || "",
+			program: plan.program || "",
+			degree: degree || "",
+			courses: plan.courses || [],
+			source: plan.source || "",
+		});
+		saveStorage("EditingPlanActive", true);
 		navigate("/educationplan");
 	};
 
@@ -358,7 +366,7 @@ const ViewEducationPlan = () => {
 	};
 
 	return (
-		<section className="space-y-6">
+		<>
 			{deleteTarget && (
 				<div
 					className="fixed inset-0 z-50 flex items-center justify-center bg-slate-900/50 px-4"
@@ -379,7 +387,7 @@ const ViewEducationPlan = () => {
 							</h2>
 						</div>
 
-						<div className="py-5 flex items-center justify-center gap-4">
+						<div className="mb-4 flex items-center justify-center gap-4">
 							<button
 								type="button"
 								onClick={closeDeleteModal}
@@ -402,6 +410,7 @@ const ViewEducationPlan = () => {
 					</div>
 				</div>
 			)}
+		<section className="space-y-6">
 			<header className="flex flex-col md:flex-row md:items-center justify-between gap-4">
 				<div>
 					<h1 className="text-3xl font-semibold text-slate-900">
@@ -629,6 +638,7 @@ const ViewEducationPlan = () => {
 				</div>
 			</div>
 		</section>
+		</>
 	);
 };
 

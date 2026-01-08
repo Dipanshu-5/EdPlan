@@ -29,13 +29,6 @@ const Navigation = () => {
 			: typeof profile?.firstName === "string"
 			? profile.firstName
 			: "";
-	const lastName =
-		typeof profile?.last_name === "string"
-			? profile.last_name
-			: typeof profile?.lastName === "string"
-			? profile.lastName
-			: "";
-	const fullName = [firstName, lastName].filter(Boolean).join(" ");
 
 	const buttonLabel = isAuthenticated
 		? "Logout"
@@ -63,9 +56,9 @@ const Navigation = () => {
 					</h1>
 				</div>
 				<div className="flex flex-col items-end">
-					{isAuthenticated && fullName && (
+					{isAuthenticated && firstName && (
 						<span className="text-md font-medium text-slate-600">
-							{fullName}
+							{firstName}
 						</span>
 					)}
 					<button

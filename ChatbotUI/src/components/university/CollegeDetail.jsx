@@ -1,4 +1,9 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import {
+  load as loadStorage,
+  save as saveStorage,
+} from "../../utils/storage.js";
 
 const formatPercent = (value) =>
   value || value === 0
@@ -401,6 +406,7 @@ const ComparisonTable = ({
 };
 
 const CollegeDetail = ({ college }) => {
+  const navigate = useNavigate();
   if (!college) {
     return (
       <div className="bg-white border border-slate-200 rounded-xl shadow-sm p-5 text-sm text-slate-600">
@@ -411,8 +417,36 @@ const CollegeDetail = ({ college }) => {
 
   const schools = [college];
 
+  const handleBackToFind = () => {
+    const tempProgram = loadStorage("SelectedProgram", "");
+    const tempDegree = loadStorage("SelectedDegreeLevel", "");
+
+    // If there is a temporary selection from Career Program page, promote it to persistent storage
+    if (tempProgram) {
+      saveStorage("Programname", tempProgram);
+      saveStorage("Programnameview", tempProgram);
+      // Clear the temporary key so FindUniversity uses persistent storage moving forward
+      saveStorage("SelectedProgram", "");
+    }
+    if (tempDegree) {
+      saveStorage("ProgramDegree", tempDegree);
+      saveStorage("SelectedDegreeLevel", tempDegree);
+    }
+
+    navigate("/uni");
+  };
+
   return (
     <section className="space-y-4">
+      <div>
+        <button
+          type="button"
+          onClick={handleBackToFind}
+          className="mt-2 inline-flex items-center gap-2 px-3 py-2 rounded-md bg-indigo-50 text-indigo-700 hover:bg-indigo-100 text-sm font-medium"
+        >
+          ← Back to Find University
+        </button>
+      </div>
       <ComparisonTable
         title="College Overview"
         metrics={overviewMetrics}

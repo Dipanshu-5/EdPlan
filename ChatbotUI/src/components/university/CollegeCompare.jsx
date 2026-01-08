@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { compareUniversitiesByIds } from "../../services/universityService.js";
 import { load as loadStorage, save as saveStorage } from "../../utils/storage.js";
 
@@ -409,6 +410,26 @@ const CollegeCompare = () => {
 	const [loadingCompare, setLoadingCompare] = useState(false);
 	const [error, setError] = useState("");
 	const [initializing, setInitializing] = useState(true);
+	const navigate = useNavigate();
+
+	const handleBackToFind = () => {
+		const tempProgram = loadStorage("SelectedProgram", "");
+		const tempDegree = loadStorage("SelectedDegreeLevel", "");
+
+		// If there is a temporary selection from Career Program page, promote it to persistent storage
+		if (tempProgram) {
+			saveStorage("Programname", tempProgram);
+			saveStorage("Programnameview", tempProgram);
+			// Clear the temporary key so FindUniversity uses persistent storage moving forward
+			saveStorage("SelectedProgram", "");
+		}
+		if (tempDegree) {
+			saveStorage("ProgramDegree", tempDegree);
+			saveStorage("SelectedDegreeLevel", tempDegree);
+		}
+
+		navigate("/uni");
+	};
 
 	useEffect(() => {
 		const stored = loadStorage("CompareQueue", []);
@@ -579,13 +600,16 @@ const CollegeCompare = () => {
 				<p className="text-lg text-slate-600">
 					Use the Find University page to pick upto three colleges, then click Compare Now.
 				</p>
-			</header>
-
-			{/* {error && (
-				<div className="text-sm text-rose-600 bg-rose-50 border border-rose-100 rounded-lg px-4 py-2">
-					{error}
+				<div>
+					<button
+						type="button"
+						onClick={handleBackToFind}
+						className="mt-2 inline-flex items-center gap-2 px-3 py-2 rounded-md bg-indigo-50 text-indigo-700 hover:bg-indigo-100 text-sm font-medium"
+					>
+						← Back to Find University
+					</button>
 				</div>
-			)} */}
+			</header>
 
 			{selected.length > 0 && (
 				<div className="space-y-4">
@@ -608,7 +632,7 @@ const CollegeCompare = () => {
 
 					{loadingCompare ? (
 						<div className="bg-white border border-slate-200 rounded-xl shadow-sm p-5 text-sm text-slate-500">
-							Loading Comparison Data…
+							Loading Data…
 						</div>
 					) : (
 						<div className="space-y-4">
@@ -640,7 +664,7 @@ const CollegeCompare = () => {
 			)}
 			{!initializing && selected.length === 0 && (
 				<div className="bg-white border border-slate-200 rounded-xl shadow-sm p-5 text-sm text-slate-600">
-					No colleges selected.
+					No Colleges/Universities are selected.
 				</div>
 			)}
 		</section>

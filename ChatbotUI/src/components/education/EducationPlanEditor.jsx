@@ -157,6 +157,8 @@ const EducationPlanEditor = () => {
 	const [courses, setCourses] = useState([]);
 	const [availableCourses, setAvailableCourses] = useState([]);
 	const [defaultPlan, setDefaultPlan] = useState([]);
+	const [editingPlan, setEditingPlan] = useState(null);
+	const [editApplied, setEditApplied] = useState(false);
 	const [error, setError] = useState("");
 	const [yearFilter, setYearFilter] = useState("");
 	const [semesterFilter, setSemesterFilter] = useState("");
@@ -179,6 +181,11 @@ const EducationPlanEditor = () => {
 			loadStorage("ProgramDegree", "") || loadStorage("SelectedDegreeLevel", "");
 		if (savedDegree) {
 			setSelectedDegree(savedDegree);
+		}
+		const storedEditingPlan = loadStorage("EditingPlan", null);
+		const editingActive = loadStorage("EditingPlanActive", false);
+		if (editingActive && storedEditingPlan) {
+			setEditingPlan(storedEditingPlan);
 		}
 	}, []);
 
@@ -257,11 +264,38 @@ const EducationPlanEditor = () => {
 				}))
 		);
 		setDefaultPlan(builtDefaultPlan);
-		setCourses(builtDefaultPlan);
 		const degreeToUse = selectedDegree || match.degree || "";
 		setSelectedDegree(degreeToUse);
 		saveStorage("ProgramDegree", degreeToUse);
-	}, [programs, selectedProgram, selectedDegree, selectedUniversity]);
+
+		const hasEditingCourses = Boolean(editingPlan?.courses?.length);
+		const programMatch =
+			String(editingPlan?.program || "").toLowerCase() ===
+			String(selectedProgram || "").toLowerCase();
+		const universityMatch =
+			String(editingPlan?.university || "").toLowerCase() ===
+			String(selectedUniversity || "").toLowerCase();
+		const degreeMatch =
+			!editingPlan?.degree ||
+			normalizeDegree(editingPlan.degree) === normalizeDegree(degreeToUse);
+		const editingMatch =
+			hasEditingCourses && programMatch && universityMatch && degreeMatch;
+
+		if (editingMatch && !editApplied) {
+			setCourses(dedupeCourses(editingPlan.courses));
+			setEditApplied(true);
+			saveStorage("EditingPlanActive", false);
+			return;
+		}
+
+		if (!editingMatch) {
+			setEditApplied(false);
+		}
+
+		if (!editingMatch || !editApplied) {
+			setCourses(builtDefaultPlan);
+		}
+	}, [programs, selectedProgram, selectedDegree, selectedUniversity, editingPlan, editApplied]);
 
 	const knownCodes = useMemo(
 		() => buildCodeSet([...availableCourses, ...courses]),
@@ -571,20 +605,25 @@ const EducationPlanEditor = () => {
 			return;
 		}
 		const stored = loadStorage(LOCAL_PLAN_KEY, []);
-		const filtered = stored.filter(
-			(entry) =>
-				entry.university !== selectedUniversity ||
-				entry.program !== selectedProgram
-		);
+		const selectedDegreeNorm = normalizeDegree(selectedDegree);
+		const filtered = stored.filter((entry) => {
+			const sameUniversity = entry.university === selectedUniversity;
+			const sameProgram = entry.program === selectedProgram;
+			const entryDegreeNorm = normalizeDegree(entry.degree || "");
+			const sameDegree = entryDegreeNorm === selectedDegreeNorm;
+			return !(sameUniversity && sameProgram && sameDegree);
+		});
 		const updated = [
 			...filtered,
 			{
 				program: selectedProgram,
 				university: selectedUniversity,
+				degree: selectedDegree,
 				courses,
 			},
 		];
 		saveStorage(LOCAL_PLAN_KEY, updated);
+		saveStorage("EditingPlanActive", false);
 		toast.success("Education plan saved.");
 		navigate("/view");
 	};
@@ -611,6 +650,7 @@ const EducationPlanEditor = () => {
 			});
 			toast.success("Education plan saved.");
 			saveStorage("vieweducation", courses);
+			saveStorage("EditingPlanActive", false);
 			navigate("/view");
 		} catch (err) {
 			console.error(err);
