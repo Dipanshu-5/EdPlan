@@ -99,8 +99,6 @@ const CareerProgramPage = () => {
     return employers?.[selectedDegree]?.[careerTitle] || [];
   };
 
-  if (!data) return <div className="p-6">Loading...</div>;
-
   // Certificate -> Automotive Technology, Cybersecurity, Film & Digital Media Arts, Information Engineering Technology
   // Associate -> Automotive Technology, Cybersecurity, Business Administration, Nursing, Psychology
   // Bachelors -> Biology, Business Administration, Computer Science, Cybersecurity, Elementary Education, Film & Digital Media Arts, Information Engineering Technology, Management, Mechanical Engineering, Nursing, Psychology

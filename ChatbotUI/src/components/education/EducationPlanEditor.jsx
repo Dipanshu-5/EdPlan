@@ -994,7 +994,7 @@ const EducationPlanEditor = () => {
 													const showCoreq = hasMeaningfulRequirement(coreqText);
 
 													return (
-														<div className="text-xs text-slate-600 flex flex-wrap items-center gap-x-6 gap-y-2 leading-relaxed">
+														<div className="text-sm text-slate-600 flex flex-wrap items-center gap-x-6 gap-y-2 leading-relaxed">
 															<span className="inline-flex items-center gap-1 whitespace-nowrap">
 																<span className="text-slate-600">Code:</span>
 																<span className="font-medium text-slate-800">
@@ -1091,13 +1091,13 @@ const EducationPlanEditor = () => {
 								>
 									<div className="flex">
 										<div>
-											<div className="font-medium text-slate-800">
+											<div className="text-base font-medium text-slate-800">
 												{course.name}
 											</div>
-											<div className="text-md text-slate-500 flex gap-3">
-												<span>Code: {course.code}</span>
-												<span>Year: {course.year}</span>
-												<span>Semester: {course.semester}</span>
+											<div className="text-sm text-slate-500 flex gap-3">
+												<p>Code: <span className="font-semibold">{course.code}</span></p>
+												<p>Year: <span className="font-semibold">{course.year}</span></p>
+												<p>Credits: <span className="font-semibold">{course.credits}</span></p>
 											</div>
 										</div>
 										<div className="flex justify-end ml-auto">

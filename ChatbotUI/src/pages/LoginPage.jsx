@@ -157,6 +157,7 @@ const LoginPage = ({ initialMode = "login" }) => {
 							<span className="font-semibold">Contact Number</span>
 							<input
 								name="phoneNumber"
+								type= "number"
 								value={form.phoneNumber}
 								onChange={handleChange}
 								className="w-full px-3 py-2 rounded-lg border border-slate-200"

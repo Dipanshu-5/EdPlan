@@ -598,17 +598,15 @@ const CollegeCompare = () => {
 			<header className="space-y-1">
 				<h1 className="text-3xl font-semibold text-slate-900">Compare <span className="text-[#0069e0]">Colleges</span></h1>
 				<p className="text-lg text-slate-600">
-					Use the Find University page to pick upto three colleges, then click Compare Now.
-				</p>
-				<div>
 					<button
 						type="button"
 						onClick={handleBackToFind}
-						className="mt-2 inline-flex items-center gap-2 px-3 py-2 rounded-md bg-indigo-50 text-indigo-700 hover:bg-indigo-100 text-sm font-medium"
+						className="mt-2 inline-flex items-center gap-2 px-3 py-2 rounded-lg text-indigo-700 hover:bg-slate-200 text-sm font-medium"
 					>
-						← Back to Find University
-					</button>
-				</div>
+						← Go Back
+					</button> Use the Find University page to select upto three colleges for comparison.
+				</p>
+				
 			</header>
 
 			{selected.length > 0 && (
