@@ -52,12 +52,14 @@ export const addEducationPlan = ({
 	program,
 	rescheduledata,
 	reschedule,
+	uniqueIdentifier,
 }) =>
 	client.post("/users/education-plan", {
 		emailaddress: email,
 		program,
 		rescheduledata,
 		reschedule,
+		uniqueIdentifier,
 	});
 
 export const rescheduleCourses = ({ email, reschedule }) =>

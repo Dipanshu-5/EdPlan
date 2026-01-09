@@ -36,10 +36,15 @@ async def add_or_replace_plan(
         raise HTTPException(status_code=400, detail="Program payload is empty")
 
     program_name, university_name = _infer_program(payload.program)
+    degree = payload.uniqueIdentifier.degree if payload.uniqueIdentifier else None
 
     existing = await get_plan_by_program(db, user.id, program_name, university_name)
+    plan_payload = {"program": [course.model_dump(by_alias=True) for course in payload.program]}
+    if degree:
+        plan_payload["degree"] = degree
+    
     if existing:
-        existing.payload = {"program": [course.model_dump(by_alias=True) for course in payload.program]}
+        existing.payload = plan_payload
         await db.execute(delete(ProgramCourse).where(ProgramCourse.education_plan_id == existing.id))
         await _persist_courses(db, existing, payload.program)
         await db.commit()
@@ -50,7 +55,7 @@ async def add_or_replace_plan(
         user_id=user.id,
         program_name=program_name,
         university_name=university_name,
-        payload={"program": [course.model_dump(by_alias=True) for course in payload.program]},
+        payload=plan_payload,
     )
     db.add(plan)
     await db.flush()
