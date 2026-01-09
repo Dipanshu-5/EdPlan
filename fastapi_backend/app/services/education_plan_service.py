@@ -17,6 +17,13 @@ from app.schemas.education import (
 )
 
 
+def _normalize_degree(value: str | None) -> str:
+    """Normalize degree strings for comparison (case/whitespace insensitive)."""
+    if not value:
+        return ""
+    return str(value).strip().lower()
+
+
 def _infer_program(payload: Sequence[ProgramCoursePayload]) -> tuple[str, str]:
     program_name = next((item.program for item in payload if item.program), None)
     university_name = next((item.university for item in payload if item.university), None)
@@ -38,14 +45,16 @@ async def add_or_replace_plan(
     program_name, university_name = _infer_program(payload.program)
     degree = payload.uniqueIdentifier.degree if payload.uniqueIdentifier else None
 
-    existing = await get_plan_by_program(db, user.id, program_name, university_name)
+    existing = await get_plan_by_program(db, user.id, program_name, university_name, degree)
     plan_payload = {"program": [course.model_dump(by_alias=True) for course in payload.program]}
     if degree:
         plan_payload["degree"] = degree
-    
+
     if existing:
         existing.payload = plan_payload
-        await db.execute(delete(ProgramCourse).where(ProgramCourse.education_plan_id == existing.id))
+        await db.execute(
+            delete(ProgramCourse).where(ProgramCourse.education_plan_id == existing.id)
+        )
         await _persist_courses(db, existing, payload.program)
         await db.commit()
         await db.refresh(existing)
@@ -79,13 +88,21 @@ async def _persist_courses(
                 credits=entry.credits,
                 prerequisite=entry.prerequisite,
                 corequisite=entry.corequisite,
-                schedule=entry.schedule.model_dump() if hasattr(entry.schedule, "model_dump") else entry.schedule,
+                schedule=(
+                    entry.schedule.model_dump()
+                    if hasattr(entry.schedule, "model_dump")
+                    else entry.schedule
+                ),
             )
         )
 
 
 async def get_plan_by_program(
-    db: AsyncSession, user_id: int, program_name: str, university_name: str
+    db: AsyncSession,
+    user_id: int,
+    program_name: str,
+    university_name: str,
+    degree: str | None = None,
 ) -> EducationPlan | None:
     stmt = select(EducationPlan).where(
         and_(
@@ -95,7 +112,19 @@ async def get_plan_by_program(
         )
     )
     result = await db.execute(stmt)
-    return result.scalar_one_or_none()
+    plans = result.scalars().all()
+
+    # No specific degree requested; return the first match (maintains legacy behavior)
+    if degree is None:
+        return plans[0] if plans else None
+
+    target_degree = _normalize_degree(degree)
+    for plan in plans:
+        existing_degree = _normalize_degree((plan.payload or {}).get("degree"))
+        if existing_degree == target_degree:
+            return plan
+
+    return None
 
 
 async def query_plan(db: AsyncSession, query: EducationPlanQuery) -> EducationPlan | None:
@@ -125,8 +154,12 @@ async def delete_plan(
     await db.commit()
 
 
-async def save_reschedule(db: AsyncSession, user: User, payload: RescheduleRequest) -> CourseReschedule:
-    entry = CourseReschedule(user_id=user.id, payload={"reschedule": [item.dict() for item in payload.reschedule]})
+async def save_reschedule(
+    db: AsyncSession, user: User, payload: RescheduleRequest
+) -> CourseReschedule:
+    entry = CourseReschedule(
+        user_id=user.id, payload={"reschedule": [item.dict() for item in payload.reschedule]}
+    )
     db.add(entry)
     await db.commit()
     await db.refresh(entry)
