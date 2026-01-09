@@ -316,7 +316,25 @@ const ViewEducationPlan = () => {
 				y += 6;
 			});
 		};
-
+		// Helper function to extract year number from year strings
+		const getYearOrder = (yearStr) => {
+			const yearMap = {
+				first: 1,
+				second: 2,
+				third: 3,
+				fourth: 4,
+				fifth: 5,
+				sixth: 6,
+			};
+			const lower = String(yearStr).toLowerCase();
+			for (const [key, value] of Object.entries(yearMap)) {
+				if (lower.includes(key)) return value;
+			}
+			// Try to extract number from "Year 1", "Year 2", etc.
+			const match = lower.match(/year\s*(\d+)/);
+			if (match) return parseInt(match[1], 10);
+			return 999; // Unknown years go to the end
+		};
 		const grouped = groupCoursesByYearAndSemester(plan.courses || []);
 		const totalCredits = getTotalCredits(plan.courses || []);
 		const totalCourses = plan.courses?.length || 0;
@@ -332,7 +350,7 @@ const ViewEducationPlan = () => {
 		addLine(" ");
 
 		Object.keys(grouped)
-			.sort()
+			.sort((a, b) => getYearOrder(a) - getYearOrder(b))
 			.forEach((yearKey) => {
 				doc.setFontSize(12);
 				addLine(yearKey);
@@ -410,234 +428,238 @@ const ViewEducationPlan = () => {
 					</div>
 				</div>
 			)}
-		<section className="space-y-6">
-			<header className="flex flex-col md:flex-row md:items-center justify-between gap-4">
-				<div>
-					<h1 className="text-3xl font-semibold text-slate-900">
-						Saved Education <span className="text-[#0069e0]">Plans</span>
-					</h1>
-					<p className="text-lg mt-1 text-slate-500">
-						Browse and share the education plans you&apos;ve saved.
-					</p>
-				</div>
-			</header>
-
-			<div className="bg-white border border-slate-200 rounded-xl shadow-sm p-5 space-y-4">
-				<div className="flex items-center gap-4 flex-wrap">
-					<label className="text-sm font-medium text-slate-700">Filter:</label>
-					<input
-						value={filter}
-						onChange={(event) => setFilter(event.target.value)}
-						className="flex-1 min-w-[200px] px-3 py-2 rounded-lg border border-slate-200 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
-						placeholder="Filter by program or university"
-					/>
-				</div>
-
-				{error && (
-					<div className="bg-rose-50 text-rose-700 border border-rose-100 rounded-lg px-4 py-3">
-						{error}
+			<section className="space-y-6">
+				<header className="flex flex-col md:flex-row md:items-center justify-between gap-4">
+					<div>
+						<h1 className="text-3xl font-semibold text-slate-900">
+							Saved Education <span className="text-[#0069e0]">Plans</span>
+						</h1>
+						<p className="text-lg mt-1 text-slate-500">
+							Browse and share the education plans you&apos;ve saved.
+						</p>
 					</div>
-				)}
+				</header>
 
-				{/* Plans Summary Table */}
-				<div className="overflow-x-auto">
-					<table className="min-w-full text-sm table-auto">
-						<thead>
-							<tr className="text-left text-xs uppercase tracking-wide text-slate-500 border-b border-slate-200 bg-slate-50">
-								<th className="px-2 py-3 font-semibold text-center">No.</th>
-								<th className="px-2 py-3 font-semibold">University</th>
-								<th className="px-2 py-3 font-semibold">Program (Degree)</th>
-								<th className="px-2 py-3 font-semibold">Courses</th>
-								<th className="px-2 py-3 font-semibold">Total Credits</th>
-								<th className="px-2 py-3 font-semibold text-center">Actions</th>
-							</tr>
-						</thead>
-						<tbody>
-							{filteredPlans.map((plan, index) => (
-								<Fragment key={plan.id}>
-									<tr className="border-b border-slate-100 hover:bg-slate-50 transition">
-										<td className="px-1 py-3 text-center text-slate-700 font-semibold w">
-											{index + 1}
-										</td>
-										<td className="px-2 py-3 md:w-[20%] text-slate-800 font-medium">
-											{plan.university}
-										</td>
-										<td className="px-2 py-3 text-slate-700">
-											{plan.program}
-											{(() => {
-												const degree = resolveDegree(plan);
-												return degree ? ` (${degree})` : "";
-											})()}
-										</td>
-										<td className="px-2 py-3 text-slate-700">
-											<span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-slate-200 text-slate-800">
-												{plan.courses.length}
-											</span>
-										</td>
-										<td className="px-2 py-3 text-slate-700">
-											<span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-indigo-100 text-indigo-800">
-												{getTotalCredits(plan.courses)} credits
-											</span>
-										</td>
-										<td className="px-2 py-3 text-center">
-											<div className="flex items-center justify-center gap-2">
-												<button
-													type="button"
-													onClick={() => handleEdit(plan)}
-													className="px-4 py-1.5 rounded-lg bg-orange-200 text-orange-700 text-sm font-medium hover:bg-orange-300 transition"
-												>
-													Edit
-												</button>
-												<button
-													type="button"
-													onClick={() => toggleExpand(plan.id)}
-													className={`px-4 py-1.5 rounded-lg text-sm font-medium transition ${
-														expandedPlanId === plan.id
-															? "bg-indigo-600 text-white"
-															: "bg-indigo-100 text-indigo-700 hover:bg-indigo-200"
-													}`}
-												>
-													{expandedPlanId === plan.id ? "Hide" : "View Plan"}
-												</button>
-												<button
-													type="button"
-													className="px-4 py-1.5 rounded-lg bg-emerald-100 text-emerald-700 text-sm font-medium hover:bg-emerald-200 transition"
-												>
-													Send to Advisor
-												</button>
-												<button
-													type="button"
-													onClick={() => handleDeletePlan(plan)}
-													disabled={deletingPlanId === plan.id}
-													className={`px-4 py-1.5 rounded-lg text-sm font-medium transition ${
-														deletingPlanId === plan.id
-															? "bg-rose-200 text-rose-400 cursor-not-allowed"
-															: "bg-rose-100 text-rose-700 hover:bg-rose-200"
-													}`}
-												>
-													{deletingPlanId === plan.id
-														? "Deleting..."
-														: "Delete Plan"}
-												</button>
-												<button
-													type="button"
-													onClick={() => downloadPlan(plan)}
-													className="px-4 py-1.5 rounded-lg bg-emerald-100 hover:bg-emerald-200 transition"
-												>
-													<FaDownload className="inline-block text-emerald-700" />
-												</button>
-											</div>
-										</td>
-									</tr>
+				<div className="bg-white border border-slate-200 rounded-xl shadow-sm p-5 space-y-4">
+					<div className="flex items-center gap-4 flex-wrap">
+						<label className="text-sm font-medium text-slate-700">
+							Filter:
+						</label>
+						<input
+							value={filter}
+							onChange={(event) => setFilter(event.target.value)}
+							className="flex-1 min-w-[200px] px-3 py-2 rounded-lg border border-slate-200 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent"
+							placeholder="Filter by program or university"
+						/>
+					</div>
 
-									{/* Expanded Plan Details */}
-									{expandedPlanId === plan.id && (
-										<tr key={`${plan.id}-details`}>
-											<td colSpan={7} className="p-0">
-												<div className="bg-slate-50 border-t border-slate-200 p-6">
-													<div className="mb-4 flex items-center justify-between">
-														<h3 className="text-lg font-semibold text-slate-800">
-															{plan.program} - {plan.university}
-														</h3>
-														<div className="flex items-center gap-4 text-sm">
-															<span className="text-slate-600">
-																Avg. annual cost:{" "}
-																<span className="font-bold text-emerald-700">
-																	{findAverageAnnualCost(plan) || "N/A"}
-																</span>
-															</span>
-															<span className="text-slate-600">
-																Total Credits:{" "}
-																<span className="font-bold text-indigo-600">
-																	{getTotalCredits(plan.courses)}
-																</span>
-															</span>
-															<span className="text-slate-600">
-																Total Courses:{" "}
-																<span className="font-bold text-indigo-600">
-																	{plan.courses.length}
-																</span>
-															</span>
-														</div>
-													</div>
+					{error && (
+						<div className="bg-rose-50 text-rose-700 border border-rose-100 rounded-lg px-4 py-3">
+							{error}
+						</div>
+					)}
 
-													<div className="space-y-6">
-														{Object.entries(
-															groupCoursesByYearAndSemester(plan.courses)
-														).map(([year, semesters]) => (
-															<div key={year} className="space-y-4">
-																<h4 className="text-md font-semibold text-slate-700 border-b border-slate-200 pb-2">
-																	{year}
-																</h4>
-																<div className="grid gap-4 md:grid-cols-2">
-																	{Object.entries(semesters).map(
-																		([semester, courses]) => (
-																			<div
-																				key={semester}
-																				className="bg-white border border-slate-200 rounded-xl shadow-sm p-4 space-y-3"
-																			>
-																				<h5 className="text-sm font-semibold text-slate-600 uppercase tracking-wide">
-																					{semester}
-																				</h5>
-																				<ul className="space-y-2 text-sm text-slate-700">
-																					{courses.map((course) => (
-																						<li
-																							key={course.code}
-																							className="border border-slate-100 rounded-lg p-3 flex flex-col gap-1 hover:border-indigo-200 hover:bg-indigo-50/50 transition"
-																						>
-																							<span className="font-semibold text-slate-800">
-																								{course.courseName ||
-																									course.name}
-																							</span>
-																							<CourseMeta course={course} />
-																						</li>
-																					))}
-																				</ul>
-																			</div>
-																		)
-																	)}
-																</div>
-															</div>
-														))}
-													</div>
+					{/* Plans Summary Table */}
+					<div className="overflow-x-auto">
+						<table className="min-w-full text-sm table-auto">
+							<thead>
+								<tr className="text-left text-xs uppercase tracking-wide text-slate-500 border-b border-slate-200 bg-slate-50">
+									<th className="px-2 py-3 font-semibold text-center">No.</th>
+									<th className="px-2 py-3 font-semibold">University</th>
+									<th className="px-2 py-3 font-semibold">Program (Degree)</th>
+									<th className="px-2 py-3 font-semibold">Courses</th>
+									<th className="px-2 py-3 font-semibold">Total Credits</th>
+									<th className="px-2 py-3 font-semibold text-center">
+										Actions
+									</th>
+								</tr>
+							</thead>
+							<tbody>
+								{filteredPlans.map((plan, index) => (
+									<Fragment key={plan.id}>
+										<tr className="border-b border-slate-100 hover:bg-slate-50 transition">
+											<td className="px-1 py-3 text-center text-slate-700 font-semibold w">
+												{index + 1}
+											</td>
+											<td className="px-2 py-3 md:w-[20%] text-slate-800 font-medium">
+												{plan.university}
+											</td>
+											<td className="px-2 py-3 text-slate-700">
+												{plan.program}
+												{(() => {
+													const degree = resolveDegree(plan);
+													return degree ? ` (${degree})` : "";
+												})()}
+											</td>
+											<td className="px-2 py-3 text-slate-700">
+												<span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-slate-200 text-slate-800">
+													{plan.courses.length}
+												</span>
+											</td>
+											<td className="px-2 py-3 text-slate-700">
+												<span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-indigo-100 text-indigo-800">
+													{getTotalCredits(plan.courses)} credits
+												</span>
+											</td>
+											<td className="px-2 py-3 text-center">
+												<div className="flex items-center justify-center gap-2">
+													<button
+														type="button"
+														onClick={() => handleEdit(plan)}
+														className="px-4 py-1.5 rounded-lg bg-orange-200 text-orange-700 text-sm font-medium hover:bg-orange-300 transition"
+													>
+														Edit
+													</button>
+													<button
+														type="button"
+														onClick={() => toggleExpand(plan.id)}
+														className={`px-4 py-1.5 rounded-lg text-sm font-medium transition ${
+															expandedPlanId === plan.id
+																? "bg-indigo-600 text-white"
+																: "bg-indigo-100 text-indigo-700 hover:bg-indigo-200"
+														}`}
+													>
+														{expandedPlanId === plan.id ? "Hide" : "View Plan"}
+													</button>
+													<button
+														type="button"
+														className="px-4 py-1.5 rounded-lg bg-emerald-100 text-emerald-700 text-sm font-medium hover:bg-emerald-200 transition"
+													>
+														Send to Advisor
+													</button>
+													<button
+														type="button"
+														onClick={() => handleDeletePlan(plan)}
+														disabled={deletingPlanId === plan.id}
+														className={`px-4 py-1.5 rounded-lg text-sm font-medium transition ${
+															deletingPlanId === plan.id
+																? "bg-rose-200 text-rose-400 cursor-not-allowed"
+																: "bg-rose-100 text-rose-700 hover:bg-rose-200"
+														}`}
+													>
+														{deletingPlanId === plan.id
+															? "Deleting..."
+															: "Delete Plan"}
+													</button>
+													<button
+														type="button"
+														onClick={() => downloadPlan(plan)}
+														className="px-4 py-1.5 rounded-lg bg-emerald-100 hover:bg-emerald-200 transition"
+													>
+														<FaDownload className="inline-block text-emerald-700" />
+													</button>
 												</div>
 											</td>
 										</tr>
-									)}
-								</Fragment>
-							))}
-							{filteredPlans.length === 0 && (
-								<tr>
-									<td
-										colSpan={7}
-										className="px-4 py-8 text-center text-slate-500"
-									>
-										<div className="flex flex-col items-center gap-2">
-											<svg
-												className="w-12 h-12 text-slate-300"
-												fill="none"
-												stroke="currentColor"
-												viewBox="0 0 24 24"
-											>
-												<path
-													strokeLinecap="round"
-													strokeLinejoin="round"
-													strokeWidth={1.5}
-													d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
-												/>
-											</svg>
-											<span>
-												No plans found. Save an education plan to see it here.
-											</span>
-										</div>
-									</td>
-								</tr>
-							)}
-						</tbody>
-					</table>
+
+										{/* Expanded Plan Details */}
+										{expandedPlanId === plan.id && (
+											<tr key={`${plan.id}-details`}>
+												<td colSpan={7} className="p-0">
+													<div className="bg-slate-50 border-t border-slate-200 p-6">
+														<div className="mb-4 flex items-center justify-between">
+															<h3 className="text-lg font-semibold text-slate-800">
+																{plan.program} - {plan.university}
+															</h3>
+															<div className="flex items-center gap-4 text-sm">
+																<span className="text-slate-600">
+																	Avg. annual cost:{" "}
+																	<span className="font-bold text-emerald-700">
+																		{findAverageAnnualCost(plan) || "N/A"}
+																	</span>
+																</span>
+																<span className="text-slate-600">
+																	Total Credits:{" "}
+																	<span className="font-bold text-indigo-600">
+																		{getTotalCredits(plan.courses)}
+																	</span>
+																</span>
+																<span className="text-slate-600">
+																	Total Courses:{" "}
+																	<span className="font-bold text-indigo-600">
+																		{plan.courses.length}
+																	</span>
+																</span>
+															</div>
+														</div>
+
+														<div className="space-y-6">
+															{Object.entries(
+																groupCoursesByYearAndSemester(plan.courses)
+															).map(([year, semesters]) => (
+																<div key={year} className="space-y-4">
+																	<h4 className="text-md font-semibold text-slate-700 border-b border-slate-200 pb-2">
+																		{year}
+																	</h4>
+																	<div className="grid gap-4 md:grid-cols-2">
+																		{Object.entries(semesters).map(
+																			([semester, courses]) => (
+																				<div
+																					key={semester}
+																					className="bg-white border border-slate-200 rounded-xl shadow-sm p-4 space-y-3"
+																				>
+																					<h5 className="text-sm font-semibold text-slate-600 uppercase tracking-wide">
+																						{semester}
+																					</h5>
+																					<ul className="space-y-2 text-sm text-slate-700">
+																						{courses.map((course) => (
+																							<li
+																								key={course.code}
+																								className="border border-slate-100 rounded-lg p-3 flex flex-col gap-1 hover:border-indigo-200 hover:bg-indigo-50/50 transition"
+																							>
+																								<span className="font-semibold text-slate-800">
+																									{course.courseName ||
+																										course.name}
+																								</span>
+																								<CourseMeta course={course} />
+																							</li>
+																						))}
+																					</ul>
+																				</div>
+																			)
+																		)}
+																	</div>
+																</div>
+															))}
+														</div>
+													</div>
+												</td>
+											</tr>
+										)}
+									</Fragment>
+								))}
+								{filteredPlans.length === 0 && (
+									<tr>
+										<td
+											colSpan={7}
+											className="px-4 py-8 text-center text-slate-500"
+										>
+											<div className="flex flex-col items-center gap-2">
+												<svg
+													className="w-12 h-12 text-slate-300"
+													fill="none"
+													stroke="currentColor"
+													viewBox="0 0 24 24"
+												>
+													<path
+														strokeLinecap="round"
+														strokeLinejoin="round"
+														strokeWidth={1.5}
+														d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+													/>
+												</svg>
+												<span>
+													No plans found. Save an education plan to see it here.
+												</span>
+											</div>
+										</td>
+									</tr>
+								)}
+							</tbody>
+						</table>
+					</div>
 				</div>
-			</div>
-		</section>
+			</section>
 		</>
 	);
 };

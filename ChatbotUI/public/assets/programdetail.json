@@ -3922,8 +3922,8 @@
                 "corequisite": "None"
               },
               {
-                "code": "ELEC-121",
-                "name": "Design Thinking (Elective)",
+                "code": "CSCI 6500",
+                "name": "Design Thinking",
                 "credits": 3,
                 "prerequisite": "None",
                 "corequisite": "None",
@@ -4463,7 +4463,7 @@
               {
                 "code": "CSCI 115L",
                 "name": "Programming Lab",
-                "credits": 1,
+                "credits": 3,
                 "prerequisite": "None",
                 "corequisite": "CSCI 115",
                 "schedule": {
@@ -4472,7 +4472,7 @@
                 }
               },
               {
-                "code": "ELEC-111",
+                "code": "CSCI-111",
                 "name": "First-Year Seminar (Elective)",
                 "credits": 3,
                 "prerequisite": "None",
@@ -4533,7 +4533,7 @@
                 "corequisite": "None"
               },
               {
-                "code": "ELEC-121",
+                "code": "CSCI-121",
                 "name": "Creative Writing (Elective)",
                 "credits": 3,
                 "prerequisite": "None",
@@ -4599,7 +4599,7 @@
                 "corequisite": "None"
               },
               {
-                "code": "ELEC-211",
+                "code": "CSCI-211",
                 "name": "Global Cultures (Elective)",
                 "credits": 3,
                 "prerequisite": "None",
@@ -4608,9 +4608,20 @@
                   "day": "TBD",
                   "time": "TBD"
                 }
+              },
+              {
+                "code": "ELEC-212",
+                "name": "Data Visualization (Elective)",
+                "credits": 3,
+                "prerequisite": "CSCI 201",
+                "corequisite": "None",
+                "schedule": {
+                  "day": "TBD",
+                  "time": "TBD"
+                }
               }
             ],
-            "total_credits": 15
+            "total_credits": 18
           },
           {
             "semester": "Spring",
@@ -4660,7 +4671,7 @@
                 "corequisite": "None"
               },
               {
-                "code": "ELEC-221",
+                "code": "CSCI-221",
                 "name": "Entrepreneurship (Elective)",
                 "credits": 3,
                 "prerequisite": "None",
@@ -4669,9 +4680,20 @@
                   "day": "TBD",
                   "time": "TBD"
                 }
+              },
+              {
+                "code": "ELEC-222",
+                "name": "Game Development (Elective)",
+                "credits": 3,
+                "prerequisite": "CSCI 145",
+                "corequisite": "None",
+                "schedule": {
+                  "day": "TBD",
+                  "time": "TBD"
+                }
               }
             ],
-            "total_credits": 15
+            "total_credits": 18
           }
         ]
       },
@@ -4684,7 +4706,7 @@
               {
                 "code": "C S 301",
                 "name": "Database Systems",
-                "credits": 3,
+                "credits": 4,
                 "prerequisite": "C S 172",
                 "corequisite": "None"
               },
@@ -4715,9 +4737,16 @@
                 "credits": 3,
                 "prerequisite": "PHYS 101",
                 "corequisite": "None"
+              },
+              {
+                "code": "ELEC-311",
+                "name": "Blockchain Technology (Elective)",
+                "credits": 3,
+                "prerequisite": "CSCI 230",
+                "corequisite": "None"
               }
             ],
-            "total_credits": 15
+            "total_credits": 18
           },
           {
             "semester": "Spring",
@@ -4756,9 +4785,16 @@
                 "credits": 3,
                 "prerequisite": "None",
                 "corequisite": "None"
+              },
+              {
+                "code": "ELEC-312",
+                "name": "Internet of Things (Elective)",
+                "credits": 3,
+                "prerequisite": "CSCI 270",
+                "corequisite": "None"
               }
             ],
-            "total_credits": 15
+            "total_credits": 18
           }
         ]
       },
@@ -4797,14 +4833,28 @@
                 "corequisite": "None"
               },
               {
-                "code": "ELEC-401",
+                "code": "C S 440",
                 "name": "Emerging Technologies",
                 "credits": 3,
                 "prerequisite": "None",
+                "corequisite": "C S 420"
+              },
+              {
+                "code": "ELEC-411",
+                "name": "Natural Language Processing (Elective)",
+                "credits": 3,
+                "prerequisite": "C S 410",
+                "corequisite": "None"
+              },
+              {
+                "code": "ELEC-412",
+                "name": "Computer Vision (Elective)",
+                "credits": 3,
+                "prerequisite": "C S 410",
                 "corequisite": "None"
               }
             ],
-            "total_credits": 15
+            "total_credits": 21
           },
           {
             "semester": "Spring",
@@ -4831,11 +4881,11 @@
                 "corequisite": "None"
               },
               {
-                "code": "ELEC-402",
+                "code": "C S 460",
                 "name": "Tech Ethics",
                 "credits": 3,
                 "prerequisite": "None",
-                "corequisite": "None"
+                "corequisite": "C S 450"
               },
               {
                 "code": "C S 460",
@@ -4843,9 +4893,23 @@
                 "credits": 4,
                 "prerequisite": "Senior standing",
                 "corequisite": "None"
+              },
+              {
+                "code": "ELEC-421",
+                "name": "DevOps & Automation (Elective)",
+                "credits": 3,
+                "prerequisite": "C S 425",
+                "corequisite": "None"
+              },
+              {
+                "code": "ELEC-422",
+                "name": "UI/UX Design (Elective)",
+                "credits": 3,
+                "prerequisite": "C S 305",
+                "corequisite": "None"
               }
             ],
-            "total_credits": 16
+            "total_credits": 22
           }
         ]
       }
@@ -4949,7 +5013,7 @@
                 "corequisite": "None"
               },
               {
-                "code": "ELEC-161",
+                "code": "NURS-1610",
                 "name": "Health & Wellness (Elective)",
                 "credits": 2,
                 "prerequisite": "None",
@@ -5022,7 +5086,7 @@
                 "corequisite": "None"
               },
               {
-                "code": "ELEC-171",
+                "code": "NURS 1710",
                 "name": "Humanities Elective",
                 "credits": 3,
                 "prerequisite": "None",
@@ -5073,9 +5137,23 @@
                 "credits": 3,
                 "prerequisite": "PSYC 1110",
                 "corequisite": "None"
+              },
+              {
+                "code": "ELEC-311",
+                "name": "Cultural Competence in Healthcare (Elective)",
+                "credits": 2,
+                "prerequisite": "NURS 250",
+                "corequisite": "None"
+              },
+              {
+                "code": "ELEC-312",
+                "name": "Complementary & Alternative Medicine (Elective)",
+                "credits": 2,
+                "prerequisite": "NURS 250",
+                "corequisite": "None"
               }
             ],
-            "total_credits": 14
+            "total_credits": 18
           },
           {
             "semester": "Spring",
@@ -5114,9 +5192,23 @@
                 "credits": 3,
                 "prerequisite": "NUTR 2110",
                 "corequisite": "None"
+              },
+              {
+                "code": "ELEC-321",
+                "name": "Palliative Care Nursing (Elective)",
+                "credits": 2,
+                "prerequisite": "NURS 320",
+                "corequisite": "None"
+              },
+              {
+                "code": "ELEC-322",
+                "name": "Wound Care Management (Elective)",
+                "credits": 2,
+                "prerequisite": "NURS 320",
+                "corequisite": "None"
               }
             ],
-            "total_credits": 14
+            "total_credits": 18
           }
         ]
       },
@@ -5162,7 +5254,7 @@
                 "corequisite": "None"
               }
             ],
-            "total_credits": 14
+            "total_credits": 19
           },
           {
             "semester": "Spring",
@@ -5192,7 +5284,7 @@
                 "code": "NURS 491",
                 "name": "Preceptorship II",
                 "credits": 4,
-                "prerequisite": "NURS 490",
+                "prerequisite": "NURS 440",
                 "corequisite": "None"
               },
               {
@@ -5208,9 +5300,30 @@
                 "credits": 4,
                 "prerequisite": "Senior standing",
                 "corequisite": "None"
+              },
+              {
+                "code": "ELEC-421",
+                "name": "Oncology Nursing (Elective)",
+                "credits": 2,
+                "prerequisite": "NURS 420",
+                "corequisite": "None"
+              },
+              {
+                "code": "ELEC-422",
+                "name": "Disaster & Emergency Preparedness (Elective)",
+                "credits": 2,
+                "prerequisite": "NURS 420",
+                "corequisite": "None"
+              },
+              {
+                "code": "ELEC-423",
+                "name": "Nursing Informatics (Elective)",
+                "credits": 3,
+                "prerequisite": "Senior standing",
+                "corequisite": "None"
               }
             ],
-            "total_credits": 19
+            "total_credits": 26
           }
         ]
       }
@@ -9030,7 +9143,7 @@
     "program": "Nursing",
     "degree": "Associate",
     "university": "Northern New Mexico College",
-    "total_credit_hours": 66,
+    "total_credit_hours": 61,
     "years": [
       {
         "year": "First Year",
@@ -9143,27 +9256,27 @@
             "total_credits": 10
           },
           {
-            "semester": "Spring",
+            "semester": "Fall",
             "courses": [
               {
                 "code": "NURS 130",
                 "name": "Adult Health Nursing",
                 "credits": 8,
-                "prerequisite": "NURS 120",
+                "prerequisite": "NURS 105",
                 "corequisite": "None"
               },
               {
-                "code": "NURS 135",
+                "code": "ELEC-135",
                 "name": "Pharmacology for Nurses",
                 "credits": 3,
-                "prerequisite": "Program admission",
+                "prerequisite": "None",
                 "corequisite": "None"
               }
             ],
             "total_credits": 11
           },
           {
-            "semester": "Fall",
+            "semester": "Spring",
             "courses": [
               {
                 "code": "NURS 220",
@@ -9189,14 +9302,14 @@
                 "code": "NURS 230",
                 "name": "Complex Care Nursing",
                 "credits": 6,
-                "prerequisite": "NURS 220",
-                "corequisite": "None"
+                "prerequisite": "None",
+                "corequisite": "NURS 220"
               },
               {
-                "code": "NURS 235",
+                "code": "ELEC-235",
                 "name": "NCLEX Preparation",
                 "credits": 2,
-                "prerequisite": "NURS 220",
+                "prerequisite": "None",
                 "corequisite": "None"
               }
             ],
@@ -9207,6 +9320,187 @@
     ],
     "average_annual_cost": "$6,300 estimated annual cost for ADN at NNMC",
     "eligibility_criteria": "Completion of science and English prerequisites; TEAS/placement; background check and immunizations required for clinical placement."
+  },
+  {
+    "program": "Nursing",
+    "degree": "Associate",
+    "university": "Northern New Mexico College",
+    "total_credit_hours": 66,
+    "years": [
+      {
+        "year": "First Year",
+        "semesters": [
+          {
+            "semester": "Fall",
+            "courses": [
+              {
+                "code": "ENGL 1110",
+                "name": "Composition I",
+                "credits": 3,
+                "prerequisite": "Placement",
+                "corequisite": "None"
+              },
+              {
+                "code": "MATH 1150",
+                "name": "Intermediate Algebra",
+                "credits": 3,
+                "prerequisite": "Placement",
+                "corequisite": "None"
+              },
+              {
+                "code": "BIOL 2210",
+                "name": "Human Anatomy & Physiology I",
+                "credits": 4,
+                "prerequisite": "None",
+                "corequisite": "None"
+              },
+              {
+                "code": "PSYC 1110",
+                "name": "Introduction to Psychology",
+                "credits": 3,
+                "prerequisite": "None",
+                "corequisite": "None"
+              }
+            ],
+            "total_credits": 13
+          },
+          {
+            "semester": "Spring",
+            "courses": [
+              {
+                "code": "ENGL 1120",
+                "name": "Composition II",
+                "credits": 3,
+                "prerequisite": "ENGL 1110",
+                "corequisite": "None"
+              },
+              {
+                "code": "BIOL 2225",
+                "name": "A&P II for Health Sciences",
+                "credits": 4,
+                "prerequisite": "BIOL 2210",
+                "corequisite": "None"
+              },
+              {
+                "code": "MICR 2310",
+                "name": "Microbiology for Health Professions",
+                "credits": 4,
+                "prerequisite": "BIOL 2210",
+                "corequisite": "None"
+              },
+              {
+                "code": "NUTR 2110",
+                "name": "Human Nutrition",
+                "credits": 2,
+                "prerequisite": "None",
+                "corequisite": "None"
+              }
+            ],
+            "total_credits": 13
+          }
+        ]
+      },
+      {
+        "year": "Second Year",
+        "semesters": [
+          {
+            "semester": "Fall",
+            "courses": [
+              {
+                "code": "NURS 110",
+                "name": "Nursing Foundations",
+                "credits": 5,
+                "prerequisite": "Program admission, completion of prerequisites",
+                "corequisite": "NURS 111"
+              },
+              {
+                "code": "NURS 111",
+                "name": "Nursing Foundations Clinical",
+                "credits": 2,
+                "prerequisite": "Program admission",
+                "corequisite": "NURS 110"
+              },
+              {
+                "code": "NURS 115",
+                "name": "Pharmacology for Nursing",
+                "credits": 3,
+                "prerequisite": "Program admission",
+                "corequisite": "None"
+              },
+              {
+                "code": "PSYC 2220",
+                "name": "Human Growth & Development",
+                "credits": 3,
+                "prerequisite": "PSYC 1110",
+                "corequisite": "None"
+              }
+            ],
+            "total_credits": 13
+          },
+          {
+            "semester": "Spring",
+            "courses": [
+              {
+                "code": "NURS 120",
+                "name": "Adult Health Nursing I",
+                "credits": 4,
+                "prerequisite": "NURS 110, NURS 115",
+                "corequisite": "NURS 121"
+              },
+              {
+                "code": "NURS 121",
+                "name": "Adult Health Clinical I",
+                "credits": 3,
+                "prerequisite": "NURS 111",
+                "corequisite": "NURS 120"
+              },
+              {
+                "code": "NURS 125",
+                "name": "Maternal & Child Health Nursing",
+                "credits": 4,
+                "prerequisite": "NURS 110",
+                "corequisite": "NURS 126"
+              },
+              {
+                "code": "NURS 126",
+                "name": "Maternal & Child Clinical",
+                "credits": 2,
+                "prerequisite": "NURS 111",
+                "corequisite": "NURS 125"
+              }
+            ],
+            "total_credits": 13
+          },
+          {
+            "semester": "Summer",
+            "courses": [
+              {
+                "code": "NURS 130",
+                "name": "Adult Health Nursing II",
+                "credits": 4,
+                "prerequisite": "NURS 120, NURS 121",
+                "corequisite": "NURS 131"
+              },
+              {
+                "code": "NURS 131",
+                "name": "Adult Health Clinical II",
+                "credits": 3,
+                "prerequisite": "NURS 121",
+                "corequisite": "NURS 130"
+              },
+              {
+                "code": "NURS 135",
+                "name": "Mental Health Nursing",
+                "credits": 2,
+                "prerequisite": "NURS 110",
+                "corequisite": "None"
+              }
+            ],
+            "total_credits": 9
+          }
+        ]
+      }
+    ]
   },
   {
     "program": "Nursing",
@@ -16542,7 +16836,10 @@
                 "name": "Composition I",
                 "credits": 3,
                 "prerequisite": "None",
-                "schedule": { "day": "Mon, Wed", "time": "9:00 AM - 10:15 AM" },
+                "schedule": {
+                  "day": "Mon, Wed",
+                  "time": "9:00 AM - 10:15 AM"
+                },
                 "lecture_hours": 3,
                 "lab_hours": 0,
                 "corequisite": "None"
@@ -16552,7 +16849,10 @@
                 "name": "Intermediate Algebra",
                 "credits": 3,
                 "prerequisite": "Placement",
-                "schedule": { "day": "Tue, Thu", "time": "9:30 AM - 10:45 AM" },
+                "schedule": {
+                  "day": "Tue, Thu",
+                  "time": "9:30 AM - 10:45 AM"
+                },
                 "lecture_hours": 3,
                 "lab_hours": 0,
                 "corequisite": "None"
@@ -16562,7 +16862,10 @@
                 "name": "Intro to Automotive Technology",
                 "credits": 3,
                 "prerequisite": "None",
-                "schedule": { "day": "Mon", "time": "1:00 PM - 3:50 PM" },
+                "schedule": {
+                  "day": "Mon",
+                  "time": "1:00 PM - 3:50 PM"
+                },
                 "lecture_hours": 2,
                 "lab_hours": 2,
                 "corequisite": "None"
@@ -16572,7 +16875,10 @@
                 "name": "Engine Repair Fundamentals",
                 "credits": 3,
                 "prerequisite": "None",
-                "schedule": { "day": "Wed", "time": "1:00 PM - 3:50 PM" },
+                "schedule": {
+                  "day": "Wed",
+                  "time": "1:00 PM - 3:50 PM"
+                },
                 "lecture_hours": 2,
                 "lab_hours": 2,
                 "corequisite": "None"
@@ -16583,7 +16889,10 @@
                 "credits": 3,
                 "prerequisite": "None",
                 "corequisite": "None",
-                "schedule": { "day": "TBD", "time": "TBD" },
+                "schedule": {
+                  "day": "TBD",
+                  "time": "TBD"
+                },
                 "lecture_hours": 0,
                 "lab_hours": 0
               }
@@ -16611,7 +16920,10 @@
                 "name": "Brake Systems",
                 "credits": 3,
                 "prerequisite": "AUTO 110",
-                "schedule": { "day": "Tue", "time": "1:00 PM - 3:50 PM" },
+                "schedule": {
+                  "day": "Tue",
+                  "time": "1:00 PM - 3:50 PM"
+                },
                 "lecture_hours": 2,
                 "lab_hours": 2,
                 "corequisite": "None"
@@ -16621,7 +16933,10 @@
                 "name": "Steering and Suspension",
                 "credits": 3,
                 "prerequisite": "AUTO 110",
-                "schedule": { "day": "Thu", "time": "1:00 PM - 3:50 PM" },
+                "schedule": {
+                  "day": "Thu",
+                  "time": "1:00 PM - 3:50 PM"
+                },
                 "lecture_hours": 2,
                 "lab_hours": 2,
                 "corequisite": "None"
@@ -16631,7 +16946,10 @@
                 "name": "Automotive Electrical Systems",
                 "credits": 3,
                 "prerequisite": "AUTO 110",
-                "schedule": { "day": "Fri", "time": "9:00 AM - 11:50 AM" },
+                "schedule": {
+                  "day": "Fri",
+                  "time": "9:00 AM - 11:50 AM"
+                },
                 "lecture_hours": 2,
                 "lab_hours": 2,
                 "corequisite": "None"
@@ -16642,7 +16960,10 @@
                 "credits": 3,
                 "prerequisite": "None",
                 "corequisite": "None",
-                "schedule": { "day": "TBD", "time": "TBD" },
+                "schedule": {
+                  "day": "TBD",
+                  "time": "TBD"
+                },
                 "lecture_hours": 0,
                 "lab_hours": 0
               }
@@ -16662,7 +16983,10 @@
                 "name": "Engine Performance",
                 "credits": 3,
                 "prerequisite": "AUTO 120 and AUTO 150",
-                "schedule": { "day": "Mon", "time": "4:00 PM - 6:50 PM" },
+                "schedule": {
+                  "day": "Mon",
+                  "time": "4:00 PM - 6:50 PM"
+                },
                 "lecture_hours": 2,
                 "lab_hours": 2,
                 "corequisite": "None"
@@ -16672,7 +16996,10 @@
                 "name": "Automatic Transmissions",
                 "credits": 3,
                 "prerequisite": "AUTO 120",
-                "schedule": { "day": "Tue", "time": "4:00 PM - 6:50 PM" },
+                "schedule": {
+                  "day": "Tue",
+                  "time": "4:00 PM - 6:50 PM"
+                },
                 "lecture_hours": 2,
                 "lab_hours": 2,
                 "corequisite": "None"
@@ -16682,7 +17009,10 @@
                 "name": "Manual Drivetrain and Axles",
                 "credits": 3,
                 "prerequisite": "AUTO 120",
-                "schedule": { "day": "Wed", "time": "4:00 PM - 6:50 PM" },
+                "schedule": {
+                  "day": "Wed",
+                  "time": "4:00 PM - 6:50 PM"
+                },
                 "lecture_hours": 2,
                 "lab_hours": 2,
                 "corequisite": "None"
@@ -16692,7 +17022,10 @@
                 "name": "Advanced Diagnostics",
                 "credits": 3,
                 "prerequisite": "AUTO 140 and AUTO 150",
-                "schedule": { "day": "Thu", "time": "4:00 PM - 6:50 PM" },
+                "schedule": {
+                  "day": "Thu",
+                  "time": "4:00 PM - 6:50 PM"
+                },
                 "lecture_hours": 2,
                 "lab_hours": 2,
                 "corequisite": "None"
@@ -16703,7 +17036,10 @@
                 "credits": 3,
                 "prerequisite": "None",
                 "corequisite": "None",
-                "schedule": { "day": "TBD", "time": "TBD" },
+                "schedule": {
+                  "day": "TBD",
+                  "time": "TBD"
+                },
                 "lecture_hours": 0,
                 "lab_hours": 0
               }
@@ -16718,7 +17054,10 @@
                 "name": "Heating and Air Conditioning",
                 "credits": 3,
                 "prerequisite": "AUTO 110",
-                "schedule": { "day": "Mon", "time": "1:00 PM - 3:50 PM" },
+                "schedule": {
+                  "day": "Mon",
+                  "time": "1:00 PM - 3:50 PM"
+                },
                 "lecture_hours": 2,
                 "lab_hours": 2,
                 "corequisite": "None"
@@ -16728,7 +17067,10 @@
                 "name": "Automotive Service Management",
                 "credits": 3,
                 "prerequisite": "None",
-                "schedule": { "day": "Tue", "time": "1:00 PM - 3:50 PM" },
+                "schedule": {
+                  "day": "Tue",
+                  "time": "1:00 PM - 3:50 PM"
+                },
                 "lecture_hours": 3,
                 "lab_hours": 0,
                 "corequisite": "None"
@@ -16738,7 +17080,10 @@
                 "name": "Cooperative Internship / Capstone",
                 "credits": 3,
                 "prerequisite": "AUTO 250",
-                "schedule": { "day": "Wed", "time": "1:00 PM - 3:50 PM" },
+                "schedule": {
+                  "day": "Wed",
+                  "time": "1:00 PM - 3:50 PM"
+                },
                 "lecture_hours": 1,
                 "lab_hours": 4,
                 "corequisite": "None"
@@ -16748,7 +17093,10 @@
                 "name": "Modern Humanities",
                 "credits": 3,
                 "prerequisite": "None",
-                "schedule": { "day": "Online", "time": "Asynchronous" },
+                "schedule": {
+                  "day": "Online",
+                  "time": "Asynchronous"
+                },
                 "lecture_hours": 3,
                 "lab_hours": 0,
                 "corequisite": "None"
@@ -16759,7 +17107,10 @@
                 "credits": 3,
                 "prerequisite": "None",
                 "corequisite": "None",
-                "schedule": { "day": "TBD", "time": "TBD" },
+                "schedule": {
+                  "day": "TBD",
+                  "time": "TBD"
+                },
                 "lecture_hours": 0,
                 "lab_hours": 0
               }
@@ -16789,7 +17140,10 @@
                 "name": "Shop Safety and Tools",
                 "credits": 3,
                 "prerequisite": "None",
-                "schedule": { "day": "Mon", "time": "9:00 AM - 11:50 AM" },
+                "schedule": {
+                  "day": "Mon",
+                  "time": "9:00 AM - 11:50 AM"
+                },
                 "lecture_hours": 1,
                 "lab_hours": 4,
                 "corequisite": "None"
@@ -16799,7 +17153,10 @@
                 "name": "Automotive Shop Practices",
                 "credits": 3,
                 "prerequisite": "None",
-                "schedule": { "day": "Wed", "time": "9:00 AM - 11:50 AM" },
+                "schedule": {
+                  "day": "Wed",
+                  "time": "9:00 AM - 11:50 AM"
+                },
                 "lecture_hours": 1,
                 "lab_hours": 4,
                 "corequisite": "None"
@@ -16809,7 +17166,10 @@
                 "name": "Intro to Automotive Technology",
                 "credits": 3,
                 "prerequisite": "None",
-                "schedule": { "day": "Tue", "time": "1:00 PM - 3:50 PM" },
+                "schedule": {
+                  "day": "Tue",
+                  "time": "1:00 PM - 3:50 PM"
+                },
                 "lecture_hours": 2,
                 "lab_hours": 2,
                 "corequisite": "None"
@@ -16819,7 +17179,10 @@
                 "name": "Automotive Electrical Systems I",
                 "credits": 3,
                 "prerequisite": "None",
-                "schedule": { "day": "Thu", "time": "1:00 PM - 3:50 PM" },
+                "schedule": {
+                  "day": "Thu",
+                  "time": "1:00 PM - 3:50 PM"
+                },
                 "lecture_hours": 2,
                 "lab_hours": 2,
                 "corequisite": "None"
@@ -16829,7 +17192,10 @@
                 "name": "Engine Repair Fundamentals",
                 "credits": 3,
                 "prerequisite": "None",
-                "schedule": { "day": "Fri", "time": "9:00 AM - 11:50 AM" },
+                "schedule": {
+                  "day": "Fri",
+                  "time": "9:00 AM - 11:50 AM"
+                },
                 "lecture_hours": 2,
                 "lab_hours": 2,
                 "corequisite": "None"
@@ -16845,7 +17211,10 @@
                 "name": "Brake Systems",
                 "credits": 3,
                 "prerequisite": "AUTO 110",
-                "schedule": { "day": "Mon", "time": "1:00 PM - 3:50 PM" },
+                "schedule": {
+                  "day": "Mon",
+                  "time": "1:00 PM - 3:50 PM"
+                },
                 "lecture_hours": 2,
                 "lab_hours": 2,
                 "corequisite": "None"
@@ -16855,7 +17224,10 @@
                 "name": "Steering and Suspension",
                 "credits": 3,
                 "prerequisite": "AUTO 110",
-                "schedule": { "day": "Tue", "time": "1:00 PM - 3:50 PM" },
+                "schedule": {
+                  "day": "Tue",
+                  "time": "1:00 PM - 3:50 PM"
+                },
                 "lecture_hours": 2,
                 "lab_hours": 2,
                 "corequisite": "None"
@@ -16865,7 +17237,10 @@
                 "name": "Automotive Electrical Systems II",
                 "credits": 3,
                 "prerequisite": "AUTO 115",
-                "schedule": { "day": "Wed", "time": "1:00 PM - 3:50 PM" },
+                "schedule": {
+                  "day": "Wed",
+                  "time": "1:00 PM - 3:50 PM"
+                },
                 "lecture_hours": 2,
                 "lab_hours": 2,
                 "corequisite": "None"
@@ -16875,7 +17250,10 @@
                 "name": "Basic HVAC Systems",
                 "credits": 3,
                 "prerequisite": "AUTO 110",
-                "schedule": { "day": "Thu", "time": "1:00 PM - 3:50 PM" },
+                "schedule": {
+                  "day": "Thu",
+                  "time": "1:00 PM - 3:50 PM"
+                },
                 "lecture_hours": 2,
                 "lab_hours": 2,
                 "corequisite": "None"
@@ -16885,7 +17263,10 @@
                 "name": "Entry-Level Diagnostics",
                 "credits": 3,
                 "prerequisite": "AUTO 110 and AUTO 115",
-                "schedule": { "day": "Fri", "time": "1:00 PM - 3:50 PM" },
+                "schedule": {
+                  "day": "Fri",
+                  "time": "1:00 PM - 3:50 PM"
+                },
                 "lecture_hours": 2,
                 "lab_hours": 2,
                 "corequisite": "None"
