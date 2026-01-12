@@ -24,30 +24,26 @@ class ProgramCoursePayload(BaseModel):
         populate_by_name = True
 
 
-class UniqueIdentifier(BaseModel):
-    university: str | None = None
-    program: str | None = None
-    degree: str | None = None
-
-
 class EducationPlanRequest(BaseModel):
     emailaddress: EmailStr
     program: list[ProgramCoursePayload]
+    degree: str | None = None
     rescheduledata: list[ProgramCoursePayload] | None = None
     reschedule: list[RescheduleEntry] | None = None
-    uniqueIdentifier: UniqueIdentifier | None = None
 
 
 class EducationPlanQuery(BaseModel):
     email: EmailStr
     programname: str
     univerityname: str
+    degree: str | None = None
 
 
 class EducationPlanDeleteRequest(BaseModel):
     email: EmailStr
     programname: str
     univerityname: str
+    degree: str | None = None
 
 
 class EducationPlanListQuery(BaseModel):

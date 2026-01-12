@@ -41,38 +41,19 @@ export const register = ({
 		password,
 	});
 
-export const requestEmailVerification = (email) =>
-	client.post("/users/email-verification/request", { email });
-
-export const getEmailVerificationStatus = (email) =>
-	client.get("/users/email-verification/status", { params: { email } });
-
 export const addEducationPlan = ({
 	email,
 	program,
 	rescheduledata,
 	reschedule,
-	uniqueIdentifier,
+	degree,
 }) =>
 	client.post("/users/education-plan", {
 		emailaddress: email,
 		program,
 		rescheduledata,
 		reschedule,
-		uniqueIdentifier,
-	});
-
-export const rescheduleCourses = ({ email, reschedule }) =>
-	client.post("/users/education-plan/reschedule", {
-		emailaddress: email,
-		reschedule,
-	});
-
-export const getEducationPlan = ({ email, programName, universityName }) =>
-	client.post("/users/education-plan/query", {
-		email,
-		programname: programName,
-		univerityname: universityName,
+		degree,
 	});
 
 export const getEducationPlanList = (email) => {
@@ -80,11 +61,17 @@ export const getEducationPlanList = (email) => {
 	return client.post("/users/education-plan/list", { email: normalizedEmail });
 };
 
-export const deleteEducationPlan = ({ email, programName, universityName }) =>
+export const deleteEducationPlan = ({
+	email,
+	programName,
+	universityName,
+	degree,
+}) =>
 	client.post("/users/education-plan/delete", {
 		email,
 		programname: programName,
 		univerityname: universityName,
+		degree,
 	});
 
 export default client;

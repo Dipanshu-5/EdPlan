@@ -647,10 +647,9 @@ const EducationPlanEditor = () => {
 			await addEducationPlan({
 				email: userEmail,
 				program: courses,
-				uniqueIdentifier: { university: selectedUniversity, program: selectedProgram, degree: selectedDegree },
+				degree: selectedDegree || "",
 			});
 			toast.success("Education plan saved.");
-			saveStorage("vieweducation", courses);
 			saveStorage("EditingPlanActive", false);
 			navigate("/view");
 		} catch (err) {

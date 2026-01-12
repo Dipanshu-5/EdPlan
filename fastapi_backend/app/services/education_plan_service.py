@@ -18,7 +18,6 @@ from app.schemas.education import (
 
 
 def _normalize_degree(value: str | None) -> str:
-    """Normalize degree strings for comparison (case/whitespace insensitive)."""
     if not value:
         return ""
     return str(value).strip().lower()
@@ -43,15 +42,19 @@ async def add_or_replace_plan(
         raise HTTPException(status_code=400, detail="Program payload is empty")
 
     program_name, university_name = _infer_program(payload.program)
-    degree = payload.uniqueIdentifier.degree if payload.uniqueIdentifier else None
+    degree_value = payload.degree.strip() if payload.degree else None
 
-    existing = await get_plan_by_program(db, user.id, program_name, university_name, degree)
+    existing = await get_plan_by_program(
+        db, user.id, program_name, university_name, degree_value
+    )
     plan_payload = {"program": [course.model_dump(by_alias=True) for course in payload.program]}
-    if degree:
-        plan_payload["degree"] = degree
+    if degree_value:
+        plan_payload["degree"] = degree_value
 
     if existing:
         existing.payload = plan_payload
+        if degree_value:
+            existing.degree = degree_value
         await db.execute(
             delete(ProgramCourse).where(ProgramCourse.education_plan_id == existing.id)
         )
@@ -64,6 +67,7 @@ async def add_or_replace_plan(
         user_id=user.id,
         program_name=program_name,
         university_name=university_name,
+        degree=degree_value,
         payload=plan_payload,
     )
     db.add(plan)
@@ -115,12 +119,12 @@ async def get_plan_by_program(
     plans = result.scalars().all()
 
     # No specific degree requested; return the first match (maintains legacy behavior)
-    if degree is None:
+    if not degree:
         return plans[0] if plans else None
 
     target_degree = _normalize_degree(degree)
     for plan in plans:
-        existing_degree = _normalize_degree((plan.payload or {}).get("degree"))
+        existing_degree = _normalize_degree(plan.degree or (plan.payload or {}).get("degree"))
         if existing_degree == target_degree:
             return plan
 
@@ -135,7 +139,17 @@ async def query_plan(db: AsyncSession, query: EducationPlanQuery) -> EducationPl
         )
     )
     result = await db.execute(stmt)
-    return result.scalar_one_or_none()
+    plans = result.scalars().all()
+    if not plans:
+        return None
+    if not query.degree:
+        return plans[0]
+    target_degree = _normalize_degree(query.degree)
+    for plan in plans:
+        existing_degree = _normalize_degree(plan.degree or (plan.payload or {}).get("degree"))
+        if existing_degree == target_degree:
+            return plan
+    return None
 
 
 async def list_plans(db: AsyncSession, query: EducationPlanListQuery) -> Sequence[EducationPlan]:
@@ -145,9 +159,13 @@ async def list_plans(db: AsyncSession, query: EducationPlanListQuery) -> Sequenc
 
 
 async def delete_plan(
-    db: AsyncSession, user: User, program_name: str, university_name: str
+    db: AsyncSession,
+    user: User,
+    program_name: str,
+    university_name: str,
+    degree: str | None = None,
 ) -> None:
-    plan = await get_plan_by_program(db, user.id, program_name, university_name)
+    plan = await get_plan_by_program(db, user.id, program_name, university_name, degree)
     if not plan:
         raise HTTPException(status_code=404, detail="Education plan not found")
     await db.delete(plan)

@@ -18,14 +18,10 @@ const App = () => (
 			<Route path="/" element={<Navigate to="/home" replace />} />
 			<Route path="/home" element={<HomePage />} />
 			<Route path="/intake" element={<IntakeForm />} />
-			{/* <Route path="/edu" element={<EducationPlanPage />} /> */}
-			{/* <Route path="/eduai" element={<LandingPage />} /> */}
 			<Route path="/chatbot" element={<ChatbotPage />} />
-			{/* <Route path="/programdetails" element={<ProgramDetailsPage />} /> */}
 			<Route path="/educationplan" element={<EducationPlanEditPage />} />
 			<Route path="/career" element={<CareerProgramPage />} />
 			<Route path="/view" element={<ViewEducationPlanPage />} />
-			{/* <Route path="/schedule" element={<SchedulePage />} /> */}
 			<Route path="/uni" element={<FindUniversityPage />} />
 			<Route path="/compare" element={<CollegeComparePage />} />
 			<Route path="/college/:unitId" element={<CollegeDetailPage />} />

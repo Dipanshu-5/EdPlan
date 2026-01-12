@@ -16,6 +16,7 @@ class EducationPlan(Base):
     user_id: Mapped[int] = mapped_column(ForeignKey("users.id", ondelete="CASCADE"), index=True)
     program_name: Mapped[str] = mapped_column(String(256))
     university_name: Mapped[str] = mapped_column(String(256))
+    degree: Mapped[str | None] = mapped_column(String(128), nullable=True)
     payload: Mapped[dict] = mapped_column(JSON)
     created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), server_default=func.now())
     updated_at: Mapped[datetime] = mapped_column(

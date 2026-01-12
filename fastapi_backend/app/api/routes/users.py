@@ -62,13 +62,21 @@ async def query_education_plan(request: EducationPlanQuery, db: AsyncSession = D
     plan = await education_plan_service.query_plan(db, request)
     if not plan:
         return {"success": True, "message": "No education plan found", "data": None}
-    return {"success": True, "message": "Plan retrieved", "data": plan.payload}
+    payload = dict(plan.payload or {})
+    if plan.degree and not payload.get("degree"):
+        payload["degree"] = plan.degree
+    return {"success": True, "message": "Plan retrieved", "data": payload}
 
 
 @router.post("/users/education-plan/list")
 async def list_plans(request: EducationPlanListQuery, db: AsyncSession = Depends(get_db)):
     plans = await education_plan_service.list_plans(db, request)
-    data = [plan.payload for plan in plans]
+    data = []
+    for plan in plans:
+        payload = dict(plan.payload or {})
+        if plan.degree and not payload.get("degree"):
+            payload["degree"] = plan.degree
+        data.append(payload)
     return {"success": True, "message": "Plans loaded", "data": data}
 
 
@@ -78,7 +86,7 @@ async def delete_plan(request: EducationPlanDeleteRequest, db: AsyncSession = De
     if not user:
         raise HTTPException(status_code=404, detail="User not found")
     await education_plan_service.delete_plan(
-        db, user, request.programname, request.univerityname
+        db, user, request.programname, request.univerityname, request.degree
     )
     return {"success": True, "message": "Education plan deleted", "data": None}
 
