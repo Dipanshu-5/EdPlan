@@ -30,7 +30,7 @@ class Settings(BaseSettings):
     smtp_port: int | None = Field(None, alias="SMTP_PORT")
     smtp_username: str | None = Field(None, alias="SMTP_USERNAME")
     smtp_password: str | None = Field(None, alias="SMTP_PASSWORD")
-    smtp_from_email: str | None = Field(None, alias="SMTP_FROM_EMAIL")
+    smtp_from_email: str | None = Field("edplan000@gmail.com", alias="SMTP_FROM_EMAIL")
     smtp_from_name: str | None = Field(None, alias="SMTP_FROM_NAME")
 
     twilio_account_sid: str | None = Field(None, alias="TWILIO_ACCOUNT_SID")
