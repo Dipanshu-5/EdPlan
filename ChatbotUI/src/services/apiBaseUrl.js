@@ -17,7 +17,9 @@ const normalizeBaseUrl = (value) => {
 export const getApiBaseUrl = () => {
 	const fromEnv = import.meta.env?.VITE_API_BASE_URL;
 	const origin =
-		typeof window !== "undefined" ? window.location.origin : "http://localhost:5173";
+		typeof window !== "undefined"
+			? window.location.origin
+			: "http://localhost:5173";
 	const fallback = import.meta.env?.DEV
 		? "http://localhost:8000/api"
 		: `${origin}/api`;
